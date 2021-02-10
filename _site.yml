@@ -3,6 +3,7 @@ title: "tesselle"
 description: |
   tesselle
 output_dir: "docs"
+exclude: ["CNAME"]
 navbar:
   right:
     - text: "Home"

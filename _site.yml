@@ -9,7 +9,7 @@ creative_commons: CC BY
 # twitter:
 #   site: "@distilljournal"
 output_dir: "docs"
-exclude: ["CNAME", "README", "*.bib"]
+exclude: ["README", "*.bib"]
 theme: tesselle.css
 navbar:
   right:

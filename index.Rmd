@@ -1,7 +1,7 @@
 ---
-title: "tesselle"
+title: "tesselle "
 description: |
-  Welcome to the website. I hope you enjoy it!
+  R packages for the archaeologist.
 site: distill::distill_website
 ---
 
@@ -16,3 +16,25 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. The [**tesselle** packages](packages.html) are mainly written in S4 and designed to work together in the simplest possible way.
+
+**This website is under construction, more will be added soon.**
+
+## Yet another package
+
+There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
+
+**tesselle** is born from a progressive change of research practices within our laboratories with two key objectives:
+
+* Building a unified data workflow within the laboratory to facilitate teamwork. Writing packages is a reflexive process: it allows us to question how we conduct our research and to challenge our choices at each stage. 
+* To move away from proprietary environments. Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
+
+Last but not least, these packages are useful to us, we hope that others may also find them of interest.
+
+## Roadmap
+
+**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/3).
+
+## Acknowledgements
+
+The following [contributors](about.html) have made it possible to develop this project through their helpful discussion and by sharing ideas: Vincent Arel-Bundock, Jean-Baptiste Fourvel, Ben Marwick, Matthew Peeples, and Anne Philippe.

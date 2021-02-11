@@ -1,0 +1,56 @@
+---
+title: "Packages"
+description: |
+  Packages overview.
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## [dimensio](https://dimensio.tesselle.org)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN Version](http://www.r-pkg.org/badges/version/dimensio)](https://cran.r-project.org/package=dimensio)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4478530.svg)](https://doi.org/10.5281/zenodo.4478530)
+
+[<img class="hex" alt="dimensio" src="images/dimensio.png" />](https://dimensio.tesselle.org "Read the documentation.") Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation.
+
+## [tabula](https://tabula.tesselle.org)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN Version](http://www.r-pkg.org/badges/version/tabula)](https://cran.r-project.org/package=tabula)
+
+[![DOI Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.1489944.svg)](https://doi.org/10.5281/zenodo.1489944)
+[![DOI JOSS](https://joss.theoj.org/papers/10.21105/joss.01821/status.svg)](https://doi.org/10.21105/joss.01821)
+
+[<img class="hex" alt="tabula" src="images/tabula.png" />](https://tabula.tesselle.org "Read the documentation.") An easy way to examine archaeological count data. **tabula** provides a convenient and reproducible toolkit for relative and absolute dating and analysis of (chronological) patterns. It includes functions for matrix seriation (reciprocal ranking, CA-based seriation), chronological modeling and dating of archaeological assemblages and/or objects. Beyond these, the package provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, @ford1962 and @bertin1977 diagrams.
+
+## [folio](https://folio.tesselle.org)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN Version](http://www.r-pkg.org/badges/version/folio)](https://cran.r-project.org/package=folio)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4476182.svg)](https://doi.org/10.5281/zenodo.4476182)
+
+Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. **folio** provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).
+
+## [khroma](https://khroma.tesselle.org)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN Version](http://www.r-pkg.org/badges/version/khroma)](https://cran.r-project.org/package=khroma)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1472077.svg)](https://doi.org/10.5281/zenodo.1472077)
+
+[<img class="hex" alt="khroma" src="images/khroma.png" />](https://khroma.tesselle.org "Read the documentation.") An implementation of Paul Tol's colour schemes for use with `graphics` or [`ggplot2`](https://github.com/tidyverse/ggplot2). These schemes are ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented.
+
+## [arkhe](https://arkhe.tesselle.org)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN Version](http://www.r-pkg.org/badges/version/arkhe)](https://cran.r-project.org/package=arkhe)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3526659.svg)](https://doi.org/10.5281/zenodo.3526659)
+
+[<img class="hex" alt="arkhe" src="images/arkhe.png" />](https://arkhe.tesselle.org "Read the documentation.") A collection of classes that represent archaeological data. This package provides a set of S4 classes that represent different special types of matrix (absolute/relative frequency, presence/absence data, co-occurrence matrix, etc.) upon which package developers can build subclasses. It also provides a set of generic methods (mutators and coercion mechanisms) and functions (e.g. predicates). In addition, a few classes of general interest (e.g. that represent stratigraphic relationships) are implemented.

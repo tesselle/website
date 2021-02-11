@@ -1,10 +1,23 @@
 ---
-title: "About this site"
+title: "About"
 description: |
-  Some additional details about the website
+  Authors and contributors to the project.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+The **tessel** project is coordinated by Nicolas Frerebeau and Brice Lebrun.
+
+## Full list (alphabetic order)
+
+| Name | <span style="color: #b2c046;"><i class="ai ai-orcid"></i></span> ORCID |
+|:-----|:------|
+| Vincent Arel-Bundock | [0000-0003-2042-7063](https://orcid.org/0000-0003-2042-7063) |
+| Jean-Baptiste Fourvel | [0000-0002-1061-4642](https://orcid.org/0000-0002-1061-4642) |
+| Nicolas Frerebeau | [0000-0001-5759-4944](https://orcid.org/0000-0001-5759-4944) |
+| Brice Lebrun | [0000-0001-7503-8685](https://orcid.org/0000-0001-7503-8685) |
+| Ben Marwick | [0000-0001-7879-4531](https://orcid.org/0000-0001-7879-4531) |
+| Matthew Peeples | [0000-0003-4496-623X](https://orcid.org/0000-0003-4496-623X) |
+| Anne Philippe | [0000-0002-5331-5087](https://orcid.org/0000-0002-5331-5087)| 

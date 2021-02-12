@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. The [**tesselle** packages](packages.html) are mainly written in S4 and designed to work together in the simplest possible way.
+**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. The **tesselle** [packages](packages.html) are mainly written in S4 and designed to work together in the simplest possible way.
 
 **This website is under construction, more will be added soon.**
 

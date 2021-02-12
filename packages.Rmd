@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4476182.svg)](https://doi.org/10.5281/zenodo.4476182)
 
-Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. **folio** provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).
+[<img class="hex" alt="folio" src="images/folio.png" />](https://folio.tesselle.org "Read the documentation.") Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. **folio** provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).
 
 ## [khroma](https://khroma.tesselle.org)
 

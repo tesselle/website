@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
 
-**tesselle** is born from a progressive change of research practices within our laboratories with two key objectives:
+**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with two key objectives:
 
 * Building a unified data workflow within the laboratory to facilitate teamwork. Writing packages is a reflexive process: it allows us to question how we conduct our research and to challenge our choices at each stage. 
 * To move away from proprietary environments. Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.

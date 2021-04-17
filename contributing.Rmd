@@ -1,0 +1,45 @@
+---
+title: "Contributing"
+description: |
+  How to contribute to the tesselle packages.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Suggesting new features
+
+You can request new features by opening an issue on GitHub. Even if you don't feel up to coding this new feature, feel free to engage or participate in discussions in each package repository.
+
+## Fixing typos
+
+You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the _source_ file. This generally means you'll need to edit [roxygen2 comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`, not a `.Rd` file. You can find the `.R` file that generates the `.Rd` by reading the comment in the first line.
+
+## Bigger changes
+
+If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it's needed.
+
+If you've found a bug, please file an issue that illustrates the bug with a minimal [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
+
+### Pull request process
+
+* Fork the package and clone onto your computer. If you haven't done this before, we recommend reading Jenny Bryan's [*Happy Git and GitHub for the useR*](https://happygitwithr.com) first.
+* Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing.
+* Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
+* Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain `Fixes #issue-number`.
+* For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tesselle.org>.
+
+### Code style
+
+* New code should follow the [style guide](https://style.tesselle.org).
+* We use [roxygen2](https://roxygen2.r-lib.org), with [Markdown syntax](https://roxygen2.r-lib.org/articles/rd-formatting.html), for documentation.
+* We use [testthat](https://testthat.r-lib.org) for unit tests. Contributions with test cases included are easier to accept.  
+
+## Code of Conduct
+
+Please note that the **tesselle** project is released with a [Contributor Code of Conduct](conduct.html). By contributing to this project you agree to abide by its terms.
+
+## Attribution {.appendix}
+
+This contributing guide is adapted from the [tidyverse contributing guide](https://raw.githubusercontent.com/r-lib/usethis/master/inst/templates/tidy-contributing.md).

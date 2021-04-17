@@ -22,10 +22,11 @@ navbar:
       href: index.html
     - text: "Packages"
       href: packages.html
+    - text: "Contributing"
+      href: contributing.html
     - text: "About"
       href: about.html
-    - icon: fab fa-github
-      href: https://github.com/tesselle
+  source_url: true
 output:
   distill::distill_article:
     toc: true

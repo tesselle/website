@@ -91,6 +91,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-01-01"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-01-01"/>
   <meta name="article:author" content="Nicolas Frerebeau"/>
   <meta name="article:author" content="Brice Lebrun"/>
 
@@ -107,11 +110,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="twitter:description" content="R packages for the archaeologist."/>
   <meta property="twitter:creator" content="@nfrerebeau"/>
 
+  <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+  <meta name="citation_title" content="R packages &amp; archaeology: tesselle"/>
+  <meta name="citation_fulltext_html_url" content="https://www.tesselle.org"/>
+  <meta name="citation_fulltext_world_readable" content=""/>
+  <meta name="citation_online_date" content="2021/01/01"/>
+  <meta name="citation_publication_date" content="2021/01/01"/>
+  <meta name="citation_author" content="Nicolas Frerebeau"/>
+  <meta name="citation_author_institution" content="CREAP"/>
+  <meta name="citation_author" content="Brice Lebrun"/>
+  <meta name="citation_author_institution" content="CRP2A"/>
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","site"]}},"value":[{"type":"character","attributes":{},"value":["tesselle"]},{"type":"character","attributes":{},"value":["R packages for the archaeologist.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Nicolas Frerebeau"]},{"type":"character","attributes":{},"value":["https://github.com/nfrerebeau"]},{"type":"character","attributes":{},"value":["CREAP"]},{"type":"character","attributes":{},"value":["https://mshs.univ-toulouse.fr"]},{"type":"character","attributes":{},"value":["0000-0001-5759-4944"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Brice Lebrun"]},{"type":"character","attributes":{},"value":["https://github.com/blebrun"]},{"type":"character","attributes":{},"value":["CRP2A"]},{"type":"character","attributes":{},"value":["https://www.iramat-crp2a.cnrs.fr"]},{"type":"character","attributes":{},"value":["0000-0001-7503-8685"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","author","citation_url","slug","site"]}},"value":[{"type":"character","attributes":{},"value":["tesselle"]},{"type":"character","attributes":{},"value":["R packages for the archaeologist.\n"]},{"type":"character","attributes":{},"value":["2021-01-01"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Nicolas Frerebeau"]},{"type":"character","attributes":{},"value":["https://github.com/nfrerebeau"]},{"type":"character","attributes":{},"value":["CREAP"]},{"type":"character","attributes":{},"value":["https://mshs.univ-toulouse.fr"]},{"type":"character","attributes":{},"value":["0000-0001-5759-4944"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Brice Lebrun"]},{"type":"character","attributes":{},"value":["https://github.com/blebrun"]},{"type":"character","attributes":{},"value":["CRP2A"]},{"type":"character","attributes":{},"value":["https://www.iramat-crp2a.cnrs.fr"]},{"type":"character","attributes":{},"value":["0000-0001-7503-8685"]}]}]},{"type":"character","attributes":{},"value":["https://www.tesselle.org"]},{"type":"character","attributes":{},"value":["tesselle2021"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2372,7 +2385,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"tesselle","description":"R packages for the archaeologist.","authors":[{"author":"Nicolas Frerebeau","authorURL":"https://github.com/nfrerebeau","affiliation":"CREAP","affiliationURL":"https://mshs.univ-toulouse.fr","orcidID":"0000-0001-5759-4944"},{"author":"Brice Lebrun","authorURL":"https://github.com/blebrun","affiliation":"CRP2A","affiliationURL":"https://www.iramat-crp2a.cnrs.fr","orcidID":"0000-0001-7503-8685"}]}
+{"title":"tesselle","description":"R packages for the archaeologist.","authors":[{"author":"Nicolas Frerebeau","authorURL":"https://github.com/nfrerebeau","affiliation":"CREAP","affiliationURL":"https://mshs.univ-toulouse.fr","orcidID":"0000-0001-5759-4944"},{"author":"Brice Lebrun","authorURL":"https://github.com/blebrun","affiliation":"CRP2A","affiliationURL":"https://www.iramat-crp2a.cnrs.fr","orcidID":"0000-0001-7503-8685"}],"publishedDate":"2021-01-01T00:00:00.000+01:00","citationText":"Frerebeau & Lebrun, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2386,8 +2399,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="packages.html">Packages</a>
+<a href="contributing.html">Contributing</a>
 <a href="about.html">About</a>
-<a href="https://github.com/tesselle">
+<a href="https://github.com/tesselle/tesselle.github.io" aria-label="Link to source">
 <i class="fab fa-github" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2410,7 +2424,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   
 ,   Brice Lebrun <a href="https://github.com/blebrun" class="uri">https://github.com/blebrun</a> (CRP2A)<a href="https://www.iramat-crp2a.cnrs.fr" class="uri">https://www.iramat-crp2a.cnrs.fr</a>
   
-
+<br/>2021-01-01
 </div>
 
 <div class="d-article">
@@ -2421,6 +2435,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#yet-another-package">Yet another package</a></li>
 <li><a href="#roadmap">Roadmap</a></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#code-of-conduct">Code of Conduct</a></li>
 </ul>
 </nav>
 </div>
@@ -2435,9 +2450,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 <p>Last but not least, these packages are useful to us, we hope that others may also find them of interest.</p>
 <h2 id="roadmap">Roadmap</h2>
-<p><strong>tesselle</strong> is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on <a href="https://github.com/orgs/tesselle/projects/3">GitHub</a>.</p>
+<p><strong>tesselle</strong> is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on <a href="https://github.com/orgs/tesselle/projects/3">GitHub</a> and fell free to <a href="contributing.html">contribute</a>.</p>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>The following <a href="about.html">contributors</a> have made it possible to develop this project through their helpful discussion and by sharing ideas: Vincent Arel-Bundock, Jean-Baptiste Fourvel, Ben Marwick, Matthew Peeples, and Anne Philippe.</p>
+<h2 id="code-of-conduct">Code of Conduct</h2>
+<p>Please note that the <strong>tesselle</strong> project is released with a <a href="conduct.html">Contributor Code of Conduct</a>. By contributing to this project you agree to abide by its terms.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2455,11 +2472,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/tesselle/tesselle.github.io/issues/new">create an issue</a> on the source repository.</p>
 <h3 id="reuse">Reuse</h3>
 <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/tesselle/tesselle.github.io">https://github.com/tesselle/tesselle.github.io</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<h3 id="citation">Citation</h3>
+<p>For attribution, please cite this work as</p>
+<pre class="citation-appendix short">Frerebeau &amp; Lebrun (2021, Jan. 1). R packages &amp; archaeology: tesselle. Retrieved from https://www.tesselle.org</pre>
+<p>BibTeX citation</p>
+<pre class="citation-appendix long">@misc{tesselle2021,
+  author = {Frerebeau, Nicolas and Lebrun, Brice},
+  title = {R packages &amp; archaeology: tesselle},
+  url = {https://www.tesselle.org},
+  year = {2021}
+}</pre>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Research Center for Prehistoric Art">CREAP</abbr></a> (Université Fédérale de Toulouse, CNRS) and the <a href="https://www.iramat-crp2a.cnrs.fr/" target="_blank"><abbr title="Research Center in Physics Applied to Archaeology">CRP2A</abbr></a> (Université Bordeaux Montaigne, CNRS).</p>
+<p>The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'&Eacute;tudes pour l'Art Pr&eacute;historique">CREAP</abbr></a> (Université Fédérale de Toulouse, CNRS) and the <a href="https://www.iramat-crp2a.cnrs.fr/" target="_blank"><abbr title="Centre de Recherche en Physique Appliqu&eacute;e à l'Arch&eacute;ologie">CRP2A</abbr></a> (Université Bordeaux Montaigne, CNRS).</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

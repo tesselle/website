@@ -1,7 +1,18 @@
 ---
-title: "tesselle "
+title: "tesselle"
 description: |
   R packages for the archaeologist.
+author:
+  - name: Nicolas Frerebeau
+    url: https://github.com/nfrerebeau
+    affiliation: CREAP
+    affiliation_url: https://mshs.univ-toulouse.fr
+    orcid_id: 0000-0001-5759-4944
+  - name: Brice Lebrun
+    url: https://github.com/blebrun
+    affiliation: CRP2A
+    affiliation_url: https://www.iramat-crp2a.cnrs.fr
+    orcid_id: 0000-0001-7503-8685
 site: distill::distill_website
 ---
 

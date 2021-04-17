@@ -6,15 +6,24 @@
       "description": "Authors and contributors to the project.",
       "author": [],
       "contents": "\n\nContents\nFull list of contributors by name\n\nThe tessel project is coordinated by Nicolas Frerebeau and Brice Lebrun.\nThe project is supported by the Center for Research in Physics Applied to Archaeology (Bordeaux, France) and the Research Center for Prehistoric Art (Toulouse, France).\nFull list of contributors by name\nName\n ORCID\nVincent Arel-Bundock\n0000-0003-2042-7063\nJean-Baptiste Fourvel\n0000-0002-1061-4642\nNicolas Frerebeau\n0000-0001-5759-4944\nBrice Lebrun\n0000-0001-7503-8685\nBen Marwick\n0000-0001-7879-4531\nMatthew Peeples\n0000-0003-4496-623X\nAnne Philippe\n0000-0002-5331-5087\n\n\n\n",
-      "last_modified": "2021-03-21T19:40:09+01:00"
+      "last_modified": "2021-04-17T14:35:17+02:00"
     },
     {
       "path": "index.html",
-      "title": "tesselle ",
+      "title": "tesselle",
       "description": "R packages for the archaeologist.\n",
-      "author": [],
+      "author": [
+        {
+          "name": "Nicolas Frerebeau",
+          "url": "https://github.com/nfrerebeau"
+        },
+        {
+          "name": "Brice Lebrun",
+          "url": "https://github.com/blebrun"
+        }
+      ],
       "contents": "\n\nContents\nYet another package\nRoadmap\nAcknowledgements\n\ntesselle is a collection of R packages for research and teaching in archaeology. The tesselle packages are mainly written in S4 and designed to work together in the simplest possible way.\nThis website is under construction, more will be added soon.\nYet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with two key objectives:\nBuilding a unified data workflow within the laboratory to facilitate teamwork. Writing packages is a reflexive process: it allows us to question how we conduct our research and to challenge our choices at each stage.\nTo move away from proprietary environments. Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.\nLast but not least, these packages are useful to us, we hope that others may also find them of interest.\nRoadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub.\nAcknowledgements\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas: Vincent Arel-Bundock, Jean-Baptiste Fourvel, Ben Marwick, Matthew Peeples, and Anne Philippe.\n\n\n\n",
-      "last_modified": "2021-03-21T19:40:09+01:00"
+      "last_modified": "2021-04-17T14:35:17+02:00"
     },
     {
       "path": "packages.html",
@@ -22,7 +31,7 @@
       "description": "R packages for the archaeologist.\n",
       "author": [],
       "contents": "\n\nContents\ndimensio\ntabula\nfolio\nkhroma\narkhe\n\ndimensio\n Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation.\ntabula\n An easy way to examine archaeological count data. tabula provides a convenient and reproducible toolkit for relative and absolute dating and analysis of (chronological) patterns. It includes functions for matrix seriation (reciprocal ranking, CA-based seriation), chronological modeling and dating of archaeological assemblages and/or objects. Beyond these, the package provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford (1962) and Bertin (1977) diagrams.\nfolio\n Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).\nkhroma\n An implementation of Paul Tol’s colour schemes for use with graphics or ggplot2. These schemes are ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented.\narkhe\n A collection of classes that represent archaeological data. This package provides a set of S4 classes that represent different special types of matrix (absolute/relative frequency, presence/absence data, co-occurrence matrix, etc.) upon which package developers can build subclasses. It also provides a set of generic methods (mutators and coercion mechanisms) and functions (e.g. predicates). In addition, a few classes of general interest (e.g. that represent stratigraphic relationships) are implemented.\n\n\n\nBertin, Jacques. 1977. La graphique et le traitement graphique de l’information. Nouvelle bibliothèque scientifique. Paris: Flammarion.\n\n\nFord, J. A. 1962. A Quantitative Method for Deriving Cultural Chronology. Technical Manual 1. Washington, DC: Pan American Union.\n\n\n\n\n",
-      "last_modified": "2021-03-21T19:40:10+01:00"
+      "last_modified": "2021-04-17T14:35:18+02:00"
     }
   ],
   "collections": []

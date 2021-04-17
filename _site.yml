@@ -10,7 +10,7 @@ twitter:
 #  site: "@rstudio"
   creator: "@nfrerebeau"
 output_dir: "docs"
-exclude: ["README", "*.bib"]
+exclude: ["README", "LICENSE", "*.bib"]
 theme: tesselle.css
 navbar:
 #  logo:

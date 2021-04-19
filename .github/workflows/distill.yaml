@@ -29,6 +29,9 @@ jobs:
         run: |
           cp CNAME _site/CNAME
           cp .nojekyll _site/.nojekyll
+          cp images/logo.png _site/images/logo.png
+          cp images/favicon.png _site/images/favicon.png
+          cp .nojekyll _site/.nojekyll
           cd _site
           git config --global user.email "actions@github.com"
           git config --global user.name "actions-user"

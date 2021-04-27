@@ -14,7 +14,7 @@ The project is supported by the [Center for Research in Physics Applied to Archa
 
 ## Full list of contributors by name
 
-| Name | <span style="color: #b2c046;"><i class="ai ai-orcid"></i></span> ORCID |
+| Name | ORCID |
 |:-----|:------|
 | Vincent Arel-Bundock | [0000-0003-2042-7063](https://orcid.org/0000-0003-2042-7063) |
 | Jean-Baptiste Fourvel | [0000-0002-1061-4642](https://orcid.org/0000-0002-1061-4642) |

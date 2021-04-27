@@ -52,7 +52,3 @@ Last but not least, these packages are useful to us, we hope that others may als
 ## Acknowledgements
 
 The following [contributors](about.html) have made it possible to develop this project through their helpful discussion and by sharing ideas: Vincent Arel-Bundock, Jean-Baptiste Fourvel, Ben Marwick, Matthew Peeples, and Anne Philippe.
-
-## Code of Conduct
-
-Please note that the **tesselle** project is released with a [Contributor Code of Conduct](conduct.html). By contributing to this project you agree to abide by its terms.

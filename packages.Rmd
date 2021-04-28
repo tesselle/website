@@ -21,17 +21,23 @@ knitr::opts_chunk$set(echo = FALSE)
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/tabula)](https://cran.r-project.org/package=tabula) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://tabula.tesselle.org)
 
-## folio
+## nexus
 
-[<img class="hex" alt="folio" src="images/folio.png" />](https://folio.tesselle.org "Read the documentation.") Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. **folio** provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).
+[<img class="hex" alt="nexus" src="images/nexus.png" />](https://nexus.tesselle.org "Read the documentation.") Sourcing archaeological materials by chemical composition. **nexus** allows the exploration and analysis of compositional data in the framework of @aitchison1986. It provides tools for chemical fingerprinting and source tracking of ancient materials. **Initial development is in progress.**
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/folio)](https://cran.r-project.org/package=folio) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://folio.tesselle.org)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![CRAN Version](http://www.r-pkg.org/badges/version/nexus)](https://cran.r-project.org/package=nexus) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://nexus.tesselle.org)
 
 ## khroma
 
 [<img class="hex" alt="khroma" src="images/khroma.png" />](https://khroma.tesselle.org "Read the documentation.") Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) colour schemes for use with `graphics` or [`ggplot2`](https://github.com/tidyverse/ggplot2). It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented.
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/khroma)](https://cran.r-project.org/package=khroma) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://khroma.tesselle.org)
+
+## folio
+
+[<img class="hex" alt="folio" src="images/folio.png" />](https://folio.tesselle.org "Read the documentation.") Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. **folio** provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/folio)](https://cran.r-project.org/package=folio) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://folio.tesselle.org)
 
 ## arkhe
 

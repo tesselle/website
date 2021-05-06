@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The **tessel** project is coordinated by Nicolas Frerebeau and Brice Lebrun.
 
-The project is supported by the [Center for Research in Physics Applied to Archaeology](http://www.iramat-crp2a.cnrs.fr/) (Bordeaux, France) and the [Research Center for Prehistoric Art](http://mshs.univ-toulouse.fr/) (Toulouse, France).
-
 ## Full list of contributors by name
+
+The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas:
 
 | Name | ORCID |
 |:-----|:------|

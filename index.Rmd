@@ -48,7 +48,3 @@ Last but not least, these packages are useful to us, we hope that others may als
 ## Roadmap
 
 **tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/3) and fell free to [contribute](contributing.html).
-
-## Acknowledgements
-
-The following [contributors](about.html) have made it possible to develop this project through their helpful discussion and by sharing ideas: Vincent Arel-Bundock, Jean-Baptiste Fourvel, Ben Marwick, Matthew Peeples, and Anne Philippe.

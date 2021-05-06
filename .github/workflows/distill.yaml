@@ -25,7 +25,6 @@ jobs:
 
       # https://ropensci.org/blog/2020/04/07/bookdown-learnings/
       - name: Commit results
-        if: github.repository == 'tesselle/tesselle.github.io'
         run: |
           cp CNAME _site/CNAME
           cp .nojekyll _site/.nojekyll

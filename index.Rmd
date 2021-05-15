@@ -1,17 +1,17 @@
 ---
 title: "tesselle"
 description: |
-  R packages for the archaeologist.
+  <img class="hex-logo" alt="tesselle" src="images/tesselle.png" /> **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 date: 2021-01-01
 author:
   - name: Nicolas Frerebeau
     url: https://github.com/nfrerebeau
-    affiliation: CREAP
+    affiliation: CREAP (UAR 3414 MSHS-Toulouse)
     affiliation_url: https://mshs.univ-toulouse.fr
     orcid_id: 0000-0001-5759-4944
   - name: Brice Lebrun
     url: https://github.com/blebrun
-    affiliation: CRP2A
+    affiliation: CRP2A (UMR 5060 IRAMAT)
     affiliation_url: https://www.iramat-crp2a.cnrs.fr
     orcid_id: 0000-0001-7503-8685
 citation_url: https://www.tesselle.org
@@ -30,16 +30,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-<img class="hex-logo" alt="tesselle" src="images/tesselle.png" /> **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. The **tesselle** [packages](packages.html) are mainly written in S4 and designed to work together in the simplest possible way. **This website is under construction, more will be added soon.**
+**This website is under construction, more will be added soon.**
 
 ## Yet another package
 
 There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
 
-**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with two key objectives:
+**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with three key objectives:
 
 * Building a unified data workflow within the laboratory to facilitate teamwork.
-* To move away from proprietary environments. Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
+* To move away from proprietary environments.
+* Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
 
 Last but not least, these packages are useful to us, we hope that others may also find them of interest.
 

@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The **tessel** project is coordinated by Nicolas Frerebeau and Brice Lebrun.
 
-## Full list of contributors by name
+## Full list of contributors
 
-The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas:
+The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):
 
 | Name | ORCID |
 |:-----|:------|
@@ -23,3 +23,18 @@ The following contributors have made it possible to develop this project through
 | Ben Marwick | [0000-0001-7879-4531](https://orcid.org/0000-0001-7879-4531) |
 | Matthew Peeples | [0000-0003-4496-623X](https://orcid.org/0000-0003-4496-623X) |
 | Anne Philippe | [0000-0002-5331-5087](https://orcid.org/0000-0002-5331-5087) |
+
+## Institutional support
+
+Centre de Recherche et d'Etudes pour l'Art Préhistorique<br>
+MSHS-Toulouse (UAR 3414)<br>
+Université de Toulouse Jean Jaurès<br>
+Maison de la Recherche<br>
+5, allées Antonio Machado<br>
+F-31058 Toulouse cedex 9
+
+Centre de Recherche en Physique Appliquée à l'Archéologie<br>
+IRAMAT (UMR 5060)<br>
+Université Bordeaux Montaigne<br>
+Maison de l'Archéologie<br>
+F-33607 Pessac cedex

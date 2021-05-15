@@ -11,15 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Most of the packages are distributed on [CRAN](https://cran.r-project.org/), but some data packages are too large and can only be installed from [our repository](https://packages.tesselle.org/).
 
-## dimensio
-
-[<img class="hex" alt="dimensio" src="images/dimensio.png" />](https://dimensio.tesselle.org "Read the documentation.") Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in @greenacre1984 and @lebart2006.
-
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/dimensio)](https://cran.r-project.org/package=dimensio) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://dimensio.tesselle.org)
-
 ## tabula
 
-[<img class="hex" alt="tabula" src="images/tabula.png" />](https://tabula.tesselle.org "Read the documentation.") An easy way to examine archaeological count data. **tabula** provides a convenient and reproducible toolkit for relative and absolute dating and analysis of (chronological) patterns. It includes functions for matrix seriation (reciprocal ranking, CA-based seriation), chronological modeling and dating of archaeological assemblages and/or objects. Beyond these, the package provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, @ford1962 and @bertin1977 diagrams.
+[<img class="hex" alt="tabula" src="images/tabula.png" />](https://tabula.tesselle.org "Read the documentation.") An easy way to examine archaeological count data. **tabula** provides a convenient and reproducible toolkit for relative dating by matrix seriation (reciprocal ranking, CA-based seriation). The package provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, @ford1962 and @bertin1977 diagrams.
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/tabula)](https://cran.r-project.org/package=tabula) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://tabula.tesselle.org)
 
@@ -28,6 +22,12 @@ Most of the packages are distributed on [CRAN](https://cran.r-project.org/), but
 [<img class="hex" alt="nexus" src="images/nexus.png" />](https://nexus.tesselle.org "Read the documentation.") Sourcing archaeological materials by chemical composition. **nexus** allows the exploration and analysis of compositional data in the framework of @aitchison1986. It provides tools for chemical fingerprinting and source tracking of ancient materials. **Initial development is in progress.**
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![CRAN Version](http://www.r-pkg.org/badges/version/nexus)](https://cran.r-project.org/package=nexus) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://nexus.tesselle.org)
+
+## dimensio
+
+[<img class="hex" alt="dimensio" src="images/dimensio.png" />](https://dimensio.tesselle.org "Read the documentation.") Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in @greenacre1984 and @lebart2006.
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN Version](http://www.r-pkg.org/badges/version/dimensio)](https://cran.r-project.org/package=dimensio) [![Read the documentation](https://img.shields.io/badge/documentation-is%20here-blue)](https://dimensio.tesselle.org)
 
 ## khroma
 

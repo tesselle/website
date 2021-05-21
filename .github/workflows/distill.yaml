@@ -9,13 +9,27 @@ name: distill
 jobs:
   bookdown:
     name: Render-Website
+
     runs-on: macOS-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - uses: r-lib/actions/setup-r@v1
 
       - uses: r-lib/actions/setup-pandoc@v1
+
+      - name: Configure git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "actions-user"
+          git branch gh-pages 2>/dev/null
+          git remote set-branches origin gh-pages
+          git fetch origin gh-pages
+          git worktree add --track -B gh-pages _docs origin/gh-pages
 
       - name: Install distill
         run: Rscript -e 'install.packages(c("rmarkdown", "distill"))'
@@ -23,18 +37,13 @@ jobs:
       - name: Render HTML
         run: Rscript -e 'rmarkdown::render_site()'
 
-      # https://ropensci.org/blog/2020/04/07/bookdown-learnings/
-      - name: Commit results
+      - name: Deploy
+        if: success()
         run: |
-          cp CNAME _site/CNAME
-          cp .nojekyll _site/.nojekyll
-          cp images/logo.png _site/images/logo.png
-          cp images/favicon.png _site/images/favicon.png
-          cp .nojekyll _site/.nojekyll
-          cd _site
-          git config --global user.email "actions@github.com"
-          git config --global user.name "actions-user"
-          git init
-          git add .
-          git commit -m 'Render website'
-          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:gh-pages --force
+          cp CNAME _docs/CNAME
+          cp .nojekyll _docs/.nojekyll
+          cp -r _site/* _docs
+          cd _docs
+          git add -A
+          git commit --allow-empty -m 'Render website'
+          git push --force origin HEAD:gh-pages

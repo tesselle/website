@@ -19,3 +19,4 @@ rsconnect/
 .Rproj.user
 # distill output
 _site/
+_docs/

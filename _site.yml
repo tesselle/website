@@ -29,8 +29,8 @@ navbar:
         - text: "Code of Conduct"
           href: conduct.html
         - text: "---"
-        - text: "Style Guide"
-          href: https://style.tesselle.org
+        - text: "Documentation"
+          href: https://documentation.tesselle.org
     - text: "About"
       href: about.html
     - icon: fas fa-download

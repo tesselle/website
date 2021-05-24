@@ -1,0 +1,81 @@
+---
+title: "Privacy Policy"
+description: |
+  This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us.
+---
+
+This Privacy Policy applies to the information that we obtain through your use of [tesselle](https://www.tesselle.org) websites including its subdomains [packages.tesselle.org](https://packages.tesselle.org) and [documentation.tesselle.org](https://documentation.tesselle.org).
+
+## What We Collect and Receive
+
+[Matomo](https://matomo.org) is used to analyse the behaviour of the website visitors to identify potential pitfalls; not found pages, search engine indexing issues, which contents are the most appreciated... Once the data is processed (number of visitors reaching a not found pages, viewing only one page...), Matomo is generating reports for website owners to take action, for example changing the layout of the pages, publishing some fresh content... etc.
+
+<aside>
+[Matomo](https://matomo.org) is an [open source](https://en.wikipedia.org/wiki/Open-source_software) web analytics platform. A web analytics platform is used by a website owner in order to measure, collect, analyse and report visitors data for purposes of understanding and optimizing their website.
+</aside>
+
+Matomo is collecting and processing anonymized information that include usage data. When you visit our site, we will store: the website from which you visited us from, the parts of our site you visit, the date and duration of your visit, your anonymised IP address, information from the device (device type, operating system, screen resolution, language, country you are located in, and web browser type) you used during your visit, and more. We process this usage data in Matomo Analytics for statistical purposes, to improve our site and to recognize and stop any misuse.
+
+We don't use tracking cookies.
+
+We are not doing any profiling.
+
+If you wish us to not process any data with Matomo, you can opt-out from it at any time. There will be no consequences at all regarding the use of our website.
+
+## Opt-out of website tracking
+
+You can opt out of being tracked by our Matomo Analytics instance below:
+
+<div id="optout-form">
+  <p>
+    <input type="checkbox" id="optout" />
+    <label for="optout"><strong></strong></label>
+  </p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  function setOptOutText(element) {
+    _paq.push([function() {
+      element.checked = !this.isUserOptedOut();
+      document.querySelector('label[for=optout] strong').innerText = this.isUserOptedOut()
+        ? 'You are currently opted out. Click here to opt in.'
+        : 'You are currently opted in. Click here to opt out.';
+    }]);
+  }
+
+  var optOut = document.getElementById("optout");
+  optOut.addEventListener("click", function() {
+    if (this.checked) {
+      _paq.push(['forgetUserOptOut']);
+    } else {
+      _paq.push(['optUserOut']);
+    }
+    setOptOutText(optOut);
+  });
+  setOptOutText(optOut);
+});
+</script>
+
+## Third party services we use
+
+All files and data are hosted in France by the [TGIR Huma-Num](https://www.huma-num.fr). Data collected on this site will never be shared with other third parties or services.
+
+<aside>
+TGIR Huma-Num<br>
+UMS 3598<br>
+54 Bd Raspail<br>
+F-75006 Paris<br>
+https://www.huma-num.fr/<br>
+</aside>
+
+## Retention of data
+
+We are keeping the data captured within Matomo for a period of 12 months and 5 days. As our data is hosted in France, we are applying the French law which defines a [retention period of no more than 13 months](https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi). We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain indefinitely to protect the safety and security of our Site, improve our Services or comply with legal obligations.
+
+## Privacy Policy Changes
+
+We may update this Policy from time to time. If we do, we'll let you know about any material changes, either by notifying you on the website or by sending you an email. 
+
+## Attribution {.appendix}
+
+This Privacy Policy is adapted from the [Matomo](https://matomo.org) Privacy Policy, available at [https://matomo.org/privacy-policy](https://matomo.org/privacy-policy).

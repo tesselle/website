@@ -7,15 +7,15 @@ base_url: https://www.tesselle.org
 repository_url: https://github.com/tesselle/website
 creative_commons: CC BY
 twitter:
-# site: ""
+  # site: ""
   creator: "@nfrerebeau"
 output_dir: "_site"
 exclude: ["README", "LICENSE", "CNAME", "*.bib"]
 theme: tesselle.css
 navbar:
-  logo:
-    image: images/logo.png
-    href: https://www.tesselle.org
+  # logo:
+  #   image: images/logo.png
+  #   href: https://www.tesselle.org
   search: true
   right:
     - text: "Home"

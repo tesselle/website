@@ -4,7 +4,7 @@ on:
       - main
       - master
 
-name: distill
+name: rmarkdown
 
 jobs:
   bookdown:
@@ -31,7 +31,7 @@ jobs:
           git fetch origin gh-pages
           git worktree add --track -B gh-pages _docs origin/gh-pages
 
-      - name: Install distill
+      - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown", "distill"))'
 
       - name: Render HTML
@@ -45,5 +45,5 @@ jobs:
           cp -r _site/* _docs
           cd _docs
           git add -A
-          git commit --allow-empty -m 'Render website'
-          git push --force origin HEAD:gh-pages
+          git commit -m 'Render website' || echo "nothing to commit"
+          git push origin HEAD:gh-pages

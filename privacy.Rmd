@@ -58,19 +58,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 ## Third party services we use
 
-All files and data are hosted in France by the [TGIR Huma-Num](https://www.huma-num.fr). Data collected on this site will never be shared with other third parties or services.
+All collected data are hosted in France by the [TGIR Huma-Num](https://www.huma-num.fr). Data collected on this site will never be shared with other third parties or services.
 
 <aside>
 TGIR Huma-Num<br>
 UMS 3598<br>
 54 Bd Raspail<br>
 F-75006 Paris<br>
-https://www.huma-num.fr/<br>
+https://www.huma-num.fr<br>
 </aside>
+
+Website static files are hosted on [GitHub Pages](https://docs.github.com/en/pages). GitHub may collect personal information from visitors, including logs of visitor IP addresses, to comply with legal obligations, and to maintain the security and integrity of the website and the service. Please refer to [GitHub's privacy practices document for details](https://docs.github.com/en/github/site-policy/global-privacy-practices).
 
 ## Retention of data
 
-We are keeping the data captured within Matomo for a period of 12 months and 5 days. As our data is hosted in France, we are applying the French law which defines a [retention period of no more than 13 months](https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi). We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain indefinitely to protect the safety and security of our Site, improve our Services or comply with legal obligations.
+We are keeping the data captured within Matomo for a period of 12 months and 5 days. As our data is hosted in France, we are applying the French law which defines a [retention period of no more than 13 months](https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi). We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain indefinitely to protect the safety and security of our site, improve our services or comply with legal obligations.
 
 ## Privacy Policy Changes
 

@@ -7,7 +7,7 @@ date: 2021-01-01
 author:
   - name: Nicolas Frerebeau
     url: https://github.com/nfrerebeau
-    affiliation: CREAP (UAR 3414 MSHS-Toulouse)
+    affiliation: CREAP (USR 3414 MSHS-Toulouse)
     affiliation_url: https://mshs.univ-toulouse.fr
     orcid_id: 0000-0001-5759-4944
   - name: Brice Lebrun

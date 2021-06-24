@@ -1,7 +1,7 @@
 ---
 title: "Packages"
 description: |
-  R packages for the archaeologist. Most of our packages are distributed on [CRAN](https://cran.r-project.org/), but some data packages are too large and can only be installed from [our repository](https://packages.tesselle.org/).
+  R packages for the archaeologist. Most of our packages are distributed on [CRAN](https://cran.r-project.org/), but some data packages are too large and can only be installed from [our repository](https://tesselle.r-universe.dev/).
 bibliography: references.bib
 ---
 

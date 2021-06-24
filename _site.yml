@@ -34,7 +34,7 @@ navbar:
     - text: "About"
       href: about.html
     - icon: fas fa-download
-      href: https://packages.tesselle.org
+      href: https://tesselle.r-universe.dev
     - icon: ai ai-osf
       href: https://osf.io/89a7w/
   source_url: true

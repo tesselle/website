@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>R packages &amp; archaeology</title>
+    <link>https://www.tesselle.org</link>
+    <atom:link href="https://www.tesselle.org/blog.xml" rel="self" type="application/rss+xml"/>
+    <description>A collection of R packages for research and teaching in archaeology.
+</description>
+    <image>
+      <title>R packages &amp; archaeology</title>
+      <url>https://www.tesselle.org/images/favicon.png</url>
+      <link>https://www.tesselle.org</link>
+    </image>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 15 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The tesselle universe</title>
+      <dc:creator>Nicolas Frerebeau</dc:creator>
+      <link>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</link>
+      <description>Install packages from our CRAN-like repository on R-universe.</description>
+      <category>packages</category>
+      <guid>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</guid>
+      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.tesselle.org/posts/2021-08-15-tesselle-universe/runiverse.png" medium="image" type="image/png" width="397" height="129"/>
+    </item>
+  </channel>
+</rss>

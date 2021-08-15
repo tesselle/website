@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
+  <link rel="alternate" type="application/rss+xml" href="https://www.tesselle.org/blog.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -86,32 +87,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>R packages &amp; archaeology: Privacy Policy</title>
+  <title>R packages &amp; archaeology: Posts</title>
   
-  <meta property="description" itemprop="description" content="This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us."/>
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   <link rel="icon" type="image/png" href="images/favicon.png"/>
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="R packages &amp; archaeology: Privacy Policy"/>
+  <meta property="og:title" content="R packages &amp; archaeology: Posts"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="R packages &amp; archaeology"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="R packages &amp; archaeology: Privacy Policy"/>
-  <meta property="twitter:description" content="This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us."/>
+  <meta property="twitter:title" content="R packages &amp; archaeology: Posts"/>
   <meta property="twitter:creator" content="@nfrerebeau"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Privacy Policy"]},{"type":"character","attributes":{},"value":["This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Posts"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2400,12 +2398,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Privacy Policy","description":"This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us.","authors":[]}
+{"title":"Posts","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2447,81 +2445,191 @@ Contribute
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).load(function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption="Posts">Posts</h1>
+<a href="posts/2021-08-15-tesselle-universe/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["packages"]}</script>
+<div class="metadata">
+<div class="publishedDate">Aug. 15, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Nicolas Frerebeau</div>
+</div>
+</div>
+<div class="thumbnail">
+<img src="posts/2021-08-15-tesselle-universe/runiverse.png"/>
+</div>
+<div class="description">
+<h2>The tesselle universe</h2>
+<div class="dt-tags">
+<div class="dt-tag">packages</div>
+</div>
+<p>Install packages from our CRAN-like repository on R-universe.</p>
+</div>
+</a>
+</div>
+<div class="posts-sidebar">
+<div class="sidebar-section categories">
+<h3>Categories</h3>
+<ul>
+<li>
+<a href="#category:articles">articles</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:packages">packages</a>
+<span class="category-count">(1)</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Privacy Policy</h1>
+<h1>Posts</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us.</p></p>
+
 </div>
 
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#what-we-collect-and-receive">What We Collect and Receive</a></li>
-<li><a href="#opt-out-of-website-tracking">Opt-out of website tracking</a></li>
-<li><a href="#third-party-services-we-use">Third party services we use</a></li>
-<li><a href="#retention-of-data">Retention of data</a></li>
-<li><a href="#privacy-policy-changes">Privacy Policy Changes</a></li>
-<li><a href="#attribution">Attribution</a></li>
-</ul>
-</nav>
-</div>
-<p>This Privacy Policy applies to the information that we obtain through your use of <a href="https://www.tesselle.org">tesselle</a> websites including its subdomains <a href="https://packages.tesselle.org">packages.tesselle.org</a> and <a href="https://documentation.tesselle.org">documentation.tesselle.org</a>.</p>
-<h2 id="what-we-collect-and-receive">What We Collect and Receive</h2>
-<p><a href="https://matomo.org">Matomo</a> is used to analyse the behaviour of the website visitors to identify potential pitfalls; not found pages, search engine indexing issues, which contents are the most appreciated… Once the data is processed (number of visitors reaching a not found pages, viewing only one page…), Matomo is generating reports for website owners to take action, for example changing the layout of the pages, publishing some fresh content… etc.</p>
-<aside>
-<a href="https://matomo.org">Matomo</a> is an <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a> web analytics platform. A web analytics platform is used by a website owner in order to measure, collect, analyse and report visitors data for purposes of understanding and optimizing their website.
-</aside>
-<p>Matomo is collecting and processing anonymized information that include usage data. When you visit our site, we will store: the website from which you visited us from, the parts of our site you visit, the date and duration of your visit, your anonymised IP address, information from the device (device type, operating system, screen resolution, language, country you are located in, and web browser type) you used during your visit, and more. We process this usage data in Matomo Analytics for statistical purposes, to improve our site and to recognize and stop any misuse.</p>
-<p>We don’t use tracking cookies.</p>
-<p>We are not doing any profiling.</p>
-<p>If you wish us to not process any data with Matomo, you can opt-out from it at any time. There will be no consequences at all regarding the use of our website.</p>
-<h2 id="opt-out-of-website-tracking">Opt-out of website tracking</h2>
-<p>You can opt out of being tracked by our Matomo Analytics instance below:</p>
-<div id="optout-form">
-<p>
-<input type="checkbox" id="optout" /> <label for="optout"><strong></strong></label>
-</p>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function(event) {
-  function setOptOutText(element) {
-    _paq.push([function() {
-      element.checked = !this.isUserOptedOut();
-      document.querySelector('label[for=optout] strong').innerText = this.isUserOptedOut()
-        ? 'You are currently opted out. Click here to opt in.'
-        : 'You are currently opted in. Click here to opt out.';
-    }]);
-  }
-
-  var optOut = document.getElementById("optout");
-  optOut.addEventListener("click", function() {
-    if (this.checked) {
-      _paq.push(['forgetUserOptOut']);
-    } else {
-      _paq.push(['optUserOut']);
-    }
-    setOptOutText(optOut);
-  });
-  setOptOutText(optOut);
-});
-</script>
-<h2 id="third-party-services-we-use">Third party services we use</h2>
-<p>All collected data are hosted in France by the <a href="https://www.huma-num.fr">TGIR Huma-Num</a>. Data collected on this site will never be shared with other third parties or services.</p>
-<aside>
-TGIR Huma-Num<br> UMS 3598<br> 54 Bd Raspail<br> F-75006 Paris<br> <a href="https://www.huma-num.fr" class="uri">https://www.huma-num.fr</a><br>
-</aside>
-<p>Website static files are hosted on <a href="https://docs.github.com/en/pages">GitHub Pages</a>. GitHub may collect personal information from visitors, including logs of visitor IP addresses, to comply with legal obligations, and to maintain the security and integrity of the website and the service. Please refer to <a href="https://docs.github.com/en/github/site-policy/global-privacy-practices">GitHub’s privacy practices document for details</a>.</p>
-<h2 id="retention-of-data">Retention of data</h2>
-<p>We are keeping the data captured within Matomo for a period of 12 months and 5 days. As our data is hosted in France, we are applying the French law which defines a <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi">retention period of no more than 13 months</a>. We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain indefinitely to protect the safety and security of our site, improve our services or comply with legal obligations.</p>
-<h2 id="privacy-policy-changes">Privacy Policy Changes</h2>
-<p>We may update this Policy from time to time. If we do, we’ll let you know about any material changes, either by notifying you on the website or by sending you an email.</p>
-<h2 id="attribution" class="appendix">Attribution</h2>
-<p>This Privacy Policy is adapted from the <a href="https://matomo.org">Matomo</a> Privacy Policy, available at <a href="https://matomo.org/privacy-policy">https://matomo.org/privacy-policy</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

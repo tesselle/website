@@ -22,6 +22,8 @@ navbar:
       href: index.html
     - text: "Packages"
       href: packages.html
+    - text: "Blog"
+      href: blog.html
     - text: "Contribute"
       menu:
         - text: "Guidelines"
@@ -33,11 +35,14 @@ navbar:
           href: https://documentation.tesselle.org
     - text: "About"
       href: about.html
-    - icon: fas fa-download
-      href: https://tesselle.r-universe.dev
-    - icon: ai ai-osf
-      href: https://osf.io/89a7w/
+    # - icon: fas fa-globe-americas
+    #   href: https://tesselle.r-universe.dev
+    - icon: fa fa-rss
+      href: blog.xml
   source_url: true
+collections:
+  posts:
+    share: [twitter]
 output:
   distill::distill_article:
     toc: true

@@ -33,9 +33,8 @@ This project is supported by:
     <strong>Centre de Recherche et d'Etudes pour l'Art Préhistorique</strong>
   </summary>
   MSHS-Toulouse (USR 3414)<br>
-  Université de Toulouse Jean Jaurès<br>
   Maison de la Recherche<br>
-  5, allées Antonio Machado<br>
+  Université de Toulouse Jean Jaurès<br>
   F-31058 Toulouse cedex 9<br>
   [mshs.univ-toulouse.fr](https://mshs.univ-toulouse.fr)
 </details>
@@ -45,8 +44,18 @@ This project is supported by:
     <strong>Centre de Recherche en Physique Appliquée à l'Archéologie</strong>
   </summary>
   IRAMAT (UMR 5060)<br>
-  Université Bordeaux Montaigne<br>
   Maison de l'Archéologie<br>
+  Université Bordeaux Montaigne<br>
   F-33607 Pessac cedex<br>
   [iramat-crp2a.cnrs.fr](https://www.iramat-crp2a.cnrs.fr)
+</details>
+
+<details>
+  <summary>
+    <strong>TGIR Huma-Num</strong>
+  </summary>
+  UMS 3598<br>
+  54, boulevard Raspail<br>
+  F-75006 Paris<br>
+  [www.huma-num.fr](https://www.huma-num.fr)
 </details>

@@ -1,7 +1,7 @@
 ---
 title: "tesselle"
 description: |
-  <img class="hex-logo" alt="tesselle" src="images/tesselle.png" /> **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
+  <img class="tesselle" alt="tesselle" src="images/tesselle.png" /> **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 preview: images/tesselle.png
 date: 2021-01-01
 site: distill::distill_website
@@ -19,6 +19,27 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 **This website is under construction, more will be added soon.**
+
+<div class="hex-stickers">
+  <a href="https://packages.tesselle.org/kairos/">
+    <img class="row1 col1" src="images/kairos.png" alt="kairos">
+  </a>
+  <a href="https://packages.tesselle.org/nexus/">
+    <img class="row1 col3" src="images/nexus.png" alt="nexus">
+  </a>
+  <a href="https://packages.tesselle.org/tabula/">
+    <img class="row2 col2" src="images/tabula.png" alt="tabula">
+  </a>
+  <a href="https://packages.tesselle.org/khroma/">
+    <img class="row2 col4" src="images/khroma.png" alt="khroma">
+  </a>
+  <a href="https://packages.tesselle.org/dimensio/">
+    <img class="row3 col3" src="images/dimensio.png" alt="dimensio">
+  </a>
+  <a href="https://packages.tesselle.org/folio/">
+    <img class="row3 col5" src="images/folio.png" alt="folio">
+  </a>
+</div>
 
 ## Yet another package
 

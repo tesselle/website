@@ -77,14 +77,48 @@ d-appendix {
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
 
-.hex {
+.hex-logo {
   width: 120px;
   float: left;
   margin-right: 1em;
 }
 
-.hex-logo {
+.tesselle {
   width: 150px;
   float: left;
   margin-right: 1em;
+}
+
+.hex-stickers {
+  position: relative;
+  height: 360px;
+}
+.hex-stickers img {
+  width: 120px;
+  height: 139px;
+  position: absolute;
+}
+.hex-stickers img.row1 {
+  top: 0px;
+}
+.hex-stickers img.row2 {
+  top: 107px;
+}
+.hex-stickers img.row3 {
+  top: 214px;
+}
+.hex-stickers img.col1 {
+  left: 0px;
+}
+.hex-stickers img.col2 {
+  left: 62px;
+}
+.hex-stickers img.col3 {
+  left: 124px;
+}
+.hex-stickers img.col4 {
+  left: 186px;
+}
+.hex-stickers img.col5 {
+  left: 248px;
 }

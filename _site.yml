@@ -48,4 +48,4 @@ output:
     toc: true
     toc_float: true
     includes:
-      in_header: matomo.html
+      in_header: extra.html

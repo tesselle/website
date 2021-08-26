@@ -10,7 +10,7 @@ twitter:
   # site: ""
   creator: "@nfrerebeau"
 output_dir: "_site"
-exclude: ["README", "LICENSE", "CNAME", "*.bib"]
+exclude: ["README", "LICENSE", "CNAME", "*.bib", "extra.html"]
 theme: tesselle.css
 navbar:
   # logo:
@@ -37,6 +37,8 @@ navbar:
       href: about.html
     # - icon: fas fa-globe-americas
     #   href: https://tesselle.r-universe.dev
+    - icon: fas fa-book-open
+      href: https://packages.tesselle.org
     - icon: fa fa-rss
       href: blog.xml
   source_url: true

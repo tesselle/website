@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["runiverse.png","tesselle-universe_files/anchor-4.2.2/anchor.min.js","tesselle-universe_files/bowser-1.9.3/bowser.min.js","tesselle-universe_files/distill-2.2.21/template.v2.js","tesselle-universe_files/header-attrs-2.8/header-attrs.js","tesselle-universe_files/jquery-1.11.3/jquery.min.js","tesselle-universe_files/popper-2.6.0/popper.min.js","tesselle-universe_files/tippy-6.2.7/tippy-bundle.umd.min.js","tesselle-universe_files/tippy-6.2.7/tippy-light-border.css","tesselle-universe_files/tippy-6.2.7/tippy.css","tesselle-universe_files/tippy-6.2.7/tippy.umd.min.js","tesselle-universe_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["runiverse.png","tesselle-universe_files/anchor-4.2.2/anchor.min.js","tesselle-universe_files/bowser-1.9.3/bowser.min.js","tesselle-universe_files/distill-2.2.21/template.v2.js","tesselle-universe_files/header-attrs-2.10/header-attrs.js","tesselle-universe_files/header-attrs-2.8/header-attrs.js","tesselle-universe_files/jquery-1.11.3/jquery.min.js","tesselle-universe_files/popper-2.6.0/popper.min.js","tesselle-universe_files/tippy-6.2.7/tippy-bundle.umd.min.js","tesselle-universe_files/tippy-6.2.7/tippy-light-border.css","tesselle-universe_files/tippy-6.2.7/tippy.css","tesselle-universe_files/tippy-6.2.7/tippy.umd.min.js","tesselle-universe_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1434,7 +1434,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="tesselle-universe_files/header-attrs-2.8/header-attrs.js"></script>
+  <script src="tesselle-universe_files/header-attrs-2.10/header-attrs.js"></script>
   <script src="tesselle-universe_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="tesselle-universe_files/popper-2.6.0/popper.min.js"></script>
   <link href="tesselle-universe_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1490,7 +1490,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </nav>
 </div>
-<p>Most of the R packages of the <em>tesselle</em> project are distributed on <a href="https://cran.r-project.org/">CRAN</a> when they reach an acceptable level of maturity. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org">remotes</a> :</p>
+<p>Most of the R packages of the <strong>tesselle</strong> project are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> when they reach an acceptable level of maturity. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org">remotes</a> :</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Install the development version from GitHub</span>
@@ -1499,7 +1499,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 </div>
-<p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <em>tesselle</em> now has its own CRAN-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all development versions and non-CRAN packages (e.g. <a href="https://www.repostatus.org/#wip"><abbr title="work-in-progress">WIP</abbr></a> packages and large data packages).</p>
+<p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <strong>tesselle</strong> now has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. <a href="https://www.repostatus.org/#wip"><abbr title="work-in-progress">WIP</abbr></a> packages and large data packages).</p>
 <h2 id="download-tesselle-packages">Download tesselle packages</h2>
 <p>If you want to install a package from the <a href="https://tesselle.r-universe.dev">tesselle universe</a>, simply use <code>install.packages()</code> with the additional repository:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1521,7 +1521,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <h2 id="use-the-repository">Use the repository</h2>
-<p>You can use this repository in your R package (if available, CRAN releases must be regarded as the preferred source). To do so, prepare the <code>DESCRIPTION</code> file of your R package:</p>
+<p>You can use this repository in your R package (if available, <abbr title="Comprehensive R Archive Network">CRAN</abbr> releases must be regarded as the preferred source). To do so, prepare the <code>DESCRIPTION</code> file of your R package:</p>
 <ul>
 <li>List the package under <code>Suggests:</code></li>
 <li>Add the line <code>Additional_repositories: https://tesselle.r-universe.dev</code></li>

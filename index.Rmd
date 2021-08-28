@@ -1,10 +1,15 @@
 ---
-title: "tesselle"
+title: "R packages & archaeology"
 description: |
-  <img class="tesselle" alt="tesselle" src="images/tesselle.png" /> **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
+  **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 preview: images/tesselle.png
-date: 2021-01-01
+image: images/tesselle.png
+links:
+  - label: GitHub
+    url: "https://github.com/tesselle"
 site: distill::distill_website
+output:
+  postcards::trestles
 ---
 
 ```{r setup, include=FALSE}
@@ -16,43 +21,22 @@ knitr::opts_chunk$set(echo = FALSE)
 # Learn more about publishing to GitHub Pages at:
 # https://rstudio.github.io/distill/publish_website.html#github-pages
 
+metathis::meta() |>
+  metathis::meta_description(
+    "A collection of R packages for research and teaching in archaeology."
+  ) |> 
+  metathis::meta_name("github-repo" = "tesselle/website") |> 
+  metathis::meta_viewport() |> 
+  metathis::meta_social(
+    title = "tesselle",
+    url = "https://www.tesselle.org/",
+    image = "https://www.tesselle.org/images/tesselle.png",
+    image_alt = "tesselle hex sticker",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@nfrerebeau"
+  )
 ```
 
-**This website is under construction, more will be added soon.**
+**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 
-<div class="hex-stickers">
-  <a href="https://packages.tesselle.org/kairos/">
-    <img class="row1 col1" src="images/kairos.png" alt="kairos">
-  </a>
-  <a href="https://packages.tesselle.org/nexus/">
-    <img class="row1 col3" src="images/nexus.png" alt="nexus">
-  </a>
-  <a href="https://packages.tesselle.org/tabula/">
-    <img class="row2 col2" src="images/tabula.png" alt="tabula">
-  </a>
-  <a href="https://packages.tesselle.org/khroma/">
-    <img class="row2 col4" src="images/khroma.png" alt="khroma">
-  </a>
-  <a href="https://packages.tesselle.org/dimensio/">
-    <img class="row3 col3" src="images/dimensio.png" alt="dimensio">
-  </a>
-  <a href="https://packages.tesselle.org/folio/">
-    <img class="row3 col5" src="images/folio.png" alt="folio">
-  </a>
-</div>
-
-## Yet another package
-
-There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
-
-**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with three key objectives:
-
-* Building a unified data workflow within the laboratory to facilitate teamwork.
-* To move away from proprietary environments.
-* Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
-
-Last but not least, these packages are useful to us, we hope that others may also find them of interest.
-
-## Roadmap
-
-**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/3) and fell free to [contribute](contributing.html).
+These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data. Browse the documentation on [**packages.tesselle.org**](https://packages.tesselle.org).

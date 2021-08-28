@@ -1,16 +1,53 @@
 ---
 title: "About"
 description: |
-  Authors and contributors to the project.
+  R packages for the archaeologist.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-The **tessel** project is coordinated by Nicolas Frerebeau and Brice Lebrun.
+<div class="hex-stickers">
+  <a href="https://packages.tesselle.org/kairos/">
+    <img class="row1 col1" src="images/kairos.png" alt="kairos">
+  </a>
+  <a href="https://packages.tesselle.org/nexus/">
+    <img class="row1 col3" src="images/nexus.png" alt="nexus">
+  </a>
+  <a href="https://packages.tesselle.org/tabula/">
+    <img class="row2 col2" src="images/tabula.png" alt="tabula">
+  </a>
+  <a href="https://packages.tesselle.org/khroma/">
+    <img class="row2 col4" src="images/khroma.png" alt="khroma">
+  </a>
+  <a href="https://packages.tesselle.org/dimensio/">
+    <img class="row3 col3" src="images/dimensio.png" alt="dimensio">
+  </a>
+  <a href="https://packages.tesselle.org/folio/">
+    <img class="row3 col5" src="images/folio.png" alt="folio">
+  </a>
+</div>
 
-## Full list of contributors
+## Yet another package
+
+There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
+
+**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with three key objectives:
+
+* Building a unified data workflow within the laboratory to facilitate teamwork.
+* To move away from proprietary environments.
+* Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
+
+Last but not least, these packages are useful to us, we hope that others may also find them of interest.
+
+## Roadmap
+
+**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/3) and fell free to [contribute](contributing.html).
+
+## Contributors
+
+The **tessel** project is coordinated by Nicolas Frerebeau.
 
 The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):
 

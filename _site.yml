@@ -1,5 +1,5 @@
 name: "tesselle"
-title: "R packages & archaeology"
+title: "tesselle"
 description: |
   A collection of R packages for research and teaching in archaeology.
 favicon: images/favicon.png
@@ -16,7 +16,7 @@ navbar:
   # logo:
   #   image: images/logo.png
   #   href: https://www.tesselle.org
-  search: true
+  search: false
   right:
     - text: "Home"
       href: index.html
@@ -25,20 +25,9 @@ navbar:
     - text: "Blog"
       href: blog.html
     - text: "Contribute"
-      menu:
-        - text: "Guidelines"
-          href: contributing.html
-        - text: "Code of Conduct"
-          href: conduct.html
-        - text: "---"
-        - text: "Documentation"
-          href: https://documentation.tesselle.org
+      href: contributing.html
     - text: "About"
       href: about.html
-    # - icon: fas fa-globe-americas
-    #   href: https://tesselle.r-universe.dev
-    - icon: fas fa-book-open
-      href: https://packages.tesselle.org
     - icon: fa fa-rss
       href: blog.xml
   source_url: true

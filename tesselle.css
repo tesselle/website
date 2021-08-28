@@ -27,7 +27,7 @@ html {
   --body-color:      rgba(0, 0, 0, 0.8);
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
-  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  /*-- Specify custom fonts ~~~ must be imported above --*/
   --heading-font:    "ubuntu", sans-serif;
   --mono-font:       monospace;
   --body-font:       "roboto", sans-serif;
@@ -75,7 +75,7 @@ d-appendix {
 }
 
 /*-- Additional custom styles --*/
-/* Add any additional CSS rules below                      */
+/* Add any additional CSS rules below  */
 
 .hex-logo {
   width: 120px;
@@ -83,12 +83,38 @@ d-appendix {
   margin-right: 1em;
 }
 
-.tesselle {
-  width: 150px;
-  float: left;
-  margin-right: 1em;
+/*-- POSTCARD --*/
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  color: white;
+  background-color: var(--bkgd-color, #4F2680);
+  cursor: pointer;
 }
 
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: grey;
+  color: white
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #1e5c7b;
+  color: white;
+}
+
+#content p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  font-family: var(--body-font),var(--body-default) ;
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/* Mosaic of hex stickers */
 .hex-stickers {
   position: relative;
   height: 360px;

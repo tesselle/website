@@ -1,7 +1,7 @@
 ---
 title: "About"
 description: |
-  R packages for the archaeologist.
+  **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 ---
 
 ```{r setup, include=FALSE}

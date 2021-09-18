@@ -1,15 +1,9 @@
 ---
 title: "R packages & archaeology"
 description: |
-  **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
-preview: images/tesselle.png
-image: images/tesselle.png
-links:
-  - label: GitHub
-    url: "https://github.com/tesselle"
+  tesselle is a collection of R packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The tesselle packages are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
 site: distill::distill_website
-output:
-  postcards::trestles
+listing: posts
 ---
 
 ```{r setup, include=FALSE}
@@ -20,23 +14,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Learn more about publishing to GitHub Pages at:
 # https://rstudio.github.io/distill/publish_website.html#github-pages
-
-metathis::meta() |>
-  metathis::meta_description(
-    "A collection of R packages for research and teaching in archaeology."
-  ) |> 
-  metathis::meta_name("github-repo" = "tesselle/website") |> 
-  metathis::meta_viewport() |> 
-  metathis::meta_social(
-    title = "tesselle",
-    url = "https://www.tesselle.org/",
-    image = "https://www.tesselle.org/images/tesselle.png",
-    image_alt = "tesselle hex sticker",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@nfrerebeau"
-  )
 ```
-
-**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages focus on quantitative analysis methods developed for archaeology. The **tesselle** [packages](packages.html) are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
-
-These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data. Browse the documentation on [**packages.tesselle.org**](https://packages.tesselle.org).

@@ -2,6 +2,7 @@
 title: "Privacy Policy"
 description: |
   This Policy describes the information we collect from you, how we use that information and our legal basis for doing so. It also covers whether and how that information may be shared and your rights and choices regarding the information you provide to us.
+output: distill::distill_article
 ---
 
 This Privacy Policy applies to the information that we obtain through your use of [tesselle](https://www.tesselle.org) websites including its subdomains [packages.tesselle.org](https://packages.tesselle.org) and [documentation.tesselle.org](https://documentation.tesselle.org).

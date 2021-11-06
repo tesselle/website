@@ -21,6 +21,8 @@ navbar:
       href: index.html
     - text: "Packages"
       href: packages.html
+    - text: "Apps"
+      href: apps.html
     - text: "Contributing"
       href: contributing.html
     - text: "About"

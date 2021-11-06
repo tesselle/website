@@ -1,0 +1,27 @@
+---
+title: "Interactive Apps"
+description: |
+  Use interactive web apps build from the tesselle packages. These [Shiny](https://shiny.rstudio.com/) apps are hosted by [shinyapps.io](https://www.shinyapps.io/). Note that for now all these apps are prototypes, use them with caution.
+output:
+  distill::distill_article:
+    css: "strapless.css"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r cards}
+apps <- read.csv("_data/apps.csv")
+bs4cards::cards(
+  data = apps,
+  title = name, 
+  text = description,
+  image = image,
+  link = url,
+  footer = url,
+  tags = paste("all;", tags),
+  width = 4,
+  layout = "label-right"
+)
+```

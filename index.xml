@@ -12,12 +12,23 @@
       <link>https://www.tesselle.org</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 15 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>kairos 1.0.0</title>
+      <dc:creator>Nicolas Frerebeau</dc:creator>
+      <link>https://www.tesselle.org/posts/2021-11-10-kairos-100</link>
+      <description>Analysis of Chronological Patterns from Archaeological Count Data.</description>
+      <category>packages</category>
+      <category>releases</category>
+      <guid>https://www.tesselle.org/posts/2021-11-10-kairos-100</guid>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.tesselle.org/posts/2021-11-10-kairos-100/kairos-100_files/figure-html5/event-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>The tesselle universe</title>
       <dc:creator>Nicolas Frerebeau</dc:creator>
       <link>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</link>
-      <description>Install packages from our CRAN-like repository on R-universe.</description>
+      <description>Install tesselle packages from our CRAN-like repository on R-universe.</description>
       <category>packages</category>
       <guid>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</guid>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>

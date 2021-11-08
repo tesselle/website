@@ -2,14 +2,14 @@
 title: "The tesselle universe"
 slug: tesselle-universe
 description: |
-  Install packages from our CRAN-like repository on R-universe.
-preview: runiverse.png
+  Install tesselle packages from our CRAN-like repository on R-universe.
 categories:
   - packages
+preview: runiverse.png
 author:
   - name: Nicolas Frerebeau
-    url: https://github.com/nfrerebeau
-    affiliation: CREAP (USR 3414 MSHS-Toulouse)
+    url: https://www.archaeo.science
+    affiliation: CREAP (UAR 3414)
     affiliation_url: https://mshs.univ-toulouse.fr
     orcid_id: 0000-0001-5759-4944
 date: 2021-08-15

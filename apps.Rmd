@@ -1,7 +1,7 @@
 ---
 title: "Interactive Apps"
 description: |
-  Use interactive web apps build from the tesselle packages. These [Shiny](https://shiny.rstudio.com/) apps are hosted by [shinyapps.io](https://www.shinyapps.io/). Note that for now all these apps are prototypes, use them with caution.
+  Use interactive web apps build from the tesselle packages. These [Shiny](https://shiny.rstudio.com/) apps are hosted by [shinyapps.io](https://www.shinyapps.io/).
 output:
   distill::distill_article:
     css: "strapless.css"
@@ -10,6 +10,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+Note that for now all these apps are prototypes, so please think twice before using it for anything serious.
 
 ```{r cards}
 apps <- read.csv("_data/apps.csv")

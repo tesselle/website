@@ -2,7 +2,7 @@
   "name": "tesselle",
   "short_name": "tesselle",
   "theme_color": "#4f2680",
-  "background_color": "#4f2680",
+  "background_color": "#cbbba0",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",

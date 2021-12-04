@@ -2,14 +2,15 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [main, master]
+    branches: [main]
 
-name: distill
+name: rmarkdown
 
 jobs:
-  distill:
-    runs-on: macOS-latest
+  rmarkdown:
+    runs-on: ubuntu-latest
     env:
+      LANG: en_US.UTF-8  #https://github.com/rstudio/distill/issues/219
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
@@ -17,15 +18,13 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
 
-      - name: Install distill
-        run: Rscript -e 'install.packages(c("distill", "bs4cards"))'
+      - uses: r-lib/actions/setup-r-dependencies@v1
 
       - name: Build site
-        run: |
-          Rscript -e 'rmarkdown::render_site()'
-          cp CNAME _site/CNAME
-          cp .nojekyll _site/.nojekyll
+        run: Rscript -e 'rmarkdown::render_site()'
 
       - name: Deploy to GitHub pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4

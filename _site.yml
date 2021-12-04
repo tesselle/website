@@ -2,15 +2,16 @@ name: "tesselle"
 title: "tesselle"
 description: |
   A collection of R packages for research and teaching in archaeology.
-favicon: images/favicon.ico
+favicon: images/icons/favicon.ico
 base_url: https://www.tesselle.org
 repository_url: https://github.com/tesselle/website
 creative_commons: CC BY
 twitter:
-  # site: ""
+  site: "@nfrerebeau"
   creator: "@nfrerebeau"
 output_dir: "_site"
-exclude: ["README", "LICENSE", "CNAME", "*.bib", "extra.html"]
+exclude: ["DESCIPTION", "README", "LICENSE", "*.bib", "extra.html"]
+include: ["manifest.webmanifest", "CNAME", ".nojekyll"]
 theme: tesselle.css
 navbar:
   # logo:

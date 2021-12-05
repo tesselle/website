@@ -1,14 +1,24 @@
 ---
 title: "Packages"
 description: |
-  The **tesselle** packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data. Most of our packages are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/), development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. <abbr title="work-in-progress">WIP</abbr> packages and large data packages) can be installed from [our repository](https://tesselle.r-universe.dev/). Browse the documentation on [**packages.tesselle.org**](https://packages.tesselle.org).
+  The **tesselle** packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
 bibliography: references.bib
 output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Most of our packages are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/), development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. <abbr title="work-in-progress">WIP</abbr> packages and large data packages) can be installed from [our repository](https://tesselle.r-universe.dev/).
+
+Install the complete suite with:
+
+```{r install, eval=FALSE}
+install.packages("tesselle")
+```
+
+Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
 
 ## Count data
 ### tabula

@@ -10,7 +10,7 @@ twitter:
   site: "@nfrerebeau"
   creator: "@nfrerebeau"
 output_dir: "_site"
-exclude: ["DESCIPTION", "README", "LICENSE", "*.bib", "extra.html"]
+exclude: ["DESCIPTION", "README", "LICENSE", "*.bib"]
 include: ["manifest.webmanifest", "CNAME", ".nojekyll"]
 theme: tesselle.css
 navbar:
@@ -41,7 +41,7 @@ output:
     toc: true
     toc_float: true
     includes:
-      in_header: extra.html
+      in_header: _header.html
 rss:
   full_content: true
   categories:

@@ -70,7 +70,7 @@ This project is supported by:
   <summary>
     <strong>Centre de Recherche et d'Etudes pour l'Art Préhistorique</strong>
   </summary>
-  MSHS-Toulouse (USR 3414)<br>
+  MSHS-Toulouse (UAR 3414)<br>
   Maison de la Recherche<br>
   Université de Toulouse Jean Jaurès<br>
   F-31058 Toulouse cedex 9<br>
@@ -79,13 +79,13 @@ This project is supported by:
 
 <details>
   <summary>
-    <strong>Centre de Recherche en Physique Appliquée à l'Archéologie</strong>
+    <strong>Archéosciences Bordeaux</strong>
   </summary>
-  IRAMAT (UMR 5060)<br>
+  UMR 6034<br>
   Maison de l'Archéologie<br>
   Université Bordeaux Montaigne<br>
   F-33607 Pessac cedex<br>
-  [iramat-crp2a.cnrs.fr](https://www.iramat-crp2a.cnrs.fr)
+  [www.archeosciences-bordeaux.fr](https://www.archeosciences-bordeaux.fr)
 </details>
 
 <details>

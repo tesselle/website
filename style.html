@@ -87,25 +87,25 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>tesselle: Contributing</title>
+  <title>tesselle: Coding Style</title>
   
-  <meta property="description" itemprop="description" content="How to contribute to the tesselle packages."/>
+  <meta property="description" itemprop="description" content="This section describes the coding style used throughout the tesselle project."/>
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   <link rel="icon" type="image/vnd.microsoft.icon" href="images/icons/favicon.ico"/>
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="tesselle: Contributing"/>
+  <meta property="og:title" content="tesselle: Coding Style"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="How to contribute to the tesselle packages."/>
+  <meta property="og:description" content="This section describes the coding style used throughout the tesselle project."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="tesselle"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="tesselle: Contributing"/>
-  <meta property="twitter:description" content="How to contribute to the tesselle packages."/>
+  <meta property="twitter:title" content="tesselle: Coding Style"/>
+  <meta property="twitter:description" content="This section describes the coding style used throughout the tesselle project."/>
   <meta property="twitter:site" content="@nfrerebeau"/>
   <meta property="twitter:creator" content="@nfrerebeau"/>
   
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Contributing"]},{"type":"character","attributes":{},"value":["How to contribute to the tesselle packages.\n"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Coding Style"]},{"type":"character","attributes":{},"value":["This section describes the coding style used throughout the tesselle project.\n"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2449,7 +2449,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Contributing","description":"How to contribute to the tesselle packages.","authors":[]}
+{"title":"Coding Style","description":"This section describes the coding style used throughout the tesselle project.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2492,10 +2492,10 @@ Contributing
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Contributing</h1>
+<h1>Coding Style</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>How to contribute to the tesselle packages.</p></p>
+<p><p>This section describes the coding style used throughout the tesselle project.</p></p>
 </div>
 
 
@@ -2504,43 +2504,512 @@ Contributing
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#suggesting-new-features">Suggesting new features</a></li>
-<li><a href="#fixing-typos">Fixing typos</a></li>
-<li><a href="#bigger-changes">Bigger changes</a><ul>
-<li><a href="#pull-request-process">Pull request process</a></li>
-<li><a href="#code-style">Code style</a></li>
+<li><a href="#general-rules">General Rules</a><ul>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#namespaces">Namespaces</a></li>
+<li><a href="#side-effects">Side-effects</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#pipes">Pipes</a></li>
 </ul></li>
-<li><a href="#code-of-conduct">Code of Conduct</a></li>
+<li><a href="#naming">Naming</a><ul>
+<li><a href="#naming-files">Naming Files</a></li>
+<li><a href="#naming-variables">Naming Variables</a></li>
+<li><a href="#naming-functions">Naming Functions</a></li>
+<li><a href="#naming-s4-classes">Naming S4 Classes</a></li>
+</ul></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#line-length">Line Length</a></li>
+<li><a href="#function-call">Function Call</a></li>
+<li><a href="#assignment">Assignment</a></li>
+<li><a href="#spacing">Spacing</a></li>
+<li><a href="#curly-braces">Curly Braces</a></li>
+<li><a href="#indentation">Indentation</a></li>
+<li><a href="#new-line">New Line</a></li>
+</ul></li>
+<li><a href="#commenting">Commenting</a></li>
 <li><a href="#attribution">Attribution</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="suggesting-new-features">Suggesting new features</h2>
-<p>You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository.</p>
-<h2 id="fixing-typos">Fixing typos</h2>
-<p>You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the <em>source</em> file. This generally means you’ll need to edit <a href="https://roxygen2.r-lib.org/articles/roxygen2.html">roxygen2 comments</a> in an <code>.R</code>, not a <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> by reading the comment in the first line.</p>
-<h2 id="bigger-changes">Bigger changes</h2>
-<p>If you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.</p>
-<p>If you’ve found a bug, please file an issue that illustrates the bug with a minimal <a href="https://www.tidyverse.org/help/#reprex">reprex</a> (this will also help you write a unit test, if needed).</p>
-<h3 id="pull-request-process">Pull request process</h3>
+<h2 id="general-rules">General Rules</h2>
+<h3 id="dependencies">Dependencies</h3>
+<p>Always avoid package dependencies when possible.</p>
+<p>Adding a new dependency should be considered as a last resort (always prefer a base R solution).</p>
+<h3 id="namespaces">Namespaces</h3>
+<p>Specify the namespace of each used function, except if it is from <code>base</code> package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'>select</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>select</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="side-effects">Side-effects</h3>
+<p>Never mix side-effects and computing in a single method: always return the computation and perform the output in the <code>print()</code>, <code>show()</code> or <code>plot()</code> method.</p>
+<p>A function called for its side-effects must return the first argument invisibly (this makes it possible to use it as part of a pipe).</p>
+<h3 id="loops">Loops</h3>
+<p>Use <code>seq_along(x)</code> to protect against instances where <code>x</code> is empty.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'>do_something</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'># BAD</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'>do_something</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>Use <code>apply</code>, <code>lapply</code>, etc. when possible.</p>
+<h3 id="pipes">Pipes</h3>
+<p>Do not use pipes (<code>%&gt;%</code> or <code>|&gt;</code>) inside functions.</p>
+<h2 id="naming">Naming</h2>
+<p>As a general rule, abbreviations must be avoided when naming.</p>
+<h3 id="naming-files">Naming Files</h3>
+<p>File names must use <code>.R</code> extension.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>plot.R</span>
+
+<span class='co'># BAD</span>
+<span class='va'>plot</span>
+</code></pre>
+</div>
+</div>
+<p>File names must be meaningful.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>plot.R</span>
+
+<span class='co'># BAD</span>
+<span class='va'>Untitled1.R</span>
+</code></pre>
+</div>
+</div>
+<p>File names must not contain <code>/</code> and spaces. Instead, a dash (<code>-</code>) or underscore (<code>_</code>) must be used.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># GOOD</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>read_csv.R</span>
+<span id="cb1-3"><a href="#cb1-3"></a>plot<span class="op">-</span>methods.R</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># BAD</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>read csv.R</span></code></pre></div>
+</div>
+<p>File names must use letters from Basic Latin, NOT from Latin-1 Supplement, and must be lowercase.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>plot.R</span>
+
+<span class='co'># BAD</span>
+<span class='va'>Plot.R</span>
+<span class='va'>données.R</span>
+</code></pre>
+</div>
+</div>
+<p>Use meaningful verbs for file names.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>fit_model.R</span>
+
+<span class='co'># BAD</span>
+<span class='va'>addition.R</span>
+</code></pre>
+</div>
+</div>
+<p>Mind special names:</p>
 <ul>
-<li>Fork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s <a href="https://happygitwithr.com"><em>Happy Git and GitHub for the useR</em></a> first.</li>
-<li>Install all development dependencies with <code>devtools::install_dev_deps()</code>, and then make sure the package passes R CMD check by running <code>devtools::check()</code>. If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.</li>
-<li>Create a Git branch for your pull request (PR). We recommend using <code>usethis::pr_init("brief-description-of-change")</code>.</li>
-<li>Make your changes, commit to git, and then create a PR by running <code>usethis::pr_push()</code>, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain <code>Fixes #issue-number</code>.</li>
-<li>For user-facing changes, add a bullet to the top of <code>NEWS.md</code> (i.e. just below the first header).</li>
+<li><code>AllClasses.R</code> stores all S4 classes definitions.</li>
+<li><code>AllGenerics.R</code> stores all S4 generic functions.</li>
+<li><code>zzz.R</code> contains <code>.onLoad()</code> and friends.</li>
 </ul>
-<h3 id="code-style">Code style</h3>
-<ul>
-<li>New code should follow the <a href="style.html">style guide</a>.</li>
-<li>We use <a href="https://roxygen2.r-lib.org">roxygen2</a>, with <a href="https://roxygen2.r-lib.org/articles/rd-formatting.html">Markdown syntax</a>, for documentation.</li>
-<li>We use <a href="https://testthat.r-lib.org">testthat</a> and <a href="https://vdiffr.r-lib.org">vdiffr</a> for unit tests. Contributions with test cases included are easier to accept.</li>
-</ul>
-<h2 id="code-of-conduct">Code of Conduct</h2>
-<p>Please note that the <strong>tesselle</strong> project is released with a <a href="conduct.html">Contributor Code of Conduct</a>. By contributing to this project you agree to abide by its terms.</p>
+<p>Use the <code>-methods</code> suffix for S4 class methods.</p>
+<p>If the file contains only one function, name it by the function name.</p>
+<h3 id="naming-variables">Naming Variables</h3>
+<p>Variables names must be as short as possible.</p>
+<p>Variables names must be meaningful nouns.</p>
+<p>Variable names must be lowercase.</p>
+<p>Never separate words within the name by <code>.</code> (reserved for an S3 dispatch) or use PascalCase (reserved for S4 classes definitions). Instead, use an underscore (<code>_</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>std_dev</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+
+<span class='co'># BAD</span>
+<span class='va'>std.dev</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+<span class='va'>StdDev</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+</code></pre>
+</div>
+</div>
+<p>Do not use names of existing function and variables (especially, built-in ones).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>std_dev</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+
+<span class='co'># BAD</span>
+<span class='cn'>T</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+<span class='va'>c</span> <span class='op'>&lt;-</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>2</span>
+<span class='va'>mean</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
+</code></pre>
+</div>
+</div>
+<h3 id="naming-functions">Naming Functions</h3>
+<p>Function names must contain a verb that refers to the primary action of the function.</p>
+<p>Function names must be in snake_case. Use <code>.</code> only for dispatching S3 generic.</p>
+<p>An <code>object_verb()</code> naming scheme should be prefered as often as possible. This scheme is easy to read and auto-complete.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'>peak_detect</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'>addition</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>readFile</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Avoid function name conflicts with base packages or other popular ones.</p>
+<h3 id="naming-s4-classes">Naming S4 Classes</h3>
+<p>Class names must be nouns in PascalCase with initial capital case letter and the first letter of each subsequent concatenated word capitalized.</p>
+<h2 id="syntax">Syntax</h2>
+<h3 id="line-length">Line Length</h3>
+<p>The maximum length of lines is limited to 80 characters.</p>
+<p>Do NOT put more than one statement per line. Do NOT use semicolon as termination of the command.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fl'>1</span>
+
+<span class='co'># BAD</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>; <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fl'>1</span>
+</code></pre>
+</div>
+</div>
+<h3 id="function-call">Function Call</h3>
+<p>In a function call, specify arguments by name. Never specify by partial name and never mix by position and complete name.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span>, na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>The required arguments should be first, followed by optional arguments.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'>raise_to_power</span><span class='op'>(</span><span class='va'>x</span>, power <span class='op'>=</span> <span class='fl'>2.7</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'>raise_to_power</span><span class='op'>(</span>power <span class='op'>=</span> <span class='fl'>2.7</span>, <span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>The <code>...</code> argument should either be in the beginning or in the end.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'>standardize</span><span class='op'>(</span><span class='va'>...</span>, scale <span class='op'>=</span> <span class='cn'>TRUE</span>, center <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'>standardize</span><span class='op'>(</span>scale <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span>, center <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Set default arguments inside the function using <code>NULL</code> idiom, and avoid dependence between arguments.</p>
+<p>Always validate arguments in a function.</p>
+<h3 id="assignment">Assignment</h3>
+<p>Use <code>&lt;-</code> for assignment, NOT <code>=</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+
+<span class='co'># BAD</span>
+<span class='va'>x</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='fl'>1</span> <span class='op'>-&gt;</span> <span class='va'>x</span>
+</code></pre>
+</div>
+</div>
+<h3 id="spacing">Spacing</h3>
+<p>Put spaces around all infix binary operators (<code>=</code>, <code>+</code>, <code>*</code>, <code>==</code>, <code>&amp;&amp;</code>, <code>&lt;-</code>, <code>%*%</code>, etc.).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>x</span> <span class='op'>==</span> <span class='va'>y</span>
+<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>1</span>
+
+<span class='co'># BAD</span>
+<span class='va'>x</span><span class='op'>==</span><span class='va'>y</span>
+<span class='va'>z</span><span class='op'>&lt;-</span><span class='fl'>2</span><span class='op'>+</span><span class='fl'>1</span>
+</code></pre>
+</div>
+</div>
+<p>Put spaces around <code>=</code> in function calls.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='cn'>NA</span><span class='op'>)</span>, na.rm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Do not place space for subsetting (<code>$</code> and <code>@</code>), namespace manipulation (<code>::</code> and <code>:::</code>), and for sequence generation (<code>:</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>car</span><span class='op'>$</span><span class='va'>cyl</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'>select</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+
+<span class='co'># BAD</span>
+<span class='va'>car</span> <span class='op'>$</span><span class='va'>cyl</span>
+<span class='fu'>dplyr</span><span class='fu'>::</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fl'>1</span><span class='op'>:</span> <span class='fl'>10</span>
+</code></pre>
+</div>
+</div>
+<p>Put a space after a comma.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>mtcars</span><span class='op'>[</span><span class='fl'>1</span>, <span class='op'>]</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='cn'>NA</span>, <span class='fl'>2</span><span class='op'>)</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='va'>mtcars</span><span class='op'>[</span><span class='fl'>1</span> ,<span class='op'>]</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='cn'>NA</span>,<span class='fl'>2</span><span class='op'>)</span>,na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Use a space before left parentheses, except in a function call.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>element</span> <span class='kw'>in</span> <span class='va'>element_list</span><span class='op'>)</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>total</span> <span class='op'>==</span> <span class='fl'>5</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+
+<span class='co'># BAD</span>
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>element</span> <span class='kw'>in</span> <span class='va'>element_list</span><span class='op'>)</span>
+<span class='kw'>if</span><span class='op'>(</span><span class='va'>total</span> <span class='op'>==</span> <span class='fl'>5</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>No spacing around code in parenthesis or square brackets.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>is_true</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"Hello!"</span><span class='op'>)</span>
+<span class='va'>species</span><span class='op'>[</span><span class='st'>"tiger"</span>, <span class='op'>]</span>
+
+<span class='co'># BAD</span>
+<span class='kw'>if</span> <span class='op'>(</span> <span class='va'>is_true</span> <span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"Hello!"</span><span class='op'>)</span>
+<span class='va'>species</span><span class='op'>[</span> <span class='st'>"tiger"</span> ,<span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h3 id="curly-braces">Curly Braces</h3>
+<p>An opening curly brace should never go on its own line and should always be followed by a new line.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># GOOD</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">if</span> (is_true) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="co"># do something</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="cf">if</span> (is_true) {</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="co"># do something</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="co"># do something else</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># BAD</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="cf">if</span> (is_true)</span>
+<span id="cb2-14"><a href="#cb2-14"></a>{</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="co"># do something</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="cf">if</span> (is_true) { <span class="co"># do something }</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="cf">else</span> { <span class="co"># do something else }</span></span></code></pre></div>
+</div>
+<p>A closing curly brace should always go on its own line, unless it’s followed by <code>else</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># GOOD</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="cf">if</span> (is_true) {</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="co"># do something</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="co"># do something else</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co"># BAD</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="cf">if</span> (is_true) {</span>
+<span id="cb3-10"><a href="#cb3-10"></a>  <span class="co"># do something</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>}</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="cf">else</span> {</span>
+<span id="cb3-13"><a href="#cb3-13"></a>  <span class="co"># do something else</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>}</span></code></pre></div>
+</div>
+<p>Always indent the code inside curly braces.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>is_true</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># do something</span>
+  <span class='co'># and then something else</span>
+<span class='op'>}</span>
+
+<span class='co'># BAD</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>is_true</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># do something</span>
+  <span class='co'># and then something else</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>Curly braces and new lines can be avoided, if a statement after <code>if</code> is very short.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># OK</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>is_true</span><span class='op'>)</span> <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="indentation">Indentation</h3>
+<p>Do not use tabs or mixes of tabs and spaces for indentation.</p>
+<p>Use two spaces for indentation.</p>
+<h3 id="new-line">New Line</h3>
+<p>In a function definition or call excessive arguments must be indented where the closing parenthesis is located, if only two lines are sufficient.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>long_function_name</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>arg1</span>, <span class='va'>arg2</span>, <span class='va'>arg3</span>, <span class='va'>arg4</span>,
+                               <span class='va'>long_argument_name1</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"h"</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, lwd <span class='op'>=</span> <span class='fl'>10</span>,
+     main <span class='op'>=</span> <span class='st'>"rpois(100, lambda = 5)"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Otherwise, each argument can go into a separate line, starting with a new line after the opening parenthesis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='va'>long_function_name</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>long_argument_name1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"value1"</span>, <span class='st'>"value2"</span><span class='op'>)</span>,
+                               <span class='va'>long_argument_name2</span> <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                               <span class='va'>long_argument_name3</span> <span class='op'>=</span> <span class='cn'>NULL</span>,
+                               <span class='va'>long_argument_name4</span> <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+  mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  sd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  var <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  min <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+  median <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>If the condition in <code>if</code> statement expands into several lines, than each condition must end with a logical operator, NOT start with it.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># GOOD</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="cf">if</span> (some_very_long_name_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st">    </span>some_very_long_name_<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">||</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">    </span>some_very_long_name_<span class="dv">3</span> <span class="op">%in%</span><span class="st"> </span>some_very_long_name_<span class="dv">4</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># BAD</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="cf">if</span> (some_very_long_name_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="op">&amp;&amp;</span><span class="st"> </span>some_very_long_name_<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="op">||</span><span class="st"> </span>some_very_long_name_<span class="dv">3</span> <span class="op">%in%</span><span class="st"> </span>some_very_long_name_<span class="dv">4</span>)</span></code></pre></div>
+</div>
+<p>If the statement, which contains operators, expands into several lines, then each line should end with an operator and not begin with it.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># GOOD</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>normal_pdf &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>d_sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span>) <span class="op">*</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span><span class="kw">exp</span>(<span class="op">-</span>(x <span class="op">-</span><span class="st"> </span>d_mean) <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>s <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># BAD</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>normal_pdf &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>d_sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(x <span class="op">-</span><span class="st"> </span>d_mean) <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>d_sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
+</div>
+<p>Each grammar statement of <code>dplyr</code> (after <code>%&gt;%</code>) and <code>ggplot2</code> (after <code>+</code>) should start with a new line.</p>
+<h2 id="commenting">Commenting</h2>
+<p>Comments start with <code>#</code> followed by space and text of the comment.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This is a comment.</span>
+</code></pre>
+</div>
+</div>
+<p>Comments should explain the why, not the what. Comments should explain the overall intention of the command.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># GOOD</span>
+<span class='co'># define iterator</span>
+<span class='va'>i</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+
+<span class='co'># BAD</span>
+<span class='co'># set i to 1</span>
+<span class='va'>i</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+</code></pre>
+</div>
+</div>
+<p>Short comments can be placed on the same line of the code.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>price</span>, <span class='va'>weight</span><span class='op'>)</span> <span class='co'># Plot a scatter chart of price and weight</span>
+</code></pre>
+</div>
+</div>
+<p>It makes sense to split the source into logical chunks by <code>#</code> followed by <code>-</code> or <code>=</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Read data -------------------------------------------------------------</span>
+
+<span class='co'># Clean data ------------------------------------------------------------</span>
+</code></pre>
+</div>
+</div>
+<p>Function and object descriptions should adhere to <a href="https://roxygen2.r-lib.org/"><strong>roxygen2</strong></a> guidelines.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#' Add Together Two Numbers</span>
+<span class='co'>#'</span>
+<span class='co'>#' @param x A number.</span>
+<span class='co'>#' @param y A number.</span>
+<span class='co'>#' @return The sum of x and y.</span>
+<span class='co'>#' @examples</span>
+<span class='co'>#' add(1, 1)</span>
+<span class='co'>#' add(10, 1)</span>
+<span class='va'>add</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># general comment</span>
+  <span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span> <span class='co'># inline comment</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
 <h2 id="attribution" class="appendix">Attribution</h2>
-<p>This contributing guide is adapted from the <a href="https://raw.githubusercontent.com/r-lib/usethis/master/inst/templates/tidy-contributing.md">tidyverse contributing guide</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This coding style is derived from the <a href="https://style.tidyverse.org">tidyverse style guide</a>, the <a href="https://devguide.ropensci.org">rOpenSci Packages book</a> and Iegor Rudnytskyi’s <a href="https://irudnyts.github.io/r-coding-style-guide/">R Coding Style Guide</a>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

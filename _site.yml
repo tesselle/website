@@ -25,7 +25,13 @@ navbar:
     - text: "Apps"
       href: apps.html
     - text: "Contributing"
-      href: contributing.html
+      menu:
+        - text: "Guidelines"
+          href: contributing.html
+        - text: "Coding Style"
+          href: style.html
+        - text: "Code of Conduct"
+          href: conduct.html
     - text: "About"
       href: about.html
     - icon: fa fa-rss

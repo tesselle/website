@@ -98,6 +98,16 @@ Browse the documentation on [packages.tesselle.org](https://packages.tesselle.or
 [![CRAN Version](http://www.r-pkg.org/badges/version/folio)](https://cran.r-project.org/package=folio)
 </aside>
 
+### fasti
+
+Datasets for chronological modelling. This package provides models and data to reproduce results from [**chronos**](#chronos) examples and vignettes. [Read the doc...](https://packages.tesselle.org/fasti/)
+
+<aside>
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
+[![R-universe Version](https://tesselle.r-universe.dev/badges/fasti)](https://tesselle.r-universe.dev)
+</aside>
+
 ## Others
 ### arkhe
 

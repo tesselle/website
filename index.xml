@@ -12,7 +12,18 @@
       <link>https://www.tesselle.org</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>kairos 1.1.0</title>
+      <dc:creator>Nicolas Frerebeau</dc:creator>
+      <link>https://www.tesselle.org/posts/2022-06-18-kairos-110</link>
+      <description>Archaeological seriation of abundance matrices.</description>
+      <category>packages</category>
+      <category>releases</category>
+      <guid>https://www.tesselle.org/posts/2022-06-18-kairos-110</guid>
+      <pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.tesselle.org/posts/2022-06-18-kairos-110/kairos-110_files/figure-html5/ca-permuted-1.png" medium="image" type="image/png" width="2304" height="1344"/>
+    </item>
     <item>
       <title>kairos 1.0.0</title>
       <dc:creator>Nicolas Frerebeau</dc:creator>

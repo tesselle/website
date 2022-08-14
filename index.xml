@@ -1,49 +1,437 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:distill="https://distill.pub/journal/" version="2.0">
-  <channel>
-    <title>tesselle</title>
-    <link>https://www.tesselle.org</link>
-    <atom:link href="https://www.tesselle.org/index.xml" rel="self" type="application/rss+xml"/>
-    <description>A collection of R packages for research and teaching in archaeology.
-</description>
-    <image>
-      <title>tesselle</title>
-      <url>https://www.tesselle.org/images/icons/favicon.ico</url>
-      <link>https://www.tesselle.org</link>
-    </image>
-    <generator>Distill</generator>
-    <lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>kairos 1.1.0</title>
-      <dc:creator>Nicolas Frerebeau</dc:creator>
-      <link>https://www.tesselle.org/posts/2022-06-18-kairos-110</link>
-      <description>Archaeological seriation of abundance matrices.</description>
-      <category>packages</category>
-      <category>releases</category>
-      <guid>https://www.tesselle.org/posts/2022-06-18-kairos-110</guid>
-      <pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate>
-      <media:content url="https://www.tesselle.org/posts/2022-06-18-kairos-110/kairos-110_files/figure-html5/ca-permuted-1.png" medium="image" type="image/png" width="2304" height="1344"/>
-    </item>
-    <item>
-      <title>kairos 1.0.0</title>
-      <dc:creator>Nicolas Frerebeau</dc:creator>
-      <link>https://www.tesselle.org/posts/2021-11-10-kairos-100</link>
-      <description>Analysis of Chronological Patterns from Archaeological Count Data.</description>
-      <category>packages</category>
-      <category>releases</category>
-      <guid>https://www.tesselle.org/posts/2021-11-10-kairos-100</guid>
-      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://www.tesselle.org/posts/2021-11-10-kairos-100/kairos-100_files/figure-html5/event-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>The tesselle universe</title>
-      <dc:creator>Nicolas Frerebeau</dc:creator>
-      <link>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</link>
-      <description>Install tesselle packages from our CRAN-like repository on R-universe.</description>
-      <category>packages</category>
-      <guid>https://www.tesselle.org/posts/2021-08-15-tesselle-universe</guid>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://www.tesselle.org/posts/2021-08-15-tesselle-universe/runiverse.png" medium="image" type="image/png" width="397" height="129"/>
-    </item>
-  </channel>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>tesselle</title>
+<link>https://www.tesselle.org/index.html</link>
+<atom:link href="https://www.tesselle.org/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<image>
+<url>https://www.tesselle.org/images/tesselle.png</url>
+<title>tesselle</title>
+<link>https://www.tesselle.org/index.html</link>
+<height>167</height>
+<width>144</width>
+</image>
+<generator>quarto-1.0.38</generator>
+<lastBuildDate>Sat, 18 Jun 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>kairos 1.1.0</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://packages.tesselle.org/kairos/">kairos</a> 1.1.0 is now on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! kairos is a toolkit for the analysis of chronological patterns from archaeological count data.</p>
+<p>You can install it from CRAN with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"kairos"</span>)</span></code></pre></div>
+</div>
+<p>The range of tools provided by kairos is now extended by two methods for matrix seriation, allowing the construction of relative chronologies:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The move to add these matrix seriation methods, previously implemented in <a href="https://packages.tesselle.org/tabula/">tabula</a>, follows a reorganization for consistency so that we no longer have chronology tools in two separate packages. This implies that the seriation methods are temporarily re-exported by tabula from kairos and will be removed in a future version of tabula.</p>
+</div></div><ul>
+<li>Reciprocal ranking: <code>seriate_rank()</code></li>
+<li>Correspondence analysis: <code>seriate_average()</code></li>
+</ul>
+<p>The <code>seriate_*()</code> methods return a permutation of the rows and columns (according to the <code>margin</code> argument) of a count data <code>matrix</code> or <code>data.frame</code>. Then, <code>permute()</code> performs the reordering.</p>
+<p>This post briefly illustrates how to perform a correspondence analysis based seriation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(kairos)</span></code></pre></div>
+</div>
+<p>Correspondence Analysis (CA) is an effective method for the seriation of archaeological assemblages. The order of the rows and columns is given by the coordinates along one dimension of the CA space, assumed to account for temporal variation. The direction of temporal change within the correspondence analysis space is arbitrary: additional information is needed to determine the actual order in time.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Load the zuni dataset</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;"># install.packages("folio")</span></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;">data</span>(<span class="st" style="color: #20794D;">"zuni"</span>, <span class="at" style="color: #657422;">package =</span> <span class="st" style="color: #20794D;">"folio"</span>)</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot the original matrix</span></span>
+<span id="cb3-6">tabula<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">plot_ford</span>(zuni) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb3-7">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">axis.text.y =</span> ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">element_blank</span>())</span></code></pre></div>
+<div class="cell-output-display column-page">
+<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/ford-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Get row and column permutations from CA coordinates along the first axis</span></span>
+<span id="cb4-2">indices <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">seriate_average</span>(zuni, <span class="at" style="color: #657422;">margin =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>), <span class="at" style="color: #657422;">axes =</span> <span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;">get_order</span>(indices)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$rows
+  [1] 372 387 350 367 110 417 364 407 357 160 373 406 356 344 348 384 362 378
+ [19] 339 383 376 386 338 419 416 408 377 392 347 371 374 351 353 402 366 375
+ [37] 397 363 109 395 400 389 420 155 381 412 178 382 415 368 404 172 385 361
+ [55] 126 352 354 360 358 343 182 414 342  86  94 403  93 410 413 396 379 388
+ [73] 401 108 345 176 341 315 399 113 314 369  98 321 112 179 323  87 411 365
+ [91] 316 359 197 115 370 253 104 289 320 174 390 327 409 332 317 391 103 355
+[109]  37 418 322 318 398 194 329 335 334 325 331 326 319 394 328 156  47 100
+[127] 147 173 349 290 333 340  99 153  32  88 330 157 142  38 223  17  27 405
+[145] 336  26 242 116 256 159 184 158 163 255 121  83 162  96 324 148 198 228
+[163] 232  97 243  40 250 150 165  31 154  35 169   1 171  54  53 229   3 263
+[181] 224 247 175 164 137 246 240  39 225 212  84 238 299 230  80   9  46   2
+[199]  85 257   7 234 278 233 199 111 183  29 141  57 196  92  42 166  28  22
+[217] 101 380 279 283  24  45 151  68  89  41   8 144 209  61 226 239  49  52
+[235] 145 248 119  82 149   5  43  48 252 210 227 245  75 152 193  77 102  74
+[253] 277 237 211  73 241 222  66 249 107 292 273 130 217 208 118 117  58 393
+[271]  95 251 190  65 213 244 143 204  67  64  44 132 301 136 270 177 114   4
+[289]  18 287 139  91  51 195 161 236 309 131 189 201 268 180 205 135  79 187
+[307]  50 146 168 266 259  62  76  81 106 235 294 214 207 105 303 254  90 185
+[325] 203  15 202 281 286  14 124 272 282 284  33 140 291 271 128 127 129 167
+[343] 313 170 337 285 133 298 261 125  55 346  12  63 262 295 191 310  13  70
+[361] 264 219 134  71 138 258 188 216 192 312 300 296 260  72 269  36  69 288
+[379]  23   6 267 280  34 302  30 181 308 123 122 304 311 186  19 218 306  10
+[397] 307 200 215 120 274 305 293 206 221 276  56  21  25  78 220 231 275 297
+[415]  20  59  60  16 265  11
+
+$columns
+ [1] 18 14 17 16 13 15  9  8 12 11  6  7  5 10  4  2  3  1</code></pre>
+</div>
+</div>
+<p><code>seriate_average()</code> also contains the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/">dimensio</a> to explore these results:</p>
+<div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot CA row coordinates (get a nice arch effect!)</span></span>
+<span id="cb6-2">dimensio<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">plot_rows</span>(indices) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span>
+<span id="cb6-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot column contributions to the first two axes</span></span>
+<span id="cb6-6">dimensio<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">plot_contributions</span>(indices, <span class="at" style="color: #657422;">margin =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">axes =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb6-7">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>()</span></code></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/correspondence-analysis-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/correspondence-analysis-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p>If the results of the correspondence analysis are satisfactory, we can then permute the rows and columns of the initial data matrix:</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Permute rows and columns</span></span>
+<span id="cb7-2">permuted <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">permute</span>(zuni, indices)</span>
+<span id="cb7-3"></span>
+<span id="cb7-4"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot permuted matrix</span></span>
+<span id="cb7-5">tabula<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">plot_ford</span>(permuted) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb7-6">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">axis.text.y =</span> ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">element_blank</span>())</span></code></pre></div>
+<div class="cell-output-display column-page">
+<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/thumbnail-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
+  author = {Nicolas Frerebeau},
+  title = {Kairos 1.1.0},
+  date = {2022-06-18},
+  url = {https://www.tesselle.org/posts/2022-06-18-kairos-110},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2022" class="csl-entry quarto-appendix-citeas">
+Nicolas Frerebeau. 2022. <span>“Kairos 1.1.0.”</span> June 18, 2022. <a href="https://www.tesselle.org/posts/2022-06-18-kairos-110">https://www.tesselle.org/posts/2022-06-18-kairos-110</a>.
+</div></div></section></div> ]]></description>
+  <category>packages</category>
+  <category>releases</category>
+  <guid>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</guid>
+  <pubDate>Sat, 18 Jun 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>kairos 1.0.0</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>We are delighted to announce that <a href="https://packages.tesselle.org/kairos/">kairos</a> 1.0.0 has just landed on on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! kairos is a toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site.</p>
+<p>You can install it from CRAN with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"kairos"</span>)</span></code></pre></div>
+</div>
+<p>This first release includes:</p>
+<ul>
+<li>Mean ceramic date estimation <span class="citation" data-cites="south1977">(South 1977)</span> with <a href="https://packages.tesselle.org/kairos/reference/mcd.html"><code>mcd()</code></a></li>
+<li>Event and accumulation date estimation <span class="citation" data-cites="bellanger2012">(Bellanger and Husi 2012)</span> with <a href="https://packages.tesselle.org/kairos/reference/event.html"><code>event()</code></a></li>
+<li>Aoristic analysis <span class="citation" data-cites="ratcliffe2000">(Ratcliffe 2000)</span> with <a href="https://packages.tesselle.org/kairos/reference/aoristic.html"><code>aoristic()</code></a></li>
+<li>Chronological apportioning <span class="citation" data-cites="roberts2012">(Roberts et al. 2012)</span> with <a href="https://packages.tesselle.org/kairos/reference/apportion.html"><code>apportion()</code></a></li>
+</ul>
+<p>This post highlights the basics of the package using the <a href="https://packages.tesselle.org/folio/reference/zuni.html"><code>zuni</code></a> dataset <span class="citation" data-cites="peeples2012">(Peeples and Schachner 2012)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(kairos)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Load the zuni dataset</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;"># install.packages("folio")</span></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;">data</span>(<span class="st" style="color: #20794D;">"zuni"</span>, <span class="at" style="color: #657422;">package =</span> <span class="st" style="color: #20794D;">"folio"</span>)</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Coerce the zuni dataset to an abundance (count) matrix</span></span>
+<span id="cb3-6">zuni_counts <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as_count</span>(zuni)</span>
+<span id="cb3-7"></span>
+<span id="cb3-8"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Set the start and end dates for each ceramic type</span></span>
+<span id="cb3-9">zuni_dates <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">list</span>(</span>
+<span id="cb3-10">  <span class="at" style="color: #657422;">LINO =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">600</span>, <span class="dv" style="color: #AD0000;">875</span>), <span class="at" style="color: #657422;">KIAT =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">850</span>, <span class="dv" style="color: #AD0000;">950</span>), <span class="at" style="color: #657422;">RED =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">900</span>, <span class="dv" style="color: #AD0000;">1050</span>), </span>
+<span id="cb3-11">  <span class="at" style="color: #657422;">GALL =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1025</span>, <span class="dv" style="color: #AD0000;">1125</span>), <span class="at" style="color: #657422;">ESC =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1050</span>, <span class="dv" style="color: #AD0000;">1150</span>), <span class="at" style="color: #657422;">PUBW =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1050</span>, <span class="dv" style="color: #AD0000;">1150</span>),</span>
+<span id="cb3-12">  <span class="at" style="color: #657422;">RES =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1000</span>, <span class="dv" style="color: #AD0000;">1200</span>), <span class="at" style="color: #657422;">TULA =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1175</span>, <span class="dv" style="color: #AD0000;">1300</span>), <span class="at" style="color: #657422;">PINE =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1275</span>, <span class="dv" style="color: #AD0000;">1350</span>),</span>
+<span id="cb3-13">  <span class="at" style="color: #657422;">PUBR =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1000</span>, <span class="dv" style="color: #AD0000;">1200</span>), <span class="at" style="color: #657422;">WING =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1100</span>, <span class="dv" style="color: #AD0000;">1200</span>), <span class="at" style="color: #657422;">WIPO =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1125</span>, <span class="dv" style="color: #AD0000;">1225</span>),</span>
+<span id="cb3-14">  <span class="at" style="color: #657422;">SJ =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1200</span>, <span class="dv" style="color: #AD0000;">1300</span>), <span class="at" style="color: #657422;">LSJ =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1250</span>, <span class="dv" style="color: #AD0000;">1300</span>), <span class="at" style="color: #657422;">SPR =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1250</span>, <span class="dv" style="color: #AD0000;">1300</span>),</span>
+<span id="cb3-15">  <span class="at" style="color: #657422;">PINER =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1275</span>, <span class="dv" style="color: #AD0000;">1325</span>), <span class="at" style="color: #657422;">HESH =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1275</span>, <span class="dv" style="color: #AD0000;">1450</span>), <span class="at" style="color: #657422;">KWAK =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1275</span>, <span class="dv" style="color: #AD0000;">1450</span>)</span>
+<span id="cb3-16">)</span></code></pre></div>
+</div>
+<section id="mean-ceramic-date" class="level2">
+<h2 class="anchored" data-anchor-id="mean-ceramic-date">Mean Ceramic Date</h2>
+<p>The Mean Ceramic Date (MCD) is a point estimate of the occupation of an archaeological site <span class="citation" data-cites="south1977">(South 1977)</span>. The MCD is estimated as the weighted mean of the date midpoints of the ceramic types found in a given assemblage. The weights are the conditional frequencies of the respective types in the assemblage.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Calculate date midpoint for each ceramic type</span></span>
+<span id="cb4-2">zuni_mid <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">vapply</span>(<span class="at" style="color: #657422;">X =</span> zuni_dates, <span class="at" style="color: #657422;">FUN =</span> mean, <span class="at" style="color: #657422;">FUN.VALUE =</span> <span class="fu" style="color: #4758AB;">numeric</span>(<span class="dv" style="color: #AD0000;">1</span>))</span>
+<span id="cb4-3"></span>
+<span id="cb4-4"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Calculate MCD</span></span>
+<span id="cb4-5">zuni_mcd <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">mcd</span>(zuni_counts, <span class="at" style="color: #657422;">dates =</span> zuni_mid)</span>
+<span id="cb4-6"><span class="fu" style="color: #4758AB;">head</span>(zuni_mcd)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LZ1105 LZ1103 LZ1100 LZ1099 LZ1097 LZ1096 
+  1162   1138   1154   1091   1092    841 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Assess the sampling error</span></span>
+<span id="cb6-2">zuni_boot <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">bootstrap</span>(zuni_mcd, <span class="at" style="color: #657422;">level =</span> <span class="fl" style="color: #AD0000;">0.95</span>, <span class="at" style="color: #657422;">probs =</span> <span class="cn" style="color: #8f5902;">NULL</span>)</span>
+<span id="cb6-3"><span class="fu" style="color: #4758AB;">head</span>(zuni_boot)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        min     mean  max     lower     upper
+LZ1105 1109 1162.828 1219 1161.7533 1163.9027
+LZ1103 1025 1137.285 1220 1135.6594 1138.9106
+LZ1100 1058 1155.771 1242 1153.9587 1157.5833
+LZ1099 1078 1090.898 1100 1090.6298 1091.1662
+LZ1097  892 1090.068 1212 1086.7483 1093.3877
+LZ1096  738  842.526 1048  838.4936  846.5584</code></pre>
+</div>
+</div>
+</section>
+<section id="event-and-accumulation-date" class="level2">
+<h2 class="anchored" data-anchor-id="event-and-accumulation-date">Event and Accumulation Date</h2>
+<p>Event and accumulation dates are density estimates of the occupation and duration of an archaeological site <span class="citation" data-cites="bellanger2012">(Bellanger and Husi 2012)</span>. The event date is an estimation of the <em>terminus post-quem</em> of an archaeological assemblage. The accumulation date represents the “chronological profile” of the assemblage.</p>
+<p>Event dates are estimated by fitting a Gaussian multiple linear regression model on the factors resulting from a correspondence analysis. This model results from the known dates of a selection of reliable contexts and allows to predict the event dates of the remaining assemblages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Assume that some assemblages are reliably dated </span></span>
+<span id="cb8-2"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## (this is NOT a real example)</span></span>
+<span id="cb8-3">zuni_dates <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(</span>
+<span id="cb8-4">  <span class="at" style="color: #657422;">LZ0569 =</span> <span class="dv" style="color: #AD0000;">1097</span>, <span class="at" style="color: #657422;">LZ0279 =</span> <span class="dv" style="color: #AD0000;">1119</span>, <span class="at" style="color: #657422;">CS16 =</span> <span class="dv" style="color: #AD0000;">1328</span>, <span class="at" style="color: #657422;">LZ0066 =</span> <span class="dv" style="color: #AD0000;">1111</span>,</span>
+<span id="cb8-5">  <span class="at" style="color: #657422;">LZ0852 =</span> <span class="dv" style="color: #AD0000;">1216</span>, <span class="at" style="color: #657422;">LZ1209 =</span> <span class="dv" style="color: #AD0000;">1251</span>, <span class="at" style="color: #657422;">CS144 =</span> <span class="dv" style="color: #AD0000;">1262</span>, <span class="at" style="color: #657422;">LZ0563 =</span> <span class="dv" style="color: #AD0000;">1206</span>,</span>
+<span id="cb8-6">  <span class="at" style="color: #657422;">LZ0329 =</span> <span class="dv" style="color: #AD0000;">1076</span>, <span class="at" style="color: #657422;">LZ0005Q =</span> <span class="dv" style="color: #AD0000;">859</span>, <span class="at" style="color: #657422;">LZ0322 =</span> <span class="dv" style="color: #AD0000;">1109</span>, <span class="at" style="color: #657422;">LZ0067 =</span> <span class="dv" style="color: #AD0000;">863</span>,</span>
+<span id="cb8-7">  <span class="at" style="color: #657422;">LZ0578 =</span> <span class="dv" style="color: #AD0000;">1180</span>, <span class="at" style="color: #657422;">LZ0227 =</span> <span class="dv" style="color: #AD0000;">1104</span>, <span class="at" style="color: #657422;">LZ0610 =</span> <span class="dv" style="color: #AD0000;">1074</span></span>
+<span id="cb8-8">)</span>
+<span id="cb8-9"></span>
+<span id="cb8-10"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Model the event and accumulation date for each assemblage</span></span>
+<span id="cb8-11">model <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">event</span>(zuni_counts, <span class="at" style="color: #657422;">dates =</span> zuni_dates, <span class="at" style="color: #657422;">cutoff =</span> <span class="dv" style="color: #AD0000;">90</span>)</span>
+<span id="cb8-12"></span>
+<span id="cb8-13"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Estimate the event date of the assemblages</span></span>
+<span id="cb8-14">zuni_event <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">predict_event</span>(model, <span class="at" style="color: #657422;">margin =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">level =</span> <span class="fl" style="color: #AD0000;">0.95</span>)</span>
+<span id="cb8-15"><span class="fu" style="color: #4758AB;">head</span>(zuni_event)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       date lower upper error
+LZ1105 1168  1158  1178     4
+LZ1103 1143  1139  1147     1
+LZ1100 1156  1148  1164     3
+LZ1099 1099  1092  1106     3
+LZ1097 1088  1080  1097     3
+LZ1096  839   829   849     4</code></pre>
+</div>
+</div>
+<p>The accumulation date is defined as the weighted mean of the event date of the ceramic types found in a given assemblage. The weights are the conditional frequencies of the respective types in the assemblage.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Estimate accumulation dates</span></span>
+<span id="cb10-2">zuni_acc <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">predict_accumulation</span>(model)</span>
+<span id="cb10-3"><span class="fu" style="color: #4758AB;">head</span>(zuni_acc)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LZ1105 LZ1103 LZ1100 LZ1099 LZ1097 LZ1096 
+  1170   1140   1158   1087   1092    875 </code></pre>
+</div>
+</div>
+<p>Event and accumulation dates can be displayed as density curves <span class="citation" data-cites="bellanger2012">(see Bellanger and Husi 2012 for the interpretation of the curves)</span>. The probability density of the event date can be approximated by a normal distribution, while the accumulation time can be estimated by a Gaussian mixture. The distribution function of the accumulation time is quite close to the definition of the <em>tempo plot</em> introduced by <span class="citation" data-cites="dye2016">Dye (2016)</span>: an estimates of the cumulative occurrence of archaeological events.</p>
+<div>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Activity plot</span></span>
+<span id="cb12-2"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## The event date is plotted as a line</span></span>
+<span id="cb12-3"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## The accumulation time is shown as a grey filled area</span></span>
+<span id="cb12-4"><span class="fu" style="color: #4758AB;">plot</span>(model, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"activity"</span>, <span class="at" style="color: #657422;">event =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">select =</span> <span class="st" style="color: #20794D;">"LZ1105"</span>)</span>
+<span id="cb12-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Tempo plot</span></span>
+<span id="cb12-6"><span class="fu" style="color: #4758AB;">plot</span>(model, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"tempo"</span>, <span class="at" style="color: #657422;">select =</span> <span class="st" style="color: #20794D;">"LZ1105"</span>)</span></code></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/thumbnail-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/thumbnail-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aoristic-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="aoristic-analysis">Aoristic Analysis</h2>
+<p>Aoristic analysis <span class="citation" data-cites="ratcliffe2000">(Ratcliffe 2000)</span> can be used to determine the probability of contemporaneity of archaeological sites or assemblages. The aoristic analysis distributes the probability of an event uniformly over each temporal fraction of the period considered. The aoristic sum is then the distribution of the total number of events to be assumed within this period.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Keep only assemblages that have a sample size of at least 10</span></span>
+<span id="cb13-2">zuni_keep <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(<span class="at" style="color: #657422;">X =</span> zuni, <span class="at" style="color: #657422;">MARGIN =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">FUN =</span> <span class="cf" style="color: #003B4F;">function</span>(x) <span class="fu" style="color: #4758AB;">sum</span>(x) <span class="sc" style="color: #5E5E5E;">&gt;=</span> <span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb13-3"></span>
+<span id="cb13-4"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Calculate date ranges for each assemblage</span></span>
+<span id="cb13-5">zuni_span <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">apply</span>(</span>
+<span id="cb13-6">  <span class="at" style="color: #657422;">X =</span> zuni[zuni_keep, ],</span>
+<span id="cb13-7">  <span class="at" style="color: #657422;">FUN =</span> <span class="cf" style="color: #003B4F;">function</span>(x, dates) <span class="fu" style="color: #4758AB;">range</span>(<span class="fu" style="color: #4758AB;">unlist</span>(dates[x <span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="dv" style="color: #AD0000;">0</span>])),</span>
+<span id="cb13-8">  <span class="at" style="color: #657422;">MARGIN =</span> <span class="dv" style="color: #AD0000;">1</span>,</span>
+<span id="cb13-9">  <span class="at" style="color: #657422;">dates =</span> zuni_dates</span>
+<span id="cb13-10">)</span>
+<span id="cb13-11"></span>
+<span id="cb13-12"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Coerce to a data.frame</span></span>
+<span id="cb13-13">zuni_span <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.data.frame</span>(<span class="fu" style="color: #4758AB;">t</span>(zuni_span))</span>
+<span id="cb13-14"><span class="fu" style="color: #4758AB;">names</span>(zuni_span) <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"from"</span>, <span class="st" style="color: #20794D;">"to"</span>)</span>
+<span id="cb13-15"></span>
+<span id="cb13-16"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Calculate aoristic sum (weights)</span></span>
+<span id="cb13-17">aorist_weigth <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">aoristic</span>(zuni_span, <span class="at" style="color: #657422;">step =</span> <span class="dv" style="color: #AD0000;">50</span>, <span class="at" style="color: #657422;">weight =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb13-18"><span class="fu" style="color: #4758AB;">plot</span>(aorist_weigth)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/aoristic-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Rate of change</span></span>
+<span id="cb14-2">roc_weigth <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">roc</span>(aorist_weigth, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">30</span>)</span>
+<span id="cb14-3"><span class="fu" style="color: #4758AB;">plot</span>(roc_weigth)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/roc-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bellanger2012" class="csl-entry">
+Bellanger, Lise, and Philippe Husi. 2012. <span>“Statistical <span>Tool</span> for <span>Dating</span> and <span>Interpreting</span> <span>Archaeological</span> <span>Contexts</span> <span>Using</span> <span>Pottery</span>.”</span> <em>Journal of Archaeological Science</em> 39 (4): 777–90. <a href="https://doi.org/10.1016/j.jas.2011.06.031">https://doi.org/10.1016/j.jas.2011.06.031</a>.
+</div>
+<div id="ref-dye2016" class="csl-entry">
+Dye, Thomas S. 2016. <span>“Long-<span>Term</span> <span>Rhythms</span> in the <span>Development</span> of <span>Hawaiian</span> <span>Social</span> <span>Stratification</span>.”</span> <em>Journal of Archaeological Science</em> 71 (July): 1–9. <a href="https://doi.org/10.1016/j.jas.2016.05.006">https://doi.org/10.1016/j.jas.2016.05.006</a>.
+</div>
+<div id="ref-peeples2012" class="csl-entry">
+Peeples, Matthew A., and Gregson Schachner. 2012. <span>“Refining Correspondence Analysis-Based Ceramic Seriation of Regional Data Sets.”</span> <em>Journal of Archaeological Science</em> 39 (8): 2818–27. <a href="https://doi.org/10.1016/j.jas.2012.04.040">https://doi.org/10.1016/j.jas.2012.04.040</a>.
+</div>
+<div id="ref-ratcliffe2000" class="csl-entry">
+Ratcliffe, Jerry H. 2000. <span>“Aoristic Analysis: The Spatial Interpretation of Unspecific Temporal Events.”</span> <em>International Journal of Geographical Information Science</em> 14 (7): 669–79. <a href="https://doi.org/10.1080/136588100424963">https://doi.org/10.1080/136588100424963</a>.
+</div>
+<div id="ref-roberts2012" class="csl-entry">
+Roberts, John M., Barbara J. Mills, Jeffery J. Clark, W. Randall Haas, Deborah L. Huntley, and Meaghan A. Trowbridge. 2012. <span>“A Method for Chronological Apportioning of Ceramic Assemblages.”</span> <em>Journal of Archaeological Science</em> 39 (5): 1513–20. <a href="https://doi.org/10.1016/j.jas.2011.12.022">https://doi.org/10.1016/j.jas.2011.12.022</a>.
+</div>
+<div id="ref-south1977" class="csl-entry">
+South, S. A. 1977. <em>Method and <span>Theory</span> in <span>Historical</span> <span>Archaeology</span></em>. Studies in Archeology. New York: Academic Press.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2021,
+  author = {Nicolas Frerebeau},
+  title = {Kairos 1.0.0},
+  date = {2021-11-10},
+  url = {https://www.tesselle.org/posts/2021-11-10-kairos-100},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2021" class="csl-entry quarto-appendix-citeas">
+Nicolas Frerebeau. 2021. <span>“Kairos 1.0.0.”</span> November 10, 2021.
+<a href="https://www.tesselle.org/posts/2021-11-10-kairos-100">https://www.tesselle.org/posts/2021-11-10-kairos-100</a>.
+</div></div></section></div> ]]></description>
+  <category>packages</category>
+  <category>releases</category>
+  <guid>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</guid>
+  <pubDate>Wed, 10 Nov 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The tesselle universe</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Most of the R packages of the <strong>tesselle</strong> project are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> when they reach an acceptable level of maturity. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org">remotes</a> :</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Install the development version from GitHub</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"remotes"</span>)</span>
+<span id="cb1-3">remotes<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">install_github</span>(<span class="st" style="color: #20794D;">"tesselle/tabula"</span>)</span></code></pre></div>
+<p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <strong>tesselle</strong> now has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g.&nbsp;<a href="https://www.repostatus.org/#wip"><abbr title="work-in-progress">WIP</abbr></a> packages and large data packages).</p>
+<section id="download-tesselle-packages" class="level2">
+<h2 class="anchored" data-anchor-id="download-tesselle-packages">Download tesselle packages</h2>
+<p>If you want to install a package from the <a href="https://tesselle.r-universe.dev">tesselle universe</a>, simply use <code>install.packages()</code> with the additional repository:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Install a package from the 'tesselle' universe</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"tabula"</span>, <span class="at" style="color: #657422;">repos =</span> <span class="st" style="color: #20794D;">"https://tesselle.r-universe.dev"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Enable the repository globally</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;">options</span>(<span class="at" style="color: #657422;">repos =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="at" style="color: #657422;">tesselle =</span> <span class="st" style="color: #20794D;">"https://tesselle.r-universe.dev"</span>,</span>
+<span id="cb3-3">                  <span class="at" style="color: #657422;">CRAN =</span> <span class="st" style="color: #20794D;">"https://cloud.r-project.org"</span>))</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Install some packages</span></span>
+<span id="cb3-6"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"tabula"</span>, <span class="st" style="color: #20794D;">"kairos"</span>))</span></code></pre></div>
+</section>
+<section id="use-the-repository" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-repository">Use the repository</h2>
+<p>You can use this repository in your R package (if available, <abbr title="Comprehensive R Archive Network">CRAN</abbr> releases must be regarded as the preferred source). To do so, prepare the <code>DESCRIPTION</code> file of your R package:</p>
+<ul>
+<li>List the package under <code>Suggests:</code></li>
+<li>Add the line <code>Additional_repositories: https://tesselle.r-universe.dev</code></li>
+<li>Test your package with <code>R CMD check --as-cran</code></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2021,
+  author = {Nicolas Frerebeau},
+  title = {The Tesselle Universe},
+  date = {2021-08-15},
+  url = {https://www.tesselle.org/posts/2021-08-15-tesselle-universe},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2021" class="csl-entry quarto-appendix-citeas">
+Nicolas Frerebeau. 2021. <span>“The Tesselle Universe.”</span> August
+15, 2021. <a href="https://www.tesselle.org/posts/2021-08-15-tesselle-universe">https://www.tesselle.org/posts/2021-08-15-tesselle-universe</a>.
+</div></div></section></div> ]]></description>
+  <category>packages</category>
+  <guid>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</guid>
+  <pubDate>Sun, 15 Aug 2021 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2021-08-15-tesselle-universe/runiverse.png" medium="image" type="image/png" height="47" width="144"/>
+</item>
+</channel>
 </rss>

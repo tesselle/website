@@ -1,0 +1,51 @@
+---
+title: "The tesselle universe"
+subtitle: "Install tesselle packages from our CRAN-like repository on R-universe"
+slug: tesselle-universe
+categories:
+  - packages
+image: runiverse.png
+author:
+  - name: Nicolas Frerebeau
+    url: https://www.archaeo.science
+    affiliation: CREAP (UAR 3414)
+    affiliation_url: https://mshs.univ-toulouse.fr
+    orcid: 0000-0001-5759-4944
+date: 2021-08-15
+---
+
+Most of the R packages of the **tesselle** project are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/) when they reach an acceptable level of maturity. Development versions can be installed from [GitHub](https://github.com/tesselle) using [remotes](https://remotes.r-lib.org) :
+
+``` r
+## Install the development version from GitHub
+install.packages("remotes")
+remotes::install_github("tesselle/tabula")
+```
+
+Thanks to the [R-universe](https://ropensci.org/r-universe/) project powered by [rOpenSci](https://ropensci.org), **tesselle** now has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: [**tesselle.r-universe.dev**](https://tesselle.r-universe.dev). This repository allows to install all development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. [<abbr title="work-in-progress">WIP</abbr>](https://www.repostatus.org/#wip) packages and large data packages).
+
+## Download tesselle packages
+
+If you want to install a package from the [tesselle universe](https://tesselle.r-universe.dev), simply use `install.packages()` with the additional repository:
+
+``` r
+## Install a package from the 'tesselle' universe
+install.packages("tabula", repos = "https://tesselle.r-universe.dev")
+```
+
+``` r
+## Enable the repository globally
+options(repos = c(tesselle = "https://tesselle.r-universe.dev",
+                  CRAN = "https://cloud.r-project.org"))
+
+## Install some packages
+install.packages(c("tabula", "kairos"))
+```
+
+## Use the repository
+
+You can use this repository in your R package (if available, <abbr title="Comprehensive R Archive Network">CRAN</abbr> releases must be regarded as the preferred source). To do so, prepare the `DESCRIPTION` file of your R package:
+
+* List the package under `Suggests:`
+* Add the line `Additional_repositories: https://tesselle.r-universe.dev`
+* Test your package with `R CMD check --as-cran`

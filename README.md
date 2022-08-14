@@ -1,4 +1,4 @@
-# tesselle.github.io
+# website
 
 This is the repository for the [project webpage](https://www.tesselle.org).
 
@@ -8,5 +8,5 @@ All content on these pages is licensed under [CC BY 4.0](https://creativecommons
 
 ## Site Details
 
-* Pages mostly written in [markdown](https://daringfireball.net/projects/markdown/)
-* Theme and layout by [distill](https://rstudio.github.io/distill/) for R Markdown
+* Pages mostly written in [markdown](https://daringfireball.net/projects/markdown/).
+* Theme and layout by [Quarto](https://www.quarto.org).

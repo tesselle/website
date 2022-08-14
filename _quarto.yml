@@ -1,0 +1,54 @@
+project:
+  type: website
+
+website:
+  title: "tesselle"
+  site-url: https://www.tesselle.org
+  repo-url: https://github.com/tesselle/website
+  repo-actions: [issue]
+  description-meta: |
+    tesselle is a collection of R packages for research and teaching in
+    archaeology. These packages focus on quantitative analysis methods developed
+    for archaeology. The tesselle packages are designed to work seamlessly
+    together and to complement general-purpose and other specialized statistical
+    packages.
+  image: images/tesselle.png
+  favicon: images/icons/favicon.ico
+  twitter-card:
+    site: "@nfrerebeau"
+    creator: "@nfrerebeau"
+  open-graph: true
+  navbar:
+    background: "#4F2680"
+    right:
+      - packages.qmd
+      - text: "Guidelines"
+        menu:
+          - contributing.qmd
+          - conduct.qmd
+          - style.qmd
+      - about.qmd
+      - icon: github
+        aria-label: GitHub
+        href: https://github.com/tesselle/
+      - icon: rss-fill
+        aria-label: RSS
+        href: index.xml
+  page-footer:
+    background: "#4F2680"
+    left:
+      - The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>, <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
+    right:
+      - privacy.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    include-in-header: _header.html
+    toc: true
+    toc-location: left
+
+
+

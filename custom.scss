@@ -1,0 +1,51 @@
+/*-- scss:defaults --*/
+/* @import url('https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+$headings-font-family: "ubuntu", sans-serif;
+$font-family-base: "roboto", sans-serif;
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below  */
+
+.hex-logo {
+  width: 120px;
+  float: left;
+  margin-right: 1em;
+}
+
+/* Mosaic of hex stickers */
+.hex-stickers {
+  position: relative;
+  height: 360px;
+}
+.hex-stickers img {
+  width: 120px;
+  height: 139px;
+  position: absolute;
+}
+.hex-stickers img.row1 {
+  top: 0px;
+}
+.hex-stickers img.row2 {
+  top: 107px;
+}
+.hex-stickers img.row3 {
+  top: 214px;
+}
+.hex-stickers img.col1 {
+  left: 0px;
+}
+.hex-stickers img.col2 {
+  left: 62px;
+}
+.hex-stickers img.col3 {
+  left: 124px;
+}
+.hex-stickers img.col4 {
+  left: 186px;
+}
+.hex-stickers img.col5 {
+  left: 248px;
+}

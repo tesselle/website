@@ -1,7 +1,7 @@
 ---
 title: "Packages"
 description: |
-  The **tesselle** packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
+   The **tesselle** packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
 bibliography: references.bib
 ---
 

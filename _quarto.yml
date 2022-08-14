@@ -8,12 +8,6 @@ website:
   site-url: https://www.tesselle.org
   repo-url: https://github.com/tesselle/website
   repo-actions: [issue]
-  description-meta: |
-    tesselle is a collection of R packages for research and teaching in
-    archaeology. These packages focus on quantitative analysis methods developed
-    for archaeology. The tesselle packages are designed to work seamlessly
-    together and to complement general-purpose and other specialized statistical
-    packages.
   image: images/tesselle.png
   favicon: images/icons/favicon.ico
   twitter-card:

@@ -16,7 +16,7 @@ date: 2021-08-15
 
 Most of the R packages of the **tesselle** project are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/) when they reach an acceptable level of maturity. Development versions can be installed from [GitHub](https://github.com/tesselle) using [remotes](https://remotes.r-lib.org) :
 
-``` r
+```{r, eval=FALSE}
 ## Install the development version from GitHub
 install.packages("remotes")
 remotes::install_github("tesselle/tabula")
@@ -28,12 +28,12 @@ Thanks to the [R-universe](https://ropensci.org/r-universe/) project powered by 
 
 If you want to install a package from the [tesselle universe](https://tesselle.r-universe.dev), simply use `install.packages()` with the additional repository:
 
-``` r
+```{r, eval=FALSE}
 ## Install a package from the 'tesselle' universe
 install.packages("tabula", repos = "https://tesselle.r-universe.dev")
 ```
 
-``` r
+```{r, eval=FALSE}
 ## Enable the repository globally
 options(repos = c(tesselle = "https://tesselle.r-universe.dev",
                   CRAN = "https://cloud.r-project.org"))

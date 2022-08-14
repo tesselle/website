@@ -45,6 +45,4 @@ format:
     include-in-header: _header.html
     toc: true
     toc-location: left
-
-
-
+    code-link: true

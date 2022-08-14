@@ -256,21 +256,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p>Most of the R packages of the <strong>tesselle</strong> project are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> when they reach an acceptable level of maturity. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org">remotes</a> :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Install the development version from GitHub</span></span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Install the development version from GitHub</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tesselle/tabula"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <strong>tesselle</strong> now has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g.&nbsp;<a href="https://www.repostatus.org/#wip"><abbr title="work-in-progress">WIP</abbr></a> packages and large data packages).</p>
 <section id="download-tesselle-packages" class="level2">
 <h2 class="anchored" data-anchor-id="download-tesselle-packages">Download tesselle packages</h2>
 <p>If you want to install a package from the <a href="https://tesselle.r-universe.dev">tesselle universe</a>, simply use <code>install.packages()</code> with the additional repository:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Install a package from the 'tesselle' universe</span></span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Install a package from the 'tesselle' universe</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tabula"</span>, <span class="at">repos =</span> <span class="st">"https://tesselle.r-universe.dev"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enable the repository globally</span></span>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enable the repository globally</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">tesselle =</span> <span class="st">"https://tesselle.r-universe.dev"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Install some packages</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tabula"</span>, <span class="st">"kairos"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="use-the-repository" class="level2">
 <h2 class="anchored" data-anchor-id="use-the-repository">Use the repository</h2>

@@ -218,12 +218,12 @@ font-style: italic;">## Assess the sampling error</span></span>
 <span id="cb6-3"><span class="fu" style="color: #4758AB;">head</span>(zuni_boot)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        min     mean  max     lower     upper
-LZ1105 1109 1162.828 1219 1161.7533 1163.9027
-LZ1103 1025 1137.285 1220 1135.6594 1138.9106
-LZ1100 1058 1155.771 1242 1153.9587 1157.5833
-LZ1099 1078 1090.898 1100 1090.6298 1091.1662
-LZ1097  892 1090.068 1212 1086.7483 1093.3877
-LZ1096  738  842.526 1048  838.4936  846.5584</code></pre>
+LZ1105 1116 1162.696 1208 1161.6206 1163.7714
+LZ1103 1038 1138.146 1207 1136.5590 1139.7330
+LZ1100 1061 1155.202 1224 1153.3144 1157.0896
+LZ1099 1078 1090.722 1100 1090.4493 1090.9947
+LZ1097  919 1094.082 1212 1090.8932 1097.2708
+LZ1096  738  838.067 1048  834.3316  841.8024</code></pre>
 </div>
 </div>
 </section>
@@ -385,18 +385,23 @@ Nicolas Frerebeau. 2021. <span>“Kairos 1.0.0.”</span> November 10, 2021.
 
 
 <p>Most of the R packages of the <strong>tesselle</strong> project are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> when they reach an acceptable level of maturity. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org">remotes</a> :</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="do" style="color: #5E5E5E;
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## Install the development version from GitHub</span></span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"remotes"</span>)</span>
 <span id="cb1-3">remotes<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">install_github</span>(<span class="st" style="color: #20794D;">"tesselle/tabula"</span>)</span></code></pre></div>
+</div>
 <p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <strong>tesselle</strong> now has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g.&nbsp;<a href="https://www.repostatus.org/#wip"><abbr title="work-in-progress">WIP</abbr></a> packages and large data packages).</p>
 <section id="download-tesselle-packages" class="level2">
 <h2 class="anchored" data-anchor-id="download-tesselle-packages">Download tesselle packages</h2>
 <p>If you want to install a package from the <a href="https://tesselle.r-universe.dev">tesselle universe</a>, simply use <code>install.packages()</code> with the additional repository:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## Install a package from the 'tesselle' universe</span></span>
 <span id="cb2-2"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"tabula"</span>, <span class="at" style="color: #657422;">repos =</span> <span class="st" style="color: #20794D;">"https://tesselle.r-universe.dev"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## Enable the repository globally</span></span>
 <span id="cb3-2"><span class="fu" style="color: #4758AB;">options</span>(<span class="at" style="color: #657422;">repos =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="at" style="color: #657422;">tesselle =</span> <span class="st" style="color: #20794D;">"https://tesselle.r-universe.dev"</span>,</span>
 <span id="cb3-3">                  <span class="at" style="color: #657422;">CRAN =</span> <span class="st" style="color: #20794D;">"https://cloud.r-project.org"</span>))</span>
@@ -404,6 +409,7 @@ font-style: italic;">## Enable the repository globally</span></span>
 <span id="cb3-5"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## Install some packages</span></span>
 <span id="cb3-6"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"tabula"</span>, <span class="st" style="color: #20794D;">"kairos"</span>))</span></code></pre></div>
+</div>
 </section>
 <section id="use-the-repository" class="level2">
 <h2 class="anchored" data-anchor-id="use-the-repository">Use the repository</h2>

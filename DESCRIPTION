@@ -14,10 +14,8 @@ URL: https://github.com/tesselle/website
 Depends: 
     R (>= 4.1.0)
 Imports:
-    bs4cards,
-    distill
-Suggests:
     knitr,
+    quarto,
     rmarkdown
 Encoding: UTF-8
 LazyData: true

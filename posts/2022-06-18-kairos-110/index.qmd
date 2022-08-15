@@ -12,12 +12,15 @@ author:
     affiliation_url: https://www.archeosciences-bordeaux.fr
     orcid: 0000-0001-5759-4944
 date: 2022-06-18
-bibliography: references.bib
+image: preview.png
+bibliography: [references.bib, packages.bib]
+nocite: |
+  @R-kairos, @R-folio, @R-tabula, @R-ggplot2
 ---
 
 [kairos](https://packages.tesselle.org/kairos/) 1.1.0 is now on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/)! kairos is a toolkit for the analysis of chronological patterns from archaeological count data.
 
-You can install it from CRAN with:
+You can install it from [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/) with:
 
 ```{r}
 #| eval: false
@@ -63,7 +66,7 @@ indices <- seriate_average(zuni, margin = c(1, 2), axes = 1)
 get_order(indices)
 ```
 
-`seriate_average()` also contains the full results of the correspondence analysis. You can use [dimensio](https://packages.tesselle.org/dimensio/) to explore these results:
+`seriate_average()` also contains the full results of the correspondence analysis. You can use [dimensio](https://packages.tesselle.org/dimensio/) [@R-dimensio] to explore these results:
 
 ```{r}
 #| label: correspondence-analysis
@@ -81,7 +84,7 @@ dimensio::plot_contributions(indices, margin = 2, axes = c(1, 2)) +
 If the results of the correspondence analysis are satisfactory, we can then permute the rows and columns of the initial data matrix:
 
 ```{r}
-#| label: thumbnail
+#| label: ford-ordered
 #| column: page
 #| fig-width: 12
 #| fig-height: 7
@@ -91,4 +94,16 @@ permuted <- permute(zuni, indices)
 ## Plot permuted matrix
 tabula::plot_ford(permuted) +
   ggplot2::theme(axis.text.y = ggplot2::element_blank())
+```
+
+```{r, echo=FALSE}
+ggplot2::ggsave("preview.png", width = 12, height = 7, units = "in")
+```
+
+```{r}
+#| echo: false
+knitr::write_bib(
+  x = c("kairos", "folio", "tabula", "dimensio", "ggplot2"),
+  file = "packages.bib"
+)
 ```

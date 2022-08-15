@@ -12,12 +12,15 @@ author:
     affiliation_url: https://mshs.univ-toulouse.fr
     orcid: 0000-0001-5759-4944
 date: 2021-11-10
-bibliography: references.bib
+image: preview.png
+bibliography: [references.bib, packages.bib]
+nocite: |
+  @R-kairos, @R-folio
 ---
 
 We are delighted to announce that [kairos](https://packages.tesselle.org/kairos/) 1.0.0 has just landed on on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/)! kairos is a toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site.
 
-You can install it from CRAN with:
+You can install it from [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/) with:
 
 ```{r, eval=FALSE}
 install.packages("kairos")
@@ -106,7 +109,7 @@ head(zuni_acc)
 
 Event and accumulation dates can be displayed as density curves [see @bellanger2012 for the interpretation of the curves]. The probability density of the event date can be approximated by a normal distribution, while the accumulation time can be estimated by a Gaussian mixture. The distribution function of the accumulation time is quite close to the definition of the *tempo plot* introduced by @dye2016: an estimates of the cumulative occurrence of archaeological events.
 
-```{r thumbnail}
+```{r tempo}
 #| layout: [[50, 50]]
 ## Activity plot
 ## The event date is plotted as a line
@@ -115,6 +118,10 @@ plot(model, type = "activity", event = TRUE, select = "LZ1105")
 
 ## Tempo plot
 plot(model, type = "tempo", select = "LZ1105")
+```
+
+```{r, echo=FALSE}
+ggplot2::ggsave("preview.png", width = 7, height = 5, units = "in")
 ```
 
 ## Aoristic Analysis
@@ -146,4 +153,11 @@ plot(aorist_weigth)
 ## Rate of change
 roc_weigth <- roc(aorist_weigth, n = 30)
 plot(roc_weigth)
+```
+
+```{r, echo=FALSE}
+knitr::write_bib(
+  x = c("kairos", "folio", "ggplot2"),
+  file = "packages.bib"
+)
 ```

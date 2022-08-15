@@ -17,7 +17,312 @@
 <width>144</width>
 </image>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Sat, 18 Jun 2022 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 01 Sep 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>dimensio 0.3.0</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2022-09-01-dimensio-030/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://packages.tesselle.org/dimensio/">dimensio</a> 0.3.0 is now on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! dimensio provides a set of tools to compute, extract, summarize and visualize results of Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). It also includes methods for partial bootstrap validation.</p>
+<p>There are many very good packages for multivariate data analysis (such as <a href="http://factominer.free.fr/">FactoMineR</a>, <a href="https://pbil.univ-lyon1.fr/ade4/">ade4</a>, <a href="https://rpubs.com/brouwern/veganpca">vegan</a> or <a href="https://cran.r-project.org/package=ca">ca</a>, all extended by <a href="https://rpkgs.datanovia.com/factoextra/">FactoExtra</a>). dimensio is designed to be as simple as possible, providing all the necessary tools to explore the results of the analysis.</p>
+<p>You can install it from <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"dimensio"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(dimensio)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;">library</span>(ggplot2)</span>
+<span id="cb2-4"><span class="fu" style="color: #4758AB;">library</span>(ggrepel)</span>
+<span id="cb2-5"><span class="fu" style="color: #4758AB;">library</span>(khroma)</span></code></pre></div>
+</div>
+<p>This post highlights the basics of the package using the <a href="https://allisonhorst.github.io/palmerpenguins/"><code>palmerpenguins</code></a> dataset <span class="citation" data-cites="R-palmerpenguins">(Horst, Hill, and Gorman 2022)</span>.</p>
+<section id="do-pca" class="level2">
+<h2 class="anchored" data-anchor-id="do-pca">Do PCA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Load data</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;"># install.packages("palmerpenguins")</span></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;">data</span>(<span class="st" style="color: #20794D;">"penguins"</span>, <span class="at" style="color: #657422;">package =</span> <span class="st" style="color: #20794D;">"palmerpenguins"</span>)</span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;">head</span>(penguins)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
+  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007
+2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007
+3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007
+4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007
+5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007
+6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007
+# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Remove cases with missing values</span></span>
+<span id="cb5-2">penguins <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">na.omit</span>(penguins)</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Keep quantitative variables</span></span>
+<span id="cb5-5"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## (i.e. column names ending with a unit)</span></span>
+<span id="cb5-6">end_with_unit <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">grep</span>(<span class="st" style="color: #20794D;">"_mm|_g"</span>, <span class="fu" style="color: #4758AB;">colnames</span>(penguins), <span class="at" style="color: #657422;">value =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb5-7">quanti <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">subset</span>(penguins, <span class="at" style="color: #657422;">select =</span> end_with_unit)</span>
+<span id="cb5-8"></span>
+<span id="cb5-9"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Compute PCA</span></span>
+<span id="cb5-10"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## (non numeric variables are automatically removed)</span></span>
+<span id="cb5-11">X <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">pca</span>(quanti, <span class="at" style="color: #657422;">center =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">scale =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="explore-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-results">Explore the results</h2>
+<p>dimensio provides several methods to extract (<code>get_*()</code>) the results:</p>
+<ul>
+<li><code>get_data()</code> returns the original data.</li>
+<li><code>get_contributions()</code> returns the contributions to the definition of the principal dimensions.</li>
+<li><code>get_coordinates()</code> returns the principal or standard coordinates.</li>
+<li><code>get_correlations()</code> returns the correlations between variables and dimensions.</li>
+<li><code>get_cos2()</code> returns the cos<sup>2</sup> values (i.e.&nbsp;the quality of the representation of the points on the factor map).</li>
+<li><code>get_eigenvalues()</code> returns the eigenvalues, the percentages of variance and the cumulative percentages of variance.</li>
+</ul>
+<p>The package also allows to quickly visualize (<code>plot_*()</code>) the results:</p>
+<ul>
+<li><code>plot_rows()</code>/<code>plot_individuals()</code> displays row/individual principal coordinates.</li>
+<li><code>plot_columns()</code>/<code>plot_variables()</code> displays columns/variable principal coordinates.</li>
+<li><code>plot_contributions()</code> displays (joint) contributions.</li>
+<li><code>plot_cos2()</code> displays (joint) cos<sup>2</sup>.</li>
+<li><code>plot_variance()</code> produces a scree plot.</li>
+</ul>
+<p>dimensio uses <a href="https://github.com/tidyverse/ggplot2">ggplot2</a> <span class="citation" data-cites="R-ggplot2">(Wickham et al. 2022)</span> for plotting information. Visualization methods produce graphics with as few elements as possible: this makes it easy to customize diagrams (e.g.&nbsp;using extra layers, themes and scales).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Get eigenvalues</span></span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;">get_eigenvalues</span>(X)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   eigenvalues  variance cumulative
+F1   2.7453557 70.536339   70.53634
+F2   0.7781172 19.992140   90.52848
+F3   0.3686425  9.471521  100.00000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Scree plot</span></span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;">plot_variance</span>(X) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb8-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_text</span>(<span class="at" style="color: #657422;">nudge_y =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Add labels</span></span>
+<span id="cb8-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="co" style="color: #5E5E5E;"># Change theme</span></span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/eigenvalues-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot contribution of the variables to the definition of the first two axes</span></span>
+<span id="cb9-2"><span class="fu" style="color: #4758AB;">plot_contributions</span>(X, <span class="at" style="color: #657422;">margin =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">axes =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_text</span>(<span class="at" style="color: #657422;">nudge_y =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/contributions-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pca-biplot" class="level2">
+<h2 class="anchored" data-anchor-id="pca-biplot">PCA biplot</h2>
+<p>A biplot is the simultaneous representation of rows and columns of a rectangular dataset. It is the generalization of a scatterplot to the case of mutlivariate data: it allows to visualize as much information as possible in a single graph <span class="citation" data-cites="greenacre2010">(Greenacre 2010)</span>.</p>
+<p>dimensio allows to display two types of biplots: a <em>form biplot</em> (<em>row-metric-preserving</em> biplot) or a <em>covariance biplot</em> (<em>column-metric-preserving</em> biplot). See <span class="citation" data-cites="greenacre2010">Greenacre (2010)</span> for more details about biplots.</p>
+<p>The form biplot favors the representation of the individuals: the distance between the individuals approximates the Euclidean distance between rows. In the form biplot the length of a vector approximates the quality of the representation of the variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;">biplot</span>(X, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"form"</span>, <span class="at" style="color: #657422;">label =</span> <span class="st" style="color: #20794D;">"variables"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb10-2">  ggrepel<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_label_repel</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Add repelling labels</span></span>
+<span id="cb10-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb10-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb10-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_highcontrast</span>() <span class="co" style="color: #5E5E5E;"># Custom color scale</span></span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/biplot-rows-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The covariance biplot favors the representation of the variables: the length of a vector approximates the standard deviation of the variable and the cosine of the angle formed by two vectors approximates the correlation between the two variables <span class="citation" data-cites="greenacre2010">(Greenacre 2010)</span>. In the covariance biplot the distance between the individuals approximates the Mahalanobis distance between rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;">biplot</span>(X, <span class="at" style="color: #657422;">type =</span> <span class="st" style="color: #20794D;">"covariance"</span>, <span class="at" style="color: #657422;">label =</span> <span class="st" style="color: #20794D;">"variables"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb11-2">  ggrepel<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_label_repel</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Add repelling labels</span></span>
+<span id="cb11-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb11-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb11-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_highcontrast</span>() <span class="co" style="color: #5E5E5E;"># Custom color scale</span></span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/biplot-columns-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Biplots have the drawbacks of their advantages: they can quickly become difficult to read as they display a lot of information at once. It may then be preferable to visualize the results for individuals and variables separately.</p>
+</section>
+<section id="plot-pca-loadings" class="level2">
+<h2 class="anchored" data-anchor-id="plot-pca-loadings">Plot PCA loadings</h2>
+<p><code>plot_variables()</code> depicts the variables by rays emanating from the origin (both their lengths and directions are important to the interpretation).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot variables factor map</span></span>
+<span id="cb12-2"><span class="fu" style="color: #4758AB;">plot_variables</span>(X) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb12-3">  ggrepel<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_label_repel</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb12-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-var-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><code>plot_variables()</code> allows to highlight additional information by varying different graphical elements (color, transparency, shape and size of symbols…).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Highlight cos2</span></span>
+<span id="cb13-2"><span class="fu" style="color: #4758AB;">plot_variables</span>(X, <span class="at" style="color: #657422;">colour =</span> <span class="st" style="color: #20794D;">"cos2"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb13-3">  ggrepel<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_label_repel</span>() <span class="sc" style="color: #5E5E5E;">+</span> </span>
+<span id="cb13-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb13-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_YlOrBr</span>(<span class="at" style="color: #657422;">range =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.4</span>, <span class="dv" style="color: #AD0000;">1</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-var-cos2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plot-pca-scores" class="level2">
+<h2 class="anchored" data-anchor-id="plot-pca-scores">Plot PCA scores</h2>
+<p><code>plot_individuals()</code> allows to display individuals and to highlight additional information.</p>
+<div class="cell" data-preview="true">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Plot individuals and colour by species</span></span>
+<span id="cb14-2"><span class="fu" style="color: #4758AB;">plot_individuals</span>(X, <span class="at" style="color: #657422;">colour =</span> <span class="st" style="color: #20794D;">"group"</span>, <span class="at" style="color: #657422;">group =</span> penguins<span class="sc" style="color: #5E5E5E;">$</span>species) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb14-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">stat_ellipse</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Add ellipses</span></span>
+<span id="cb14-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb14-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_bright</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Species"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-species-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Highlight body masses</span></span>
+<span id="cb15-2"><span class="fu" style="color: #4758AB;">plot_individuals</span>(X, <span class="at" style="color: #657422;">colour =</span> <span class="st" style="color: #20794D;">"group"</span>, <span class="at" style="color: #657422;">group =</span> penguins<span class="sc" style="color: #5E5E5E;">$</span>body_mass_g) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb15-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb15-4">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_YlOrBr</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Body mass (g)"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-mass-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="do" style="color: #5E5E5E;
+font-style: italic;">## Highlight contributions</span></span>
+<span id="cb16-2"><span class="fu" style="color: #4758AB;">plot_individuals</span>(X, <span class="at" style="color: #657422;">colour =</span> <span class="st" style="color: #20794D;">"contrib"</span>, <span class="at" style="color: #657422;">size =</span> <span class="st" style="color: #20794D;">"contrib"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb16-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Change theme</span></span>
+<span id="cb16-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_size_continuous</span>(<span class="at" style="color: #657422;">range =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">5</span>)) <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Custom size scale</span></span>
+<span id="cb16-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_iridescent</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-contrib-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="custom-plot" class="level2">
+<h2 class="anchored" data-anchor-id="custom-plot">Custom plot</h2>
+<p>If you need more flexibility, the <code>get_*()</code> family and the <code>tidy()</code> and <code>augment()</code> functions allow you to extract the results as data frames and thus build custom graphs with base graphics or ggplot2.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">penguins_tidy <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">tidy</span>(X, <span class="at" style="color: #657422;">margin =</span> <span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb17-2"><span class="fu" style="color: #4758AB;">head</span>(penguins_tidy)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           label component supplementary coordinate contribution      cos2
+1  bill_depth_mm        F1         FALSE -0.6611860     15.92387 0.4371669
+2  bill_depth_mm        F2         FALSE  0.7023087     63.38859 0.4932375
+3  bill_depth_mm        F3         FALSE  0.2585287     18.13060 0.0668371
+4 bill_length_mm        F1         FALSE  0.7518288     20.58919 0.5652466
+5 bill_length_mm        F2         FALSE  0.5294376     36.02339 0.2803042
+6 bill_length_mm        F3         FALSE -0.3900969     41.27999 0.1521756</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">ggplot</span>(<span class="at" style="color: #657422;">data =</span> penguins_tidy) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-2">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> <span class="fu" style="color: #4758AB;">abs</span>(coordinate), <span class="at" style="color: #657422;">y =</span> label, <span class="at" style="color: #657422;">fill =</span> coordinate <span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="dv" style="color: #AD0000;">0</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_col</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">facet_wrap</span>(. <span class="sc" style="color: #5E5E5E;">~</span> component) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-5">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-6">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"bottom"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb19-7">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_fill_vibrant</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Positive loadings?"</span>, <span class="at" style="color: #657422;">reverse =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/tidy-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">penguins_augment <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">augment</span>(X, <span class="at" style="color: #657422;">margin =</span> <span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb20-2"><span class="fu" style="color: #4758AB;">head</span>(penguins_augment)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         F1          F2 label supplementary        mass      sum contribution
+1 -1.853593  0.03206938     1         FALSE 0.003003003 3.436836    1.0320827
+2 -1.316254 -0.44352677     2         FALSE 0.003003003 1.929241    0.5793516
+3 -1.376605 -0.16123048     3         FALSE 0.003003003 1.921037    0.5768879
+4 -1.885288 -0.01235124     4         FALSE 0.003003003 3.554465    1.0674069
+5 -1.919981  0.81759813     5         FALSE 0.003003003 4.354793    1.3077456
+6 -1.773020 -0.36622296     6         FALSE 0.003003003 3.277720    0.9843004
+       cos2
+1 0.9113332
+2 0.9224728
+3 0.8589470
+4 0.8516598
+5 0.8914904
+6 0.9275007</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">ggplot</span>(<span class="at" style="color: #657422;">data =</span> penguins_augment) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-2">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> F1, <span class="at" style="color: #657422;">y =</span> F2, <span class="at" style="color: #657422;">colour =</span> contribution) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_vline</span>(<span class="at" style="color: #657422;">xintercept =</span> <span class="dv" style="color: #AD0000;">0</span>, <span class="at" style="color: #657422;">size =</span> <span class="fl" style="color: #AD0000;">0.5</span>, <span class="at" style="color: #657422;">linetype =</span> <span class="st" style="color: #20794D;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_hline</span>(<span class="at" style="color: #657422;">yintercept =</span> <span class="dv" style="color: #AD0000;">0</span>, <span class="at" style="color: #657422;">size =</span> <span class="fl" style="color: #AD0000;">0.5</span>, <span class="at" style="color: #657422;">linetype =</span> <span class="st" style="color: #20794D;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-5">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_point</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-6">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">coord_fixed</span>() <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># /!\</span></span>
+<span id="cb22-7">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb22-8">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_iridescent</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/augment-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-dimensio" class="csl-entry">
+Frerebeau, Nicolas. 2022a. <em>Dimensio: Multivariate Data Analysis</em>. <a href="https://CRAN.R-project.org/package=dimensio">https://CRAN.R-project.org/package=dimensio</a>.
+</div>
+<div id="ref-R-khroma" class="csl-entry">
+———. 2022b. <em>Khroma: Colour Schemes for Scientific Data Visualization</em>. <a href="https://CRAN.R-project.org/package=khroma">https://CRAN.R-project.org/package=khroma</a>.
+</div>
+<div id="ref-greenacre2010" class="csl-entry">
+Greenacre, Michael J. 2010. <em>Biplots in Practice</em>. <span>Bilbao</span>: <span>Fundación BBVA</span>.
+</div>
+<div id="ref-R-palmerpenguins" class="csl-entry">
+Horst, Allison, Alison Hill, and Kristen Gorman. 2022. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. <a href="https://CRAN.R-project.org/package=palmerpenguins">https://CRAN.R-project.org/package=palmerpenguins</a>.
+</div>
+<div id="ref-R-ggrepel" class="csl-entry">
+Slowikowski, Kamil. 2021. <em>Ggrepel: Automatically Position Non-Overlapping Text Labels with Ggplot2</em>. <a href="https://github.com/slowkow/ggrepel">https://github.com/slowkow/ggrepel</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
+  author = {Nicolas Frerebeau},
+  title = {Dimensio 0.3.0},
+  date = {2022-09-01},
+  url = {https://www.tesselle.org/posts/2022-09-01-dimensio-030},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2022" class="csl-entry quarto-appendix-citeas">
+Nicolas Frerebeau. 2022. <span>“Dimensio 0.3.0.”</span> September 1,
+2022. <a href="https://www.tesselle.org/posts/2022-09-01-dimensio-030">https://www.tesselle.org/posts/2022-09-01-dimensio-030</a>.
+</div></div></section></div> ]]></description>
+  <category>packages</category>
+  <category>releases</category>
+  <guid>https://www.tesselle.org/posts/2022-09-01-dimensio-030/index.html</guid>
+  <pubDate>Thu, 01 Sep 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2022-09-01-dimensio-030/preview.png" medium="image" type="image/png" height="103" width="144"/>
+</item>
 <item>
   <title>kairos 1.1.0</title>
   <dc:creator>Nicolas Frerebeau</dc:creator>
@@ -28,7 +333,7 @@
 
 
 <p><a href="https://packages.tesselle.org/kairos/">kairos</a> 1.1.0 is now on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! kairos is a toolkit for the analysis of chronological patterns from archaeological count data.</p>
-<p>You can install it from CRAN with:</p>
+<p>You can install it from <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"kairos"</span>)</span></code></pre></div>
 </div>
@@ -96,7 +401,7 @@ $columns
  [1] 18 14 17 16 13 15  9  8 12 11  6  7  5 10  4  2  3  1</code></pre>
 </div>
 </div>
-<p><code>seriate_average()</code> also contains the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/">dimensio</a> to explore these results:</p>
+<p><code>seriate_average()</code> also contains the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/">dimensio</a> <span class="citation" data-cites="R-dimensio">(Frerebeau 2021)</span> to explore these results:</p>
 <div>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
 font-style: italic;">## Plot CA row coordinates (get a nice arch effect!)</span></span>
@@ -129,13 +434,36 @@ font-style: italic;">## Plot permuted matrix</span></span>
 <span id="cb7-5">tabula<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">plot_ford</span>(permuted) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb7-6">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">axis.text.y =</span> ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">element_blank</span>())</span></code></pre></div>
 <div class="cell-output-display column-page">
-<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/thumbnail-1.png" class="img-fluid" width="1152"></p>
+<p><img src="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/ford-ordered-1.png" class="img-fluid" width="1152"></p>
 </div>
 </div>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-dimensio" class="csl-entry">
+Frerebeau, Nicolas. 2021. <em>Dimensio: Multivariate Data Analysis</em>. <a href="https://CRAN.R-project.org/package=dimensio">https://CRAN.R-project.org/package=dimensio</a>.
+</div>
+<div id="ref-R-folio" class="csl-entry">
+———. 2022a. <em>Folio: Datasets for Teaching Archaeology and Paleontology</em>. <a href="https://CRAN.R-project.org/package=folio">https://CRAN.R-project.org/package=folio</a>.
+</div>
+<div id="ref-R-kairos" class="csl-entry">
+———. 2022b. <em>Kairos: Analysis of Chronological Patterns from Archaeological Count Data</em>. <a href="https://CRAN.R-project.org/package=kairos">https://CRAN.R-project.org/package=kairos</a>.
+</div>
+<div id="ref-R-tabula" class="csl-entry">
+———. 2022c. <em>Tabula: Analysis and Visualization of Archaeological Count Data</em>. <a href="https://CRAN.R-project.org/package=tabula">https://CRAN.R-project.org/package=tabula</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
   author = {Nicolas Frerebeau},
   title = {Kairos 1.1.0},
   date = {2022-06-18},
@@ -149,6 +477,7 @@ Nicolas Frerebeau. 2022. <span>“Kairos 1.1.0.”</span> June 18, 2022. <a href
   <category>releases</category>
   <guid>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</guid>
   <pubDate>Sat, 18 Jun 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2022-06-18-kairos-110/preview.png" medium="image" type="image/png" height="84" width="144"/>
 </item>
 <item>
   <title>kairos 1.0.0</title>
@@ -160,7 +489,7 @@ Nicolas Frerebeau. 2022. <span>“Kairos 1.1.0.”</span> June 18, 2022. <a href
 
 
 <p>We are delighted to announce that <a href="https://packages.tesselle.org/kairos/">kairos</a> 1.0.0 has just landed on on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! kairos is a toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site.</p>
-<p>You can install it from CRAN with:</p>
+<p>You can install it from <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"kairos"</span>)</span></code></pre></div>
 </div>
@@ -218,12 +547,12 @@ font-style: italic;">## Assess the sampling error</span></span>
 <span id="cb6-3"><span class="fu" style="color: #4758AB;">head</span>(zuni_boot)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        min     mean  max     lower     upper
-LZ1105 1116 1162.696 1208 1161.6206 1163.7714
-LZ1103 1038 1138.146 1207 1136.5590 1139.7330
-LZ1100 1061 1155.202 1224 1153.3144 1157.0896
-LZ1099 1078 1090.722 1100 1090.4493 1090.9947
-LZ1097  919 1094.082 1212 1090.8932 1097.2708
-LZ1096  738  838.067 1048  834.3316  841.8024</code></pre>
+LZ1105 1100 1162.229 1220 1161.1344 1163.3236
+LZ1103 1030 1139.130 1218 1137.5082 1140.7518
+LZ1100 1029 1153.328 1237 1151.4411 1155.2149
+LZ1099 1078 1091.061 1100 1090.7921 1091.3299
+LZ1097  919 1090.436 1212 1087.1609 1093.7111
+LZ1096  738  840.346 1048  836.3994  844.2926</code></pre>
 </div>
 </div>
 </section>
@@ -287,13 +616,16 @@ font-style: italic;">## Tempo plot</span></span>
 <div class="cell quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/thumbnail-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/tempo-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/thumbnail-2.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/tempo-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
+</div>
+<div class="cell">
+
 </div>
 </section>
 <section id="aoristic-analysis" class="level2">
@@ -335,6 +667,9 @@ font-style: italic;">## Rate of change</span></span>
 <p><img src="https://www.tesselle.org/posts/2021-11-10-kairos-100/index_files/figure-html/roc-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<div class="cell">
+
+</div>
 
 
 
@@ -346,6 +681,12 @@ Bellanger, Lise, and Philippe Husi. 2012. <span>“Statistical <span>Tool</span>
 </div>
 <div id="ref-dye2016" class="csl-entry">
 Dye, Thomas S. 2016. <span>“Long-<span>Term</span> <span>Rhythms</span> in the <span>Development</span> of <span>Hawaiian</span> <span>Social</span> <span>Stratification</span>.”</span> <em>Journal of Archaeological Science</em> 71 (July): 1–9. <a href="https://doi.org/10.1016/j.jas.2016.05.006">https://doi.org/10.1016/j.jas.2016.05.006</a>.
+</div>
+<div id="ref-R-folio" class="csl-entry">
+Frerebeau, Nicolas. 2021a. <em>Folio: Datasets for Teaching Archaeology and Paleontology</em>. <a href="https://CRAN.R-project.org/package=folio">https://CRAN.R-project.org/package=folio</a>.
+</div>
+<div id="ref-R-kairos" class="csl-entry">
+———. 2021b. <em>Kairos: Analysis of Chronological Patterns from Archaeological Count Data</em>. <a href="https://CRAN.R-project.org/package=kairos">https://CRAN.R-project.org/package=kairos</a>.
 </div>
 <div id="ref-peeples2012" class="csl-entry">
 Peeples, Matthew A., and Gregson Schachner. 2012. <span>“Refining Correspondence Analysis-Based Ceramic Seriation of Regional Data Sets.”</span> <em>Journal of Archaeological Science</em> 39 (8): 2818–27. <a href="https://doi.org/10.1016/j.jas.2012.04.040">https://doi.org/10.1016/j.jas.2012.04.040</a>.
@@ -374,6 +715,7 @@ Nicolas Frerebeau. 2021. <span>“Kairos 1.0.0.”</span> November 10, 2021.
   <category>releases</category>
   <guid>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</guid>
   <pubDate>Wed, 10 Nov 2021 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2021-11-10-kairos-100/preview.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>The tesselle universe</title>

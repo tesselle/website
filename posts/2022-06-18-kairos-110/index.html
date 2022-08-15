@@ -80,6 +80,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -123,16 +142,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://www.tesselle.org/scripts/matomo.js"></script>
 <noscript></noscript><meta property="og:title" content="tesselle - kairos 1.1.0">
 <meta property="og:description" content="Archaeological seriation of abundance matrices">
-<meta property="og:image" content="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/thumbnail-1.png">
+<meta property="og:image" content="https://www.tesselle.org/posts/2022-06-18-kairos-110/preview.png">
 <meta property="og:site-name" content="tesselle">
-<meta property="og:image:height" content="1344">
-<meta property="og:image:width" content="2304">
+<meta property="og:image:height" content="2100">
+<meta property="og:image:width" content="3600">
 <meta name="twitter:title" content="tesselle - kairos 1.1.0">
 <meta name="twitter:description" content="Archaeological seriation of abundance matrices">
-<meta name="twitter:image" content="https://www.tesselle.org/posts/2022-06-18-kairos-110/index_files/figure-html/thumbnail-1.png">
+<meta name="twitter:image" content="https://www.tesselle.org/posts/2022-06-18-kairos-110/preview.png">
 <meta name="twitter:creator" content="@nfrerebeau">
-<meta name="twitter:image-height" content="1344">
-<meta name="twitter:image-width" content="2304">
+<meta name="twitter:image-height" content="2100">
+<meta name="twitter:image-width" content="3600">
 <meta name="twitter:card" content="summary_large_image">
 </head><body class="floating nav-fixed"><p><img src="https://analyseweb.huma-num.fr/matomo.php?idsite=332&amp;rec=1" style="border:0" alt=""></p>
 
@@ -250,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><a href="https://packages.tesselle.org/kairos/">kairos</a> 1.1.0 is now on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>! kairos is a toolkit for the analysis of chronological patterns from archaeological count data.</p>
-<p>You can install it from CRAN with:</p>
+<p>You can install it from <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a> with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"kairos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -315,7 +334,7 @@ $columns
  [1] 18 14 17 16 13 15  9  8 12 11  6  7  5 10  4  2  3  1</code></pre>
 </div>
 </div>
-<p><code>seriate_average()</code> also contains the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/">dimensio</a> to explore these results:</p>
+<p><code>seriate_average()</code> also contains the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/">dimensio</a> <span class="citation" data-cites="R-dimensio">(<a href="#ref-R-dimensio" role="doc-biblioref">Frerebeau 2021</a>)</span> to explore these results:</p>
 <div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot CA row coordinates (get a nice arch effect!)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dimensio<span class="sc">::</span><span class="fu">plot_rows</span>(indices) <span class="sc">+</span></span>
@@ -344,13 +363,36 @@ $columns
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tabula<span class="sc">::</span><span class="fu">plot_ford</span>(permuted) <span class="sc">+</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">axis.text.y =</span> ggplot2<span class="sc">::</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display column-page">
-<p><img src="index_files/figure-html/thumbnail-1.png" class="img-fluid" width="1152"></p>
+<p><img src="index_files/figure-html/ford-ordered-1.png" class="img-fluid" width="1152"></p>
 </div>
 </div>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-R-dimensio" class="csl-entry" role="doc-biblioentry">
+Frerebeau, Nicolas. 2021. <em>Dimensio: Multivariate Data Analysis</em>. <a href="https://CRAN.R-project.org/package=dimensio">https://CRAN.R-project.org/package=dimensio</a>.
+</div>
+<div id="ref-R-folio" class="csl-entry" role="doc-biblioentry">
+———. 2022a. <em>Folio: Datasets for Teaching Archaeology and Paleontology</em>. <a href="https://CRAN.R-project.org/package=folio">https://CRAN.R-project.org/package=folio</a>.
+</div>
+<div id="ref-R-kairos" class="csl-entry" role="doc-biblioentry">
+———. 2022b. <em>Kairos: Analysis of Chronological Patterns from Archaeological Count Data</em>. <a href="https://CRAN.R-project.org/package=kairos">https://CRAN.R-project.org/package=kairos</a>.
+</div>
+<div id="ref-R-tabula" class="csl-entry" role="doc-biblioentry">
+———. 2022c. <em>Tabula: Analysis and Visualization of Archaeological Count Data</em>. <a href="https://CRAN.R-project.org/package=tabula">https://CRAN.R-project.org/package=tabula</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
   author = {Nicolas Frerebeau},
   title = {Kairos 1.1.0},
   date = {2022-06-18},

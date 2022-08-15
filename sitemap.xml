@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.tesselle.org/posts/2022-09-01-dimensio-030/index.html</loc>
+    <lastmod>2022-08-15T18:14:16.123Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</loc>
-    <lastmod>2022-08-14T17:31:47.732Z</lastmod>
+    <lastmod>2022-08-15T18:14:17.711Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</loc>
-    <lastmod>2022-08-14T17:31:50.956Z</lastmod>
+    <lastmod>2022-08-15T18:14:18.859Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</loc>
-    <lastmod>2022-08-14T17:31:53.168Z</lastmod>
+    <lastmod>2022-08-15T18:14:20.203Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2022-08-14T17:31:55.644Z</lastmod>
+    <lastmod>2022-08-15T18:14:21.819Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2022-08-14T17:31:57.700Z</lastmod>
+    <lastmod>2022-08-15T18:14:23.219Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/packages.html</loc>
-    <lastmod>2022-08-14T17:32:00.712Z</lastmod>
+    <lastmod>2022-08-15T18:14:25.251Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2022-08-14T17:32:04.000Z</lastmod>
+    <lastmod>2022-08-15T18:14:27.507Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2022-08-14T17:32:04.472Z</lastmod>
+    <lastmod>2022-08-15T18:14:27.847Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2022-08-14T17:32:05.060Z</lastmod>
+    <lastmod>2022-08-15T18:14:28.263Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2022-08-14T17:32:05.536Z</lastmod>
+    <lastmod>2022-08-15T18:14:28.623Z</lastmod>
   </url>
 </urlset>

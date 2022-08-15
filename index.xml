@@ -17,11 +17,11 @@
 <width>144</width>
 </image>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Thu, 01 Sep 2022 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 15 Aug 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>dimensio 0.3.0</title>
   <dc:creator>Nicolas Frerebeau</dc:creator>
-  <link>https://www.tesselle.org/posts/2022-09-01-dimensio-030/index.html</link>
+  <link>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</link>
   <description><![CDATA[ 
 
 
@@ -115,7 +115,7 @@ font-style: italic;">## Scree plot</span></span>
 <span id="cb8-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_text</span>(<span class="at" style="color: #657422;">nudge_y =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Add labels</span></span>
 <span id="cb8-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="co" style="color: #5E5E5E;"># Change theme</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/eigenvalues-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/eigenvalues-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -125,7 +125,7 @@ font-style: italic;">## Plot contribution of the variables to the definition of 
 <span id="cb9-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_text</span>(<span class="at" style="color: #657422;">nudge_y =</span> <span class="dv" style="color: #AD0000;">2</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb9-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/contributions-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/contributions-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -141,7 +141,7 @@ font-style: italic;">## Plot contribution of the variables to the definition of 
 <span id="cb10-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb10-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_highcontrast</span>() <span class="co" style="color: #5E5E5E;"># Custom color scale</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/biplot-rows-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/biplot-rows-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The covariance biplot favors the representation of the variables: the length of a vector approximates the standard deviation of the variable and the cosine of the angle formed by two vectors approximates the correlation between the two variables <span class="citation" data-cites="greenacre2010">(Greenacre 2010)</span>. In the covariance biplot the distance between the individuals approximates the Mahalanobis distance between rows.</p>
@@ -152,7 +152,7 @@ font-style: italic;">## Plot contribution of the variables to the definition of 
 <span id="cb11-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb11-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_highcontrast</span>() <span class="co" style="color: #5E5E5E;"># Custom color scale</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/biplot-columns-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/biplot-columns-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Biplots have the drawbacks of their advantages: they can quickly become difficult to read as they display a lot of information at once. It may then be preferable to visualize the results for individuals and variables separately.</p>
@@ -167,7 +167,7 @@ font-style: italic;">## Plot variables factor map</span></span>
 <span id="cb12-3">  ggrepel<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">geom_label_repel</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb12-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-var-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/plot-var-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><code>plot_variables()</code> allows to highlight additional information by varying different graphical elements (color, transparency, shape and size of symbols…).</p>
@@ -179,7 +179,7 @@ font-style: italic;">## Highlight cos2</span></span>
 <span id="cb13-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb13-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_YlOrBr</span>(<span class="at" style="color: #657422;">range =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.4</span>, <span class="dv" style="color: #AD0000;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-var-cos2-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/plot-var-cos2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -194,7 +194,7 @@ font-style: italic;">## Plot individuals and colour by species</span></span>
 <span id="cb14-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb14-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_colour_bright</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Species"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-species-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/plot-ind-species-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -207,7 +207,7 @@ font-style: italic;">## Highlight body masses</span></span>
 <span id="cb15-3">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb15-4">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_YlOrBr</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Body mass (g)"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-mass-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/plot-ind-mass-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -218,7 +218,7 @@ font-style: italic;">## Highlight contributions</span></span>
 <span id="cb16-4">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_size_continuous</span>(<span class="at" style="color: #657422;">range =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">5</span>)) <span class="sc" style="color: #5E5E5E;">+</span> <span class="co" style="color: #5E5E5E;"># Custom size scale</span></span>
 <span id="cb16-5">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_iridescent</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/plot-ind-contrib-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/plot-ind-contrib-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -245,7 +245,7 @@ font-style: italic;">## Highlight contributions</span></span>
 <span id="cb19-6">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"bottom"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb19-7">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_fill_vibrant</span>(<span class="at" style="color: #657422;">name =</span> <span class="st" style="color: #20794D;">"Positive loadings?"</span>, <span class="at" style="color: #657422;">reverse =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/tidy-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/tidy-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -276,7 +276,7 @@ font-style: italic;">## Highlight contributions</span></span>
 <span id="cb22-7">  ggplot2<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">theme_bw</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb22-8">  khroma<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scale_color_iridescent</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.tesselle.org/posts/2022-09-01-dimensio-030/index_files/figure-html/augment-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://www.tesselle.org/posts/2022-08-15-dimensio-030/index_files/figure-html/augment-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -309,19 +309,19 @@ Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takaha
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
   author = {Nicolas Frerebeau},
   title = {Dimensio 0.3.0},
-  date = {2022-09-01},
-  url = {https://www.tesselle.org/posts/2022-09-01-dimensio-030},
+  date = {2022-08-15},
+  url = {https://www.tesselle.org/posts/2022-08-15-dimensio-030},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2022" class="csl-entry quarto-appendix-citeas">
-Nicolas Frerebeau. 2022. <span>“Dimensio 0.3.0.”</span> September 1,
-2022. <a href="https://www.tesselle.org/posts/2022-09-01-dimensio-030">https://www.tesselle.org/posts/2022-09-01-dimensio-030</a>.
+Nicolas Frerebeau. 2022. <span>“Dimensio 0.3.0.”</span> August 15, 2022.
+<a href="https://www.tesselle.org/posts/2022-08-15-dimensio-030">https://www.tesselle.org/posts/2022-08-15-dimensio-030</a>.
 </div></div></section></div> ]]></description>
   <category>packages</category>
   <category>releases</category>
-  <guid>https://www.tesselle.org/posts/2022-09-01-dimensio-030/index.html</guid>
-  <pubDate>Thu, 01 Sep 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://www.tesselle.org/posts/2022-09-01-dimensio-030/preview.png" medium="image" type="image/png" height="103" width="144"/>
+  <guid>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</guid>
+  <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2022-08-15-dimensio-030/preview.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>kairos 1.1.0</title>

@@ -17,8 +17,8 @@ _paq.push(["setDoNotTrack", true]);
 _paq.push(['trackPageView']);
 (function() {
   var u="https://analyseweb.huma-num.fr/";
-  _paq.push(['setTrackerUrl', u+'js/']);
+  _paq.push(['setTrackerUrl', u+'matomo.php']);
   _paq.push(['setSiteId', '332']);
   var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-  g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+  g.type='text/javascript'; g.async=true; g.src=u+'/js'; s.parentNode.insertBefore(g,s);
 })();

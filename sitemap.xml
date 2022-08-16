@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</loc>
-    <lastmod>2022-08-15T18:35:11.328Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</loc>
-    <lastmod>2022-08-15T18:35:12.968Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</loc>
-    <lastmod>2022-08-15T18:35:14.132Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</loc>
-    <lastmod>2022-08-15T18:35:15.424Z</lastmod>
+    <loc>https://www.tesselle.org/style.html</loc>
+    <lastmod>2022-08-16T15:31:25.482Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2022-08-15T18:35:17.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2022-08-15T18:35:18.428Z</lastmod>
+    <lastmod>2022-08-16T15:31:27.338Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/packages.html</loc>
-    <lastmod>2022-08-15T18:35:20.444Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2022-08-15T18:35:22.820Z</lastmod>
+    <lastmod>2022-08-16T15:31:29.390Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2022-08-15T18:35:23.176Z</lastmod>
+    <lastmod>2022-08-16T15:31:29.758Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2022-08-15T18:35:23.588Z</lastmod>
+    <lastmod>2022-08-16T15:31:30.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/contributing.html</loc>
+    <lastmod>2022-08-16T15:31:31.650Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</loc>
+    <lastmod>2022-08-16T15:31:32.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</loc>
+    <lastmod>2022-08-16T15:31:34.058Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</loc>
+    <lastmod>2022-08-16T15:31:35.238Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</loc>
+    <lastmod>2022-08-16T15:31:36.494Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2022-08-15T18:35:23.948Z</lastmod>
+    <lastmod>2022-08-16T15:31:36.826Z</lastmod>
   </url>
 </urlset>

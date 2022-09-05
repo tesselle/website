@@ -11,8 +11,8 @@ website:
   image: images/tesselle.png
   favicon: images/icons/favicon.ico
   twitter-card:
-    site: "@nfrerebeau"
-    creator: "@nfrerebeau"
+    site: "@tesselle_"
+    creator: "@tesselle_"
   open-graph: true
   navbar:
     background: "#4F2680"
@@ -24,6 +24,9 @@ website:
           - conduct.qmd
           - style.qmd
       - about.qmd
+      - icon: twitter
+        aria-label: Twitter
+        href: https://twitter.com/tesselle_
       - icon: github
         aria-label: GitHub
         href: https://github.com/tesselle/

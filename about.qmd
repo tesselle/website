@@ -7,6 +7,9 @@ about:
   image: images/tesselle.png
   image-shape: rectangle
   links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/tesselle_
     - icon: github
       text: Github
       href: https://github.com/tesselle/

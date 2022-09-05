@@ -16,7 +16,7 @@
 <height>167</height>
 <width>144</width>
 </image>
-<generator>quarto-1.0.38</generator>
+<generator>quarto-1.1.189</generator>
 <lastBuildDate>Mon, 15 Aug 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>dimensio 0.3.0</title>
@@ -308,6 +308,7 @@ Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takaha
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
   author = {Nicolas Frerebeau},
+  editor = {},
   title = {Dimensio 0.3.0},
   date = {2022-08-15},
   url = {https://www.tesselle.org/posts/2022-08-15-dimensio-030},
@@ -465,6 +466,7 @@ Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takaha
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2022,
   author = {Nicolas Frerebeau},
+  editor = {},
   title = {Kairos 1.1.0},
   date = {2022-06-18},
   url = {https://www.tesselle.org/posts/2022-06-18-kairos-110},
@@ -702,6 +704,7 @@ South, S. A. 1977. <em>Method and <span>Theory</span> in <span>Historical</span>
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2021,
   author = {Nicolas Frerebeau},
+  editor = {},
   title = {Kairos 1.0.0},
   date = {2021-11-10},
   url = {https://www.tesselle.org/posts/2021-11-10-kairos-100},
@@ -767,6 +770,7 @@ font-style: italic;">## Install some packages</span></span>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2021,
   author = {Nicolas Frerebeau},
+  editor = {},
   title = {The Tesselle Universe},
   date = {2021-08-15},
   url = {https://www.tesselle.org/posts/2021-08-15-tesselle-universe},

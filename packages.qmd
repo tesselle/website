@@ -36,6 +36,9 @@ Browse the documentation on [packages.tesselle.org](https://packages.tesselle.or
   <a href="#khroma">
     <img class="row2 col4" src="images/khroma.png" alt="khroma">
   </a>
+  <a href="#alkahest">
+    <img class="row3 col1" src="images/alkahest.png" alt="alkahest">
+  </a>
   <a href="#dimensio">
     <img class="row3 col3" src="images/dimensio.png" alt="dimensio">
   </a>

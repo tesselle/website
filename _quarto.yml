@@ -11,8 +11,9 @@ website:
   image: images/tesselle.png
   favicon: images/icons/favicon.ico
   twitter-card:
-    site: "@tesselle_"
-    creator: "@tesselle_"
+    site: "@archaeostats"
+    creator: "@archaeostats"
+    image: "/images/card.png"
   open-graph: true
   navbar:
     background: "#4F2680"
@@ -26,7 +27,7 @@ website:
       - about.qmd
       - icon: twitter
         aria-label: Twitter
-        href: https://twitter.com/tesselle_
+        href: https://twitter.com/archaeostats
       - icon: github
         aria-label: GitHub
         href: https://github.com/tesselle/

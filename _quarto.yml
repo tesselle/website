@@ -5,9 +5,11 @@ project:
 
 website:
   title: "tesselle"
+
   site-url: https://www.tesselle.org
   repo-url: https://github.com/tesselle/website
   repo-actions: [issue]
+
   image: images/tesselle.png
   favicon: images/icons/favicon.ico
   twitter-card:
@@ -15,6 +17,9 @@ website:
     creator: "@archaeostats"
     image: "/images/card.png"
   open-graph: true
+
+  reader-mode: true
+
   navbar:
     background: "#4F2680"
     right:
@@ -34,6 +39,7 @@ website:
       - icon: rss-fill
         aria-label: RSS
         href: index.xml
+
   page-footer:
     background: "#4F2680"
     left:
@@ -43,9 +49,7 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - custom.scss
+    theme: custom.scss
     include-in-header: _header.html
     toc: true
     toc-location: left

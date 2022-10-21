@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
-
+<meta name="generator" content="quarto-1.2.231">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="description" content="How to contribute to the tesselle packages.">
-
 <title>tesselle - Contributing</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -40,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,33 +54,24 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<!-- Matomo -->
-<script src="https://www.tesselle.org/scripts/unicorn.js"></script>
-<noscript></noscript><meta property="og:title" content="tesselle - Contributing">
+}</script><!-- Matomo --><script src="https://www.tesselle.org/scripts/unicorn.js"></script><noscript></noscript><meta property="og:title" content="tesselle - Contributing">
 <meta property="og:description" content="How to contribute to the tesselle packages.">
 <meta property="og:site-name" content="tesselle">
 <meta name="twitter:title" content="tesselle - Contributing">
 <meta name="twitter:description" content="How to contribute to the tesselle packages.">
 <meta name="twitter:image" content="https://www.tesselle.org/images/card.png">
 <meta name="twitter:creator" content="@archaeostats">
+<meta name="twitter:site" content="@archaeostats">
 <meta name="twitter:image-height" content="640">
 <meta name="twitter:image-width" content="1280">
 <meta name="twitter:card" content="summary_large_image">
 </head><body class="floating nav-fixed"><p><img src="https://analyseweb.huma-num.fr/matomo.php?idsite=332&amp;rec=1" style="border:0" alt=""></p>
-
-<!-- Web App Manifest --->
-<link rel="manifest" href="./manifest.webmanifest">
-
-
-
+<!-- Web App Manifest ---><link rel="manifest" href="./manifest.webmanifest">
 
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">tesselle</span>
@@ -96,13 +82,16 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./packages.html">Packages</a>
+<li class="nav-item">
+    <a class="nav-link" href="./packages.html">
+ <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guidelines</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-guidelines">    
-        <li>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Guidelines</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-guidelines">
+<li>
     <a class="dropdown-item" href="./contributing.html">
  <span class="dropdown-text">Contributing</span></a>
   </li>  
@@ -115,59 +104,58 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Coding Style</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/archaeostats"><i class="bi bi-twitter" role="img" aria-label="Twitter">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/tesselle/"><i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="./index.xml"><i class="bi bi-rss-fill" role="img" aria-label="RSS">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
+<div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#suggesting-new-features" id="toc-suggesting-new-features" class="nav-link active" data-scroll-target="#suggesting-new-features">Suggesting new features</a></li>
+<li><a href="#suggesting-new-features" id="toc-suggesting-new-features" class="nav-link active" data-scroll-target="#suggesting-new-features">Suggesting new features</a></li>
   <li><a href="#fixing-typos" id="toc-fixing-typos" class="nav-link" data-scroll-target="#fixing-typos">Fixing typos</a></li>
-  <li><a href="#bigger-changes" id="toc-bigger-changes" class="nav-link" data-scroll-target="#bigger-changes">Bigger changes</a>
+  <li>
+<a href="#bigger-changes" id="toc-bigger-changes" class="nav-link" data-scroll-target="#bigger-changes">Bigger changes</a>
   <ul class="collapse">
-  <li><a href="#pull-request-process" id="toc-pull-request-process" class="nav-link" data-scroll-target="#pull-request-process">Pull request process</a></li>
+<li><a href="#pull-request-process" id="toc-pull-request-process" class="nav-link" data-scroll-target="#pull-request-process">Pull request process</a></li>
   <li><a href="#code-style" id="toc-code-style" class="nav-link" data-scroll-target="#code-style">Code style</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of Conduct</a></li>
   <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Contributing</h1>
 </div>
 
@@ -181,56 +169,37 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
-</header>
-
-<section id="suggesting-new-features" class="level2">
-<h2 class="anchored" data-anchor-id="suggesting-new-features">Suggesting new features</h2>
+</header><section id="suggesting-new-features" class="level2"><h2 class="anchored" data-anchor-id="suggesting-new-features">Suggesting new features</h2>
 <p>You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository.</p>
-</section>
-<section id="fixing-typos" class="level2">
-<h2 class="anchored" data-anchor-id="fixing-typos">Fixing typos</h2>
+</section><section id="fixing-typos" class="level2"><h2 class="anchored" data-anchor-id="fixing-typos">Fixing typos</h2>
 <p>You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the <em>source</em> file. This generally means you’ll need to edit <a href="https://roxygen2.r-lib.org/articles/roxygen2.html">roxygen2 comments</a> in an <code>.R</code>, not a <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> by reading the comment in the first line.</p>
-</section>
-<section id="bigger-changes" class="level2">
-<h2 class="anchored" data-anchor-id="bigger-changes">Bigger changes</h2>
+</section><section id="bigger-changes" class="level2"><h2 class="anchored" data-anchor-id="bigger-changes">Bigger changes</h2>
 <p>If you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.</p>
 <p>If you’ve found a bug, please file an issue that illustrates the bug with a minimal <a href="https://www.tidyverse.org/help/#reprex">reprex</a> (this will also help you write a unit test, if needed).</p>
-<section id="pull-request-process" class="level3">
-<h3 class="anchored" data-anchor-id="pull-request-process">Pull request process</h3>
+<section id="pull-request-process" class="level3"><h3 class="anchored" data-anchor-id="pull-request-process">Pull request process</h3>
 <ul>
 <li>Fork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s <a href="https://happygitwithr.com"><em>Happy Git and GitHub for the useR</em></a> first.</li>
-<li>Install all development dependencies with <code>devtools::install_dev_deps()</code>, and then make sure the package passes R CMD check by running <code>devtools::check()</code>. If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.</li>
+<li>Install all development dependencies with <code><a href="https://devtools.r-lib.org/reference/install_deps.html">devtools::install_dev_deps()</a></code>, and then make sure the package passes R CMD check by running <code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code>. If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.</li>
 <li>Create a Git branch for your pull request (PR). We recommend using <code>usethis::pr_init("brief-description-of-change")</code>.</li>
-<li>Make your changes, commit to git, and then create a PR by running <code>usethis::pr_push()</code>, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain <code>Fixes #issue-number</code>.</li>
+<li>Make your changes, commit to git, and then create a PR by running <code><a href="https://usethis.r-lib.org/reference/pull-requests.html">usethis::pr_push()</a></code>, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain <code>Fixes #issue-number</code>.</li>
 <li>For user-facing changes, add a bullet to the top of <code>NEWS.md</code> (i.e.&nbsp;just below the first header).</li>
-</ul>
-</section>
-<section id="code-style" class="level3">
-<h3 class="anchored" data-anchor-id="code-style">Code style</h3>
+</ul></section><section id="code-style" class="level3"><h3 class="anchored" data-anchor-id="code-style">Code style</h3>
 <ul>
 <li>New code should follow the <a href="style.html">style guide</a>.</li>
 <li>We use <a href="https://roxygen2.r-lib.org">roxygen2</a>, with <a href="https://roxygen2.r-lib.org/articles/rd-formatting.html">Markdown syntax</a>, for documentation.</li>
 <li>We use <a href="https://testthat.r-lib.org">testthat</a> and <a href="https://vdiffr.r-lib.org">vdiffr</a> for unit tests. Contributions with test cases included are easier to accept.</li>
-</ul>
-</section>
-</section>
-<section id="code-of-conduct" class="level2">
-<h2 class="anchored" data-anchor-id="code-of-conduct">Code of Conduct</h2>
+</ul></section></section><section id="code-of-conduct" class="level2"><h2 class="anchored" data-anchor-id="code-of-conduct">Code of Conduct</h2>
 <p>Please note that the <strong>tesselle</strong> project is released with a <a href="conduct.html">Contributor Code of Conduct</a>. By contributing to this project you agree to abide by its terms.</p>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="attribution" class="level2 appendix"><h2 class="quarto-appendix-heading">Attribution</h2><div class="quarto-appendix-contents">
-
+</section><div id="quarto-appendix" class="default"><section id="attribution" class="level2 appendix"><h2 class="quarto-appendix-heading">Attribution</h2><div class="quarto-appendix-contents">
 <p>This contributing guide is adapted from the <a href="https://raw.githubusercontent.com/r-lib/usethis/master/inst/templates/tidy-contributing.md">tidyverse contributing guide</a>.</p>
 
 
-</div></section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -271,7 +240,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -307,47 +293,63 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
  The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>, <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
   </li>  
 </ul>
-    </div>   
+</div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="./privacy.html">Privacy Policy</a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
 
 
 </body></html>

@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2022-09-13T17:48:55.672Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2022-09-13T17:48:57.616Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/packages.html</loc>
-    <lastmod>2022-09-13T17:48:59.836Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2022-09-13T17:49:00.204Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2022-09-13T17:49:00.708Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2022-09-13T17:49:02.240Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</loc>
-    <lastmod>2022-09-13T17:49:03.644Z</lastmod>
+    <lastmod>2022-10-21T16:02:14.535Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</loc>
-    <lastmod>2022-09-13T17:49:04.808Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2022-06-18-kairos-110/index.html</loc>
-    <lastmod>2022-09-13T17:49:06.080Z</lastmod>
+    <lastmod>2022-10-21T16:02:15.519Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</loc>
-    <lastmod>2022-09-13T17:49:07.392Z</lastmod>
+    <lastmod>2022-10-21T16:02:17.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/conduct.html</loc>
+    <lastmod>2022-10-21T16:02:18.759Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/style.html</loc>
+    <lastmod>2022-10-21T16:02:21.655Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/about.html</loc>
+    <lastmod>2022-10-21T16:02:21.871Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2022-09-13T17:49:07.768Z</lastmod>
+    <lastmod>2022-10-21T16:02:22.099Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/contributing.html</loc>
+    <lastmod>2022-10-21T16:02:25.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/index.html</loc>
+    <lastmod>2022-10-21T16:02:25.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/packages.html</loc>
+    <lastmod>2022-10-21T16:02:27.087Z</lastmod>
   </url>
 </urlset>

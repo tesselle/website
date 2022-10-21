@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html",
-    "href": "posts/2022-08-15-dimensio-030/index.html",
-    "title": "dimensio 0.3.0",
-    "section": "",
-    "text": "dimensio 0.3.0 is now on CRAN! dimensio provides a set of tools to compute, extract, summarize and visualize results of Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). It also includes methods for partial bootstrap validation.\nThere are many very good packages for multivariate data analysis (such as FactoMineR, ade4, vegan or ca, all extended by FactoExtra). dimensio is designed to be as simple as possible, providing all the necessary tools to explore the results of the analysis.\nYou can install it from CRAN with:\nThis post highlights the basics of the package using the palmerpenguins dataset (Horst, Hill, and Gorman 2022)."
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#do-pca",
-    "href": "posts/2022-08-15-dimensio-030/index.html#do-pca",
-    "title": "dimensio 0.3.0",
-    "section": "Do PCA",
-    "text": "Do PCA\n\n## Load data\n# install.packages(\"palmerpenguins\")\ndata(\"penguins\", package = \"palmerpenguins\")\nhead(penguins)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year\n  <fct>   <fct>              <dbl>         <dbl>       <int>   <int> <fct> <int>\n1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007\n2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007\n3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007\n4 Adelie  Torgersen           NA            NA            NA      NA <NA>   2007\n5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007\n6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007\n# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g\n\n## Remove cases with missing values\npenguins <- na.omit(penguins)\n\n## Keep quantitative variables\n## (i.e. column names ending with a unit)\nend_with_unit <- grep(\"_mm|_g\", colnames(penguins), value = TRUE)\nquanti <- subset(penguins, select = end_with_unit)\n\n## Compute PCA\n## (non numeric variables are automatically removed)\nX <- pca(quanti, center = TRUE, scale = TRUE)"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
-    "href": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
-    "title": "dimensio 0.3.0",
-    "section": "Explore the results",
-    "text": "Explore the results\ndimensio provides several methods to extract (get_*()) the results:\n\n\nget_data() returns the original data.\n\nget_contributions() returns the contributions to the definition of the principal dimensions.\n\nget_coordinates() returns the principal or standard coordinates.\n\nget_correlations() returns the correlations between variables and dimensions.\n\nget_cos2() returns the cos2 values (i.e. the quality of the representation of the points on the factor map).\n\nget_eigenvalues() returns the eigenvalues, the percentages of variance and the cumulative percentages of variance.\n\nThe package also allows to quickly visualize (plot_*()) the results:\n\n\nplot_rows()/plot_individuals() displays row/individual principal coordinates.\n\nplot_columns()/plot_variables() displays columns/variable principal coordinates.\n\nplot_contributions() displays (joint) contributions.\n\nplot_cos2() displays (joint) cos2.\n\nplot_variance() produces a scree plot.\n\ndimensio uses ggplot2 (Wickham et al. 2022) for plotting information. Visualization methods produce graphics with as few elements as possible: this makes it easy to customize diagrams (e.g. using extra layers, themes and scales).\n\n## Get eigenvalues\nget_eigenvalues(X)\n\n   eigenvalues  variance cumulative\nF1   2.7453557 70.536339   70.53634\nF2   0.7781172 19.992140   90.52848\nF3   0.3686425  9.471521  100.00000\n\n## Scree plot\nplot_variance(X) +\n  ggplot2::geom_text(nudge_y = 2) + # Add labels\n  ggplot2::theme_bw() # Change theme\n\n\n\n\n\n## Plot contribution of the variables to the definition of the first two axes\nplot_contributions(X, margin = 2, axes = c(1, 2)) +\n  ggplot2::geom_text(nudge_y = 2) +\n  ggplot2::theme_bw()"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
-    "href": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
-    "title": "dimensio 0.3.0",
-    "section": "PCA biplot",
-    "text": "PCA biplot\nA biplot is the simultaneous representation of rows and columns of a rectangular dataset. It is the generalization of a scatterplot to the case of mutlivariate data: it allows to visualize as much information as possible in a single graph (Greenacre 2010).\ndimensio allows to display two types of biplots: a form biplot (row-metric-preserving biplot) or a covariance biplot (column-metric-preserving biplot). See Greenacre (2010) for more details about biplots.\nThe form biplot favors the representation of the individuals: the distance between the individuals approximates the Euclidean distance between rows. In the form biplot the length of a vector approximates the quality of the representation of the variable.\n\nbiplot(X, type = \"form\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nThe covariance biplot favors the representation of the variables: the length of a vector approximates the standard deviation of the variable and the cosine of the angle formed by two vectors approximates the correlation between the two variables (Greenacre 2010). In the covariance biplot the distance between the individuals approximates the Mahalanobis distance between rows.\n\nbiplot(X, type = \"covariance\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nBiplots have the drawbacks of their advantages: they can quickly become difficult to read as they display a lot of information at once. It may then be preferable to visualize the results for individuals and variables separately."
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
-    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
-    "title": "dimensio 0.3.0",
-    "section": "Plot PCA loadings",
-    "text": "Plot PCA loadings\nplot_variables() depicts the variables by rays emanating from the origin (both their lengths and directions are important to the interpretation).\n\n## Plot variables factor map\nplot_variables(X) +\n  ggrepel::geom_label_repel() +\n  ggplot2::theme_bw()\n\n\n\n\nplot_variables() allows to highlight additional information by varying different graphical elements (color, transparency, shape and size of symbols…).\n\n## Highlight cos2\nplot_variables(X, colour = \"cos2\") +\n  ggrepel::geom_label_repel() + \n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(range = c(0.4, 1))"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
-    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
-    "title": "dimensio 0.3.0",
-    "section": "Plot PCA scores",
-    "text": "Plot PCA scores\nplot_individuals() allows to display individuals and to highlight additional information.\n\n## Plot individuals and colour by species\nplot_individuals(X, colour = \"group\", group = penguins$species) +\n  ggplot2::stat_ellipse() + # Add ellipses\n  ggplot2::theme_bw() +\n  khroma::scale_colour_bright(name = \"Species\")\n\n\n\n\n\n\n\n\n## Highlight body masses\nplot_individuals(X, colour = \"group\", group = penguins$body_mass_g) +\n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(name = \"Body mass (g)\")\n\n\n\n\n\n## Highlight contributions\nplot_individuals(X, colour = \"contrib\", size = \"contrib\") +\n  ggplot2::theme_bw() + # Change theme\n  ggplot2::scale_size_continuous(range = c(1, 5)) + # Custom size scale\n  khroma::scale_color_iridescent()"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
-    "href": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
-    "title": "dimensio 0.3.0",
-    "section": "Custom plot",
-    "text": "Custom plot\nIf you need more flexibility, the get_*() family and the tidy() and augment() functions allow you to extract the results as data frames and thus build custom graphs with base graphics or ggplot2.\n\npenguins_tidy <- tidy(X, margin = 2)\nhead(penguins_tidy)\n\n           label component supplementary coordinate contribution      cos2\n1  bill_depth_mm        F1         FALSE -0.6611860     15.92387 0.4371669\n2  bill_depth_mm        F2         FALSE  0.7023087     63.38859 0.4932375\n3  bill_depth_mm        F3         FALSE  0.2585287     18.13060 0.0668371\n4 bill_length_mm        F1         FALSE  0.7518288     20.58919 0.5652466\n5 bill_length_mm        F2         FALSE  0.5294376     36.02339 0.2803042\n6 bill_length_mm        F3         FALSE -0.3900969     41.27999 0.1521756\n\nggplot2::ggplot(data = penguins_tidy) +\n  ggplot2::aes(x = abs(coordinate), y = label, fill = coordinate > 0) +\n  ggplot2::geom_col() +\n  ggplot2::facet_wrap(. ~ component) +\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"bottom\") +\n  khroma::scale_fill_vibrant(name = \"Positive loadings?\", reverse = TRUE)\n\n\n\n\n\npenguins_augment <- augment(X, margin = 1)\nhead(penguins_augment)\n\n         F1          F2 label supplementary        mass      sum contribution\n1 -1.853593  0.03206938     1         FALSE 0.003003003 3.436836    1.0320827\n2 -1.316254 -0.44352677     2         FALSE 0.003003003 1.929241    0.5793516\n3 -1.376605 -0.16123048     3         FALSE 0.003003003 1.921037    0.5768879\n4 -1.885288 -0.01235124     4         FALSE 0.003003003 3.554465    1.0674069\n5 -1.919981  0.81759813     5         FALSE 0.003003003 4.354793    1.3077456\n6 -1.773020 -0.36622296     6         FALSE 0.003003003 3.277720    0.9843004\n       cos2\n1 0.9113332\n2 0.9224728\n3 0.8589470\n4 0.8516598\n5 0.8914904\n6 0.9275007\n\nggplot2::ggplot(data = penguins_augment) +\n  ggplot2::aes(x = F1, y = F2, colour = contribution) +\n  ggplot2::geom_vline(xintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_hline(yintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_point() +\n  ggplot2::coord_fixed() + # /!\\\n  ggplot2::theme_bw() +\n  khroma::scale_color_iridescent()"
-  },
-  {
     "objectID": "posts/2021-08-15-tesselle-universe/index.html",
     "href": "posts/2021-08-15-tesselle-universe/index.html",
     "title": "The tesselle universe",
@@ -98,53 +49,95 @@
     "text": "Aoristic Analysis\nAoristic analysis (Ratcliffe 2000) can be used to determine the probability of contemporaneity of archaeological sites or assemblages. The aoristic analysis distributes the probability of an event uniformly over each temporal fraction of the period considered. The aoristic sum is then the distribution of the total number of events to be assumed within this period.\n\n## Keep only assemblages that have a sample size of at least 10\nzuni_keep <- apply(X = zuni, MARGIN = 1, FUN = function(x) sum(x) >= 10)\n\n## Calculate date ranges for each assemblage\nzuni_span <- apply(\n  X = zuni[zuni_keep, ],\n  FUN = function(x, dates) range(unlist(dates[x > 0])),\n  MARGIN = 1,\n  dates = zuni_dates\n)\n\n## Coerce to a data.frame\nzuni_span <- as.data.frame(t(zuni_span))\nnames(zuni_span) <- c(\"from\", \"to\")\n\n## Calculate aoristic sum (weights)\naorist_weigth <- aoristic(zuni_span, step = 50, weight = TRUE)\nplot(aorist_weigth)\n\n\n\n\n\n## Rate of change\nroc_weigth <- roc(aorist_weigth, n = 30)\nplot(roc_weigth)"
   },
   {
-    "objectID": "conduct.html",
-    "href": "conduct.html",
-    "title": "Code of Conduct",
+    "objectID": "posts/2022-08-15-dimensio-030/index.html",
+    "href": "posts/2022-08-15-dimensio-030/index.html",
+    "title": "dimensio 0.3.0",
     "section": "",
-    "text": "We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community."
+    "text": "dimensio 0.3.0 is now on CRAN! dimensio provides a set of tools to compute, extract, summarize and visualize results of Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). It also includes methods for partial bootstrap validation.\nThere are many very good packages for multivariate data analysis (such as FactoMineR, ade4, vegan or ca, all extended by FactoExtra). dimensio is designed to be as simple as possible, providing all the necessary tools to explore the results of the analysis.\nYou can install it from CRAN with:\nThis post highlights the basics of the package using the palmerpenguins dataset (Horst, Hill, and Gorman 2022)."
   },
   {
-    "objectID": "conduct.html#our-standards",
-    "href": "conduct.html#our-standards",
-    "title": "Code of Conduct",
-    "section": "Our Standards",
-    "text": "Our Standards\nExamples of behavior that contributes to a positive environment for our community include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility and apologizing to those affected by our mistakes, and learning from the experience\nFocusing on what is best not just for us as individuals, but for the overall community\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical or email address, without their explicit permission\nOther conduct which could reasonably be considered inappropriate in a professional setting"
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#do-pca",
+    "href": "posts/2022-08-15-dimensio-030/index.html#do-pca",
+    "title": "dimensio 0.3.0",
+    "section": "Do PCA",
+    "text": "Do PCA\n\n## Load data\n# install.packages(\"palmerpenguins\")\ndata(\"penguins\", package = \"palmerpenguins\")\nhead(penguins)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year\n  <fct>   <fct>              <dbl>         <dbl>       <int>   <int> <fct> <int>\n1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007\n2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007\n3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007\n4 Adelie  Torgersen           NA            NA            NA      NA <NA>   2007\n5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007\n6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007\n# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g\n\n## Remove cases with missing values\npenguins <- na.omit(penguins)\n\n## Keep quantitative variables\n## (i.e. column names ending with a unit)\nend_with_unit <- grep(\"_mm|_g\", colnames(penguins), value = TRUE)\nquanti <- subset(penguins, select = end_with_unit)\n\n## Compute PCA\n## (non numeric variables are automatically removed)\nX <- pca(quanti, center = TRUE, scale = TRUE)"
   },
   {
-    "objectID": "conduct.html#enforcement-responsibilities",
-    "href": "conduct.html#enforcement-responsibilities",
-    "title": "Code of Conduct",
-    "section": "Enforcement Responsibilities",
-    "text": "Enforcement Responsibilities\nCommunity leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.\nCommunity leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate."
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
+    "href": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
+    "title": "dimensio 0.3.0",
+    "section": "Explore the results",
+    "text": "Explore the results\ndimensio provides several methods to extract (get_*()) the results:\n\n\nget_data() returns the original data.\n\nget_contributions() returns the contributions to the definition of the principal dimensions.\n\nget_coordinates() returns the principal or standard coordinates.\n\nget_correlations() returns the correlations between variables and dimensions.\n\nget_cos2() returns the cos2 values (i.e. the quality of the representation of the points on the factor map).\n\nget_eigenvalues() returns the eigenvalues, the percentages of variance and the cumulative percentages of variance.\n\nThe package also allows to quickly visualize (plot_*()) the results:\n\n\nplot_rows()/plot_individuals() displays row/individual principal coordinates.\n\nplot_columns()/plot_variables() displays columns/variable principal coordinates.\n\nplot_contributions() displays (joint) contributions.\n\nplot_cos2() displays (joint) cos2.\n\nplot_variance() produces a scree plot.\n\ndimensio uses ggplot2 (Wickham et al. 2022) for plotting information. Visualization methods produce graphics with as few elements as possible: this makes it easy to customize diagrams (e.g. using extra layers, themes and scales).\n\n## Get eigenvalues\nget_eigenvalues(X)\n\n   eigenvalues  variance cumulative\nF1   2.7453557 70.536339   70.53634\nF2   0.7781172 19.992140   90.52848\nF3   0.3686425  9.471521  100.00000\n\n## Scree plot\nplot_variance(X) +\n  ggplot2::geom_text(nudge_y = 2) + # Add labels\n  ggplot2::theme_bw() # Change theme\n\n\n\n\n\n## Plot contribution of the variables to the definition of the first two axes\nplot_contributions(X, margin = 2, axes = c(1, 2)) +\n  ggplot2::geom_text(nudge_y = 2) +\n  ggplot2::theme_bw()"
   },
   {
-    "objectID": "conduct.html#scope",
-    "href": "conduct.html#scope",
-    "title": "Code of Conduct",
-    "section": "Scope",
-    "text": "Scope\nThis Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event."
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
+    "href": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
+    "title": "dimensio 0.3.0",
+    "section": "PCA biplot",
+    "text": "PCA biplot\nA biplot is the simultaneous representation of rows and columns of a rectangular dataset. It is the generalization of a scatterplot to the case of mutlivariate data: it allows to visualize as much information as possible in a single graph (Greenacre 2010).\ndimensio allows to display two types of biplots: a form biplot (row-metric-preserving biplot) or a covariance biplot (column-metric-preserving biplot). See Greenacre (2010) for more details about biplots.\nThe form biplot favors the representation of the individuals: the distance between the individuals approximates the Euclidean distance between rows. In the form biplot the length of a vector approximates the quality of the representation of the variable.\n\nbiplot(X, type = \"form\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nThe covariance biplot favors the representation of the variables: the length of a vector approximates the standard deviation of the variable and the cosine of the angle formed by two vectors approximates the correlation between the two variables (Greenacre 2010). In the covariance biplot the distance between the individuals approximates the Mahalanobis distance between rows.\n\nbiplot(X, type = \"covariance\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nBiplots have the drawbacks of their advantages: they can quickly become difficult to read as they display a lot of information at once. It may then be preferable to visualize the results for individuals and variables separately."
   },
   {
-    "objectID": "conduct.html#enforcement",
-    "href": "conduct.html#enforcement",
-    "title": "Code of Conduct",
-    "section": "Enforcement",
-    "text": "Enforcement\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.\nAll community leaders are obligated to respect the privacy and security of the reporter of any incident."
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
+    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
+    "title": "dimensio 0.3.0",
+    "section": "Plot PCA loadings",
+    "text": "Plot PCA loadings\nplot_variables() depicts the variables by rays emanating from the origin (both their lengths and directions are important to the interpretation).\n\n## Plot variables factor map\nplot_variables(X) +\n  ggrepel::geom_label_repel() +\n  ggplot2::theme_bw()\n\n\n\n\nplot_variables() allows to highlight additional information by varying different graphical elements (color, transparency, shape and size of symbols…).\n\n## Highlight cos2\nplot_variables(X, colour = \"cos2\") +\n  ggrepel::geom_label_repel() + \n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(range = c(0.4, 1))"
   },
   {
-    "objectID": "conduct.html#enforcement-guidelines",
-    "href": "conduct.html#enforcement-guidelines",
-    "title": "Code of Conduct",
-    "section": "Enforcement Guidelines",
-    "text": "Enforcement Guidelines\nCommunity leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:\n1. Correction\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.\nConsequence: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n2. Warning\nCommunity Impact: A violation through a single incident or series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.\n3. Temporary Ban\nCommunity Impact: A serious violation of community standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.\n4. Permanent Ban\nCommunity Impact: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any sort of public interaction within the community."
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
+    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
+    "title": "dimensio 0.3.0",
+    "section": "Plot PCA scores",
+    "text": "Plot PCA scores\nplot_individuals() allows to display individuals and to highlight additional information.\n\n## Plot individuals and colour by species\nplot_individuals(X, colour = \"group\", group = penguins$species) +\n  ggplot2::stat_ellipse() + # Add ellipses\n  ggplot2::theme_bw() +\n  khroma::scale_colour_bright(name = \"Species\")\n\n\n\n\n\n\n\n\n## Highlight body masses\nplot_individuals(X, colour = \"group\", group = penguins$body_mass_g) +\n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(name = \"Body mass (g)\")\n\n\n\n\n\n## Highlight contributions\nplot_individuals(X, colour = \"contrib\", size = \"contrib\") +\n  ggplot2::theme_bw() + # Change theme\n  ggplot2::scale_size_continuous(range = c(1, 5)) + # Custom size scale\n  khroma::scale_color_iridescent()"
   },
   {
-    "objectID": "conduct.html#attribution",
-    "href": "conduct.html#attribution",
-    "title": "Code of Conduct",
+    "objectID": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
+    "href": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
+    "title": "dimensio 0.3.0",
+    "section": "Custom plot",
+    "text": "Custom plot\nIf you need more flexibility, the get_*() family and the tidy() and augment() functions allow you to extract the results as data frames and thus build custom graphs with base graphics or ggplot2.\n\npenguins_tidy <- tidy(X, margin = 2)\nhead(penguins_tidy)\n\n           label component supplementary coordinate contribution      cos2\n1  bill_depth_mm        F1         FALSE -0.6611860     15.92387 0.4371669\n2  bill_depth_mm        F2         FALSE  0.7023087     63.38859 0.4932375\n3  bill_depth_mm        F3         FALSE  0.2585287     18.13060 0.0668371\n4 bill_length_mm        F1         FALSE  0.7518288     20.58919 0.5652466\n5 bill_length_mm        F2         FALSE  0.5294376     36.02339 0.2803042\n6 bill_length_mm        F3         FALSE -0.3900969     41.27999 0.1521756\n\nggplot2::ggplot(data = penguins_tidy) +\n  ggplot2::aes(x = abs(coordinate), y = label, fill = coordinate > 0) +\n  ggplot2::geom_col() +\n  ggplot2::facet_wrap(. ~ component) +\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"bottom\") +\n  khroma::scale_fill_vibrant(name = \"Positive loadings?\", reverse = TRUE)\n\n\n\n\n\npenguins_augment <- augment(X, margin = 1)\nhead(penguins_augment)\n\n         F1          F2 label supplementary        mass      sum contribution\n1 -1.853593  0.03206938     1         FALSE 0.003003003 3.436836    1.0320827\n2 -1.316254 -0.44352677     2         FALSE 0.003003003 1.929241    0.5793516\n3 -1.376605 -0.16123048     3         FALSE 0.003003003 1.921037    0.5768879\n4 -1.885288 -0.01235124     4         FALSE 0.003003003 3.554465    1.0674069\n5 -1.919981  0.81759813     5         FALSE 0.003003003 4.354793    1.3077456\n6 -1.773020 -0.36622296     6         FALSE 0.003003003 3.277720    0.9843004\n       cos2\n1 0.9113332\n2 0.9224728\n3 0.8589470\n4 0.8516598\n5 0.8914904\n6 0.9275007\n\nggplot2::ggplot(data = penguins_augment) +\n  ggplot2::aes(x = F1, y = F2, colour = contribution) +\n  ggplot2::geom_vline(xintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_hline(yintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_point() +\n  ggplot2::coord_fixed() + # /!\\\n  ggplot2::theme_bw() +\n  khroma::scale_color_iridescent()"
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository."
+  },
+  {
+    "objectID": "contributing.html#fixing-typos",
+    "href": "contributing.html#fixing-typos",
+    "title": "Contributing",
+    "section": "Fixing typos",
+    "text": "Fixing typos\nYou can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the source file. This generally means you’ll need to edit roxygen2 comments in an .R, not a .Rd file. You can find the .R file that generates the .Rd by reading the comment in the first line."
+  },
+  {
+    "objectID": "contributing.html#bigger-changes",
+    "href": "contributing.html#bigger-changes",
+    "title": "Contributing",
+    "section": "Bigger changes",
+    "text": "Bigger changes\nIf you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.\nIf you’ve found a bug, please file an issue that illustrates the bug with a minimal reprex (this will also help you write a unit test, if needed).\nPull request process\n\nFork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s Happy Git and GitHub for the useR first.\nInstall all development dependencies with devtools::install_dev_deps(), and then make sure the package passes R CMD check by running devtools::check(). If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.\nCreate a Git branch for your pull request (PR). We recommend using usethis::pr_init(\"brief-description-of-change\").\nMake your changes, commit to git, and then create a PR by running usethis::pr_push(), and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain Fixes #issue-number.\nFor user-facing changes, add a bullet to the top of NEWS.md (i.e. just below the first header).\nCode style\n\nNew code should follow the style guide.\nWe use roxygen2, with Markdown syntax, for documentation.\nWe use testthat and vdiffr for unit tests. Contributions with test cases included are easier to accept."
+  },
+  {
+    "objectID": "contributing.html#code-of-conduct",
+    "href": "contributing.html#code-of-conduct",
+    "title": "Contributing",
+    "section": "Code of Conduct",
+    "text": "Code of Conduct\nPlease note that the tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms."
+  },
+  {
+    "objectID": "contributing.html#attribution",
+    "href": "contributing.html#attribution",
+    "title": "Contributing",
     "section": "Attribution",
-    "text": "Attribution\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
+    "text": "Attribution\nThis contributing guide is adapted from the tidyverse contributing guide."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R packages & archaeology",
+    "section": "",
+    "text": "Simple Principal Components Analysis and Correspondence Analysis\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nAug 15, 2022\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\n\nAnalysis of Chronological Patterns from Archaeological Count Data\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nNov 10, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\n\nInstall tesselle packages from our CRAN-like repository on R-universe\n\n\n\n\npackages\n\n\n \n\n\n\n\nAug 15, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "style.html",
@@ -180,41 +173,6 @@
     "title": "Coding Style",
     "section": "Attribution",
     "text": "Attribution\nThis coding style is derived from the tidyverse style guide, the rOpenSci Packages book and Iegor Rudnytskyi’s R Coding Style Guide."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     R-universe"
-  },
-  {
-    "objectID": "about.html#yet-another-package",
-    "href": "about.html#yet-another-package",
-    "title": "About",
-    "section": "Yet another package",
-    "text": "Yet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
-  },
-  {
-    "objectID": "about.html#roadmap",
-    "href": "about.html#roadmap",
-    "title": "About",
-    "section": "Roadmap",
-    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
-  },
-  {
-    "objectID": "about.html#contributors",
-    "href": "about.html#contributors",
-    "title": "About",
-    "section": "Contributors",
-    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\nORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
-  },
-  {
-    "objectID": "about.html#institutional-support",
-    "href": "about.html#institutional-support",
-    "title": "About",
-    "section": "Institutional support",
-    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
   },
   {
     "objectID": "privacy.html",
@@ -264,48 +222,6 @@
     "title": "Privacy Policy",
     "section": "Attribution",
     "text": "Attribution\n\nThis Privacy Policy is adapted from the Matomo Privacy Policy, available at https://matomo.org/privacy-policy."
-  },
-  {
-    "objectID": "contributing.html",
-    "href": "contributing.html",
-    "title": "Contributing",
-    "section": "",
-    "text": "You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository."
-  },
-  {
-    "objectID": "contributing.html#fixing-typos",
-    "href": "contributing.html#fixing-typos",
-    "title": "Contributing",
-    "section": "Fixing typos",
-    "text": "Fixing typos\nYou can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the source file. This generally means you’ll need to edit roxygen2 comments in an .R, not a .Rd file. You can find the .R file that generates the .Rd by reading the comment in the first line."
-  },
-  {
-    "objectID": "contributing.html#bigger-changes",
-    "href": "contributing.html#bigger-changes",
-    "title": "Contributing",
-    "section": "Bigger changes",
-    "text": "Bigger changes\nIf you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.\nIf you’ve found a bug, please file an issue that illustrates the bug with a minimal reprex (this will also help you write a unit test, if needed).\nPull request process\n\nFork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s Happy Git and GitHub for the useR first.\nInstall all development dependencies with devtools::install_dev_deps(), and then make sure the package passes R CMD check by running devtools::check(). If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.\nCreate a Git branch for your pull request (PR). We recommend using usethis::pr_init(\"brief-description-of-change\").\nMake your changes, commit to git, and then create a PR by running usethis::pr_push(), and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain Fixes #issue-number.\nFor user-facing changes, add a bullet to the top of NEWS.md (i.e. just below the first header).\nCode style\n\nNew code should follow the style guide.\nWe use roxygen2, with Markdown syntax, for documentation.\nWe use testthat and vdiffr for unit tests. Contributions with test cases included are easier to accept."
-  },
-  {
-    "objectID": "contributing.html#code-of-conduct",
-    "href": "contributing.html#code-of-conduct",
-    "title": "Contributing",
-    "section": "Code of Conduct",
-    "text": "Code of Conduct\nPlease note that the tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms."
-  },
-  {
-    "objectID": "contributing.html#attribution",
-    "href": "contributing.html#attribution",
-    "title": "Contributing",
-    "section": "Attribution",
-    "text": "Attribution\nThis contributing guide is adapted from the tidyverse contributing guide."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R packages & archaeology",
-    "section": "",
-    "text": "dimensio 0.3.0\n\n\nSimple Principal Components Analysis and Correspondence Analysis\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nAug 15, 2022\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nkairos 1.0.0\n\n\nAnalysis of Chronological Patterns from Archaeological Count Data\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nNov 10, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nThe tesselle universe\n\n\nInstall tesselle packages from our CRAN-like repository on R-universe\n\n\n\n\npackages\n\n\n \n\n\n\n\nAug 15, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "packages.html",
@@ -369,5 +285,89 @@
     "title": "Overview",
     "section": "Datasets",
     "text": "Datasets\nfolio\n Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.). Read the doc…\n\n\n\n\n\n\n\n\n\n\nfasti\nDatasets for chronological modelling. This package provides models and data to reproduce results from chronos examples and vignettes. Read the doc…"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     R-universe"
+  },
+  {
+    "objectID": "about.html#yet-another-package",
+    "href": "about.html#yet-another-package",
+    "title": "About",
+    "section": "Yet another package",
+    "text": "Yet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
+  },
+  {
+    "objectID": "about.html#roadmap",
+    "href": "about.html#roadmap",
+    "title": "About",
+    "section": "Roadmap",
+    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
+  },
+  {
+    "objectID": "about.html#contributors",
+    "href": "about.html#contributors",
+    "title": "About",
+    "section": "Contributors",
+    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\nORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
+  },
+  {
+    "objectID": "about.html#institutional-support",
+    "href": "about.html#institutional-support",
+    "title": "About",
+    "section": "Institutional support",
+    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
+  },
+  {
+    "objectID": "conduct.html",
+    "href": "conduct.html",
+    "title": "Code of Conduct",
+    "section": "",
+    "text": "We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community."
+  },
+  {
+    "objectID": "conduct.html#our-standards",
+    "href": "conduct.html#our-standards",
+    "title": "Code of Conduct",
+    "section": "Our Standards",
+    "text": "Our Standards\nExamples of behavior that contributes to a positive environment for our community include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility and apologizing to those affected by our mistakes, and learning from the experience\nFocusing on what is best not just for us as individuals, but for the overall community\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical or email address, without their explicit permission\nOther conduct which could reasonably be considered inappropriate in a professional setting"
+  },
+  {
+    "objectID": "conduct.html#enforcement-responsibilities",
+    "href": "conduct.html#enforcement-responsibilities",
+    "title": "Code of Conduct",
+    "section": "Enforcement Responsibilities",
+    "text": "Enforcement Responsibilities\nCommunity leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.\nCommunity leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate."
+  },
+  {
+    "objectID": "conduct.html#scope",
+    "href": "conduct.html#scope",
+    "title": "Code of Conduct",
+    "section": "Scope",
+    "text": "Scope\nThis Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event."
+  },
+  {
+    "objectID": "conduct.html#enforcement",
+    "href": "conduct.html#enforcement",
+    "title": "Code of Conduct",
+    "section": "Enforcement",
+    "text": "Enforcement\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.\nAll community leaders are obligated to respect the privacy and security of the reporter of any incident."
+  },
+  {
+    "objectID": "conduct.html#enforcement-guidelines",
+    "href": "conduct.html#enforcement-guidelines",
+    "title": "Code of Conduct",
+    "section": "Enforcement Guidelines",
+    "text": "Enforcement Guidelines\nCommunity leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:\n1. Correction\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.\nConsequence: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n2. Warning\nCommunity Impact: A violation through a single incident or series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.\n3. Temporary Ban\nCommunity Impact: A serious violation of community standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.\n4. Permanent Ban\nCommunity Impact: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any sort of public interaction within the community."
+  },
+  {
+    "objectID": "conduct.html#attribution",
+    "href": "conduct.html#attribution",
+    "title": "Code of Conduct",
+    "section": "Attribution",
+    "text": "Attribution\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   }
 ]

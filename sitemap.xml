@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</loc>
-    <lastmod>2022-10-21T16:02:14.535Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.tesselle.org/posts/2021-08-15-tesselle-universe/index.html</loc>
-    <lastmod>2022-10-21T16:02:15.519Z</lastmod>
+    <lastmod>2022-10-21T16:27:08.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/posts/2021-11-10-kairos-100/index.html</loc>
-    <lastmod>2022-10-21T16:02:17.887Z</lastmod>
+    <lastmod>2022-10-21T16:27:12.075Z</lastmod>
   </url>
   <url>
-    <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2022-10-21T16:02:18.759Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2022-10-21T16:02:21.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2022-10-21T16:02:21.871Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2022-10-21T16:02:22.099Z</lastmod>
+    <loc>https://www.tesselle.org/posts/2022-08-15-dimensio-030/index.html</loc>
+    <lastmod>2022-10-21T16:27:15.623Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2022-10-21T16:02:25.559Z</lastmod>
+    <lastmod>2022-10-21T16:27:17.375Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2022-10-21T16:02:25.819Z</lastmod>
+    <lastmod>2022-10-21T16:27:17.839Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/style.html</loc>
+    <lastmod>2022-10-21T16:27:20.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/privacy.html</loc>
+    <lastmod>2022-10-21T16:27:20.995Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/packages.html</loc>
-    <lastmod>2022-10-21T16:02:27.087Z</lastmod>
+    <lastmod>2022-10-21T16:27:23.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/about.html</loc>
+    <lastmod>2022-10-21T16:27:23.655Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/conduct.html</loc>
+    <lastmod>2022-10-21T16:27:25.331Z</lastmod>
   </url>
 </urlset>

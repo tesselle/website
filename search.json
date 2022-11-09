@@ -291,7 +291,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     R-universe"
+    "text": "Github\n  \n  \n    \n     R-universe"
   },
   {
     "objectID": "about.html#yet-another-package",
@@ -312,11 +312,11 @@
     "href": "about.html#contributors",
     "title": "About",
     "section": "Contributors",
-    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\nORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
+    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\n ORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
   },
   {
-    "objectID": "about.html#institutional-support",
-    "href": "about.html#institutional-support",
+    "objectID": "about.html#sec-institutional-support",
+    "href": "about.html#sec-institutional-support",
     "title": "About",
     "section": "Institutional support",
     "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"

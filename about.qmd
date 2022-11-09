@@ -22,7 +22,7 @@ about:
 
 There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
 
-**tesselle** is born from a progressive change of research practices within [our laboratories](about.html) with three key objectives:
+**tesselle** is born from a progressive change of research practices within [our laboratories](#sec-institutional-support) with three key objectives:
 
 * Building a unified data workflow within the laboratory to facilitate teamwork.
 * To move away from proprietary environments.
@@ -32,7 +32,7 @@ Last but not least, these packages are useful to us, we hope that others may als
 
 ## Roadmap
 
-**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/3) and fell free to [contribute](contributing.html).
+**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/5) and fell free to [contribute](contributing.html).
 
 ## Contributors
 
@@ -40,7 +40,7 @@ The **tessel** project is coordinated by Nicolas Frerebeau.
 
 The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):
 
-| Name | ORCID |
+| Name | {{< ai orcid color=#b2c046 >}} ORCID |
 |:-----|:------|
 | Vincent Arel-Bundock | [0000-0003-2042-7063](https://orcid.org/0000-0003-2042-7063) |
 | Jean-Baptiste Fourvel | [0000-0002-1061-4642](https://orcid.org/0000-0002-1061-4642) |
@@ -50,7 +50,7 @@ The following contributors have made it possible to develop this project through
 | Matthew Peeples | [0000-0003-4496-623X](https://orcid.org/0000-0003-4496-623X) |
 | Anne Philippe | [0000-0002-5331-5087](https://orcid.org/0000-0002-5331-5087) |
 
-## Institutional support
+## Institutional support {#sec-institutional-support}
 
 This project is supported by:
 

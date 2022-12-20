@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Github\n  \n  \n    \n     R-universe"
+  },
+  {
+    "objectID": "about.html#yet-another-package",
+    "href": "about.html#yet-another-package",
+    "title": "About",
+    "section": "Yet another package",
+    "text": "Yet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
+  },
+  {
+    "objectID": "about.html#roadmap",
+    "href": "about.html#roadmap",
+    "title": "About",
+    "section": "Roadmap",
+    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
+  },
+  {
+    "objectID": "about.html#contributors",
+    "href": "about.html#contributors",
+    "title": "About",
+    "section": "Contributors",
+    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\n ORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
+  },
+  {
+    "objectID": "about.html#sec-institutional-support",
+    "href": "about.html#sec-institutional-support",
+    "title": "About",
+    "section": "Institutional support",
+    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
+  },
+  {
     "objectID": "posts/2021-08-15-tesselle-universe/index.html",
     "href": "posts/2021-08-15-tesselle-universe/index.html",
     "title": "The tesselle universe",
@@ -98,46 +133,11 @@
     "text": "Custom plot\nIf you need more flexibility, the get_*() family and the tidy() and augment() functions allow you to extract the results as data frames and thus build custom graphs with base graphics or ggplot2.\n\npenguins_tidy <- tidy(X, margin = 2)\nhead(penguins_tidy)\n\n           label component supplementary coordinate contribution      cos2\n1  bill_depth_mm        F1         FALSE -0.6611860     15.92387 0.4371669\n2  bill_depth_mm        F2         FALSE  0.7023087     63.38859 0.4932375\n3  bill_depth_mm        F3         FALSE  0.2585287     18.13060 0.0668371\n4 bill_length_mm        F1         FALSE  0.7518288     20.58919 0.5652466\n5 bill_length_mm        F2         FALSE  0.5294376     36.02339 0.2803042\n6 bill_length_mm        F3         FALSE -0.3900969     41.27999 0.1521756\n\nggplot2::ggplot(data = penguins_tidy) +\n  ggplot2::aes(x = abs(coordinate), y = label, fill = coordinate > 0) +\n  ggplot2::geom_col() +\n  ggplot2::facet_wrap(. ~ component) +\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"bottom\") +\n  khroma::scale_fill_vibrant(name = \"Positive loadings?\", reverse = TRUE)\n\n\n\n\n\npenguins_augment <- augment(X, margin = 1)\nhead(penguins_augment)\n\n         F1          F2 label supplementary        mass      sum contribution\n1 -1.853593  0.03206938     1         FALSE 0.003003003 3.436836    1.0320827\n2 -1.316254 -0.44352677     2         FALSE 0.003003003 1.929241    0.5793516\n3 -1.376605 -0.16123048     3         FALSE 0.003003003 1.921037    0.5768879\n4 -1.885288 -0.01235124     4         FALSE 0.003003003 3.554465    1.0674069\n5 -1.919981  0.81759813     5         FALSE 0.003003003 4.354793    1.3077456\n6 -1.773020 -0.36622296     6         FALSE 0.003003003 3.277720    0.9843004\n       cos2\n1 0.9113332\n2 0.9224728\n3 0.8589470\n4 0.8516598\n5 0.8914904\n6 0.9275007\n\nggplot2::ggplot(data = penguins_augment) +\n  ggplot2::aes(x = F1, y = F2, colour = contribution) +\n  ggplot2::geom_vline(xintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_hline(yintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_point() +\n  ggplot2::coord_fixed() + # /!\\\n  ggplot2::theme_bw() +\n  khroma::scale_color_iridescent()"
   },
   {
-    "objectID": "contributing.html",
-    "href": "contributing.html",
-    "title": "Contributing",
+    "objectID": "packages.html",
+    "href": "packages.html",
+    "title": "Overview",
     "section": "",
-    "text": "You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository."
-  },
-  {
-    "objectID": "contributing.html#fixing-typos",
-    "href": "contributing.html#fixing-typos",
-    "title": "Contributing",
-    "section": "Fixing typos",
-    "text": "Fixing typos\nYou can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the source file. This generally means you’ll need to edit roxygen2 comments in an .R, not a .Rd file. You can find the .R file that generates the .Rd by reading the comment in the first line."
-  },
-  {
-    "objectID": "contributing.html#bigger-changes",
-    "href": "contributing.html#bigger-changes",
-    "title": "Contributing",
-    "section": "Bigger changes",
-    "text": "Bigger changes\nIf you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.\nIf you’ve found a bug, please file an issue that illustrates the bug with a minimal reprex (this will also help you write a unit test, if needed).\nPull request process\n\nFork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s Happy Git and GitHub for the useR first.\nInstall all development dependencies with devtools::install_dev_deps(), and then make sure the package passes R CMD check by running devtools::check(). If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.\nCreate a Git branch for your pull request (PR). We recommend using usethis::pr_init(\"brief-description-of-change\").\nMake your changes, commit to git, and then create a PR by running usethis::pr_push(), and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain Fixes #issue-number.\nFor user-facing changes, add a bullet to the top of NEWS.md (i.e. just below the first header).\nCode style\n\nNew code should follow the style guide.\nWe use roxygen2, with Markdown syntax, for documentation.\nWe use testthat and vdiffr for unit tests. Contributions with test cases included are easier to accept."
-  },
-  {
-    "objectID": "contributing.html#code-of-conduct",
-    "href": "contributing.html#code-of-conduct",
-    "title": "Contributing",
-    "section": "Code of Conduct",
-    "text": "Code of Conduct\nPlease note that the tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms."
-  },
-  {
-    "objectID": "contributing.html#attribution",
-    "href": "contributing.html#attribution",
-    "title": "Contributing",
-    "section": "Attribution",
-    "text": "Attribution\nThis contributing guide is adapted from the tidyverse contributing guide."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R packages & archaeology",
-    "section": "",
-    "text": "Simple Principal Components Analysis and Correspondence Analysis\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nAug 15, 2022\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\n\nAnalysis of Chronological Patterns from Archaeological Count Data\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nNov 10, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\n\nInstall tesselle packages from our CRAN-like repository on R-universe\n\n\n\n\npackages\n\n\n \n\n\n\n\nAug 15, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\nNo matching items"
+    "text": "Most of our packages are distributed on CRAN, development versions and non-CRAN packages (e.g. WIP packages and large data packages) can be installed from our repository.\nInstall the complete suite with:\n\ninstall.packages(\"tesselle\")\n\n\nFilter packages:\nshow all\ncount data\ncompositionnal data\nchronological data\nmultivariate data analysis\nsignal processing\n\n\n\n\n\n  \n  \n    \n      alkahest\n      Pre-Processing XY Data from Experimental Methods\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      A lightweight, dependency-free toolbox for pre-processing XY data from experimental methods (i.e. any signal that can be measured along a continuous variable). This package provides methods for baseline estimation and correction, smoothing, normalization, integration and peaks detection.\n      Documentation\n      Source code\n    \n  \n  \n    \n      arkhe\n      Tools for Cleaning Rectangular Data\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      A collection of simple functions for cleaning rectangular data. This package allows to detect, count and replace values or delete rows/columns according to a specific predicate. In addition, it provides tools to check conditions and return informative error messages.\n      Documentation\n      Source code\n    \n  \n  \n    \n      chronos\n      Post-Processing of Markov Chain Monte Carlo Simulations for Chronological Modelling\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      Statistical analysis of archaeological dates and groups of dates. This package allows to post-process Markov Chain Monte Carlo (MCMC) simulations from ChronoModel, Oxcal or BCal This package provides functions for the study of rhythms of the long term from the posterior distribution of a series of dates (tempo and activity plot). It also allows the estimation and visualization of time ranges from the posterior distribution of groups of dates (e.g. duration, transition and hiatus between successive phases).\n      Documentation\n      Source code\n    \n  \n  \n    \n      dimensio\n      Multivariate Data Analysis\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in @greenacre1984 and @lebart2006.\n      Documentation\n      Source code\n    \n  \n  \n    \n      kairos\n      Analysis of Chronological Patterns from Archaeological Count Data\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      A toolkit for absolute dating and analysis of chronological patterns. kairos includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site.\n      Documentation\n      Source code\n    \n  \n  \n    \n      khroma\n      Colour Schemes for Scientific Data Visualization\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) colour schemes for use with graphics or ggplot2. It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented.\n      Documentation\n      Source code\n    \n  \n  \n    \n      folio\n      Datasets for Teaching Archaeology and Paleontology\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.).\n      Documentation\n      Source code\n    \n  \n  \n    \n      nexus\n      Sourcing Archaeological Materials by Chemical Composition\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      Sourcing archaeological materials by chemical composition. nexus allows the exploration and analysis of compositional data in the framework of Aitchison (1986). It provides tools for chemical fingerprinting and source tracking of ancient materials.\n      Documentation\n      Source code\n    \n  \n  \n    \n      tabula\n      Analysis and Visualization of Archaeological Count Data\n    \n    \n    \n      \n    \n    \n      \n        \n        \n          \n      An easy way to examine archaeological count data. tabula provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford and Bertin diagrams.\n      Documentation\n      Source code\n    \n  \n\n\nNo matching items"
   },
   {
     "objectID": "style.html",
@@ -224,102 +224,11 @@
     "text": "Attribution\n\nThis Privacy Policy is adapted from the Matomo Privacy Policy, available at https://matomo.org/privacy-policy."
   },
   {
-    "objectID": "packages.html",
-    "href": "packages.html",
-    "title": "Overview",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R packages & archaeology",
     "section": "",
-    "text": "Most of our packages are distributed on CRAN, development versions and non-CRAN packages (e.g. WIP packages and large data packages) can be installed from our repository.\nInstall the complete suite with:\nBrowse the documentation on packages.tesselle.org."
-  },
-  {
-    "objectID": "packages.html#count-data",
-    "href": "packages.html#count-data",
-    "title": "Overview",
-    "section": "Count data",
-    "text": "Count data\ntabula\n An easy way to examine archaeological count data. tabula provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford (1962) and Bertin (1977) diagrams. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#compositional-data",
-    "href": "packages.html#compositional-data",
-    "title": "Overview",
-    "section": "Compositional data",
-    "text": "Compositional data\nnexus\n Sourcing archaeological materials by chemical composition. nexus allows the exploration and analysis of compositional data in the framework of Aitchison (1986). It provides tools for chemical fingerprinting and source tracking of ancient materials. Initial development is in progress. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#chronological-data",
-    "href": "packages.html#chronological-data",
-    "title": "Overview",
-    "section": "Chronological data",
-    "text": "Chronological data\nkairos\n A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. Read the doc…\n\n\n\n\n\n\n\n\n\n\nchronos\n Statistical analysis of archaeological dates and groups of dates. This package allows to post-process Markov Chain Monte Carlo (MCMC) simulations from ChronoModel, Oxcal or BCal. This package provides functions for the study of rhythms of the long term from the posterior distribution of a series of dates (tempo and activity plot). It also allows the estimation and visualization of time ranges from the posterior distribution of groups of dates (e.g. duration, transition and hiatus between successive phases). Read the doc…"
-  },
-  {
-    "objectID": "packages.html#multivariate-data-analysis",
-    "href": "packages.html#multivariate-data-analysis",
-    "title": "Overview",
-    "section": "Multivariate data analysis",
-    "text": "Multivariate data analysis\ndimensio\n Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in Greenacre (1984) and Lebart, Piron, and Morineau (2006). Read the doc…"
-  },
-  {
-    "objectID": "packages.html#signal-processing",
-    "href": "packages.html#signal-processing",
-    "title": "Overview",
-    "section": "Signal processing",
-    "text": "Signal processing\nalkahest\n A lightweight, dependency-free toolbox for pre-processing XY data from experimental methods (i.e. any signal that can be measured along a continuous variable). This package provides methods for baseline estimation and correction, smoothing, normalization, integration and peaks detection. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#data-visualization",
-    "href": "packages.html#data-visualization",
-    "title": "Overview",
-    "section": "Data visualization",
-    "text": "Data visualization\nkhroma\n Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) colour schemes for use with graphics or ggplot2. It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#tools",
-    "href": "packages.html#tools",
-    "title": "Overview",
-    "section": "Tools",
-    "text": "Tools\narkhe\n A collection of simple functions for cleaning rectangular data. This package allows to detect, count and replace values or delete rows/columns according to a specific predicate. In addition, it provides tools to check conditions and return informative error messages. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#datasets",
-    "href": "packages.html#datasets",
-    "title": "Overview",
-    "section": "Datasets",
-    "text": "Datasets\nfolio\n Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.). Read the doc…\n\n\n\n\n\n\n\n\n\n\nfasti\nDatasets for chronological modelling. This package provides models and data to reproduce results from chronos examples and vignettes. Read the doc…"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Github\n  \n  \n    \n     R-universe"
-  },
-  {
-    "objectID": "about.html#yet-another-package",
-    "href": "about.html#yet-another-package",
-    "title": "About",
-    "section": "Yet another package",
-    "text": "Yet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
-  },
-  {
-    "objectID": "about.html#roadmap",
-    "href": "about.html#roadmap",
-    "title": "About",
-    "section": "Roadmap",
-    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
-  },
-  {
-    "objectID": "about.html#contributors",
-    "href": "about.html#contributors",
-    "title": "About",
-    "section": "Contributors",
-    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\n ORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
-  },
-  {
-    "objectID": "about.html#sec-institutional-support",
-    "href": "about.html#sec-institutional-support",
-    "title": "About",
-    "section": "Institutional support",
-    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
+    "text": "dimensio 0.3.0\n\n\nSimple Principal Components Analysis and Correspondence Analysis\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nAug 15, 2022\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nkairos 1.0.0\n\n\nAnalysis of Chronological Patterns from Archaeological Count Data\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nNov 10, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nThe tesselle universe\n\n\nInstall tesselle packages from our CRAN-like repository on R-universe\n\n\n\n\npackages\n\n\n \n\n\n\n\nAug 15, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "conduct.html",
@@ -369,5 +278,40 @@
     "title": "Code of Conduct",
     "section": "Attribution",
     "text": "Attribution\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "You can request new features by opening an issue on GitHub. Even if you don’t feel up to coding this new feature, feel free to engage or participate in discussions in each package repository."
+  },
+  {
+    "objectID": "contributing.html#fixing-typos",
+    "href": "contributing.html#fixing-typos",
+    "title": "Contributing",
+    "section": "Fixing typos",
+    "text": "Fixing typos\nYou can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the source file. This generally means you’ll need to edit roxygen2 comments in an .R, not a .Rd file. You can find the .R file that generates the .Rd by reading the comment in the first line."
+  },
+  {
+    "objectID": "contributing.html#bigger-changes",
+    "href": "contributing.html#bigger-changes",
+    "title": "Contributing",
+    "section": "Bigger changes",
+    "text": "Bigger changes\nIf you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed.\nIf you’ve found a bug, please file an issue that illustrates the bug with a minimal reprex (this will also help you write a unit test, if needed).\nPull request process\n\nFork the package and clone onto your computer. If you haven’t done this before, we recommend reading Jenny Bryan’s Happy Git and GitHub for the useR first.\nInstall all development dependencies with devtools::install_dev_deps(), and then make sure the package passes R CMD check by running devtools::check(). If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.\nCreate a Git branch for your pull request (PR). We recommend using usethis::pr_init(\"brief-description-of-change\").\nMake your changes, commit to git, and then create a PR by running usethis::pr_push(), and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain Fixes #issue-number.\nFor user-facing changes, add a bullet to the top of NEWS.md (i.e. just below the first header).\nCode style\n\nNew code should follow the style guide.\nWe use roxygen2, with Markdown syntax, for documentation.\nWe use testthat and vdiffr for unit tests. Contributions with test cases included are easier to accept."
+  },
+  {
+    "objectID": "contributing.html#code-of-conduct",
+    "href": "contributing.html#code-of-conduct",
+    "title": "Contributing",
+    "section": "Code of Conduct",
+    "text": "Code of Conduct\nPlease note that the tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms."
+  },
+  {
+    "objectID": "contributing.html#attribution",
+    "href": "contributing.html#attribution",
+    "title": "Contributing",
+    "section": "Attribution",
+    "text": "Attribution\nThis contributing guide is adapted from the tidyverse contributing guide."
   }
 ]

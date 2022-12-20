@@ -24,10 +24,20 @@ install.packages("tesselle")
 ```{=html}
 <style>
 .grid-sizer, .grid-item { 
-  width: 29%;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
-  margin-bottom: 10px;
+  width: 100%;
+  margin: 5px auto;
+}
+@media only screen and (min-width: 600px) {
+  .grid-sizer, .grid-item { 
+    width: 49%;
+    margin: 5px auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .grid-sizer, .grid-item { 
+    width: 30%;
+    margin: 5px auto;
+  }
 }
 </style>
 

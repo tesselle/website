@@ -257,18 +257,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <style>
 .grid-sizer, .grid-item { 
-  width: 30%;
+  width: 100%;
   margin: 5px auto;
 }
-@media (max-width: 576px) {
+@media only screen and (min-width: 600px) {
   .grid-sizer, .grid-item { 
-    width: 100%;
+    width: 49%;
     margin: 5px auto;
   }
 }
-@media (min-width: 576px) and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .grid-sizer, .grid-item { 
-    width: 49%;
+    width: 30%;
     margin: 5px auto;
   }
 }
@@ -284,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- <h2>Packages</h2> -->
 <p></p>
-<div class="list grid">
+<div class="grid">
   <div class="grid-sizer"></div>
   <div class="grid-item card border-2 rounded-3 signal-processing">
     <div class="card-body">

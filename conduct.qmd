@@ -1,13 +1,8 @@
 ---
 title: "Code of Conduct"
 description: |
-  The tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms.
-output: distill::distill_article
+  The **tesselle** project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms.
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
 
 ## Our Pledge
 

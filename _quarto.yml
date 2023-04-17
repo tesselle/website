@@ -32,6 +32,9 @@ website:
       - icon: github
         aria-label: GitHub
         href: https://github.com/tesselle/
+      - icon: mastodon
+        aria-label: Mastodon
+        href: https://archaeo.social/@tesselle
       - icon: rss-fill
         aria-label: RSS
         href: index.xml

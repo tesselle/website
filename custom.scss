@@ -21,6 +21,11 @@ p {
 }
 
 /* Mosaic of hex stickers */
+.hex-logo {
+  width: 120px;
+  float: left;
+  margin-right: 1em;
+}
 .hex-stickers {
   position: relative;
   height: 360px;
@@ -53,4 +58,7 @@ p {
 }
 .hex-stickers img.col5 {
   left: 248px;
+}
+.hex-stickers img.col6 {
+  left: 310px;
 }

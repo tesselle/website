@@ -8,19 +8,19 @@ description: |
 
 You can request new features by opening an issue on GitHub. Even if you don't feel up to coding this new feature, feel free to engage or participate in discussions in each package repository (@tbl-repo).
 
-| Package  | Repository                                                |
-|:---------|:----------------------------------------------------------|
-| alkahest | [tesselle/alkahest](https://github.com/tesselle/alkahest) |
-| arkhe    | [tesselle/arkhe](https://github.com/tesselle/arkhe)       |
-| chronos  | [tesselle/chronos](https://github.com/tesselle/chronos)   |
-| dimensio | [tesselle/dimensio](https://github.com/tesselle/dimensio) |
-| fasti    | [tesselle/fasti](https://github.com/tesselle/fasti)       |
-| folio    | [tesselle/folio](https://github.com/tesselle/folio)       |
-| kairos   | [tesselle/kairos](https://github.com/tesselle/kairos)     |
-| khroma   | [tesselle/khroma](https://github.com/tesselle/khroma)     |
-| nexus    | [tesselle/nexus](https://github.com/tesselle/nexus)       |
-| tabula   | [tesselle/tabula](https://github.com/tesselle/tabula)     |
-| tesselle | [tesselle/tesselle](https://github.com/tesselle/tesselle) |
+| Package    | Repository                                                    |
+|:-----------|:--------------------------------------------------------------|
+| alkahest   | [tesselle/alkahest](https://github.com/tesselle/alkahest)     |
+| arkhe      | [tesselle/arkhe](https://github.com/tesselle/arkhe)           |
+| chronos    | [tesselle/chronos](https://github.com/tesselle/chronos)       |
+| dimensio   | [tesselle/dimensio](https://github.com/tesselle/dimensio)     |
+| folio      | [tesselle/folio](https://github.com/tesselle/folio)           |
+| isopleuros | [tesselle/isopleuros](https://github.com/tesselle/isopleuros) |
+| kairos     | [tesselle/kairos](https://github.com/tesselle/kairos)         |
+| khroma     | [tesselle/khroma](https://github.com/tesselle/khroma)         |
+| nexus      | [tesselle/nexus](https://github.com/tesselle/nexus)           |
+| tabula     | [tesselle/tabula](https://github.com/tesselle/tabula)         |
+| tesselle   | [tesselle/tesselle](https://github.com/tesselle/tesselle)     |
 
 : Code repositories of the **tesselle** packages. {#tbl-repo}
 

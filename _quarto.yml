@@ -40,9 +40,11 @@ website:
         href: index.xml
 
   page-footer:
-    background: "#4F2680"
-    left:
-      - The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>, <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
+    # background: "#4F2680"
+    center: |
+      The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>,
+      <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>
+      and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
     right:
       - privacy.qmd
 
@@ -50,6 +52,7 @@ format:
   html:
     theme: custom.scss
     include-in-header: _header.html
+    include-after-body: _footer.html
     toc: true
     toc-location: left
     code-link: true

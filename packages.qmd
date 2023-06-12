@@ -28,8 +28,8 @@ Browse the documentation on [packages.tesselle.org](https://packages.tesselle.or
   <a href="#nexus">
     <img class="row1 col3" src="images/nexus.png" alt="nexus">
   </a>
-  <a href="#chronos">
-    <img class="row1 col5" src="images/chronos.png" alt="chronos">
+  <a href="#aion">
+    <img class="row1 col5" src="images/aion.png" alt="aion">
   </a>
   <a href="#tabula">
     <img class="row2 col2" src="images/tabula.png" alt="tabula">
@@ -87,14 +87,14 @@ Browse the documentation on [packages.tesselle.org](https://packages.tesselle.or
 [![](http://www.r-pkg.org/badges/version/kairos){fig-alt="CRAN Version"}](https://cran.r-project.org/package=kairos)
 :::
 
-### chronos
+### aion
 
-[<img class="hex-logo" alt="chronos" src="images/chronos.png" />](https://packages.tesselle.org/chronos/ "Read the documentation.") A toolkit for archaeological time series analysis. This package provides a system of classes and methods to represent and work with archaeological time series. Dates are represented as *rata die* and can be converted to (virtualy) any calendar defined by @reingold2018. [Read the doc...](https://packages.tesselle.org/chronos/)
+[<img class="hex-logo" alt="aion" src="images/aion.png" />](https://packages.tesselle.org/aion/ "Read the documentation.") A toolkit for archaeological time series analysis. This package provides a system of classes and methods to represent and work with archaeological time series. Dates are represented as *rata die* and can be converted to (virtualy) any calendar defined by @reingold2018. [Read the doc...](https://packages.tesselle.org/aion/)
 
 :::{.column-margin}
-[![](https://www.repostatus.org/badges/latest/wip.svg){fig-alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."}](https://www.repostatus.org/#wip)
+[![](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-[![](http://www.r-pkg.org/badges/version/chronos){fig-alt="CRAN Version"}](https://cran.r-project.org/package=chronos)
+[![](http://www.r-pkg.org/badges/version/aion){fig-alt="CRAN Version"}](https://cran.r-project.org/package=aion)
 :::
 
 ## Multivariate data analysis

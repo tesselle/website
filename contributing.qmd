@@ -10,9 +10,9 @@ You can request new features by opening an issue on GitHub. Even if you don't fe
 
 | Package    | Repository                                                    |
 |:-----------|:--------------------------------------------------------------|
+| aion       | [tesselle/aion](https://github.com/tesselle/aion)             |
 | alkahest   | [tesselle/alkahest](https://github.com/tesselle/alkahest)     |
 | arkhe      | [tesselle/arkhe](https://github.com/tesselle/arkhe)           |
-| chronos    | [tesselle/chronos](https://github.com/tesselle/chronos)       |
 | dimensio   | [tesselle/dimensio](https://github.com/tesselle/dimensio)     |
 | folio      | [tesselle/folio](https://github.com/tesselle/folio)           |
 | isopleuros | [tesselle/isopleuros](https://github.com/tesselle/isopleuros) |

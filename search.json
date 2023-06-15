@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "style.html",
+    "href": "style.html",
+    "title": "Coding Style",
+    "section": "",
+    "text": "Always avoid package dependencies when possible.\nAdding a new dependency should be considered as a last resort (always prefer a base R solution).\n\n\n\nSpecify the namespace of each used function, except if it is from base package.\n# GOOD\nggplot2::ggplot()\ndplyr::select()\n\n# BAD\nggplot()\nselect()\n\n\n\nNever mix side-effects and computing in a single method: always return the computation and perform the output in the print(), show() or plot() method.\nA function called for its side-effects must return the first argument invisibly (this makes it possible to use it as part of a pipe).\n\n\n\nUse seq_along(x) to protect against instances where x is empty.\n# GOOD\nfor (i in seq_along(x)) {\n    do_something(i)\n}\n\n# BAD\nfor (i in 1:length(x)) {\n    do_something(i)\n}\nUse apply, lapply, etc. when possible.\n\n\n\nDo not use pipes (%&gt;% or |&gt;) inside functions."
+  },
+  {
+    "objectID": "style.html#general-rules",
+    "href": "style.html#general-rules",
+    "title": "Coding Style",
+    "section": "",
+    "text": "Always avoid package dependencies when possible.\nAdding a new dependency should be considered as a last resort (always prefer a base R solution).\n\n\n\nSpecify the namespace of each used function, except if it is from base package.\n# GOOD\nggplot2::ggplot()\ndplyr::select()\n\n# BAD\nggplot()\nselect()\n\n\n\nNever mix side-effects and computing in a single method: always return the computation and perform the output in the print(), show() or plot() method.\nA function called for its side-effects must return the first argument invisibly (this makes it possible to use it as part of a pipe).\n\n\n\nUse seq_along(x) to protect against instances where x is empty.\n# GOOD\nfor (i in seq_along(x)) {\n    do_something(i)\n}\n\n# BAD\nfor (i in 1:length(x)) {\n    do_something(i)\n}\nUse apply, lapply, etc. when possible.\n\n\n\nDo not use pipes (%&gt;% or |&gt;) inside functions."
+  },
+  {
+    "objectID": "style.html#naming",
+    "href": "style.html#naming",
+    "title": "Coding Style",
+    "section": "Naming",
+    "text": "Naming\nAs a general rule, abbreviations must be avoided when naming.\n\nNaming Files\nFile names must use .R extension.\n# GOOD\nplot.R\n\n# BAD\nplot\nFile names must be meaningful.\n# GOOD\nplot.R\n\n# BAD\nUntitled1.R\nFile names must not contain / and spaces. Instead, a dash (-) or underscore (_) must be used.\n# GOOD\nread_csv.R\nplot-methods.R\n\n# BAD\nread csv.R\nFile names must use letters from Basic Latin, NOT from Latin-1 Supplement, and must be lowercase.\n# GOOD\nplot.R\n\n# BAD\nPlot.R\ndonnées.R\nUse meaningful verbs for file names.\n# GOOD\nfit_model.R\n\n# BAD\naddition.R\nMind special names:\n\nAllClasses.R stores all S4 classes definitions.\nAllGenerics.R stores all S4 generic functions.\nzzz.R contains .onLoad() and friends.\n\nUse the -methods suffix for S4 class methods.\nIf the file contains only one function, name it by the function name.\n\n\nNaming Variables\nVariables names must be as short as possible.\nVariables names must be meaningful nouns.\nVariable names must be lowercase.\nNever separate words within the name by . (reserved for an S3 dispatch) or use PascalCase (reserved for S4 classes definitions). Instead, use an underscore (_).\n# GOOD\nstd_dev &lt;- 3\n\n# BAD\nstd.dev &lt;- 3\nStdDev &lt;- 3\nDo not use names of existing function and variables (especially, built-in ones).\n# GOOD\nstd_dev &lt;- 3\n\n# BAD\nT &lt;- 1\nc &lt;- 2 * 2\nmean &lt;- 10\n\n\nNaming Functions\nFunction names must contain a verb that refers to the primary action of the function.\nFunction names must be in snake_case. Use . only for dispatching S3 generic.\nAn object_verb() naming scheme should be prefered as often as possible. This scheme is easy to read and auto-complete.\n# GOOD\npeak_detect()\n\n# BAD\naddition()\nreadFile()\nAvoid function name conflicts with base packages or other popular ones.\n\n\nNaming S4 Classes\nClass names must be nouns in PascalCase with initial capital case letter and the first letter of each subsequent concatenated word capitalized."
+  },
+  {
+    "objectID": "style.html#syntax",
+    "href": "style.html#syntax",
+    "title": "Coding Style",
+    "section": "Syntax",
+    "text": "Syntax\n\nLine Length\nThe maximum length of lines is limited to 80 characters.\nDo NOT put more than one statement per line. Do NOT use semicolon as termination of the command.\n# GOOD\nx &lt;- 1\nx &lt;- x + 1\n\n# BAD\nx &lt;- 1; x &lt;- x + 1\n\n\nFunction Call\nIn a function call, specify arguments by name. Never specify by partial name and never mix by position and complete name.\n# GOOD\nmean(x, na.rm = TRUE)\n\n# BAD\nmean(x, na = TRUE)\nThe required arguments should be first, followed by optional arguments.\n# GOOD\nraise_to_power(x, power = 2.7)\n\n# BAD\nraise_to_power(power = 2.7, x)\nThe ... argument should either be in the beginning or in the end.\n# GOOD\nstandardize(..., scale = TRUE, center = TRUE)\n\n# BAD\nstandardize(scale = TRUE, ..., center = TRUE)\nSet default arguments inside the function using NULL idiom, and avoid dependence between arguments.\nAlways validate arguments in a function.\n\n\nAssignment\nUse &lt;- for assignment, NOT =.\n# GOOD\nx &lt;- 1\n\n# BAD\nx = 1\n1 -&gt; x\n\n\nSpacing\nPut spaces around all infix binary operators (=, +, *, ==, &&, &lt;-, %*%, etc.).\n# GOOD\nx == y\nz &lt;- 2 + 1\n\n# BAD\nx==y\nz&lt;-2+1\nPut spaces around = in function calls.\n# GOOD\nmean(x = c(1, 2, 3), na.rm = TRUE)\n\n# BAD\nmean(x=c(1, 2, NA), na.rm=TRUE)\nDo not place space for subsetting ($ and @), namespace manipulation (:: and :::), and for sequence generation (:).\n# GOOD\ncar$cyl\ndplyr::select()\n1:10\n\n# BAD\ncar $cyl\ndplyr:: select()\n1: 10\nPut a space after a comma.\n# GOOD\nmtcars[1, ]\nmean(x = c(1, NA, 2), na.rm = TRUE)\n\n# BAD\nmtcars[1 ,]\nmean(x = c(1,NA,2),na.rm = TRUE)\nUse a space before left parentheses, except in a function call.\n# GOOD\nfor (element in element_list)\nif (total == 5)\nsum(1:10)\n\n# BAD\nfor(element in element_list)\nif(total == 5)\nsum (1:10)\nNo spacing around code in parenthesis or square brackets.\n# GOOD\nif (is_true) message(\"Hello!\")\nspecies[\"tiger\", ]\n\n# BAD\nif ( is_true ) message(\"Hello!\")\nspecies[ \"tiger\" ,]\n\n\nCurly Braces\nAn opening curly brace should never go on its own line and should always be followed by a new line.\n# GOOD\nif (is_true) {\n  # do something\n}\n\nif (is_true) {\n  # do something\n} else {\n  # do something else\n}\n\n# BAD\nif (is_true)\n{\n  # do something\n}\n\nif (is_true) { # do something }\nelse { # do something else }\nA closing curly brace should always go on its own line, unless it’s followed by else.\n# GOOD\nif (is_true) {\n  # do something\n} else {\n  # do something else\n}\n\n# BAD\nif (is_true) {\n  # do something\n}\nelse {\n  # do something else\n}\nAlways indent the code inside curly braces.\n# GOOD\nif (is_true) {\n  # do something\n  # and then something else\n}\n\n# BAD\nif (is_true) {\n  # do something\n  # and then something else\n}\nCurly braces and new lines can be avoided, if a statement after if is very short.\n# OK\nif (is_true) return(value)\n\n\nIndentation\nDo not use tabs or mixes of tabs and spaces for indentation.\nUse two spaces for indentation.\n\n\nNew Line\nIn a function definition or call excessive arguments must be indented where the closing parenthesis is located, if only two lines are sufficient.\n# GOOD\nlong_function_name &lt;- function(arg1, arg2, arg3, arg4,\n                               long_argument_name1 = TRUE)\n\nplot(table(rpois(100, 5)), type = \"h\", col = \"red\", lwd = 10,\n     main = \"rpois(100, lambda = 5)\")\nOtherwise, each argument can go into a separate line, starting with a new line after the opening parenthesis.\n# GOOD\nlong_function_name &lt;- function(long_argument_name1 = c(\"value1\", \"value2\"),\n                               long_argument_name2 = TRUE,\n                               long_argument_name3 = NULL,\n                               long_argument_name4 = FALSE)\n\nlist(\n  mean = mean(x),\n  sd = sd(x),\n  var = var(x),\n  min = min(x),\n  max = max(x),\n  median = median(x)\n)\nIf the condition in if statement expands into several lines, than each condition must end with a logical operator, NOT start with it.\n# GOOD\nif (some_very_long_name_1 == 1 &&\n    some_very_long_name_2 == 1 ||\n    some_very_long_name_3 %in% some_very_long_name_4)\n\n# BAD\nif (some_very_long_name_1 == 1\n    && some_very_long_name_2 == 1\n    || some_very_long_name_3 %in% some_very_long_name_4)\nIf the statement, which contains operators, expands into several lines, then each line should end with an operator and not begin with it.\n# GOOD\nnormal_pdf &lt;- 1 / sqrt(2 * pi * d_sigma ^ 2) *\n  exp(-(x - d_mean) ^ 2 / 2 / s ^ 2)\n\n# BAD\nnormal_pdf &lt;- 1 / sqrt(2 * pi * d_sigma ^ 2)\n* exp(-(x - d_mean) ^ 2 / 2 / d_sigma ^ 2)\nEach grammar statement of dplyr (after %&gt;%) and ggplot2 (after +) should start with a new line."
+  },
+  {
+    "objectID": "style.html#commenting",
+    "href": "style.html#commenting",
+    "title": "Coding Style",
+    "section": "Commenting",
+    "text": "Commenting\nComments start with # followed by space and text of the comment.\n# This is a comment.\nComments should explain the why, not the what. Comments should explain the overall intention of the command.\n# GOOD\n# define iterator\ni &lt;- 1\n\n# BAD\n# set i to 1\ni &lt;- 1\nShort comments can be placed on the same line of the code.\nplot(price, weight) # Plot a scatter chart of price and weight\nIt makes sense to split the source into logical chunks by # followed by - or =.\n# Read data -------------------------------------------------------------\n\n# Clean data ------------------------------------------------------------\nFunction and object descriptions should adhere to roxygen2 guidelines.\n#' Add Together Two Numbers\n#'\n#' @param x A number.\n#' @param y A number.\n#' @return The sum of x and y.\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\nadd &lt;- function(x, y) {\n  # general comment\n  x + y # inline comment\n}"
+  },
+  {
+    "objectID": "style.html#attribution",
+    "href": "style.html#attribution",
+    "title": "Coding Style",
+    "section": "Attribution",
+    "text": "Attribution\n\nThis coding style is derived from the tidyverse style guide, the rOpenSci Packages book and Iegor Rudnytskyi’s R Coding Style Guide."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "There are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
+  },
+  {
+    "objectID": "about.html#yet-another-package",
+    "href": "about.html#yet-another-package",
+    "title": "About",
+    "section": "",
+    "text": "There are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
+  },
+  {
+    "objectID": "about.html#roadmap",
+    "href": "about.html#roadmap",
+    "title": "About",
+    "section": "Roadmap",
+    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
+  },
+  {
+    "objectID": "about.html#contributors",
+    "href": "about.html#contributors",
+    "title": "About",
+    "section": "Contributors",
+    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\n ORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
+  },
+  {
+    "objectID": "about.html#sec-institutional-support",
+    "href": "about.html#sec-institutional-support",
+    "title": "About",
+    "section": "Institutional support",
+    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
+  },
+  {
     "objectID": "privacy.html",
     "href": "privacy.html",
     "title": "Privacy Policy",
@@ -49,151 +126,11 @@
     "text": "Attribution\n\nThis Privacy Policy is adapted from the Matomo Privacy Policy, available at https://matomo.org/privacy-policy."
   },
   {
-    "objectID": "style.html",
-    "href": "style.html",
-    "title": "Coding Style",
-    "section": "",
-    "text": "Always avoid package dependencies when possible.\nAdding a new dependency should be considered as a last resort (always prefer a base R solution).\n\n\n\nSpecify the namespace of each used function, except if it is from base package.\n# GOOD\nggplot2::ggplot()\ndplyr::select()\n\n# BAD\nggplot()\nselect()\n\n\n\nNever mix side-effects and computing in a single method: always return the computation and perform the output in the print(), show() or plot() method.\nA function called for its side-effects must return the first argument invisibly (this makes it possible to use it as part of a pipe).\n\n\n\nUse seq_along(x) to protect against instances where x is empty.\n# GOOD\nfor (i in seq_along(x)) {\n    do_something(i)\n}\n\n# BAD\nfor (i in 1:length(x)) {\n    do_something(i)\n}\nUse apply, lapply, etc. when possible.\n\n\n\nDo not use pipes (%&gt;% or |&gt;) inside functions."
-  },
-  {
-    "objectID": "style.html#general-rules",
-    "href": "style.html#general-rules",
-    "title": "Coding Style",
-    "section": "",
-    "text": "Always avoid package dependencies when possible.\nAdding a new dependency should be considered as a last resort (always prefer a base R solution).\n\n\n\nSpecify the namespace of each used function, except if it is from base package.\n# GOOD\nggplot2::ggplot()\ndplyr::select()\n\n# BAD\nggplot()\nselect()\n\n\n\nNever mix side-effects and computing in a single method: always return the computation and perform the output in the print(), show() or plot() method.\nA function called for its side-effects must return the first argument invisibly (this makes it possible to use it as part of a pipe).\n\n\n\nUse seq_along(x) to protect against instances where x is empty.\n# GOOD\nfor (i in seq_along(x)) {\n    do_something(i)\n}\n\n# BAD\nfor (i in 1:length(x)) {\n    do_something(i)\n}\nUse apply, lapply, etc. when possible.\n\n\n\nDo not use pipes (%&gt;% or |&gt;) inside functions."
-  },
-  {
-    "objectID": "style.html#naming",
-    "href": "style.html#naming",
-    "title": "Coding Style",
-    "section": "Naming",
-    "text": "Naming\nAs a general rule, abbreviations must be avoided when naming.\n\nNaming Files\nFile names must use .R extension.\n# GOOD\nplot.R\n\n# BAD\nplot\nFile names must be meaningful.\n# GOOD\nplot.R\n\n# BAD\nUntitled1.R\nFile names must not contain / and spaces. Instead, a dash (-) or underscore (_) must be used.\n# GOOD\nread_csv.R\nplot-methods.R\n\n# BAD\nread csv.R\nFile names must use letters from Basic Latin, NOT from Latin-1 Supplement, and must be lowercase.\n# GOOD\nplot.R\n\n# BAD\nPlot.R\ndonnées.R\nUse meaningful verbs for file names.\n# GOOD\nfit_model.R\n\n# BAD\naddition.R\nMind special names:\n\nAllClasses.R stores all S4 classes definitions.\nAllGenerics.R stores all S4 generic functions.\nzzz.R contains .onLoad() and friends.\n\nUse the -methods suffix for S4 class methods.\nIf the file contains only one function, name it by the function name.\n\n\nNaming Variables\nVariables names must be as short as possible.\nVariables names must be meaningful nouns.\nVariable names must be lowercase.\nNever separate words within the name by . (reserved for an S3 dispatch) or use PascalCase (reserved for S4 classes definitions). Instead, use an underscore (_).\n# GOOD\nstd_dev &lt;- 3\n\n# BAD\nstd.dev &lt;- 3\nStdDev &lt;- 3\nDo not use names of existing function and variables (especially, built-in ones).\n# GOOD\nstd_dev &lt;- 3\n\n# BAD\nT &lt;- 1\nc &lt;- 2 * 2\nmean &lt;- 10\n\n\nNaming Functions\nFunction names must contain a verb that refers to the primary action of the function.\nFunction names must be in snake_case. Use . only for dispatching S3 generic.\nAn object_verb() naming scheme should be prefered as often as possible. This scheme is easy to read and auto-complete.\n# GOOD\npeak_detect()\n\n# BAD\naddition()\nreadFile()\nAvoid function name conflicts with base packages or other popular ones.\n\n\nNaming S4 Classes\nClass names must be nouns in PascalCase with initial capital case letter and the first letter of each subsequent concatenated word capitalized."
-  },
-  {
-    "objectID": "style.html#syntax",
-    "href": "style.html#syntax",
-    "title": "Coding Style",
-    "section": "Syntax",
-    "text": "Syntax\n\nLine Length\nThe maximum length of lines is limited to 80 characters.\nDo NOT put more than one statement per line. Do NOT use semicolon as termination of the command.\n# GOOD\nx &lt;- 1\nx &lt;- x + 1\n\n# BAD\nx &lt;- 1; x &lt;- x + 1\n\n\nFunction Call\nIn a function call, specify arguments by name. Never specify by partial name and never mix by position and complete name.\n# GOOD\nmean(x, na.rm = TRUE)\n\n# BAD\nmean(x, na = TRUE)\nThe required arguments should be first, followed by optional arguments.\n# GOOD\nraise_to_power(x, power = 2.7)\n\n# BAD\nraise_to_power(power = 2.7, x)\nThe ... argument should either be in the beginning or in the end.\n# GOOD\nstandardize(..., scale = TRUE, center = TRUE)\n\n# BAD\nstandardize(scale = TRUE, ..., center = TRUE)\nSet default arguments inside the function using NULL idiom, and avoid dependence between arguments.\nAlways validate arguments in a function.\n\n\nAssignment\nUse &lt;- for assignment, NOT =.\n# GOOD\nx &lt;- 1\n\n# BAD\nx = 1\n1 -&gt; x\n\n\nSpacing\nPut spaces around all infix binary operators (=, +, *, ==, &&, &lt;-, %*%, etc.).\n# GOOD\nx == y\nz &lt;- 2 + 1\n\n# BAD\nx==y\nz&lt;-2+1\nPut spaces around = in function calls.\n# GOOD\nmean(x = c(1, 2, 3), na.rm = TRUE)\n\n# BAD\nmean(x=c(1, 2, NA), na.rm=TRUE)\nDo not place space for subsetting ($ and @), namespace manipulation (:: and :::), and for sequence generation (:).\n# GOOD\ncar$cyl\ndplyr::select()\n1:10\n\n# BAD\ncar $cyl\ndplyr:: select()\n1: 10\nPut a space after a comma.\n# GOOD\nmtcars[1, ]\nmean(x = c(1, NA, 2), na.rm = TRUE)\n\n# BAD\nmtcars[1 ,]\nmean(x = c(1,NA,2),na.rm = TRUE)\nUse a space before left parentheses, except in a function call.\n# GOOD\nfor (element in element_list)\nif (total == 5)\nsum(1:10)\n\n# BAD\nfor(element in element_list)\nif(total == 5)\nsum (1:10)\nNo spacing around code in parenthesis or square brackets.\n# GOOD\nif (is_true) message(\"Hello!\")\nspecies[\"tiger\", ]\n\n# BAD\nif ( is_true ) message(\"Hello!\")\nspecies[ \"tiger\" ,]\n\n\nCurly Braces\nAn opening curly brace should never go on its own line and should always be followed by a new line.\n# GOOD\nif (is_true) {\n  # do something\n}\n\nif (is_true) {\n  # do something\n} else {\n  # do something else\n}\n\n# BAD\nif (is_true)\n{\n  # do something\n}\n\nif (is_true) { # do something }\nelse { # do something else }\nA closing curly brace should always go on its own line, unless it’s followed by else.\n# GOOD\nif (is_true) {\n  # do something\n} else {\n  # do something else\n}\n\n# BAD\nif (is_true) {\n  # do something\n}\nelse {\n  # do something else\n}\nAlways indent the code inside curly braces.\n# GOOD\nif (is_true) {\n  # do something\n  # and then something else\n}\n\n# BAD\nif (is_true) {\n  # do something\n  # and then something else\n}\nCurly braces and new lines can be avoided, if a statement after if is very short.\n# OK\nif (is_true) return(value)\n\n\nIndentation\nDo not use tabs or mixes of tabs and spaces for indentation.\nUse two spaces for indentation.\n\n\nNew Line\nIn a function definition or call excessive arguments must be indented where the closing parenthesis is located, if only two lines are sufficient.\n# GOOD\nlong_function_name &lt;- function(arg1, arg2, arg3, arg4,\n                               long_argument_name1 = TRUE)\n\nplot(table(rpois(100, 5)), type = \"h\", col = \"red\", lwd = 10,\n     main = \"rpois(100, lambda = 5)\")\nOtherwise, each argument can go into a separate line, starting with a new line after the opening parenthesis.\n# GOOD\nlong_function_name &lt;- function(long_argument_name1 = c(\"value1\", \"value2\"),\n                               long_argument_name2 = TRUE,\n                               long_argument_name3 = NULL,\n                               long_argument_name4 = FALSE)\n\nlist(\n  mean = mean(x),\n  sd = sd(x),\n  var = var(x),\n  min = min(x),\n  max = max(x),\n  median = median(x)\n)\nIf the condition in if statement expands into several lines, than each condition must end with a logical operator, NOT start with it.\n# GOOD\nif (some_very_long_name_1 == 1 &&\n    some_very_long_name_2 == 1 ||\n    some_very_long_name_3 %in% some_very_long_name_4)\n\n# BAD\nif (some_very_long_name_1 == 1\n    && some_very_long_name_2 == 1\n    || some_very_long_name_3 %in% some_very_long_name_4)\nIf the statement, which contains operators, expands into several lines, then each line should end with an operator and not begin with it.\n# GOOD\nnormal_pdf &lt;- 1 / sqrt(2 * pi * d_sigma ^ 2) *\n  exp(-(x - d_mean) ^ 2 / 2 / s ^ 2)\n\n# BAD\nnormal_pdf &lt;- 1 / sqrt(2 * pi * d_sigma ^ 2)\n* exp(-(x - d_mean) ^ 2 / 2 / d_sigma ^ 2)\nEach grammar statement of dplyr (after %&gt;%) and ggplot2 (after +) should start with a new line."
-  },
-  {
-    "objectID": "style.html#commenting",
-    "href": "style.html#commenting",
-    "title": "Coding Style",
-    "section": "Commenting",
-    "text": "Commenting\nComments start with # followed by space and text of the comment.\n# This is a comment.\nComments should explain the why, not the what. Comments should explain the overall intention of the command.\n# GOOD\n# define iterator\ni &lt;- 1\n\n# BAD\n# set i to 1\ni &lt;- 1\nShort comments can be placed on the same line of the code.\nplot(price, weight) # Plot a scatter chart of price and weight\nIt makes sense to split the source into logical chunks by # followed by - or =.\n# Read data -------------------------------------------------------------\n\n# Clean data ------------------------------------------------------------\nFunction and object descriptions should adhere to roxygen2 guidelines.\n#' Add Together Two Numbers\n#'\n#' @param x A number.\n#' @param y A number.\n#' @return The sum of x and y.\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\nadd &lt;- function(x, y) {\n  # general comment\n  x + y # inline comment\n}"
-  },
-  {
-    "objectID": "style.html#attribution",
-    "href": "style.html#attribution",
-    "title": "Coding Style",
-    "section": "Attribution",
-    "text": "Attribution\n\nThis coding style is derived from the tidyverse style guide, the rOpenSci Packages book and Iegor Rudnytskyi’s R Coding Style Guide."
-  },
-  {
-    "objectID": "posts/2021-11-10-kairos-100/index.html",
-    "href": "posts/2021-11-10-kairos-100/index.html",
-    "title": "kairos 1.0.0",
-    "section": "",
-    "text": "We are delighted to announce that kairos 1.0.0 has just landed on on CRAN! kairos is a toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site.\nYou can install it from CRAN with:\ninstall.packages(\"kairos\")\nThis first release includes:\nThis post highlights the basics of the package using the zuni dataset (Peeples and Schachner 2012).\nlibrary(kairos)\n## Load the zuni dataset\n# install.packages(\"folio\")\ndata(\"zuni\", package = \"folio\")\n\n## Coerce the zuni dataset to an abundance (count) matrix\nzuni_counts &lt;- as_count(zuni)\n\n## Set the start and end dates for each ceramic type\nzuni_dates &lt;- list(\n  LINO = c(600, 875), KIAT = c(850, 950), RED = c(900, 1050), \n  GALL = c(1025, 1125), ESC = c(1050, 1150), PUBW = c(1050, 1150),\n  RES = c(1000, 1200), TULA = c(1175, 1300), PINE = c(1275, 1350),\n  PUBR = c(1000, 1200), WING = c(1100, 1200), WIPO = c(1125, 1225),\n  SJ = c(1200, 1300), LSJ = c(1250, 1300), SPR = c(1250, 1300),\n  PINER = c(1275, 1325), HESH = c(1275, 1450), KWAK = c(1275, 1450)\n)"
-  },
-  {
-    "objectID": "posts/2021-11-10-kairos-100/index.html#mean-ceramic-date",
-    "href": "posts/2021-11-10-kairos-100/index.html#mean-ceramic-date",
-    "title": "kairos 1.0.0",
-    "section": "Mean Ceramic Date",
-    "text": "Mean Ceramic Date\nThe Mean Ceramic Date (MCD) is a point estimate of the occupation of an archaeological site (South 1977). The MCD is estimated as the weighted mean of the date midpoints of the ceramic types found in a given assemblage. The weights are the conditional frequencies of the respective types in the assemblage.\n\n## Calculate date midpoint for each ceramic type\nzuni_mid &lt;- vapply(X = zuni_dates, FUN = mean, FUN.VALUE = numeric(1))\n\n## Calculate MCD\nzuni_mcd &lt;- mcd(zuni_counts, dates = zuni_mid)\nhead(zuni_mcd)\n\nLZ1105 LZ1103 LZ1100 LZ1099 LZ1097 LZ1096 \n  1162   1138   1154   1091   1092    841 \n\n## Assess the sampling error\nzuni_boot &lt;- bootstrap(zuni_mcd, level = 0.95, probs = NULL)\nhead(zuni_boot)\n\n        min     mean  max     lower     upper\nLZ1105 1100 1162.229 1220 1161.1344 1163.3236\nLZ1103 1030 1139.130 1218 1137.5082 1140.7518\nLZ1100 1029 1153.328 1237 1151.4411 1155.2149\nLZ1099 1078 1091.061 1100 1090.7921 1091.3299\nLZ1097  919 1090.436 1212 1087.1609 1093.7111\nLZ1096  738  840.346 1048  836.3994  844.2926"
-  },
-  {
-    "objectID": "posts/2021-11-10-kairos-100/index.html#event-and-accumulation-date",
-    "href": "posts/2021-11-10-kairos-100/index.html#event-and-accumulation-date",
-    "title": "kairos 1.0.0",
-    "section": "Event and Accumulation Date",
-    "text": "Event and Accumulation Date\nEvent and accumulation dates are density estimates of the occupation and duration of an archaeological site (Bellanger and Husi 2012). The event date is an estimation of the terminus post-quem of an archaeological assemblage. The accumulation date represents the “chronological profile” of the assemblage.\nEvent dates are estimated by fitting a Gaussian multiple linear regression model on the factors resulting from a correspondence analysis. This model results from the known dates of a selection of reliable contexts and allows to predict the event dates of the remaining assemblages.\n\n## Assume that some assemblages are reliably dated \n## (this is NOT a real example)\nzuni_dates &lt;- c(\n  LZ0569 = 1097, LZ0279 = 1119, CS16 = 1328, LZ0066 = 1111,\n  LZ0852 = 1216, LZ1209 = 1251, CS144 = 1262, LZ0563 = 1206,\n  LZ0329 = 1076, LZ0005Q = 859, LZ0322 = 1109, LZ0067 = 863,\n  LZ0578 = 1180, LZ0227 = 1104, LZ0610 = 1074\n)\n\n## Model the event and accumulation date for each assemblage\nmodel &lt;- event(zuni_counts, dates = zuni_dates, cutoff = 90)\n\n## Estimate the event date of the assemblages\nzuni_event &lt;- predict_event(model, margin = 1, level = 0.95)\nhead(zuni_event)\n\n       date lower upper error\nLZ1105 1168  1158  1178     4\nLZ1103 1143  1139  1147     1\nLZ1100 1156  1148  1164     3\nLZ1099 1099  1092  1106     3\nLZ1097 1088  1080  1097     3\nLZ1096  839   829   849     4\n\n\nThe accumulation date is defined as the weighted mean of the event date of the ceramic types found in a given assemblage. The weights are the conditional frequencies of the respective types in the assemblage.\n\n## Estimate accumulation dates\nzuni_acc &lt;- predict_accumulation(model)\nhead(zuni_acc)\n\nLZ1105 LZ1103 LZ1100 LZ1099 LZ1097 LZ1096 \n  1170   1140   1158   1087   1092    875 \n\n\nEvent and accumulation dates can be displayed as density curves (see Bellanger and Husi 2012 for the interpretation of the curves). The probability density of the event date can be approximated by a normal distribution, while the accumulation time can be estimated by a Gaussian mixture. The distribution function of the accumulation time is quite close to the definition of the tempo plot introduced by Dye (2016): an estimates of the cumulative occurrence of archaeological events.\n\n## Activity plot\n## The event date is plotted as a line\n## The accumulation time is shown as a grey filled area\nplot(model, type = \"activity\", event = TRUE, select = \"LZ1105\")\n## Tempo plot\nplot(model, type = \"tempo\", select = \"LZ1105\")"
-  },
-  {
-    "objectID": "posts/2021-11-10-kairos-100/index.html#aoristic-analysis",
-    "href": "posts/2021-11-10-kairos-100/index.html#aoristic-analysis",
-    "title": "kairos 1.0.0",
-    "section": "Aoristic Analysis",
-    "text": "Aoristic Analysis\nAoristic analysis (Ratcliffe 2000) can be used to determine the probability of contemporaneity of archaeological sites or assemblages. The aoristic analysis distributes the probability of an event uniformly over each temporal fraction of the period considered. The aoristic sum is then the distribution of the total number of events to be assumed within this period.\n\n## Keep only assemblages that have a sample size of at least 10\nzuni_keep &lt;- apply(X = zuni, MARGIN = 1, FUN = function(x) sum(x) &gt;= 10)\n\n## Calculate date ranges for each assemblage\nzuni_span &lt;- apply(\n  X = zuni[zuni_keep, ],\n  FUN = function(x, dates) range(unlist(dates[x &gt; 0])),\n  MARGIN = 1,\n  dates = zuni_dates\n)\n\n## Coerce to a data.frame\nzuni_span &lt;- as.data.frame(t(zuni_span))\nnames(zuni_span) &lt;- c(\"from\", \"to\")\n\n## Calculate aoristic sum (weights)\naorist_weigth &lt;- aoristic(zuni_span, step = 50, weight = TRUE)\nplot(aorist_weigth)\n\n\n\n\n\n## Rate of change\nroc_weigth &lt;- roc(aorist_weigth, n = 30)\nplot(roc_weigth)"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html",
-    "href": "posts/2022-08-15-dimensio-030/index.html",
-    "title": "dimensio 0.3.0",
-    "section": "",
-    "text": "dimensio 0.3.0 is now on CRAN! dimensio provides a set of tools to compute, extract, summarize and visualize results of Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). It also includes methods for partial bootstrap validation.\nThere are many very good packages for multivariate data analysis (such as FactoMineR, ade4, vegan or ca, all extended by FactoExtra). dimensio is designed to be as simple as possible, providing all the necessary tools to explore the results of the analysis.\nYou can install it from CRAN with:\ninstall.packages(\"dimensio\")\nlibrary(dimensio)\n\nlibrary(ggplot2)\nlibrary(ggrepel)\nlibrary(khroma)\nThis post highlights the basics of the package using the palmerpenguins dataset (Horst, Hill, and Gorman 2022)."
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#do-pca",
-    "href": "posts/2022-08-15-dimensio-030/index.html#do-pca",
-    "title": "dimensio 0.3.0",
-    "section": "Do PCA",
-    "text": "Do PCA\n\n## Load data\n# install.packages(\"palmerpenguins\")\ndata(\"penguins\", package = \"palmerpenguins\")\nhead(penguins)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007\n2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007\n3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007\n4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007\n5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007\n6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007\n# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g\n\n## Remove cases with missing values\npenguins &lt;- na.omit(penguins)\n\n## Keep quantitative variables\n## (i.e. column names ending with a unit)\nend_with_unit &lt;- grep(\"_mm|_g\", colnames(penguins), value = TRUE)\nquanti &lt;- subset(penguins, select = end_with_unit)\n\n## Compute PCA\n## (non numeric variables are automatically removed)\nX &lt;- pca(quanti, center = TRUE, scale = TRUE)"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
-    "href": "posts/2022-08-15-dimensio-030/index.html#explore-the-results",
-    "title": "dimensio 0.3.0",
-    "section": "Explore the results",
-    "text": "Explore the results\ndimensio provides several methods to extract (get_*()) the results:\n\n\nget_data() returns the original data.\n\nget_contributions() returns the contributions to the definition of the principal dimensions.\n\nget_coordinates() returns the principal or standard coordinates.\n\nget_correlations() returns the correlations between variables and dimensions.\n\nget_cos2() returns the cos2 values (i.e. the quality of the representation of the points on the factor map).\n\nget_eigenvalues() returns the eigenvalues, the percentages of variance and the cumulative percentages of variance.\n\nThe package also allows to quickly visualize (plot_*()) the results:\n\n\nplot_rows()/plot_individuals() displays row/individual principal coordinates.\n\nplot_columns()/plot_variables() displays columns/variable principal coordinates.\n\nplot_contributions() displays (joint) contributions.\n\nplot_cos2() displays (joint) cos2.\n\nplot_variance() produces a scree plot.\n\ndimensio uses ggplot2 (Wickham et al. 2022) for plotting information. Visualization methods produce graphics with as few elements as possible: this makes it easy to customize diagrams (e.g. using extra layers, themes and scales).\n\n## Get eigenvalues\nget_eigenvalues(X)\n\n   eigenvalues  variance cumulative\nF1   2.7453557 70.536339   70.53634\nF2   0.7781172 19.992140   90.52848\nF3   0.3686425  9.471521  100.00000\n\n## Scree plot\nplot_variance(X) +\n  ggplot2::geom_text(nudge_y = 2) + # Add labels\n  ggplot2::theme_bw() # Change theme\n\n\n\n\n\n## Plot contribution of the variables to the definition of the first two axes\nplot_contributions(X, margin = 2, axes = c(1, 2)) +\n  ggplot2::geom_text(nudge_y = 2) +\n  ggplot2::theme_bw()"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
-    "href": "posts/2022-08-15-dimensio-030/index.html#pca-biplot",
-    "title": "dimensio 0.3.0",
-    "section": "PCA biplot",
-    "text": "PCA biplot\nA biplot is the simultaneous representation of rows and columns of a rectangular dataset. It is the generalization of a scatterplot to the case of mutlivariate data: it allows to visualize as much information as possible in a single graph (Greenacre 2010).\ndimensio allows to display two types of biplots: a form biplot (row-metric-preserving biplot) or a covariance biplot (column-metric-preserving biplot). See Greenacre (2010) for more details about biplots.\nThe form biplot favors the representation of the individuals: the distance between the individuals approximates the Euclidean distance between rows. In the form biplot the length of a vector approximates the quality of the representation of the variable.\n\nbiplot(X, type = \"form\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nThe covariance biplot favors the representation of the variables: the length of a vector approximates the standard deviation of the variable and the cosine of the angle formed by two vectors approximates the correlation between the two variables (Greenacre 2010). In the covariance biplot the distance between the individuals approximates the Mahalanobis distance between rows.\n\nbiplot(X, type = \"covariance\", label = \"variables\") +\n  ggrepel::geom_label_repel() + # Add repelling labels\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"none\") +\n  khroma::scale_colour_highcontrast() # Custom color scale\n\n\n\n\nBiplots have the drawbacks of their advantages: they can quickly become difficult to read as they display a lot of information at once. It may then be preferable to visualize the results for individuals and variables separately."
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
-    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-loadings",
-    "title": "dimensio 0.3.0",
-    "section": "Plot PCA loadings",
-    "text": "Plot PCA loadings\nplot_variables() depicts the variables by rays emanating from the origin (both their lengths and directions are important to the interpretation).\n\n## Plot variables factor map\nplot_variables(X) +\n  ggrepel::geom_label_repel() +\n  ggplot2::theme_bw()\n\n\n\n\nplot_variables() allows to highlight additional information by varying different graphical elements (color, transparency, shape and size of symbols…).\n\n## Highlight cos2\nplot_variables(X, colour = \"cos2\") +\n  ggrepel::geom_label_repel() + \n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(range = c(0.4, 1))"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
-    "href": "posts/2022-08-15-dimensio-030/index.html#plot-pca-scores",
-    "title": "dimensio 0.3.0",
-    "section": "Plot PCA scores",
-    "text": "Plot PCA scores\nplot_individuals() allows to display individuals and to highlight additional information.\n\n## Plot individuals and colour by species\nplot_individuals(X, colour = \"group\", group = penguins$species) +\n  ggplot2::stat_ellipse() + # Add ellipses\n  ggplot2::theme_bw() +\n  khroma::scale_colour_bright(name = \"Species\")\n\n\n\n\n\n## Highlight body masses\nplot_individuals(X, colour = \"group\", group = penguins$body_mass_g) +\n  ggplot2::theme_bw() +\n  khroma::scale_color_YlOrBr(name = \"Body mass (g)\")\n\n\n\n\n\n## Highlight contributions\nplot_individuals(X, colour = \"contrib\", size = \"contrib\") +\n  ggplot2::theme_bw() + # Change theme\n  ggplot2::scale_size_continuous(range = c(1, 5)) + # Custom size scale\n  khroma::scale_color_iridescent()"
-  },
-  {
-    "objectID": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
-    "href": "posts/2022-08-15-dimensio-030/index.html#custom-plot",
-    "title": "dimensio 0.3.0",
-    "section": "Custom plot",
-    "text": "Custom plot\nIf you need more flexibility, the get_*() family and the tidy() and augment() functions allow you to extract the results as data frames and thus build custom graphs with base graphics or ggplot2.\n\npenguins_tidy &lt;- tidy(X, margin = 2)\nhead(penguins_tidy)\n\n           label component supplementary coordinate contribution      cos2\n1  bill_depth_mm        F1         FALSE -0.6611860     15.92387 0.4371669\n2  bill_depth_mm        F2         FALSE  0.7023087     63.38859 0.4932375\n3  bill_depth_mm        F3         FALSE  0.2585287     18.13060 0.0668371\n4 bill_length_mm        F1         FALSE  0.7518288     20.58919 0.5652466\n5 bill_length_mm        F2         FALSE  0.5294376     36.02339 0.2803042\n6 bill_length_mm        F3         FALSE -0.3900969     41.27999 0.1521756\n\nggplot2::ggplot(data = penguins_tidy) +\n  ggplot2::aes(x = abs(coordinate), y = label, fill = coordinate &gt; 0) +\n  ggplot2::geom_col() +\n  ggplot2::facet_wrap(. ~ component) +\n  ggplot2::theme_bw() +\n  ggplot2::theme(legend.position = \"bottom\") +\n  khroma::scale_fill_vibrant(name = \"Positive loadings?\", reverse = TRUE)\n\n\n\n\n\npenguins_augment &lt;- augment(X, margin = 1)\nhead(penguins_augment)\n\n         F1          F2 label supplementary        mass      sum contribution\n1 -1.853593  0.03206938     1         FALSE 0.003003003 3.436836    1.0320827\n2 -1.316254 -0.44352677     2         FALSE 0.003003003 1.929241    0.5793516\n3 -1.376605 -0.16123048     3         FALSE 0.003003003 1.921037    0.5768879\n4 -1.885288 -0.01235124     4         FALSE 0.003003003 3.554465    1.0674069\n5 -1.919981  0.81759813     5         FALSE 0.003003003 4.354793    1.3077456\n6 -1.773020 -0.36622296     6         FALSE 0.003003003 3.277720    0.9843004\n       cos2\n1 0.9113332\n2 0.9224728\n3 0.8589470\n4 0.8516598\n5 0.8914904\n6 0.9275007\n\nggplot2::ggplot(data = penguins_augment) +\n  ggplot2::aes(x = F1, y = F2, colour = contribution) +\n  ggplot2::geom_vline(xintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_hline(yintercept = 0, size = 0.5, linetype = \"dashed\") +\n  ggplot2::geom_point() +\n  ggplot2::coord_fixed() + # /!\\\n  ggplot2::theme_bw() +\n  khroma::scale_color_iridescent()"
-  },
-  {
-    "objectID": "posts/2021-08-15-tesselle-universe/index.html",
-    "href": "posts/2021-08-15-tesselle-universe/index.html",
-    "title": "The tesselle universe",
-    "section": "",
-    "text": "Most of the R packages of the tesselle project are distributed on CRAN when they reach an acceptable level of maturity. Development versions can be installed from GitHub using remotes :\n## Install the development version from GitHub\ninstall.packages(\"remotes\")\nremotes::install_github(\"tesselle/tabula\")\nThanks to the R-universe project powered by rOpenSci, tesselle now has its own CRAN-like repository: tesselle.r-universe.dev. This repository allows to install all development versions and non-CRAN packages (e.g. WIP packages and large data packages)."
-  },
-  {
-    "objectID": "posts/2021-08-15-tesselle-universe/index.html#download-tesselle-packages",
-    "href": "posts/2021-08-15-tesselle-universe/index.html#download-tesselle-packages",
-    "title": "The tesselle universe",
-    "section": "Download tesselle packages",
-    "text": "Download tesselle packages\nIf you want to install a package from the tesselle universe, simply use install.packages() with the additional repository:\n\n## Install a package from the 'tesselle' universe\ninstall.packages(\"tabula\", repos = \"https://tesselle.r-universe.dev\")\n\n\n## Enable the repository globally\noptions(repos = c(tesselle = \"https://tesselle.r-universe.dev\",\n                  CRAN = \"https://cloud.r-project.org\"))\n\n## Install some packages\ninstall.packages(c(\"tabula\", \"kairos\"))"
-  },
-  {
-    "objectID": "posts/2021-08-15-tesselle-universe/index.html#use-the-repository",
-    "href": "posts/2021-08-15-tesselle-universe/index.html#use-the-repository",
-    "title": "The tesselle universe",
-    "section": "Use the repository",
-    "text": "Use the repository\nYou can use this repository in your R package (if available, CRAN releases must be regarded as the preferred source). To do so, prepare the DESCRIPTION file of your R package:\n\nList the package under Suggests:\n\nAdd the line Additional_repositories: https://tesselle.r-universe.dev\n\nTest your package with R CMD check --as-cran"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R packages & archaeology",
-    "section": "",
-    "text": "dimensio 0.3.0\n\n\nSimple Principal Components Analysis and Correspondence Analysis\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nAug 15, 2022\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nkairos 1.0.0\n\n\nAnalysis of Chronological Patterns from Archaeological Count Data\n\n\n\n\npackages\n\n\nreleases\n\n\n \n\n\n\n\nNov 10, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\n  \n\n\n\n\nThe tesselle universe\n\n\nInstall tesselle packages from our CRAN-like repository on R-universe\n\n\n\n\npackages\n\n\n \n\n\n\n\nAug 15, 2021\n\n\nNicolas Frerebeau\n\n\n\n\n\n\nNo matching items"
+    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "title": "Attribution-ShareAlike 4.0 International",
+    "section": "Creative Commons Attribution-ShareAlike 4.0 International Public License",
+    "text": "Creative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. __Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.t stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org"
   },
   {
     "objectID": "conduct.html",
@@ -252,6 +189,69 @@
     "text": "Attribution\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   },
   {
+    "objectID": "packages.html",
+    "href": "packages.html",
+    "title": "Packages",
+    "section": "",
+    "text": "Most of our packages are distributed on CRAN, development versions and non-CRAN packages (e.g. WIP packages and large data packages) can be installed from our repository.\nInstall the complete suite with:\ninstall.packages(\"tesselle\")\nBrowse the documentation on packages.tesselle.org."
+  },
+  {
+    "objectID": "packages.html#count-data",
+    "href": "packages.html#count-data",
+    "title": "Packages",
+    "section": "Count data",
+    "text": "Count data\ntabula\n An easy way to examine archaeological count data. tabula provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford (1962) and Bertin (1977) diagrams. Read the doc…"
+  },
+  {
+    "objectID": "packages.html#compositional-data",
+    "href": "packages.html#compositional-data",
+    "title": "Packages",
+    "section": "Compositional data",
+    "text": "Compositional data\nnexus\n Sourcing archaeological materials by chemical composition. nexus allows the exploration and analysis of compositional data in the framework of Aitchison (1986). It provides tools for chemical fingerprinting and source tracking of ancient materials. Initial development is in progress. Read the doc…"
+  },
+  {
+    "objectID": "packages.html#chronological-data",
+    "href": "packages.html#chronological-data",
+    "title": "Packages",
+    "section": "Chronological data",
+    "text": "Chronological data\nkairos\n A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. Read the doc…\n\n\n\n\n\n\n\n\n\n\naion\n A toolkit for archaeological time series analysis. This package provides a system of classes and methods to represent and work with archaeological time series. Dates are represented as rata die and can be converted to (virtualy) any calendar defined by Reingold and Dershowitz (2018). Read the doc…"
+  },
+  {
+    "objectID": "packages.html#multivariate-data-analysis",
+    "href": "packages.html#multivariate-data-analysis",
+    "title": "Packages",
+    "section": "Multivariate data analysis",
+    "text": "Multivariate data analysis\ndimensio\n Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in Greenacre (1984) and Lebart, Piron, and Morineau (2006). Read the doc…"
+  },
+  {
+    "objectID": "packages.html#signal-processing",
+    "href": "packages.html#signal-processing",
+    "title": "Packages",
+    "section": "Signal processing",
+    "text": "Signal processing\nalkahest\n A lightweight, dependency-free toolbox for pre-processing XY data from experimental methods (i.e. any signal that can be measured along a continuous variable). This package provides methods for baseline estimation and correction, smoothing, normalization, integration and peaks detection. Read the doc…"
+  },
+  {
+    "objectID": "packages.html#data-visualization",
+    "href": "packages.html#data-visualization",
+    "title": "Packages",
+    "section": "Data visualization",
+    "text": "Data visualization\nkhroma\n Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) colour schemes for use with graphics or ggplot2. It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented. Read the doc…\n\n\n\n\n\n\n\n\n\n\nisopleuros\n Ternary plots made simple. This package allows to create ternary plot using graphics. It provides functions to display the data in the ternary space, to add or tune graphical elements and to display statistical summaries. It also includes common ternary diagrams useful for the archaeologist (e.g. soil texture charts, ceramic phase diagram). Read the doc…"
+  },
+  {
+    "objectID": "packages.html#tools",
+    "href": "packages.html#tools",
+    "title": "Packages",
+    "section": "Tools",
+    "text": "Tools\narkhe\n A collection of simple functions for cleaning rectangular data. This package allows to detect, count and replace values or delete rows/columns according to a specific predicate. In addition, it provides tools to check conditions and return informative error messages. Read the doc…"
+  },
+  {
+    "objectID": "packages.html#datasets",
+    "href": "packages.html#datasets",
+    "title": "Packages",
+    "section": "Datasets",
+    "text": "Datasets\nfolio\n Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.). Read the doc…"
+  },
+  {
     "objectID": "contributing.html",
     "href": "contributing.html",
     "title": "Contributing",
@@ -292,103 +292,5 @@
     "title": "Contributing",
     "section": "Attribution",
     "text": "Attribution\n\nThis contributing guide is adapted from the tidyverse contributing guide."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Github\n  \n  \n    \n     R-universe"
-  },
-  {
-    "objectID": "about.html#yet-another-package",
-    "href": "about.html#yet-another-package",
-    "title": "About",
-    "section": "Yet another package",
-    "text": "Yet another package\nThere are more than 15,000 packages available on CRAN, so there is more than enough to cover most analytical needs. There are many great packages available, tesselle is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.\ntesselle is born from a progressive change of research practices within our laboratories with three key objectives:\n\nBuilding a unified data workflow within the laboratory to facilitate teamwork.\nTo move away from proprietary environments.\nWriting packages and releasing them in an open way is a significant step towards a more transparent and open research.\n\nLast but not least, these packages are useful to us, we hope that others may also find them of interest."
-  },
-  {
-    "objectID": "about.html#roadmap",
-    "href": "about.html#roadmap",
-    "title": "About",
-    "section": "Roadmap",
-    "text": "Roadmap\ntesselle is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on GitHub and fell free to contribute."
-  },
-  {
-    "objectID": "about.html#contributors",
-    "href": "about.html#contributors",
-    "title": "About",
-    "section": "Contributors",
-    "text": "Contributors\nThe tessel project is coordinated by Nicolas Frerebeau.\nThe following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):\n\n\n\nName\n ORCID\n\n\n\n\nVincent Arel-Bundock\n0000-0003-2042-7063\n\n\nJean-Baptiste Fourvel\n0000-0002-1061-4642\n\n\nNicolas Frerebeau\n0000-0001-5759-4944\n\n\nBrice Lebrun\n0000-0001-7503-8685\n\n\nBen Marwick\n0000-0001-7879-4531\n\n\nMatthew Peeples\n0000-0003-4496-623X\n\n\nAnne Philippe\n0000-0002-5331-5087"
-  },
-  {
-    "objectID": "about.html#sec-institutional-support",
-    "href": "about.html#sec-institutional-support",
-    "title": "About",
-    "section": "Institutional support",
-    "text": "Institutional support\nThis project is supported by:\n\n\nCentre de Recherche et d’Etudes pour l’Art Préhistorique\n\nMSHS-Toulouse (UAR 3414) Maison de la Recherche Université de Toulouse Jean Jaurès F-31058 Toulouse cedex 9 mshs.univ-toulouse.fr\n\n\n\nArchéosciences Bordeaux\n\nUMR 6034 Maison de l’Archéologie Université Bordeaux Montaigne F-33607 Pessac cedex www.archeosciences-bordeaux.fr\n\n\n\nTGIR Huma-Num\n\nUMS 3598 54, boulevard Raspail F-75006 Paris www.huma-num.fr"
-  },
-  {
-    "objectID": "packages.html",
-    "href": "packages.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Most of our packages are distributed on CRAN, development versions and non-CRAN packages (e.g. WIP packages and large data packages) can be installed from our repository.\nInstall the complete suite with:\ninstall.packages(\"tesselle\")\nBrowse the documentation on packages.tesselle.org."
-  },
-  {
-    "objectID": "packages.html#count-data",
-    "href": "packages.html#count-data",
-    "title": "Overview",
-    "section": "Count data",
-    "text": "Count data\ntabula\n An easy way to examine archaeological count data. tabula provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford (1962) and Bertin (1977) diagrams. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#compositional-data",
-    "href": "packages.html#compositional-data",
-    "title": "Overview",
-    "section": "Compositional data",
-    "text": "Compositional data\nnexus\n Sourcing archaeological materials by chemical composition. nexus allows the exploration and analysis of compositional data in the framework of Aitchison (1986). It provides tools for chemical fingerprinting and source tracking of ancient materials. Initial development is in progress. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#chronological-data",
-    "href": "packages.html#chronological-data",
-    "title": "Overview",
-    "section": "Chronological data",
-    "text": "Chronological data\nkairos\n A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. Read the doc…\n\n\n\n\n\n\n\n\n\n\naion\n A toolkit for archaeological time series analysis. This package provides a system of classes and methods to represent and work with archaeological time series. Dates are represented as rata die and can be converted to (virtualy) any calendar defined by Reingold and Dershowitz (2018). Read the doc…"
-  },
-  {
-    "objectID": "packages.html#multivariate-data-analysis",
-    "href": "packages.html#multivariate-data-analysis",
-    "title": "Overview",
-    "section": "Multivariate data analysis",
-    "text": "Multivariate data analysis\ndimensio\n Simple Principal Components Analysis (PCA) and Correspondence Analysis (CA) based on the Singular Value Decomposition (SVD). This package provides S4 classes and methods to compute, extract, summarize and visualize results of multivariate data analysis. It also includes methods for partial bootstrap validation described in Greenacre (1984) and Lebart, Piron, and Morineau (2006). Read the doc…"
-  },
-  {
-    "objectID": "packages.html#signal-processing",
-    "href": "packages.html#signal-processing",
-    "title": "Overview",
-    "section": "Signal processing",
-    "text": "Signal processing\nalkahest\n A lightweight, dependency-free toolbox for pre-processing XY data from experimental methods (i.e. any signal that can be measured along a continuous variable). This package provides methods for baseline estimation and correction, smoothing, normalization, integration and peaks detection. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#data-visualization",
-    "href": "packages.html#data-visualization",
-    "title": "Overview",
-    "section": "Data visualization",
-    "text": "Data visualization\nkhroma\n Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) colour schemes for use with graphics or ggplot2. It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented. Read the doc…\n\n\n\n\n\n\n\n\n\n\nisopleuros\n Ternary plots made simple. This package allows to create ternary plot using graphics. It provides functions to display the data in the ternary space, to add or tune graphical elements and to display statistical summaries. It also includes common ternary diagrams useful for the archaeologist (e.g. soil texture charts, ceramic phase diagram). Read the doc…"
-  },
-  {
-    "objectID": "packages.html#tools",
-    "href": "packages.html#tools",
-    "title": "Overview",
-    "section": "Tools",
-    "text": "Tools\narkhe\n A collection of simple functions for cleaning rectangular data. This package allows to detect, count and replace values or delete rows/columns according to a specific predicate. In addition, it provides tools to check conditions and return informative error messages. Read the doc…"
-  },
-  {
-    "objectID": "packages.html#datasets",
-    "href": "packages.html#datasets",
-    "title": "Overview",
-    "section": "Datasets",
-    "text": "Datasets\nfolio\n Datasets for teaching quantitative approaches and modeling in archaeology and paleontology. folio provides several types of data related to broad topics (cultural evolution, radiocarbon dating, paleoenvironments, etc.), which can be used to illustrate statistical methods in the classroom (multivariate data analysis, compositional data analysis, diversity measurement, etc.). Read the doc…"
   }
 ]

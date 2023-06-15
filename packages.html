@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="description" content="The tesselle packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.">
-<title>tesselle - Overview</title>
+<title>tesselle - Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +73,6 @@ div.csl-indent {
 }</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -89,7 +87,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -108,14 +108,14 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><!-- JQuery --><script src="scripts/jquery-3.6.2.min.js"></script><!-- Isotope --><script src="scripts/isotope.pkgd.min.js"></script><script src="scripts/imagesloaded.pkgd.min.js"></script><!-- Matomo --><script src="https://www.tesselle.org/scripts/unicorn.js"></script><noscript></noscript><meta property="og:title" content="tesselle - Overview">
-<meta property="og:description" content="The tesselle packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.">
+}</script><!-- Matomo --><script src="https://www.tesselle.org/scripts/unicorn.js"></script><noscript></noscript><meta property="og:title" content="tesselle - Packages">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://www.tesselle.org/images/card.png">
 <meta property="og:site-name" content="tesselle">
 <meta property="og:image:height" content="640">
 <meta property="og:image:width" content="1280">
-<meta name="twitter:title" content="tesselle - Overview">
-<meta name="twitter:description" content="The tesselle packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.">
+<meta name="twitter:title" content="tesselle - Packages">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://www.tesselle.org/images/card.png">
 <meta name="twitter:image-height" content="640">
 <meta name="twitter:image-width" content="1280">
@@ -141,7 +141,7 @@ div.csl-indent {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item">
     <a class="nav-link active" href="./packages.html" rel="" target="" aria-current="page">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
@@ -176,18 +176,8 @@ div.csl-indent {
 </i> 
  <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml" rel="" target=""><i class="bi bi-rss-fill" role="img" aria-label="RSS">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
 </ul>
 <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -246,21 +236,16 @@ div.csl-indent {
 <li><a href="#folio" id="toc-folio" class="nav-link" data-scroll-target="#folio">folio</a></li>
   </ul>
 </li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/edit/main/packages.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
 </nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Overview</h1>
+<h1 class="title">Packages</h1>
 </div>
 
-<div>
-  <div class="description">
-    <p>The <strong>tesselle</strong> packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.</p>
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -277,26 +262,6 @@ div.csl-indent {
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tesselle"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Browse the documentation on <a href="https://packages.tesselle.org">packages.tesselle.org</a>.</p>
-<div class="hex-stickers">
-  <a href="#kairos">
-    <img class="row1 col1" src="images/kairos.png" alt="kairos"></a>
-  <a href="#nexus">
-    <img class="row1 col3" src="images/nexus.png" alt="nexus"></a>
-  <a href="#aion">
-    <img class="row1 col5" src="images/aion.png" alt="aion"></a>
-  <a href="#tabula">
-    <img class="row2 col2" src="images/tabula.png" alt="tabula"></a>
-  <a href="#khroma">
-    <img class="row2 col4" src="images/khroma.png" alt="khroma"></a>
-  <a href="#isopleuros">
-    <img class="row2 col6" src="images/isopleuros.png" alt="isopleuros"></a>
-  <a href="#alkahest">
-    <img class="row3 col1" src="images/alkahest.png" alt="alkahest"></a>
-  <a href="#dimensio">
-    <img class="row3 col3" src="images/dimensio.png" alt="dimensio"></a>
-  <a href="#folio">
-    <img class="row3 col5" src="images/folio.png" alt="folio"></a>
-</div>
 <section id="count-data" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="count-data">Count data</h2>
 <section id="tabula" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="tabula">tabula</h3>
 <p><a href="https://packages.tesselle.org/tabula/" title="Read the documentation."><img class="hex-logo" alt="tabula" src="images/tabula.png"></a> An easy way to examine archaeological count data. <strong>tabula</strong> provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs.&nbsp;abundance plots, heatmaps, <span class="citation" data-cites="ford1962">Ford (<a href="#ref-ford1962" role="doc-biblioref">1962</a>)</span> and <span class="citation" data-cites="bertin1977">Bertin (<a href="#ref-bertin1977" role="doc-biblioref">1977</a>)</span> diagrams. <a href="https://packages.tesselle.org/tabula/">Read the doc…</a></p>
@@ -451,10 +416,7 @@ Lebart, Ludovic, Marie Piron, and Alain Morineau. 2006. <em>Statistique explorat
 <div id="ref-reingold2018" class="csl-entry" role="listitem">
 Reingold, Edward M., and Nachum Dershowitz. 2018. <em>Calendrical <span>Calculations</span>: <span>The Ultimate Edition</span></em>. 4th ed. <span>Cambridge University Press</span>. <a href="https://doi.org/10.1017/9781107415058">https://doi.org/10.1017/9781107415058</a>.
 </div>
-</div></section></div></main><!-- /main --><div style="display: inline; text-align: center;">
-<a href="https://www.u-bordeaux-montainge.fr"><img src="images/UBM.jpg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="images/CNRS.png" class="logo-institution"></a>
-</div>
-<script id="quarto-html-after-body" type="application/javascript">
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -690,16 +652,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>, <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.</div>
-    <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item">
     <a class="nav-link" href="./privacy.html">Privacy Policy</a>
   </li>  
 </ul>
-</div>
+</div>   
+    <div class="nav-footer-center">The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.</div>
+    <div class="nav-footer-right"><a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button"> <i class="fa-solid fa-chevron-up" aria-label="chevron-up"></i> </a></div>
   </div>
 </footer>
 

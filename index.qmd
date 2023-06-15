@@ -1,22 +1,77 @@
 ---
-title: "R packages & archaeology"
-subtitle: "A collection of R packages for research and teaching in archaeology."
-description: |
-  **tesselle** is a collection of [R](https://www.r-project.org/) packages for 
-  research and teaching in archaeology. These packages focus on quantitative 
-  analysis methods developed for archaeology. The **tesselle** 
-  [packages](packages.html) are designed to work seamlessly together and to 
-  complement general-purpose and other specialized statistical packages.
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  fields: [image, date, title, author, categories]
-  sort-ui: false
-  filter-ui: true
-  feed: true
-page-layout: full
-title-block-banner: true
-margin-header: _custom.html
+page-layout: custom
 ---
+
+::::: {#FrontPage}
+
+:::: {.band .first}
+:::: {.bandContent}
+
+::: {.hexBadges}
+<a href="https://packages.tesselle.org/tabula/">
+  <div class=""></div>
+  <img src="images/tabula.png" alt="tabula hex sticker" class="r1 c0">
+</a>
+
+<a href="https://packages.tesselle.org/nexus/">
+  <div class="filtered r2 c0"></div>
+  <img src="images/nexus.png" alt="nexus hex sticker" class="r2 c0">
+</a>
+
+<a href="https://packages.tesselle.org/khroma/">
+  <div class="filtered r3 c0"></div>
+  <img src="images/khroma.png" alt="khroma hex sticker" class="r3 c0">
+</a>
+
+
+<a href="https://packages.tesselle.org/dimensio/">
+  <div class="filtered r2 c1"></div>
+  <img src="images/dimensio.png" alt="dimensio hex sticker" class="r2 c1">
+</a>
+
+<a href="https://packages.tesselle.org/aion/">
+ <div class="filtered r3 c1"></div>
+ <img src="images/aion.png" alt="aion hex sticker" class="r3 c1">
+</a>
+
+<a href="https://packages.tesselle.org/isopleuros/">
+  <div class="filtered r4 c1"></div>
+  <img src="images/isopleuros.png" alt="isopleuros hex sticker" class="r4 c2">
+</a>
+
+
+<a href="https://packages.tesselle.org/kairos/">
+  <div class="filtered r2 c1"></div>
+  <img src="images/kairos.png" alt="kairos hex sticker" class="r2 c2">
+</a>
+
+<a href="https://packages.tesselle.org/alkahest/">
+ <div class="filtered r3 c1"></div>
+ <img src="images/alkahest.png" alt="alkahest hex sticker" class="r3 c2">
+</a>
+:::
+
+::: {.blurb}
+[R packages & archaeology]{.tagline}
+
+**tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
+:::
+
+::::
+::::
+
+:::: {.band .second}
+:::: {.bandContent}
+
+::: {.blurb}
+The **tesselle** packages focus on quantitative analysis methods developed for archaeology.
+
+They can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
+:::
+
+<img src="images/tesselle.png" alt="tesselle hex sticker">
+
+::::
+::::
+
+:::::

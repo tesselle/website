@@ -1,7 +1,5 @@
 ---
-title: "Overview"
-description: |
-   The **tesselle** packages focus on quantitative analysis methods developed for archaeology. They are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages. These packages can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
+title: "Packages"
 bibliography: references.bib
 default-image-extension: ''
 ---
@@ -19,38 +17,6 @@ install.packages("tesselle")
 ```
 
 Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
-
-```{=html}
-<div class="hex-stickers">
-  <a href="#kairos">
-    <img class="row1 col1" src="images/kairos.png" alt="kairos">
-  </a>
-  <a href="#nexus">
-    <img class="row1 col3" src="images/nexus.png" alt="nexus">
-  </a>
-  <a href="#aion">
-    <img class="row1 col5" src="images/aion.png" alt="aion">
-  </a>
-  <a href="#tabula">
-    <img class="row2 col2" src="images/tabula.png" alt="tabula">
-  </a>
-  <a href="#khroma">
-    <img class="row2 col4" src="images/khroma.png" alt="khroma">
-  </a>
-  <a href="#isopleuros">
-    <img class="row2 col6" src="images/isopleuros.png" alt="isopleuros">
-  </a>
-  <a href="#alkahest">
-    <img class="row3 col1" src="images/alkahest.png" alt="alkahest">
-  </a>
-  <a href="#dimensio">
-    <img class="row3 col3" src="images/dimensio.png" alt="dimensio">
-  </a>
-  <a href="#folio">
-    <img class="row3 col5" src="images/folio.png" alt="folio">
-  </a>
-</div>
-```
 
 ## Count data
 ### tabula

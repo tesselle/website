@@ -5,10 +5,11 @@ project:
 
 website:
   title: "tesselle"
+  description: "tesselle is a collection of R packages for research and teaching in archaeology."
 
   site-url: https://www.tesselle.org
   repo-url: https://github.com/tesselle/website
-  repo-actions: [issue]
+  repo-actions: [edit, issue]
 
   favicon: images/icons/favicon.ico
   image: images/card.png
@@ -17,10 +18,9 @@ website:
   twitter-card:
     image: images/card.png
 
-  reader-mode: true
-
   navbar:
     background: "#4F2680"
+    pinned: true
     right:
       - packages.qmd
       - text: "Guidelines"
@@ -35,24 +35,29 @@ website:
       - icon: mastodon
         aria-label: Mastodon
         href: https://archaeo.social/@tesselle
-      - icon: rss-fill
-        aria-label: RSS
-        href: index.xml
+      # - icon: rss-fill
+      #   aria-label: RSS
+      #   href: index.xml
 
   page-footer:
     # background: "#4F2680"
-    center: |
-      The tesselle project is supported by the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>,
-      <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>
-      and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
-    right:
+    left:
       - privacy.qmd
+    center: |
+      The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>,
+      the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>
+      and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
+    right: |
+      <a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button">
+         {{< fa chevron-up >}}
+      </a>
 
 format:
   html:
-    theme: custom.scss
     include-in-header: _header.html
-    include-after-body: _footer.html
     toc: true
     toc-location: left
     code-link: true
+
+theme:
+  - custom.scss

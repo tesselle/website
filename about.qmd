@@ -1,22 +1,6 @@
 ---
 title: "About"
-description-meta: "tesselle is a collection of R packages for research and teaching in archaeology."
-about:
-  id: hero-heading
-  template: jolla
-  image: images/tesselle.png
-  image-shape: rectangle
-  links:
-    - icon: github
-      text: Github
-      href: https://github.com/tesselle/
-    - icon: download
-      text: R-universe
-      href: https://tesselle.r-universe.dev/
 ---
-
-:::{#hero-heading}
-:::
 
 ## Yet another package
 

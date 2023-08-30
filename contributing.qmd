@@ -12,6 +12,7 @@ You can request new features by opening an issue on GitHub. Even if you don't fe
 |:-----------|:--------------------------------------------------------------|
 | aion       | [tesselle/aion](https://github.com/tesselle/aion)             |
 | alkahest   | [tesselle/alkahest](https://github.com/tesselle/alkahest)     |
+| ananke     | [tesselle/ananke](https://github.com/tesselle/ananke)         |
 | arkhe      | [tesselle/arkhe](https://github.com/tesselle/arkhe)           |
 | dimensio   | [tesselle/dimensio](https://github.com/tesselle/dimensio)     |
 | folio      | [tesselle/folio](https://github.com/tesselle/folio)           |
@@ -46,7 +47,7 @@ If you've found a bug, please file an issue that illustrates the bug with a mini
 
 * New code should follow the [style guide](style.html).
 * We use [roxygen2](https://roxygen2.r-lib.org), with [Markdown syntax](https://roxygen2.r-lib.org/articles/rd-formatting.html), for documentation.
-* We use [testthat](https://testthat.r-lib.org) and [vdiffr](https://vdiffr.r-lib.org) for unit tests. Contributions with test cases included are easier to accept.  
+* We use [tinytest](https://github.com/markvanderloo/tinytest) and [tinysnapshot](https://github.com/vincentarelbundock/tinysnapshot) for unit tests. Contributions with test cases included are easier to accept.  
 
 ## Code of Conduct
 

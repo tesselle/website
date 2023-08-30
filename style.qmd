@@ -8,7 +8,7 @@ description: |
 
 ### Dependencies
 
-Always avoid package dependencies when possible.
+Always avoid package dependencies when possible (see [tinyverse.org](https://www.tinyverse.org/)).
 
 Adding a new dependency should be considered as a last resort (always prefer a base R solution).
 
@@ -485,7 +485,7 @@ It makes sense to split the source into logical chunks by `#` followed by `-` or
 # Clean data ------------------------------------------------------------
 ```
 
-Function and object descriptions should adhere to [**roxygen2**](https://roxygen2.r-lib.org/) guidelines.
+Function and object descriptions should adhere to [roxygen2](https://roxygen2.r-lib.org/) guidelines.
 
 ``` r
 #' Add Together Two Numbers

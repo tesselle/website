@@ -33,6 +33,7 @@ The following contributors have made it possible to develop this project through
 | Ben Marwick | [0000-0001-7879-4531](https://orcid.org/0000-0001-7879-4531) |
 | Matthew Peeples | [0000-0003-4496-623X](https://orcid.org/0000-0003-4496-623X) |
 | Anne Philippe | [0000-0002-5331-5087](https://orcid.org/0000-0002-5331-5087) |
+| Joe Roe | [0000-0002-1011-1244](https://orcid.org/0000-0002-1011-1244) |
 
 ## Institutional support {#sec-institutional-support}
 

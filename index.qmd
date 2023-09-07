@@ -81,12 +81,12 @@ install.packages("tesselle")
 ::: {.blurb}
 <div class="event">
   <div class="eventTitle">[Transparency]{.tagline}</div>
-  <div class="eventDetails">All packages are distributed under a free license, publicly maintained, with source code accessible and versioned. You have the freedom to inspect the code and study how it works.</div>
+  <div class="eventDetails">All packages are distributed under a free license, publicly maintained, with source code accessible and versioned.</div>
 </div>
 
 <div class="event">
   <div class="eventTitle">[Reliability]{.tagline}</div>
-  <div class="eventDetails">All packages undergo rigorous testing and code coverage. Dependencies are kept to a bare minimum. Your workflow will not break unexpectedly or without warning.</div>
+  <div class="eventDetails">All packages undergo rigorous testing and code coverage. Most of them are distributed on <abbr title="Comprehensive R Archive Network">CRAN</abbr>, which implies adherence to stringent standards.</div>
 </div>
 :::
 
@@ -96,12 +96,13 @@ install.packages("tesselle")
 :::: {.band .third}
 :::: {.bandContent}
 
-<img src="images/CNRS.png" alt="tesselle hex sticker" style="max-width: 100px; width: 100%;">
-<img src="images/UBM.jpg" alt="tesselle hex sticker" style="max-width: 275px; width: 100%;">
-<img src="images/archeosciences.png" alt="tesselle hex sticker" style="max-width: 400px; width: 100%;">
+::: {.blurb}
+:::
 
 ::: {.blurb}
-This project is supported by [Archéosciences Bordeaux](https://www.archeosciences-bordeaux.fr/),  [Bordeaux Montaigne University](https://www.u-bordeaux-montaigne.fr/) and the [<abbr title="Centre National de la Recherche Scientifique">CNRS</abbr>](https://www.cnrs.fr/).
+[Need help?]{.tagline}
+
+Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
 :::
 
 ::::

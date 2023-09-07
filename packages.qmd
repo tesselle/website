@@ -8,15 +8,17 @@ default-image-extension: ''
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Most of our packages are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/), development versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. <abbr title="work-in-progress">WIP</abbr> packages and large data packages) can be installed from [our repository](https://tesselle.r-universe.dev/).
+Most of our packages are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/). <abbr title="work-in-progress">WIP</abbr> packages and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. large data packages) can be installed from [our repository](https://tesselle.r-universe.dev/).
+
+:::{.column-margin}
+<img style="width: 100%; max-width: 240px;" alt="tesselle" src="images/tesselle.png" />
+:::
 
 Install the complete suite with:
 
 ```{r install, eval=FALSE}
 install.packages("tesselle")
 ```
-
-Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
 
 ## Count data
 ### tabula

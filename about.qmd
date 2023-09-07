@@ -4,51 +4,34 @@ title: "About"
 
 ## Yet another package
 
-There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them. Rather, it is a matter of contributing to a diverse environment.
+There are more than 15,000 packages available on [CRAN](https://cran.r-project.org/), so there is more than enough to cover most analytical needs. There are [many great packages available](https://github.com/benmarwick/ctv-archaeology), **tesselle** is not intended to compete with them or replace them.
 
-**tesselle** is born from a progressive change of research practices within [our laboratories](#sec-institutional-support) with three key objectives:
+The **tesselle** project was born out of a gradual change in research practices within [our laboratory](#sec-institutional-support) with three key objectives:
 
-* Building a unified data workflow within the laboratory to facilitate teamwork.
-* To move away from proprietary environments.
-* Writing packages and releasing them in an open way is a significant step towards a more transparent and open research.
+* Build a unified data workflow to facilitate teamwork;
+* Move away from proprietary environments;
+* Move towards more transparent and open archaeological research.
 
-Last but not least, these packages are useful to us, we hope that others may also find them of interest.
+The project has reached a stable state and is being actively developed, with *transparency* and *reliability* in mind:
 
-## Roadmap
+* All packages are distributed under GNU General Public License: you have the freedom to run, copy, distribute, study, change and improve them.
+* All pacakges are publicly maintained, with source code accessible and versioned.
+* All packages undergo rigorous testing and code coverage.
+* Dependencies are kept to a bare minimum.
 
-**tesselle** is at the early stages of development and includes packages that were not necessarily designed with the same logic. This means that we will make changes in existing packages and continue to publish new ones. You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/5) and fell free to [contribute](contributing.html).
+You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/5) and fell free to [contribute](contributing.html).
 
-## Contributors
+## Contributors {#sec-contributors}
 
-The **tessel** project is coordinated by Nicolas Frerebeau.
+The **tessel** project is maintained by [Nicolas Frerebeau](https://orcid.org/0000-0001-5759-4944).
 
-The following contributors have made it possible to develop this project through their helpful discussion and by sharing ideas (list by name):
+[Brice Lebrun](https://www.lebrunbrice.com/) designed the project and package logos.
 
-| Name | {{< ai orcid color=#b2c046 >}} ORCID |
-|:-----|:------|
-| Vincent Arel-Bundock | [0000-0003-2042-7063](https://orcid.org/0000-0003-2042-7063) |
-| Jean-Baptiste Fourvel | [0000-0002-1061-4642](https://orcid.org/0000-0002-1061-4642) |
-| Nicolas Frerebeau | [0000-0001-5759-4944](https://orcid.org/0000-0001-5759-4944) |
-| Brice Lebrun | [0000-0001-7503-8685](https://orcid.org/0000-0001-7503-8685) |
-| Ben Marwick | [0000-0001-7879-4531](https://orcid.org/0000-0001-7879-4531) |
-| Matthew Peeples | [0000-0003-4496-623X](https://orcid.org/0000-0003-4496-623X) |
-| Anne Philippe | [0000-0002-5331-5087](https://orcid.org/0000-0002-5331-5087) |
-| Joe Roe | [0000-0002-1011-1244](https://orcid.org/0000-0002-1011-1244) |
+Contributors to the project include (list by name): [Vincent Arel-Bundock](https://orcid.org/0000-0003-2042-7063), [Jean-Baptiste Fourvel](https://orcid.org/0000-0002-1061-4642), [Brice Lebrun](https://orcid.org/0000-0001-7503-8685), [Ben Marwick](https://orcid.org/0000-0001-7879-4531), [Matthew Peeples](https://orcid.org/0000-0003-4496-623X), [Anne Philippe](https://orcid.org/0000-0002-5331-5087), [Joe Roe](https://orcid.org/0000-0002-1011-1244).
 
 ## Institutional support {#sec-institutional-support}
 
 This project is supported by:
-
-<details>
-  <summary>
-    <strong>Centre de Recherche et d'Etudes pour l'Art Préhistorique</strong>
-  </summary>
-  MSHS-Toulouse (UAR 3414)<br>
-  Maison de la Recherche<br>
-  Université de Toulouse Jean Jaurès<br>
-  F-31058 Toulouse cedex 9<br>
-  [mshs.univ-toulouse.fr](https://mshs.univ-toulouse.fr)
-</details>
 
 <details>
   <summary>
@@ -59,6 +42,17 @@ This project is supported by:
   Université Bordeaux Montaigne<br>
   F-33607 Pessac cedex<br>
   [www.archeosciences-bordeaux.fr](https://www.archeosciences-bordeaux.fr)
+</details>
+
+<details>
+  <summary>
+    <strong>Centre de Recherche et d'Etudes pour l'Art Préhistorique</strong>
+  </summary>
+  MSHS-Toulouse (UAR 3414)<br>
+  Maison de la Recherche<br>
+  Université de Toulouse Jean Jaurès<br>
+  F-31058 Toulouse cedex 9<br>
+  [mshs.univ-toulouse.fr](https://mshs.univ-toulouse.fr)
 </details>
 
 <details>

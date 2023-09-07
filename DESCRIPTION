@@ -1,16 +1,14 @@
 Package: website
-Title: Website of the tesselle Project
+Title: Website of the 'tesselle' Project
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Nicolas",
-           family = "Frerebeau",
-           role = c("aut", "cre"),
-           email = "nicolas.frerebeau@u-bordeaux-montaigne.fr",
+    person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5759-4944"))
 Maintainer: Nicolas Frerebeau <nicolas.frerebeau@u-bordeaux-montaigne.fr>
 Description: This website documents the tessel project.
 License: CC BY 4.0
-URL: https://github.com/tesselle/website
+URL: https://www.tesselle.org/, https://github.com/tesselle/website
+BugReports: https://github.com/tesselle/website/issues
 Depends: 
     R (>= 4.1.0)
 Imports:

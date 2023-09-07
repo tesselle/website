@@ -52,9 +52,10 @@ page-layout: custom
 :::
 
 ::: {.blurb}
-[R packages & archaeology]{.tagline}
+[R Packages & Archaeology]{.tagline}
 
 **tesselle** is a collection of [R](https://www.r-project.org/) packages for research and teaching in archaeology. These packages are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.
+
 :::
 
 ::::
@@ -64,12 +65,30 @@ page-layout: custom
 :::: {.bandContent}
 
 ::: {.blurb}
-The **tesselle** packages focus on quantitative analysis methods developed for archaeology.
+[Archaeological Data]{.tagline}
+
+The **tesselle** [packages](packages.qmd) focus on quantitative analysis methods developed for archaeology.
 
 They can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
+
+Install the complete suite with:
+
+```r
+install.packages("tesselle")
+```
 :::
 
-<img src="images/tesselle.png" alt="tesselle hex sticker">
+::: {.blurb}
+<div class="event">
+  <div class="eventTitle">[Transparency]{.tagline}</div>
+  <div class="eventDetails">All packages are distributed under a free license, publicly maintained, with source code accessible and versioned. You have the freedom to inspect the code and study how it works.</div>
+</div>
+
+<div class="event">
+  <div class="eventTitle">[Reliability]{.tagline}</div>
+  <div class="eventDetails">All packages undergo rigorous testing and code coverage. Dependencies are kept to a bare minimum. Your workflow will not break unexpectedly or without warning.</div>
+</div>
+:::
 
 ::::
 ::::

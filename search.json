@@ -39,7 +39,7 @@
     "href": "packages.html",
     "title": "Packages",
     "section": "",
-    "text": "Most of our packages are distributed on CRAN, development versions and non-CRAN packages (e.g. WIP packages and large data packages) can be installed from our repository.\nInstall the complete suite with:\ninstall.packages(\"tesselle\")\nBrowse the documentation on packages.tesselle.org."
+    "text": "Most of our packages are distributed on CRAN. WIP packages and non-CRAN packages (e.g. large data packages) can be installed from our repository.\nInstall the complete suite with:\ninstall.packages(\"tesselle\")"
   },
   {
     "objectID": "packages.html#count-data",

@@ -74,4 +74,18 @@ They can be used to explore and analyze common data types in archaeology: count 
 ::::
 ::::
 
+:::: {.band .third}
+:::: {.bandContent}
+
+<img src="images/CNRS.png" alt="tesselle hex sticker" style="max-width: 100px; width: 100%;">
+<img src="images/UBM.jpg" alt="tesselle hex sticker" style="max-width: 275px; width: 100%;">
+<img src="images/archeosciences.png" alt="tesselle hex sticker" style="max-width: 400px; width: 100%;">
+
+::: {.blurb}
+This project is supported by [Archéosciences Bordeaux](https://www.archeosciences-bordeaux.fr/),  [Bordeaux Montaigne University](https://www.u-bordeaux-montaigne.fr/) and the [<abbr title="Centre National de la Recherche Scientifique">CNRS</abbr>](https://www.cnrs.fr/).
+:::
+
+::::
+::::
+
 :::::

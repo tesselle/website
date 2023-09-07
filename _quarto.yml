@@ -43,10 +43,6 @@ website:
     # background: "#4F2680"
     left:
       - privacy.qmd
-    center: |
-      The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>,
-      the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a>
-      and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.
     right: |
       <a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button">
          {{< fa chevron-up >}}

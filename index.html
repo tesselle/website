@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -203,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 </a><p><a href="https://packages.tesselle.org/alkahest/"><img src="images/alkahest.png" alt="alkahest hex sticker" class="r3 c2"> </a></p>
 </div>
 <div class="blurb">
-<p><span class="tagline">R packages &amp; archaeology</span></p>
+<p><span class="tagline">R Packages &amp; Archaeology</span></p>
 <p><strong>tesselle</strong> is a collection of <a href="https://www.r-project.org/">R</a> packages for research and teaching in archaeology. These packages are designed to work seamlessly together and to complement general-purpose and other specialized statistical packages.</p>
 </div>
 </div>
@@ -211,10 +245,38 @@ ul.task-list li input[type="checkbox"] {
 <div class="band second">
 <div class="bandContent">
 <div class="blurb">
-<p>The <strong>tesselle</strong> packages focus on quantitative analysis methods developed for archaeology.</p>
+<p><span class="tagline">Archaeological Data</span></p>
+<p>The <strong>tesselle</strong> <a href="./packages.html">packages</a> focus on quantitative analysis methods developed for archaeology.</p>
 <p>They can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.</p>
+<p>Install the complete suite with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tesselle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/tesselle.png" alt="tesselle hex sticker"></p>
+<div class="blurb">
+<div class="event">
+<div class="eventTitle">
+<span class="tagline">Transparency</span>
+</div>
+<div class="eventDetails">
+All the packages are distributed under GNU license, publicly maintained, with source code accessible and versioned. You have the freedom to inspect the code and study how it works.
+</div>
+</div>
+<div class="event">
+<div class="eventTitle">
+<span class="tagline">Reliability</span>
+</div>
+<div class="eventDetails">
+All packages undergo rigorous testing and code coverage. Dependencies are kept to a bare minimum. Your workflow will not break unexpectedly or without warning.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="band third">
+<div class="bandContent">
+<p><img src="images/CNRS.png" alt="tesselle hex sticker" style="max-width: 100px; width: 100%;"> <img src="images/UBM.jpg" alt="tesselle hex sticker" style="max-width: 275px; width: 100%;"> <img src="images/archeosciences.png" alt="tesselle hex sticker" style="max-width: 400px; width: 100%;"></p>
+<div class="blurb">
+<p>This project is supported by <a href="https://www.archeosciences-bordeaux.fr/">Archéosciences Bordeaux</a>, <a href="https://www.u-bordeaux-montaigne.fr/">Bordeaux Montaigne University</a> and the <a href="https://www.cnrs.fr/"><abbr title="Centre National de la Recherche Scientifique">CNRS</abbr></a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -465,7 +527,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
-    <div class="nav-footer-center">The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
     <div class="nav-footer-right"><a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button"> <i class="fa-solid fa-chevron-up" aria-label="chevron-up"></i> </a></div>
   </div>
 </footer>

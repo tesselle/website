@@ -23,6 +23,8 @@ website:
     pinned: true
     right:
       - packages.qmd
+      - use.qmd
+      - learn/index.qmd
       - text: "Guidelines"
         menu:
           - contributing.qmd
@@ -57,6 +59,10 @@ format:
     toc: true
     toc-location: left
     code-link: true
+
+knitr:
+  opts_chunk:
+    comment: "#>"
 
 theme:
   - custom.scss

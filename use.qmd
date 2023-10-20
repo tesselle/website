@@ -1,0 +1,45 @@
+---
+title: "Get Started"
+description: |
+  Start using the **tesselle** packages.
+---
+
+```{r}
+#| label: set-locale
+#| include: false
+Sys.setlocale("LC_MESSAGES", 'en_GB.UTF-8')
+```
+
+## Download and install
+
+A meta-package, called [`tesselle`](https://packages.tesselle.org/tesselle/), lets you download and install the project's packages with a single R command:
+
+``` r
+install.packages("tesselle")
+```
+
+Using the `library()` function, you can then attach the core **tesselle** packages:
+
+```{r}
+#| label: attach
+library("tesselle")
+```
+
+These core packages can be used to explore and analyze common data types in archaeology: count data ([`tabula`](https://packages.tesselle.org/tabula/)), compositional data ([`nexus`](https://packages.tesselle.org/nexus/)) and chronological data ([`kairos`](https://packages.tesselle.org/nexus/)).
+
+## How to cite
+
+If you use the **tesselle** packages in your publications, you must report and cite them properly (as with any other research software) to ensure transparency and reproducibility of your results. By doing so, published results are linked to a particular version of the software, ensuring traceability in case an error is discovered later.
+
+Citing packages can encourage further development and improvement of these tools. Package authors and maintainers are more likely to continue their work if they see that it's being used and valued by the research community. By citing their work, you're providing a form of recognition, giving package authors and contributors proper credit for their time and efforts.
+
+Use the `citation()` function for information on how to cite the base R system or any non-base package:
+
+```{r}
+#| label: cite-r
+# Get the basic R reference
+citation()
+
+# Get the reference of the tesselle meta-package
+citation("tesselle")
+```

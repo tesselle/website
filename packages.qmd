@@ -8,17 +8,7 @@ default-image-extension: ''
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Most of our packages are distributed on [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/). <abbr title="work-in-progress">WIP</abbr> packages and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. large data packages) can be installed from [our repository](https://tesselle.r-universe.dev/).
-
-:::{.column-margin}
-<img style="width: 100%; max-width: 240px;" alt="tesselle" src="images/tesselle.png" />
-:::
-
-Install the complete suite with:
-
-```{r install, eval=FALSE}
-install.packages("tesselle")
-```
+The **tesselle** packages can be [downloaded and installed](use.qmd) from [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/).
 
 ## Count data
 ### tabula
@@ -47,7 +37,7 @@ install.packages("tesselle")
 ## Chronological data
 ### kairos
 
-[<img class="hex-logo" alt="kairos" src="images/kairos.png" />](https://packages.tesselle.org/kairos/ "Read the documentation.") A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. [Read the doc...](https://packages.tesselle.org/kairos/)
+[<img class="hex-logo" alt="kairos" src="images/kairos.png" />](https://packages.tesselle.org/kairos/ "Read the documentation.") A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It provides methods for matrix seriation. It also allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. [Read the doc...](https://packages.tesselle.org/kairos/)
 
 :::{.column-margin}
 [![](https://www.repostatus.org/badges/latest/active.svg){fig-alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed."}](https://www.repostatus.org/#active)

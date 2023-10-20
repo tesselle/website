@@ -5,12 +5,12 @@ Authors@R:
     person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5759-4944"))
 Maintainer: Nicolas Frerebeau <nicolas.frerebeau@u-bordeaux-montaigne.fr>
-Description: This website documents the tessel project.
+Description: This website documents the 'tessel' project.
 License: CC BY 4.0
 URL: https://www.tesselle.org/, https://github.com/tesselle/website
 BugReports: https://github.com/tesselle/website/issues
 Depends: 
-    R (>= 4.1.0)
+    R (>= 4.3.0)
 Imports:
     downlit,
     knitr,

@@ -37,9 +37,9 @@ Use the `citation()` function for information on how to cite the base R system o
 
 ```{r}
 #| label: cite-r
-# Get the basic R reference
+## Get the basic R reference
 citation()
 
-# Get the reference of the tesselle meta-package
+## Get the reference of the tesselle meta-package
 citation("tesselle")
 ```

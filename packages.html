@@ -17,40 +17,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -142,6 +108,14 @@ div.csl-indent {
 <li class="nav-item">
     <a class="nav-link active" href="./packages.html" rel="" target="" aria-current="page">
  <span class="menu-text">Packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./use.html" rel="" target="">
+ <span class="menu-text">Get Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./learn/index.html" rel="" target="">
+ <span class="menu-text">Learn</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
@@ -256,14 +230,7 @@ div.csl-indent {
   </div>
   
 
-</header><p>Most of our packages are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>. <abbr title="work-in-progress">WIP</abbr> packages and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g.&nbsp;large data packages) can be installed from <a href="https://tesselle.r-universe.dev/">our repository</a>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img style="width: 100%; max-width: 240px;" alt="tesselle" src="images/tesselle.png"></p>
-</div></div><p>Install the complete suite with:</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tesselle"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</header><p>The <strong>tesselle</strong> packages can be <a href="./use.html">downloaded and installed</a> from <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>.</p>
 <section id="count-data" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="count-data">Count data</h2>
 <section id="tabula" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="tabula">tabula</h3>
 <p><a href="https://packages.tesselle.org/tabula/" title="Read the documentation."><img class="hex-logo" alt="tabula" src="images/tabula.png"></a> An easy way to examine archaeological count data. <strong>tabula</strong> provides several tests and measures of diversity: heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). The package make it easy to visualize count data and statistical thresholds: rank vs.&nbsp;abundance plots, heatmaps, <span class="citation" data-cites="ford1962">Ford (<a href="#ref-ford1962" role="doc-biblioref">1962</a>)</span> and <span class="citation" data-cites="bertin1977">Bertin (<a href="#ref-bertin1977" role="doc-biblioref">1977</a>)</span> diagrams. <a href="https://packages.tesselle.org/tabula/">Read the doc…</a></p>
@@ -296,7 +263,7 @@ div.csl-indent {
 </div>
 </div></div></section></section><section id="chronological-data" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="chronological-data">Chronological data</h2>
 <section id="kairos" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="kairos">kairos</h3>
-<p><a href="https://packages.tesselle.org/kairos/" title="Read the documentation."><img class="hex-logo" alt="kairos" src="images/kairos.png"></a> A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. <a href="https://packages.tesselle.org/kairos/">Read the doc…</a></p>
+<p><a href="https://packages.tesselle.org/kairos/" title="Read the documentation."><img class="hex-logo" alt="kairos" src="images/kairos.png"></a> A toolkit for absolute dating and analysis of chronological patterns. This package includes functions for chronological modeling and dating of archaeological assemblages from count data. It provides methods for matrix seriation. It also allows to compute time point estimates and density estimates of the occupation and duration of an archaeological site. <a href="https://packages.tesselle.org/kairos/">Read the doc…</a></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -660,7 +627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
 </div>   
-    <div class="nav-footer-center"><a href="https://www.u-bordeaux-montainge.fr"><img src="images/UBM.jpg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="images/CNRS.png" class="logo-institution"></a> <br>The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.</div>
+    <div class="nav-footer-center"><a href="https://www.u-bordeaux-montainge.fr"><img src="./images/UBM.jpg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="./images/CNRS.png" class="logo-institution"></a> <br>The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>.</div>
     <div class="nav-footer-right"><a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button"> <i class="fa-solid fa-chevron-up" aria-label="chevron-up"></i> </a></div>
   </div>
 </footer>

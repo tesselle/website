@@ -11,12 +11,10 @@ website:
   repo-url: https://github.com/tesselle/website
   repo-actions: [edit, issue]
 
-  favicon: images/icons/favicon.ico
-  image: images/card.png
+  favicon: /images/icons/favicon.ico
+  image: /images/card.png
   open-graph:
-    image: images/card.png
-  twitter-card:
-    image: images/card.png
+    image: /images/card.png
 
   navbar:
     background: "#4F2680"

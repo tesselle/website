@@ -305,14 +305,14 @@
     "href": "use.html",
     "title": "Get Started",
     "section": "",
-    "text": "A meta-package, called tesselle, lets you download and install the project’s packages with a single R command:\ninstall.packages(\"tesselle\")\nUsing the library() function, you can then attach the core tesselle packages:\n\nlibrary(\"tesselle\")\n\n#&gt; --- Attaching packages -------------------------------------------- tesselle ---\n\n\n#&gt; * tabula    3.0.0\n#&gt; * kairos    2.0.1\n#&gt; * khroma    1.11.0\n\n\nThese core packages can be used to explore and analyze common data types in archaeology: count data (tabula), compositional data (nexus) and chronological data (kairos)."
+    "text": "A meta-package, called tesselle, lets you download and install the project’s packages with a single R command:\ninstall.packages(\"tesselle\")\nUsing the library() function, you can then attach the core tesselle packages:\n\nlibrary(\"tesselle\")\n\n#&gt; --- Attaching packages -------------------------------------------- tesselle ---\n\n\n#&gt; * tabula    3.0.0\n#&gt; * kairos    2.0.2\n#&gt; * khroma    1.11.0\n\n\nThese core packages can be used to explore and analyze common data types in archaeology: count data (tabula), compositional data (nexus) and chronological data (kairos)."
   },
   {
     "objectID": "use.html#download-and-install",
     "href": "use.html#download-and-install",
     "title": "Get Started",
     "section": "",
-    "text": "A meta-package, called tesselle, lets you download and install the project’s packages with a single R command:\ninstall.packages(\"tesselle\")\nUsing the library() function, you can then attach the core tesselle packages:\n\nlibrary(\"tesselle\")\n\n#&gt; --- Attaching packages -------------------------------------------- tesselle ---\n\n\n#&gt; * tabula    3.0.0\n#&gt; * kairos    2.0.1\n#&gt; * khroma    1.11.0\n\n\nThese core packages can be used to explore and analyze common data types in archaeology: count data (tabula), compositional data (nexus) and chronological data (kairos)."
+    "text": "A meta-package, called tesselle, lets you download and install the project’s packages with a single R command:\ninstall.packages(\"tesselle\")\nUsing the library() function, you can then attach the core tesselle packages:\n\nlibrary(\"tesselle\")\n\n#&gt; --- Attaching packages -------------------------------------------- tesselle ---\n\n\n#&gt; * tabula    3.0.0\n#&gt; * kairos    2.0.2\n#&gt; * khroma    1.11.0\n\n\nThese core packages can be used to explore and analyze common data types in archaeology: count data (tabula), compositional data (nexus) and chronological data (kairos)."
   },
   {
     "objectID": "use.html#how-to-cite",

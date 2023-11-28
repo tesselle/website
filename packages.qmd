@@ -23,6 +23,8 @@ The **tesselle** packages can be [downloaded and installed](use.qmd) from [<abbr
 [![](https://joss.theoj.org/papers/10.21105/joss.01821/status.svg){fig-alt="DOI JOSS"}](https://doi.org/10.21105/joss.01821)
 :::
 
+<span class="__dimensions_badge_embed__" data-doi="10.21105/joss.01821" data-style="small_rectangle"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+
 ## Compositional data
 ### nexus
 

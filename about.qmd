@@ -35,6 +35,17 @@ This project is supported by:
 
 <details>
   <summary>
+    <strong>TGIR Huma-Num</strong>
+  </summary>
+  UMS 3598<br>
+  54, boulevard Raspail<br>
+  F-75006 Paris<br>
+  [www.huma-num.fr](https://www.huma-num.fr)
+</details>
+<img class="logo-institution" src="/images/logo-humanum.svg" alt="Logo IR* Huma-Num">
+
+<details>
+  <summary>
     <strong>Archéosciences Bordeaux</strong>
   </summary>
   UMR 6034<br>
@@ -43,6 +54,7 @@ This project is supported by:
   F-33607 Pessac cedex<br>
   [www.archeosciences-bordeaux.fr](https://www.archeosciences-bordeaux.fr)
 </details>
+<img class="logo-institution" src="/images/logo-archeosciences.svg" alt="Logo Archéosciences Bordeaux">
 
 <details>
   <summary>
@@ -53,14 +65,4 @@ This project is supported by:
   Université de Toulouse Jean Jaurès<br>
   F-31058 Toulouse cedex 9<br>
   [mshs.univ-toulouse.fr](https://mshs.univ-toulouse.fr)
-</details>
-
-<details>
-  <summary>
-    <strong>TGIR Huma-Num</strong>
-  </summary>
-  UMS 3598<br>
-  54, boulevard Raspail<br>
-  F-75006 Paris<br>
-  [www.huma-num.fr](https://www.huma-num.fr)
 </details>

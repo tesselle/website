@@ -67,7 +67,7 @@ page-layout: custom
 ::: {.blurb}
 [Archaeological Data]{.tagline}
 
-The **tesselle** [packages](packages.qmd) focus on quantitative analysis methods developed for archaeology.
+The **tesselle** [packages](https://packages.tesselle.org) focus on quantitative analysis methods developed for archaeology.
 
 They can be used to explore and analyze common data types in archaeology: count data, compositional data and chronological data.
 

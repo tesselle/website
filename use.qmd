@@ -12,6 +12,8 @@ Sys.setlocale("LC_MESSAGES", 'en_GB.UTF-8')
 
 ## Download and install
 
+The **tesselle** packages can be downloaded and installed from [<abbr title="Comprehensive R Archive Network">CRAN</abbr>](https://cran.r-project.org/).
+
 A meta-package, called [`tesselle`](https://packages.tesselle.org/tesselle/), lets you download and install the project's packages with a single R command:
 
 ``` r

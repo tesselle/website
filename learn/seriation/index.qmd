@@ -1,0 +1,94 @@
+---
+title: "Archaeological seriation"
+description: "Correspondence analysis based seriation with `kairos`, `tabula` and `dimensio`."
+categories:
+  - count data
+  - correspondence analysis
+  - seriation
+author:
+  - name: Nicolas Frerebeau
+    affiliation: Archéosciences Bordeaux (UMR 6034)
+    affiliation_url: https://www.archeosciences-bordeaux.fr
+    orcid: 0000-0001-5759-4944
+date: 2023-08-22
+bibliography: [references.bib, packages.bib]
+echo: true
+nocite: |
+  @R-dimensio, @R-kairos, @R-tabula
+---
+
+Matrix seriation in archaeology consists of chronologically ordering a set of archaeological contexts based on the distribution of different characteristics (artifact types). This process involves finding an arrangement by permuting the rows and/or columns of a contingency table.
+
+The origin of matrix seriation is attributable to the British archaeologist Flinders Petrie [-@petrie1899], who successfully established an important chronology for ancient Egypt in 1899. Petrie's formulation of the method was in archaeological terms, devoid of any mathematical formalism. For this, we had to wait until the middle of the 20th century and the work of @brainerd1951 and @robinson1951, followed by the contributions of Kendall [-@kendall1969; -@kendall1969a]. Seriation is not unique to archaeology, and some of the crucial advances have been made in other disciplines, notably the work of @bertin1967 on graphic semiology and the work of @benzecri1973 on correspondence analysis.
+
+The matrix seriation problem is based on three archaeological conditions and two statistical assumptions, which @dunnell1970 summarizes as follows.
+
+The homogeneity conditions state that all the groups included in a seriation must:
+
+* Be of comparable duration,
+* Belong to the same cultural tradition,
+* Come from the same local area.
+
+The mathematical assumptions state that the distribution of any historical or temporal class:
+
+* Is continuous through time,
+* Exhibits the form of a unimodal curve.
+
+Theses assumptions create a distributional model and ordering is accomplished by arranging the matrix so that the class distributions approximate the required pattern. The resulting order is *inferred* to be chronological.
+
+Correspondence Analysis (CA) is an effective method for the seriation of archaeological assemblages. The order of the rows and columns is given by the coordinates along one dimension of the CA space, assumed to account for temporal variation. The direction of temporal change within the correspondence analysis space is arbitrary: additional information is needed to determine the actual order in time.
+
+This post briefly illustrates how to perform a correspondence analysis based seriation.
+
+```{r}
+library(kairos)
+library(tabula)
+library(dimensio)
+```
+
+```{r}
+#| label: fig-ford
+#| fig-cap: "Ford diagram of the Zuni dataset."
+#| fig-width: 7
+#| fig-height: 7
+#| out-width: 100%
+## Load the zuni dataset
+## Data from Peeples and Schachner 2012
+data("zuni", package = "folio")
+
+## Plot the original matrix
+tabula::plot_ford(zuni)
+```
+
+```{r}
+#| label: seriate
+## Get row and column permutations from CA coordinates along the first axis
+(indices <- seriate_average(zuni, margin = c(1, 2)))
+```
+
+`seriate_average()` returns the full results of the correspondence analysis. You can use [`dimensio`](https://packages.tesselle.org/dimensio/) to explore these results:
+
+```{r}
+#| label: fig-ca
+#| fig-cap: "Row principal biplot of the CA results."
+#| fig-width: 7
+#| fig-height: 7
+#| out-width: 100%
+## Plot CA row coordinates (get a nice arch effect!)
+dimensio::biplot(indices, type = "rows")
+```
+
+If the results of the correspondence analysis are satisfactory, we can then permute the rows and columns of the initial data matrix:
+
+```{r}
+#| label: fig-permutate
+#| fig-cap: "Ford diagram of the permuted dataset."
+#| fig-width: 7
+#| fig-height: 7
+#| out-width: 100%
+## Permute data matrix
+permuted <- permute(zuni, indices)
+
+## Plot permuted matrix
+tabula::plot_ford(permuted)
+```

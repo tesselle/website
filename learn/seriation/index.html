@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Nicolas Frerebeau">
+<meta name="dcterms.date" content="2023-08-22">
+<meta name="description" content="Correspondence analysis based seriation with kairos, tabula and dimensio.">
+<title>tesselle - Archaeological seriation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/icons/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><!-- Matomo --><script src="https://www.tesselle.org/scripts/unicorn.js"></script><!-- Web App Manifest ---><link rel="manifest" href="../../manifest.webmanifest">
+<!-- Mastodon --><link rel="me" href="https://archaeo.social/@tesselle">
+<meta property="og:title" content="tesselle - Archaeological seriation">
+<meta property="og:description" content="Correspondence analysis based seriation with kairos, tabula and dimensio.">
+<meta property="og:image" content="https://www.tesselle.org/images/card.png">
+<meta property="og:site-name" content="tesselle">
+<meta property="og:image:height" content="640">
+<meta property="og:image:width" content="1280">
+</head>
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">tesselle</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="https://packages.tesselle.org" rel="" target="">
+ <span class="menu-text">Packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../use.html" rel="" target="">
+ <span class="menu-text">Get Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../learn/index.html" rel="" target="">
+ <span class="menu-text">Learn</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Guidelines</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-guidelines">
+<li>
+    <a class="dropdown-item" href="../../contributing.html" rel="" target="">
+ <span class="dropdown-text">Contributing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../conduct.html" rel="" target="">
+ <span class="dropdown-text">Code of Conduct</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../style.html" rel="" target="">
+ <span class="dropdown-text">Coding Style</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tesselle/" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://archaeo.social/(tesselle?)" rel="" target=""><i class="bi bi-mastodon" role="img" aria-label="Mastodon">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Archaeological seriation</h1>
+                  <div>
+        <div class="description">
+          Correspondence analysis based seriation with <code>kairos</code>, <code>tabula</code> and <code>dimensio</code>.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">count data</div>
+                <div class="quarto-category">correspondence analysis</div>
+                <div class="quarto-category">seriation</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Nicolas Frerebeau <a href="https://orcid.org/0000-0001-5759-4944" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Archéosciences Bordeaux (UMR 6034)
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 22, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Matrix seriation in archaeology consists of chronologically ordering a set of archaeological contexts based on the distribution of different characteristics (artifact types). This process involves finding an arrangement by permuting the rows and/or columns of a contingency table.</p>
+<p>The origin of matrix seriation is attributable to the British archaeologist Flinders Petrie <span class="citation" data-cites="petrie1899">(<a href="#ref-petrie1899" role="doc-biblioref">1899</a>)</span>, who successfully established an important chronology for ancient Egypt in 1899. Petrie’s formulation of the method was in archaeological terms, devoid of any mathematical formalism. For this, we had to wait until the middle of the 20th century and the work of <span class="citation" data-cites="brainerd1951">Brainerd (<a href="#ref-brainerd1951" role="doc-biblioref">1951</a>)</span> and <span class="citation" data-cites="robinson1951">Robinson (<a href="#ref-robinson1951" role="doc-biblioref">1951</a>)</span>, followed by the contributions of Kendall <span class="citation" data-cites="kendall1969 kendall1969a">(<a href="#ref-kendall1969" role="doc-biblioref">1969b</a>, <a href="#ref-kendall1969a" role="doc-biblioref">1969a</a>)</span>. Seriation is not unique to archaeology, and some of the crucial advances have been made in other disciplines, notably the work of <span class="citation" data-cites="bertin1967">Bertin (<a href="#ref-bertin1967" role="doc-biblioref">1967</a>)</span> on graphic semiology and the work of <span class="citation" data-cites="benzecri1973">Benzécri (<a href="#ref-benzecri1973" role="doc-biblioref">1973</a>)</span> on correspondence analysis.</p>
+<p>The matrix seriation problem is based on three archaeological conditions and two statistical assumptions, which <span class="citation" data-cites="dunnell1970">Dunnell (<a href="#ref-dunnell1970" role="doc-biblioref">1970</a>)</span> summarizes as follows.</p>
+<p>The homogeneity conditions state that all the groups included in a seriation must:</p>
+<ul>
+<li>Be of comparable duration,</li>
+<li>Belong to the same cultural tradition,</li>
+<li>Come from the same local area.</li>
+</ul>
+<p>The mathematical assumptions state that the distribution of any historical or temporal class:</p>
+<ul>
+<li>Is continuous through time,</li>
+<li>Exhibits the form of a unimodal curve.</li>
+</ul>
+<p>Theses assumptions create a distributional model and ordering is accomplished by arranging the matrix so that the class distributions approximate the required pattern. The resulting order is <em>inferred</em> to be chronological.</p>
+<p>Correspondence Analysis (CA) is an effective method for the seriation of archaeological assemblages. The order of the rows and columns is given by the coordinates along one dimension of the CA space, assumed to account for temporal variation. The direction of temporal change within the correspondence analysis space is arbitrary: additional information is needed to determine the actual order in time.</p>
+<p>This post briefly illustrates how to perform a correspondence analysis based seriation.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://packages.tesselle.org/kairos/">kairos</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://packages.tesselle.org/tabula/">tabula</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://packages.tesselle.org/dimensio/">dimensio</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Load the zuni dataset</span></span>
+<span><span class="co">## Data from Peeples and Schachner 2012</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"zuni"</span>, package <span class="op">=</span> <span class="st">"folio"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Plot the original matrix</span></span>
+<span><span class="fu">tabula</span><span class="fu">::</span><span class="fu"><a href="https://packages.tesselle.org/tabula/reference/plot_ford.html">plot_ford</a></span><span class="op">(</span><span class="va">zuni</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-ford" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="index_files/figure-html/fig-ford-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Ford diagram of the Zuni dataset.</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Get row and column permutations from CA coordinates along the first axis</span></span>
+<span><span class="op">(</span><span class="va">indices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://packages.tesselle.org/kairos/reference/seriate_average.html">seriate_average</a></span><span class="op">(</span><span class="va">zuni</span>, margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; &lt;AveragePermutationOrder&gt;
+#&gt; Permutation order for matrix seriation:
+#&gt; - Row order: 372 387 350 367 110 417 364 407 357 160 344 348 35...
+#&gt; - Column order: 18 14 17 16 13 15 9 8 12 11 6 7 5 10 4 2 3 1...</code></pre>
+</div>
+</div>
+<p><code><a href="https://packages.tesselle.org/kairos/reference/seriate_average.html">seriate_average()</a></code> returns the full results of the correspondence analysis. You can use <a href="https://packages.tesselle.org/dimensio/"><code>dimensio</code></a> to explore these results:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Plot CA row coordinates (get a nice arch effect!)</span></span>
+<span><span class="fu">dimensio</span><span class="fu">::</span><span class="fu"><a href="https://packages.tesselle.org/dimensio/reference/biplot.html">biplot</a></span><span class="op">(</span><span class="va">indices</span>, type <span class="op">=</span> <span class="st">"rows"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-ca" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="index_files/figure-html/fig-ca-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Row principal biplot of the CA results.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>If the results of the correspondence analysis are satisfactory, we can then permute the rows and columns of the initial data matrix:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Permute data matrix</span></span>
+<span><span class="va">permuted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://packages.tesselle.org/kairos/reference/permute.html">permute</a></span><span class="op">(</span><span class="va">zuni</span>, <span class="va">indices</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Plot permuted matrix</span></span>
+<span><span class="fu">tabula</span><span class="fu">::</span><span class="fu"><a href="https://packages.tesselle.org/tabula/reference/plot_ford.html">plot_ford</a></span><span class="op">(</span><span class="va">permuted</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-permutate" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="index_files/figure-html/fig-permutate-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Ford diagram of the permuted dataset.</figcaption></figure>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-benzecri1973" class="csl-entry" role="listitem">
+Benzécri, Jean-Paul. 1973. <em>L’Analyse des données : l’analyse des correspondances</em>. Vol. 2. <span>Paris</span>: <span>Dunod</span>.
+</div>
+<div id="ref-bertin1967" class="csl-entry" role="listitem">
+Bertin, Jacques. 1967. <em>Sémiologie graphique - Les diagrammes, les réseaux, les cartes</em>. <span>Paris</span>: <span>Mouton</span>.
+</div>
+<div id="ref-brainerd1951" class="csl-entry" role="listitem">
+Brainerd, George W. 1951. <span>“The <span>Place</span> of <span>Chronological Ordering</span> in <span>Archaeological Analysis</span>.”</span> <em>American Antiquity</em> 16 (04): 301–13. <a href="https://doi.org/10.2307/276979">https://doi.org/10.2307/276979</a>.
+</div>
+<div id="ref-dunnell1970" class="csl-entry" role="listitem">
+Dunnell, Robert C. 1970. <span>“Seriation <span>Method</span> and <span>Its Evaluation</span>.”</span> <em>American Antiquity</em> 35 (03): 305–19. <a href="https://doi.org/10.2307/278341">https://doi.org/10.2307/278341</a>.
+</div>
+<div id="ref-R-dimensio" class="csl-entry" role="listitem">
+Frerebeau, Nicolas. 2023a. <em><span class="nocase">dimensio: Multivariate Data Analysis</span></em>. Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.4478530">https://doi.org/10.5281/zenodo.4478530</a>.
+</div>
+<div id="ref-R-kairos" class="csl-entry" role="listitem">
+———. 2023b. <em><span class="nocase">kairos: Analysis of Chronological Patterns from Archaeological Count Data</span></em>. Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.5653896">https://doi.org/10.5281/zenodo.5653896</a>.
+</div>
+<div id="ref-R-tabula" class="csl-entry" role="listitem">
+———. 2023c. <em><span class="nocase">tabula: Analysis and Visualization of Archaeological Count Data</span></em>. Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.1489944">https://doi.org/10.5281/zenodo.1489944</a>.
+</div>
+<div id="ref-kendall1969a" class="csl-entry" role="listitem">
+Kendall, David G. 1969a. <span>“Incidence Matrices, Interval Graphs and Seriation in Archaeology.”</span> <em>Pacific Journal of Archaeology</em> 28 (3): 565–70.
+</div>
+<div id="ref-kendall1969" class="csl-entry" role="listitem">
+———. 1969b. <span>“Some <span>Problems</span> and <span>Methods</span> in <span>Statistical Archaeology</span>.”</span> <em>World Archaeology</em> 1 (1): 68–76.
+</div>
+<div id="ref-petrie1899" class="csl-entry" role="listitem">
+Petrie, W. M. Flinders. 1899. <span>“Sequences in <span>Prehistoric Remains</span>.”</span> <em>Journal of the Anthropological Institute of Great Britain and Ireland</em> 29 (3/4): 295–301. <a href="https://doi.org/10.2307/2843012">https://doi.org/10.2307/2843012</a>.
+</div>
+<div id="ref-robinson1951" class="csl-entry" role="listitem">
+Robinson, W. S. 1951. <span>“A <span>Method</span> for <span>Chronologically Ordering Archaeological Deposits</span>.”</span> <em>American Antiquity</em> 16 (04): 293–301. <a href="https://doi.org/10.2307/276978">https://doi.org/10.2307/276978</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2023,
+  author = {Frerebeau, Nicolas},
+  title = {Archaeological Seriation},
+  date = {2023-08-22},
+  url = {https://www.tesselle.org/learn/seriation},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+Frerebeau, Nicolas. 2023. <span>“Archaeological Seriation.”</span>
+August 22, 2023. <a href="https://www.tesselle.org/learn/seriation">https://www.tesselle.org/learn/seriation</a>.
+</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="../../privacy.html">Privacy Policy</a>
+  </li>  
+</ul>
+</div>   
+    <div class="nav-footer-center"><a href="https://www.u-bordeaux-montainge.fr"><img src="../../images/logo-ubm.svg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="../../images/logo-cnrs.svg" class="logo-institution"></a> <br>The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>. <noscript></noscript><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tesselle/website/edit/main/learn/seriation/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tesselle/website/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-right"><a onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" role="button"> <i class="fa-solid fa-chevron-up" aria-label="chevron-up"></i> </a></div>
+  </div>
+</footer>
+
+
+</body></html>

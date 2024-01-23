@@ -19,6 +19,7 @@ You can request new features by opening an issue on GitHub. Even if you don't fe
 | isopleuros | [tesselle/isopleuros](https://github.com/tesselle/isopleuros) |
 | kairos     | [tesselle/kairos](https://github.com/tesselle/kairos)         |
 | khroma     | [tesselle/khroma](https://github.com/tesselle/khroma)         |
+| kinesis    | [tesselle/kinesis](https://github.com/tesselle/kinesis)       |
 | nexus      | [tesselle/nexus](https://github.com/tesselle/nexus)           |
 | tabula     | [tesselle/tabula](https://github.com/tesselle/tabula)         |
 | tesselle   | [tesselle/tesselle](https://github.com/tesselle/tesselle)     |

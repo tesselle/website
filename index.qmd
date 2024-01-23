@@ -34,6 +34,11 @@ page-layout: custom
  <img src="images/aion.png" alt="aion hex sticker" class="r3 c1">
 </a>
 
+<a href="https://packages.tesselle.org/kinesis/">
+ <div class="filtered r4 c1"></div>
+ <img src="images/kinesis.png" alt="kinesis hex sticker" class="r4 c1">
+</a>
+
 <a href="https://packages.tesselle.org/isopleuros/">
   <div class="filtered r4 c1"></div>
   <img src="images/isopleuros.png" alt="isopleuros hex sticker" class="r4 c2">

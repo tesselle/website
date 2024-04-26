@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2024-02-29T12:51:57.927Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/use.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/learn/index.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2024-02-29T12:51:57.927Z</lastmod>
+    <lastmod>2024-04-26T15:59:23.131Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2024-02-29T12:51:57.923Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/learn/seriation/index.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
+    <lastmod>2024-04-26T15:59:23.139Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2024-02-29T12:51:57.935Z</lastmod>
+    <lastmod>2024-04-26T15:59:23.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/privacy.html</loc>
+    <lastmod>2024-04-26T15:59:23.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/learn/seriation/index.html</loc>
+    <lastmod>2024-04-26T15:59:23.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/learn/index.html</loc>
+    <lastmod>2024-04-26T15:59:23.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/contributing.html</loc>
+    <lastmod>2024-04-26T15:59:23.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/about.html</loc>
+    <lastmod>2024-04-26T15:59:23.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/use.html</loc>
+    <lastmod>2024-04-26T15:59:23.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/LICENSE.html</loc>
-    <lastmod>2024-02-29T12:51:57.915Z</lastmod>
+    <lastmod>2024-04-26T15:59:23.119Z</lastmod>
   </url>
 </urlset>

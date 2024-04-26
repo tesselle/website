@@ -30,35 +30,72 @@ p {
 }
 
 /* Front page */
-
 #FrontPage {
   .band {
-    position: relative;
+    color: black;
     padding: 0 5%;
-    .blurb {
-      font-weight: 300;
-      display: inline-block;
-      min-height: 160px;
-      font-size: 24px;
-      line-height: 40px;
-      max-width: 48%;
-
-    }
+    font-weight: 300;
+    min-height: 160px;
+    font-size: 24px;
+    line-height: 40px;
   }
 
   .event {
-    margin-top: 70px;
+    margin: 70px 40px 0 40px;
     padding: 40px;
-    background-color: #fff;
-    max-width: 400px;
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 75px 75px;
     border: 1px solid #4F2680;
     background-color: #fcfcfc;
     color: #272626;
     line-height: 30px;
     font-size: 18px;
+  }
+
+  span.tagline {
+    text-transform: uppercase;
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .band.first {
+    background-color: #ffffff;
+
+    margin-top: -140px;
+    padding-top: 220px;
+
+    /* background-image: url(images/tidy-back-01.svg); */
+    background-repeat: no-repeat;
+    background-size: 570px 690px;
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
+  }
+
+  .band.second {
+    background-color: #fcfcfc;
+    border-bottom: solid 1pt #d9d9d9;
+    border-top: solid 1pt #d9d9d9;
+
+    padding-top: 120px;
+    padding-bottom: 100px;
+
+    /* background-image: url(images/tidy-back-02.svg); */
+    background-repeat: no-repeat;
+    background-size: 700px 952px;
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
+  }
+
+  .band.third {
+    background-color: #ffffff;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    /* background-image: url(images/tidy-back-03.svg); */
+    background-repeat: no-repeat;
+    background-size: 650px 450px;
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
   }
 
   .hexBadges {
@@ -126,105 +163,6 @@ p {
     }
   }
 
-  .bee1 {
-    display: block;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: 100px;
-    height: auto;
-
-  }
-
-  .band.first {
-    height: 690px;
-
-    span.tagline {
-      text-transform: uppercase;
-      font-size: 1.2rem !important;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .bandContent {
-      max-width: 1100px;
-
-      margin-top: -140px;
-      margin-left: auto;
-      margin-right: auto;
-
-      background-color: #ffffff;
-      padding-top: 220px;
-      height: 100%;
-      /* background-image: url(images/tidy-back-01.svg); */
-      background-repeat: no-repeat;
-      background-size: 570px 690px;
-      display: -webkit-flex;
-      -webkit-justify-content: space-between;
-    }
-  }
-
-  .band.second {
-    /* height: 952px; */
-
-    background-color: #fcfcfc;
-    border-bottom: solid 1pt #d9d9d9;
-    border-top: solid 1pt #d9d9d9;
-
-    span.tagline {
-      text-transform: uppercase;
-      font-size: 1.2rem !important;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .bandContent {
-      max-width: 1100px;
-
-      margin-left: auto;
-      margin-right: auto;
-
-      background-color: #fcfcfc;
-      color: black;
-
-      padding-top: 120px;
-      padding-bottom: 100px;
-      height: 100%;
-      /* background-image: url(images/tidy-back-02.svg); */
-      background-repeat: no-repeat;
-      background-size: 700px 952px;
-      display: -webkit-flex;
-      -webkit-justify-content: space-between;
-    }
-  }
-
-  .band.third {
-    background-color: #ffffff;
-    height: 450px;
-
-    .bandContent {
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 450px;
-      padding-top: 100px;
-      padding-bottom: 100px;
-      /* background-image: url(images/tidy-back-03.svg); */
-      background-repeat: no-repeat;
-      background-size: 650px 450px;
-
-      display: -webkit-flex;
-      -webkit-justify-content: space-between;
-    }
-
-    span.tagline {
-      text-transform: uppercase;
-      font-size: 1.2rem !important;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-  }
-
   /* size & position adjustments */
   @media screen and (max-width: 1023px) {
     .hexBadges {
@@ -235,45 +173,6 @@ p {
     }
     .hexBadges img.r1.c2, .hexBadges img.r3.c2, .hexBadges img.r5.c2 {
       left: 187px;
-    }
-
-    .band.first {
-      height: auto;
-    }
-
-    .band.first .bandContent {
-      background-image: none;
-      padding-bottom: 100px;
-    }
-
-    .band.second, .band.third {
-      height: auto;
-    }
-
-    .band.second .bandContent, .band.third .bandContent {
-      display: block;
-      height: auto;
-      background-image: none;
-      padding-bottom: 100px;
-    }
-
-    .band.second .bandContent .blurb, .band.third .bandContent .blurb {
-      max-width: 100%;
-    }
-    .bookCover {
-    margin-left: 0px;
-
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    .band.first .bandContent {
-      display: block;
-      height: auto;
-    }
-
-    .band.first .bandContent .blurb {
-      max-width: 100%;
     }
   }
 }

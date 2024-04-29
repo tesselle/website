@@ -1,12 +1,14 @@
 ---
+pagetitle: "tesselle: R Packages & Archaeology"
 ---
 
-::: {#FrontPage}
+::: {#front-page}
 
-::: {.grid .column-page .band .first}
+::: {#first .column-screen}
+::: {.grid .column-page .band}
 
 ::: {.g-col-lg-6 .g-col-12 .g-col-md-12}
-::: {.hexBadges}
+::: {.hex-badges}
 <a href="https://packages.tesselle.org/tabula/">
   <div class=""></div>
   <img src="images/tabula.png" alt="tabula hex sticker" class="r1 c0">
@@ -63,8 +65,10 @@
 :::
 
 :::
+:::
 
-::: {.grid .column-page .band .third}
+::: {#second .column-screen}
+::: {.grid .column-page .band}
 ::: {.g-col-lg-6 .g-col-12 .g-col-md-12}
 [Archaeological Data]{.tagline}
 
@@ -91,9 +95,10 @@ install.packages("tesselle")
 :::
 :::
 :::
+:::
 
-::: {.grid .column-page .band .third}
-
+::: {#third}
+::: {.grid .column-page .band}
 ::: {.g-col-lg-6 .g-col-12 .g-col-md-12}
 [Find a bug?]{.tagline}
 
@@ -105,7 +110,7 @@ Report a bug or request on [GitHub <i class="bi bi-github" aria-hidden="true"></
 
 Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
 :::
-
+:::
 :::
 
 :::

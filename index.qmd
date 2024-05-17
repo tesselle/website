@@ -1,5 +1,7 @@
 ---
 pagetitle: "tesselle: R Packages & Archaeology"
+resources: 
+  - "packages.json"
 ---
 
 ::: {#front-page}
@@ -106,11 +108,55 @@ Report a bug or request on [GitHub <i class="bi bi-github" aria-hidden="true"></
 :::
 
 ::: {.g-col-lg-6 .g-col-12 .g-col-md-12}
-[Need help?]{.tagline}
+[Read the doc]{.tagline}
 
-Browse the documentation on [packages.tesselle.org](https://packages.tesselle.org).
+```{r, echo=FALSE}
+## Get packages info
+pkg <- c("aion", "alkahest", "ananke", "arkhe", "dimensio", "folio", 
+         "isopleuros", "kairos", "khroma", "nexus", "tabula", "tesselle")
+url_pkg <- sprintf("https://packages.tesselle.org/%s", pkg)
+
+## Build search index
+search_pkg <- list()
+for (i in seq_along(url_pkg)) {
+  path <- url_pkg[[i]]
+  tmp <- try(
+    expr = rjson::fromJSON(file = paste0(path, "/search.json")),
+    silent = TRUE
+  )
+  if (!inherits(tmp, "try-error")) {
+    for (j in seq_along(tmp)) {
+      ## Add package name
+      tmp[[j]]$package <- pkg[[i]]
+    }
+    search_pkg <- c(search_pkg, tmp)
+  }
+}
+cat(rjson::toJSON(search_pkg), file = "packages.json", append = FALSE)
+```
+
+Quickly discover relevant content by searching the documentation or exploring the [project bibliography](https://www.zotero.org/groups/2894473/tesselle/library).
+
+```{=html}
+<form role="search">
+  <div class="form-group">
+    <label for="search-packages" class="form-label">Search in the documentation:</label>
+    <input type="search" class="form-control" aria-label="Search" name="search-packages" data-search-index="/packages.json" id="search-packages" placeholder="e.g. seriation" autocomplete="off">
+  </div>
+</form>
+```
 :::
 :::
 :::
 
 :::
+
+```{=html}
+<!-- JQuery -->
+<script src="scripts/jquery-3.7.0.min.js"></script>
+
+<!-- Search -->
+<script src="scripts/fuse-6.6.2.min.js"></script>
+<script src="scripts/autocomplete-0.38.1.min.js"></script>
+<script src="scripts/packages.js"></script>
+```

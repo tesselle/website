@@ -15,6 +15,7 @@ Imports:
     downlit,
     knitr,
     quarto,
+    rjson,
     rmarkdown,
     tesselle,
     xml2

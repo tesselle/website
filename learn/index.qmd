@@ -10,16 +10,16 @@ listing:
   sort: "date desc"
   categories: true
   fields: [image, title, description, categories]
-  sort-ui: false
+  sort-ui: true
   filter-ui: true
   feed: false
 citation: false
 title-block-banner: false
 ---
 
-These tutorials use [WebR](https://docs.r-wasm.org/webr/latest/) to run R directly in your browser as you read them. This provides interactive blocks of R code that you can adjust and execute.
-
-You may have to wait several seconds for R and the packages to install.
+::: {.callout-note}
+These tutorials use [WebR](https://docs.r-wasm.org/webr/latest/) to run R directly in your browser as you read them. This provides interactive blocks of R code that you can adjust and execute, but you may have to wait several seconds for R and the packages to install.
+:::
 
 ::: {#tutorials}
 :::

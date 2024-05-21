@@ -251,17 +251,38 @@ window.Quarto = {
 </header>
 
 
-<p>These tutorials use <a href="https://docs.r-wasm.org/webr/latest/">WebR</a> to run R directly in your browser as you read them. This provides interactive blocks of R code that you can adjust and execute.</p>
-<p>You may have to wait several seconds for R and the packages to install.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These tutorials use <a href="https://docs.r-wasm.org/webr/latest/">WebR</a> to run R directly in your browser as you read them. This provides interactive blocks of R code that you can adjust and execute, but you may have to wait several seconds for R and the packages to install.</p>
+</div>
+</div>
 <div id="listing-tutorials" class="quarto-listing quarto-listing-container-grid">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-tutorials-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-tutorials'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="count data,correspondence analysis,seriation" data-listing-date-sort="1692662400000" data-listing-file-modified-sort="1715962465329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="526">
+<div class="g-col-1" data-index="0" data-categories="count data,correspondence analysis,seriation" data-listing-date-sort="1692662400000" data-listing-file-modified-sort="1716299728860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="526">
 <a href="../learn/seriation/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

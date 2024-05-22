@@ -15,6 +15,7 @@ listing:
   feed: false
 citation: false
 title-block-banner: false
+page-layout: full
 ---
 
 ::: {.callout-note}

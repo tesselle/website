@@ -119,10 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="1280">
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -189,72 +189,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#general-rules" id="toc-general-rules" class="nav-link active" data-scroll-target="#general-rules">General Rules</a>
-  <ul class="collapse">
-  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
-  <li><a href="#namespaces" id="toc-namespaces" class="nav-link" data-scroll-target="#namespaces">Namespaces</a></li>
-  <li><a href="#side-effects" id="toc-side-effects" class="nav-link" data-scroll-target="#side-effects">Side-effects</a></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
-  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a></li>
-  </ul></li>
-  <li><a href="#naming" id="toc-naming" class="nav-link" data-scroll-target="#naming">Naming</a>
-  <ul class="collapse">
-  <li><a href="#naming-files" id="toc-naming-files" class="nav-link" data-scroll-target="#naming-files">Naming Files</a></li>
-  <li><a href="#naming-variables" id="toc-naming-variables" class="nav-link" data-scroll-target="#naming-variables">Naming Variables</a></li>
-  <li><a href="#naming-functions" id="toc-naming-functions" class="nav-link" data-scroll-target="#naming-functions">Naming Functions</a></li>
-  <li><a href="#naming-s4-classes" id="toc-naming-s4-classes" class="nav-link" data-scroll-target="#naming-s4-classes">Naming S4 Classes</a></li>
-  </ul></li>
-  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a>
-  <ul class="collapse">
-  <li><a href="#line-length" id="toc-line-length" class="nav-link" data-scroll-target="#line-length">Line Length</a></li>
-  <li><a href="#function-call" id="toc-function-call" class="nav-link" data-scroll-target="#function-call">Function Call</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
-  <li><a href="#spacing" id="toc-spacing" class="nav-link" data-scroll-target="#spacing">Spacing</a></li>
-  <li><a href="#curly-braces" id="toc-curly-braces" class="nav-link" data-scroll-target="#curly-braces">Curly Braces</a></li>
-  <li><a href="#indentation" id="toc-indentation" class="nav-link" data-scroll-target="#indentation">Indentation</a></li>
-  <li><a href="#new-line" id="toc-new-line" class="nav-link" data-scroll-target="#new-line">New Line</a></li>
-  </ul></li>
-  <li><a href="#commenting" id="toc-commenting" class="nav-link" data-scroll-target="#commenting">Commenting</a></li>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Coding Style</h1>
+                  <div>
+        <div class="description">
+          <p>This section describes the coding style used throughout the <strong>tesselle</strong> project.</p>
+        </div>
+      </div>
+                </div>
+  </div>
+    
   
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/tesselle/website/edit/main/style.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/tesselle/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <div class="quarto-title-meta">
+
+      
+    
+      
     </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Coding Style</h1>
-</div>
-
-<div>
-  <div class="description">
-    <p>This section describes the coding style used throughout the <strong>tesselle</strong> project.</p>
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="general-rules" class="level2">
@@ -1049,7 +1013,7 @@ The tesselle project is supported by <a href="https://www.archeosciences-bordeau
 &lt;/p&gt;
 </noscript>
 <p><a href="./privacy.html">Privacy Policy</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/tesselle/website/edit/main/style.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/tesselle/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/tesselle/website/edit/main/style.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/tesselle/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -17,7 +17,6 @@ website:
     image: /images/card.png
 
   navbar:
-    background: "#4F2680"
     pinned: true
     right:
       - text: "Packages"
@@ -38,7 +37,6 @@ website:
         href: https://archaeo.social/@tesselle
 
   page-footer:
-    # background: "#4F2680"
     center: |
       <a href="https://www.u-bordeaux-montainge.fr"><img src="/images/logo-ubm.svg" class="logo-institution" /></a><a href="https://www.cnrs.fr"><img src="/images/logo-cnrs.svg" class="logo-institution" /></a>
 
@@ -64,9 +62,10 @@ knitr:
 format:
   html:
     include-in-header: _header.html
-    toc: true
-    toc-location: left
     code-link: true
+    theme:
+      - default
+      - custom.scss
 
-theme:
-  - custom.scss
+# Enable banner style title blocks
+title-block-banner: true

@@ -1,6 +1,4 @@
 /*-- scss:defaults --*/
-$theme: "cosmo" !default;
-
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
@@ -8,15 +6,25 @@ $headings-font-family: "ubuntu", sans-serif;
 $font-family-base: "roboto", sans-serif;
 $font-family-sans-serif: "roboto", sans-serif;
 
-/*-- Additional custom styles --*/
+$link-color: #D90668;
+$navbar-bg: #4F2680;
+$navbar-fg: #F1E9DA;
+$navbar-hl: #FFD402;
+/* $footer-bg: #4F2680; */
+/* $footer-fg: #F1E9DA; */
+
+/* Additional custom styles */
 p {
   font-family: $font-family-sans-serif;
 }
 
-/* Add any additional CSS rules below  */
 .quarto-title-banner {
   color: black !important;
-  background-color: white !important;
+  background-color: #F1E9DA !important;
+
+  h1 {
+    color: #4F2680 !important;
+  }
 }
 
 /* Logo */

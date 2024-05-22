@@ -131,8 +131,8 @@ div.csl-indent {
 
 <!-- Mastodon -->
 <link rel="me" href="https://archaeo.social/@tesselle">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
 <style type="text/css">
 .monaco-editor pre {
@@ -172,43 +172,72 @@ div.csl-indent {
   color: #0d9c29
 }
 
-.qwebr-output-code-stdout {
+body.quarto-light .qwebr-output-code-stdout {
   color: #111;
+}
+
+body.quarto-dark .qwebr-output-code-stdout {
+  color: #EEE;
 }
 
 .qwebr-output-code-stderr {
   color: #db4133;
 }
 
-.qwebr-editor {
+body.quarto-light .qwebr-editor {
   border: 1px solid #EEEEEE;
 }
 
-.qwebr-editor-toolbar {
+body.quarto-light .qwebr-editor-toolbar {
   background-color: #EEEEEE;
   padding: 0.2rem 0.5rem;
 }
 
+body.quarto-dark .qwebr-editor {
+  border: 1px solid #111;
+}
+
+body.quarto-dark .qwebr-editor-toolbar {
+  background-color: #111;
+  padding: 0.2rem 0.5rem;
+}
+
 .qwebr-button {
-  background-color: #EEEEEE;
   display: inline-block;
   font-weight: 400;
   line-height: 1;
   text-decoration: none;
   text-align: center;
-  color: #000;
-  border-color: #dee2e6;
-  border: 1px solid rgba(0,0,0,0);
   padding: 0.375rem 0.75rem;
   font-size: .9rem;
   border-radius: 0.25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.qwebr-button:hover {
+body.quarto-light .qwebr-button {
+  background-color: #EEEEEE;
+  color: #000;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+body.quarto-dark .qwebr-button {
+  background-color: #111;
+  color: #EEE;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+body.quarto-light .qwebr-button:hover {
   color: #000;
   background-color: #d9dce0;
   border-color: #c8ccd0;
+}
+
+body.quarto-dark .qwebr-button:hover {
+  color: #d9dce0;
+  background-color: #323232;
+  border-color: #d9dce0;
 }
 
 .qwebr-button:disabled,.qwebr-button.disabled,fieldset:disabled .qwebr-button {
@@ -248,8 +277,12 @@ div.csl-indent {
   display: contents;
 }
 
-.reveal pre div code.qwebr-output-code-stdout {
+body.reveal.quarto-light pre div code.qwebr-output-code-stdout {
   color: #111;
+}
+
+body.reveal.quarto-dark pre div code.qwebr-output-code-stdout {
+  color: #EEEEEE;
 }
 
 .reveal pre div code.qwebr-output-code-stderr {
@@ -258,10 +291,16 @@ div.csl-indent {
 
 
 /* Create a border around console and output (does not effect graphs) */
-.reveal div.qwebr-console-area {
+body.reveal.quarto-light div.qwebr-console-area {
   border: 1px solid #EEEEEE;
   box-shadow: 2px 2px 10px #EEEEEE;
 }
+
+body.reveal.quarto-dark div.qwebr-console-area {
+  border: 1px solid #111;
+  box-shadow: 2px 2px 10px #111;
+}
+
 
 /* Cap output height and allow text to scroll */
 /* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
@@ -290,20 +329,24 @@ globalThis.qwebrShowHeaderMessage = false;
 
 // Describe the webR settings that should be used
 globalThis.qwebrCustomizedWebROptions = {
-  "baseURL": "https://webr.r-wasm.org/v0.2.2/",
+  "baseURL": "https://webr.r-wasm.org/v0.3.3/",
   "serviceWorkerUrl": "",
   "homedir": "/home/web_user", 
   "channelType": "ChannelType.Automatic"
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(tesselle)","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","warning":"true","label":"unnamed-chunk-1","out-width":"700px","out-height":"","fig-width":7,"fig-height":5}},{"id":2,"code":"## Load the zuni dataset\n## Data from Peeples and Schachner 2012\ndata(\"zuni\", package = \"folio\")","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","warning":"true","label":"unnamed-chunk-2","out-width":"700px","out-height":"","fig-width":7,"fig-height":5}},{"id":3,"code":"## Plot the original matrix\nplot_ford(zuni)","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"Ford diagram of the Zuni dataset.","read-only":"false","warning":"true","label":"fig-ford","out-width":"100%","out-height":"","fig-width":"7","fig-height":"7"}},{"id":4,"code":"indices <- seriate_average(\n  object = zuni, \n  margin = c(1, 2), # Get row (1) and column (2) permutations\n  axes = 1          # Use CA coordinates along the first axis\n)","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","warning":"true","label":"seriate","out-width":"700px","out-height":"","fig-width":7,"fig-height":5}},{"id":5,"code":"## CA biplot (get a nice arch effect!)\nbiplot(indices, type = \"rows\")","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"Row principal biplot of the CA results.","read-only":"false","warning":"true","label":"fig-ca","out-width":"100%","out-height":"","fig-width":"7","fig-height":"7"}},{"id":6,"code":"## Permute data matrix\npermuted <- permute(zuni, indices)","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","warning":"true","label":"permute","out-width":"700px","out-height":"","fig-width":7,"fig-height":5}},{"id":7,"code":"## Plot permuted matrix\npar(mar = c(0, 0, 0, 0)+0.1)\nplot_ford(permuted)","options":{"context":"interactive","output":"true","comment":"","classes":"","dpi":72,"autorun":"false","message":"true","results":"markup","fig-cap":"Ford diagram of the permuted dataset.","read-only":"false","warning":"true","label":"fig-permute","out-width":"100%","out-height":"","fig-width":"7","fig-height":"7"}}];
+globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","fig-width":7,"fig-height":5,"out-width":"700px","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":1,"code":"library(tesselle)"},{"options":{"label":"unnamed-chunk-2","fig-width":7,"fig-height":5,"out-width":"700px","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":2,"code":"## Load the zuni dataset\n## Data from Peeples and Schachner 2012\ndata(\"zuni\", package = \"folio\")"},{"options":{"label":"fig-ford","fig-width":"7","fig-height":"7","out-width":"100%","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"Ford diagram of the Zuni dataset.","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":3,"code":"## Plot the original matrix\nplot_ford(zuni)"},{"options":{"label":"seriate","fig-width":7,"fig-height":5,"out-width":"700px","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":4,"code":"indices <- seriate_average(\n  object = zuni, \n  margin = c(1, 2), # Get row (1) and column (2) permutations\n  axes = 1          # Use CA coordinates along the first axis\n)"},{"options":{"label":"fig-ca","fig-width":"7","fig-height":"7","out-width":"100%","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"Row principal biplot of the CA results.","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":5,"code":"## CA biplot (get a nice arch effect!)\nbiplot(indices, type = \"rows\")"},{"options":{"label":"permute","fig-width":7,"fig-height":5,"out-width":"700px","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":6,"code":"## Permute data matrix\npermuted <- permute(zuni, indices)"},{"options":{"label":"fig-permute","fig-width":"7","fig-height":"7","out-width":"100%","output":"true","warning":"true","editor-font-scale":1,"message":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"Ford diagram of the permuted dataset.","results":"markup","dpi":72,"autorun":"false","classes":"","comment":"","context":"interactive","read-only":"false"},"id":7,"code":"## Plot permuted matrix\npar(mar = c(0, 0, 0, 0)+0.1)\nplot_ford(permuted)"}];
 
 </script>
 <script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
+// Verify if OffScreenCanvas is supported
+globalThis.qwebrOffScreenCanvasSupport = function() {
+  return typeof OffscreenCanvas !== 'undefined'
+}
 
 // Function to set the button text
 globalThis.qwebrSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
@@ -327,15 +370,86 @@ globalThis.qwebrUpdateStatusHeader = function(message) {
     <span>${message}</span>`;
 }
 
+function qwebrPlaceMessageContents(content, html_location = "title-block-header", revealjs_location = "title-slide") {
+
+  // Get references to header elements
+  const headerHTML = document.getElementById(html_location);
+  const headerRevealJS = document.getElementById(revealjs_location);
+
+  // Determine where to insert the quartoTitleMeta element
+  if (headerHTML || headerRevealJS) {
+    // Append to the existing "title-block-header" element or "title-slide" div
+    (headerHTML || headerRevealJS).appendChild(content);
+  } else {
+    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
+    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
+    const header = document.createElement("header");
+    header.setAttribute("id", "title-block-header");
+    header.appendChild(content);
+    monacoScript.after(header);
+  }
+}
+
+
+function qwebrOffScreenCanvasSupportWarningMessage() {
+  
+  // Verify canvas is supported.
+  if(qwebrOffScreenCanvasSupport()) return;
+
+  // Create the main container div
+  var calloutContainer = document.createElement('div');
+  calloutContainer.classList.add('callout', 'callout-style-default', 'callout-warning', 'callout-titled');
+
+  // Create the header div
+  var headerDiv = document.createElement('div');
+  headerDiv.classList.add('callout-header', 'd-flex', 'align-content-center');
+
+  // Create the icon container div
+  var iconContainer = document.createElement('div');
+  iconContainer.classList.add('callout-icon-container');
+
+  // Create the icon element
+  var iconElement = document.createElement('i');
+  iconElement.classList.add('callout-icon');
+
+  // Append the icon element to the icon container
+  iconContainer.appendChild(iconElement);
+
+  // Create the title container div
+  var titleContainer = document.createElement('div');
+  titleContainer.classList.add('callout-title-container', 'flex-fill');
+  titleContainer.innerText = 'Warning: Web Browser Does Not Support Graphing!';
+
+  // Append the icon container and title container to the header div
+  headerDiv.appendChild(iconContainer);
+  headerDiv.appendChild(titleContainer);
+
+  // Create the body container div
+  var bodyContainer = document.createElement('div');
+  bodyContainer.classList.add('callout-body-container', 'callout-body');
+
+  // Create the paragraph element for the body content
+  var paragraphElement = document.createElement('p');
+  paragraphElement.innerHTML = 'This web browser does not have support for displaying graphs through the <code>quarto-webr</code> extension since it lacks an <code>OffScreenCanvas</code>. Please upgrade your web browser to one that supports <code>OffScreenCanvas</code>.';
+
+  // Append the paragraph element to the body container
+  bodyContainer.appendChild(paragraphElement);
+
+  // Append the header div and body container to the main container div
+  calloutContainer.appendChild(headerDiv);
+  calloutContainer.appendChild(bodyContainer);
+
+  // Append the main container div to the document depending on format
+  qwebrPlaceMessageContents(calloutContainer, "title-block-header"); 
+
+}
+
+
 // Function that attaches the document status message and diagnostics
 function displayStartupMessage(showStartupMessage, showHeaderMessage) {
   if (!showStartupMessage) {
     return;
   }
-
-  // Get references to header elements
-  const headerHTML = document.getElementById("title-block-header");
-  const headerRevealJS = document.getElementById("title-slide");
 
   // Create the outermost div element for metadata
   const quartoTitleMeta = document.createElement("div");
@@ -378,21 +492,12 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
   firstInnerDiv.appendChild(secondInnerDivContents);
   quartoTitleMeta.appendChild(firstInnerDiv);
 
-  // Determine where to insert the quartoTitleMeta element
-  if (headerHTML || headerRevealJS) {
-    // Append to the existing "title-block-header" element or "title-slide" div
-    (headerHTML || headerRevealJS).appendChild(quartoTitleMeta);
-  } else {
-    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
-    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
-    const header = document.createElement("header");
-    header.setAttribute("id", "title-block-header");
-    header.appendChild(quartoTitleMeta);
-    monacoScript.after(header);
-  }
+  // Place message on webpage
+  qwebrPlaceMessageContents(quartoTitleMeta); 
 }
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
+qwebrOffScreenCanvasSupportWarningMessage();
 </script>
 <script type="module">
 // Supported Evaluation Types for Context
@@ -401,6 +506,35 @@ globalThis.EvalTypes = Object.freeze({
   Setup: 'setup',
   Output: 'output',
 });
+
+// Function that obtains the font size for a given element 
+globalThis.qwebrCurrentFontSizeOnElement = function(element, cssProperty = 'font-size') {
+
+  const currentFontSize = parseFloat(
+    window
+    .getComputedStyle(element)
+    .getPropertyValue(cssProperty)
+  );
+  
+  return currentFontSize;
+}
+
+// Function to determine font scaling
+globalThis.qwebrScaledFontSize = function(div, qwebrOptions) {
+  // Determine if we should compute font-size using RevealJS's `--r-main-font-size` 
+  // or if we can directly use the document's `font-size`.
+  const cssProperty = document.body.classList.contains('reveal') ? 
+    "--r-main-font-size" : "font-size";
+  
+  // Get the current font size on the div element
+  const elementFontSize = qwebrCurrentFontSizeOnElement(div, cssProperty);
+
+  // Determine the scaled font size value
+  const scaledFontSize = ((qwebrOptions['editor-font-scale'] ?? 1) * elementFontSize) ?? 17.5;
+
+  return scaledFontSize;
+}
+
 
 // Function that dispatches the creation request
 globalThis.qwebrCreateHTMLElement = function (
@@ -805,10 +939,8 @@ globalThis.qwebrComputeEngine = async function(
     // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
     // 2. We use values inside of the options array to set the figure size.
     // 3. We capture the output stream information (STDOUT and STERR)
-    // 4. While parsing the results, we disable image creation.
-
-    // Create a canvas variable for graphics
-    let canvas = undefined;
+    // 4. We disable the current device's image creation.
+    // 5. Piece-wise parse the results into the different output areas
 
     // Create a pager variable for help/file contents
     let pager = [];
@@ -832,23 +964,42 @@ globalThis.qwebrComputeEngine = async function(
     // Initialize webR
     await mainWebR.init();
 
-    // Setup a webR canvas by making a namespace call into the {webr} package
-    await mainWebR.evalRVoid(`webr::canvas(width=${fig_width}, height=${fig_height})`);
-
-    const result = await mainWebRCodeShelter.captureR(codeToRun, {
+    // Configure capture output
+    let captureOutputOptions = {
         withAutoprint: true,
         captureStreams: true,
-        captureConditions: false//,
+        captureConditions: false,
         // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
-    });
+    };
+    
+    // Determine if the browser supports OffScreen
+    if (qwebrOffScreenCanvasSupport()) {
+        // Mirror default options of webr::canvas()
+        // with changes to figure height and width.
+        captureOutputOptions.captureGraphics = {
+            width: fig_width,
+            height: fig_height,
+            bg: "white", // default: transparent
+            pointsize: 12,
+            capture: true
+        };
+    }  else {
+        // Disable generating graphics
+        captureOutputOptions.captureGraphics = false;
+    }
+
+    // Setup a webR canvas by making a namespace call into the {webr} package
+    // Evaluate the R code
+    // Remove the active canvas silently
+    const result = await mainWebRCodeShelter.captureR(
+        `${codeToRun}`,
+        captureOutputOptions
+    );
 
     // -----
 
     // Start attempting to parse the result data
     processResultOutput:try {
-
-        // Stop creating images
-        await mainWebR.evalRVoid("dev.off()");
         
         // Avoid running through output processing
         if (options.results === "hide" || options.output === "false") { 
@@ -871,33 +1022,10 @@ globalThis.qwebrComputeEngine = async function(
 
 
         // Clean the state
-        // We're now able to process both graphics and pager events.
+        // We're now able to process pager events.
         // As a result, we cannot maintain a true 1-to-1 output order 
         // without individually feeding each line
         const msgs = await mainWebR.flush();
-
-        // Output each image event stored
-        msgs.forEach((msg) => {
-        // Determine if old canvas can be used or a new canvas is required.
-        if (msg.type === 'canvas'){
-            // Add image to the current canvas
-            if (msg.data.event === 'canvasImage') {
-                canvas.getContext('2d').drawImage(msg.data.image, 0, 0);
-            } else if (msg.data.event === 'canvasNewPage') {
-
-                // Generate a new canvas element
-                canvas = document.createElement("canvas");
-                canvas.setAttribute("width", 2 * fig_width);
-                canvas.setAttribute("height", 2 * fig_height);
-                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
-                if (options["out-height"]) {
-                    canvas.style.height = options["out-height"];
-                }
-                canvas.style.display = "block";
-                canvas.style.margin = "auto";
-            }
-        } 
-        });
 
         // Use `map` to process the filtered "pager" events asynchronously
         const pager = await Promise.all(
@@ -918,6 +1046,13 @@ globalThis.qwebrComputeEngine = async function(
             // Display results as HTML elements to retain output styling
             const div = document.createElement("div");
             div.innerHTML = out;
+
+            // Calculate a scaled font-size value
+            const scaledFontSize = qwebrScaledFontSize(
+                elements.outputCodeDiv, options);
+
+            // Override output code cell size
+            pre.style.fontSize = `${scaledFontSize}px`;
             pre.appendChild(div);
         } else {
             // If nothing is present, hide the element.
@@ -926,13 +1061,37 @@ globalThis.qwebrComputeEngine = async function(
 
         elements.outputCodeDiv.appendChild(pre);
 
-        // Place the graphics on the canvas
-        if (canvas) {
+        // Determine if we have graphs to display
+        if (result.images.length > 0) {
             // Create figure element
             const figureElement = document.createElement('figure');
 
-            // Append canvas to figure
-            figureElement.appendChild(canvas);
+            // Place each rendered graphic onto a canvas element
+            result.images.forEach((img) => {
+                // Construct canvas for object
+                const canvas = document.createElement("canvas");
+
+                // Set canvas size to image
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Apply output truncations
+                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
+                if (options["out-height"]) {
+                    canvas.style.height = options["out-height"];
+                }
+
+                // Apply styling
+                canvas.style.display = "block";
+                canvas.style.margin = "auto";
+
+                // Draw image onto Canvas
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+          
+                // Append canvas to figure output area
+                figureElement.appendChild(canvas);
+            });
 
             if (options['fig-cap']) {
                 // Create figcaption element
@@ -1157,19 +1316,63 @@ globalThis.qwebrExecuteCode = async function (
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
 </script>
 <script type="module">
-// Global dictionary to store Monaco Editor instances
-globalThis.qwebrEditorInstances = {};
+// Function to update Monaco Editors when body class changes
+function updateMonacoEditorsOnBodyClassChange() {
+    // Select the body element
+    const body = document.querySelector('body');
+
+    // Options for the observer (which mutations to observe)
+    const observerOptions = {
+        attributes: true,  // Observe changes to attributes
+        attributeFilter: ['class'] // Only observe changes to the 'class' attribute
+    };
+
+    // Callback function to execute when mutations are observed
+    const bodyClassChangeCallback = function(mutationsList, observer) {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                // Class attribute has changed
+                // Update all Monaco Editors on the page
+                updateMonacoEditorTheme();
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(bodyClassChangeCallback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(body, observerOptions);
+}
+
+// Function to update all instances of Monaco Editors on the page
+function updateMonacoEditorTheme() {
+    // Determine what VS Theme to use
+    const vsThemeToUse = document.body.classList.contains("quarto-dark") ? 'vs-dark' : 'vs' ;
+
+    // Iterate through all initialized Monaco Editors
+    qwebrEditorInstances.forEach( function(editorInstance) { 
+        editorInstance.updateOptions({ theme: vsThemeToUse }); 
+    });
+}
+
+// Call the function to start observing changes to body class
+updateMonacoEditorsOnBodyClassChange();
+</script>
+<script type="module">
+// Global array to store Monaco Editor instances
+globalThis.qwebrEditorInstances = [];
 
 // Function that builds and registers a Monaco Editor instance    
 globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
@@ -1183,7 +1386,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   let resetButton = document.getElementById(`qwebr-button-reset-${qwebrCounter}`);
   let copyButton = document.getElementById(`qwebr-button-copy-${qwebrCounter}`);
   let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
-  
+
   // Load the Monaco Editor and create an instance
   let editor;
   require(['vs/editor/editor.main'], function () {
@@ -1196,10 +1399,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
       minimap: {
         enabled: false
       },
-      fontSize: '17.5pt',              // Bootstrap is 1 rem
-      renderLineHighlight: "none",     // Disable current line highlighting
+      fontSize: qwebrScaledFontSize(editorDiv, qwebrOptions),         
+      renderLineHighlight: "none",      // Disable current line highlighting
       hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
-      readOnly: qwebrOptions['read-only'] ?? false
+      readOnly: qwebrOptions['read-only'] ?? false,
+      quickSuggestions: qwebrOptions['editor-quick-suggestions'] ?? false
     });
 
     // Store the official counter ID to be used in keyboard shortcuts
@@ -1226,10 +1430,18 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     // Dynamically modify the height of the editor window if new lines are added.
     let ignoreEvent = false;
     const updateHeight = () => {
-      const contentHeight = editor.getContentHeight();
+      // Increment editor height by 2 to prevent vertical scroll bar from appearing
+      const contentHeight = editor.getContentHeight() + 2;
+
+      // Retrieve editor-max-height option
+      const maxEditorHeight = qwebrOptions['editor-max-height'];
+
+      // If editor-max-height is missing, allow infinite growth. Otherwise, threshold.
+      const editorHeight = !maxEditorHeight ?  contentHeight : Math.min(contentHeight, maxEditorHeight);
+
       // We're avoiding a width change
       //editorDiv.style.width = `${width}px`;
-      editorDiv.style.height = `${contentHeight}px`;
+      editorDiv.style.height = `${editorHeight}px`;
       try {
         ignoreEvent = true;
 

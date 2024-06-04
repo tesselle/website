@@ -1,0 +1,28 @@
+---
+title: "Archéométrie 2022"
+description: "Le projet tesselle présenté lors du XXIII^e^ colloque du <abbr title=\"Groupe des Méthodes Pluridisciplinaires Contribuant à l'Archéologie\">GMPCA</abbr>."
+slug: archeometrie-2022
+lang: fr-FR
+categories:
+  - presentation
+author:
+  - name: Nicolas Frerebeau
+    affiliation: CREAP (UAR 3414)
+    orcid: 0000-0001-5759-4944
+  - name: Brice Lebrun
+    affiliation: IRAMAT-CRP2A (UMR 5060)
+    orcid: 0000-0001-5759-4944
+date: 2022-05-02
+citation:
+  type: speech
+  genre: poster
+  event-title: "Archéométrie 2022"
+  event-place: "Chambéry, France"
+  title: "tesselle : un ensemble de packages R pour une recherche ouverte et reproductible en archéologie"
+  event-date: 2022
+  language: fr
+  url: https://hal.science/hal-03621152
+  pdf-url: https://hal.science/hal-03621152/file/2022_GMPCA_poster.pdf
+---
+
+Depuis plusieurs années, la recherche menée dans les différentes branches des sciences archéologiques --- au même titre que le reste des sciences humaines --- tend à produire des volumes de données de plus en plus importants. Au-delà des problèmes, non moins cruciaux, d'accès et d'archivage des données, se pose la question de la reproductibilité des résultats dès lors qu'il est fait appel à des méthodes statistiques. À quelques exceptions près, nombre de solutions logicielles sont propriétaires, ne garantissent pas un accès au code source ou une documentation exhaustive et ne permettent pas le développement aisé d'outils dédiés. Nous présentons ici le projet **tesselle** : un ensemble cohérent de packages R destinés à l'analyse et la visualisation de données en archéologie.

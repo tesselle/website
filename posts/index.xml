@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>tesselle</title>
+<link>https://www.tesselle.org/posts/</link>
+<atom:link href="https://www.tesselle.org/posts/index.xml" rel="self" type="application/rss+xml"/>
+<description>Hear the latest about the **tesselle** packages.
+</description>
+<image>
+<url>https://www.tesselle.org/images/card.png</url>
+<title>tesselle</title>
+<link>https://www.tesselle.org/posts/</link>
+</image>
+<generator>quarto-1.4.555</generator>
+<lastBuildDate>Wed, 05 Jun 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Scientific Scripting Languages in Archaeology</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2024-sig-ssla/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The <strong>tesselle</strong> project will be presented at the June meeting of the <a href="https://caa-international.org/">CAA International</a> <a href="https://caa-international.org/special-interest-groups">Special Interest Group</a> on <a href="https://sslarch.github.io/">Scientific Scripting Languages in Archaeology</a>.</p>
+<p>The meeting will be held online on June 05, 2025 at 3pm CET.</p>
+<iframe src="https://archaeo.social/@CAA_SSLA/112551774760951460/embed" class="mastodon-embed" style="max-width: 100%; border: 0;" width="400" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://archaeo.social/embed.js" async="async"></script>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>presentation</category>
+  <guid>https://www.tesselle.org/posts/2024-sig-ssla/</guid>
+  <pubDate>Wed, 05 Jun 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Atelier Digit_Hum 2023</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2023-digit-hum/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Au regard des liens étroits qu’elle entretient avec les mathématiques depuis la fin du XIX<sup>e</sup> siècle, et avec l’informatique depuis le dernier quart du XX<sup>e</sup> siècle, l’archéologie pourrait apparaitre comme un espace privilégié pour l’adoption de nouvelles pratiques numériques. Au début de la décennie, <span class="citation" data-cites="schmidt2020">Schmidt et Marwick (2020)</span> s’interrogeaient ainsi sur le rôle des méthodes numériques dans le développement de l’archéologie, notamment en termes de transparence et de reproductibilité de la recherche. Loin d’une révolution, les auteurs soulignent la lente transformation des pratiques, induite par l’usage des langages de script et de la programmation lettrée.</p>
+<p>Partant d’un rapide tour d’horizon du contexte français, en termes d’enseignement et de recherche, cette contribution propose un retour d’expérience sur le développement de packages R en archéologie. En s’appuyant sur le projet <strong>tesselle</strong>, il s’agira de discuter les usages, les facteurs limitants et les évolutions possibles.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-schmidt2020" class="csl-entry">
+Schmidt, Sophie C., et Ben Marwick. 2020. <span>«&nbsp;Tool-<span>Driven Revolutions</span> in <span>Archaeological Science</span>&nbsp;»</span>. <em>Journal of Computer Applications in Archaeology</em> 3 (1): 18‑32. <a href="https://doi.org/10.5334/jcaa.29">https://doi.org/10.5334/jcaa.29</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Réutilisation</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr_fr">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{frerebeau2023,
+  author = {Frerebeau, Nicolas},
+  title = {R en archéologie : la révolution n’aura pas lieu},
+  date = {2023-10-12},
+  eventdate = {2023-10-12},
+  url = {https://hal.science/hal-04261141},
+  langid = {fr}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-frerebeau2023" class="csl-entry quarto-appendix-citeas">
+Frerebeau, Nicolas. 2023. <span>“R en archéologie : la révolution n’aura
+pas lieu.”</span> <em>Programmer en SHS</em>. Talk, Paris, France,
+October 12. <a href="https://hal.science/hal-04261141">https://hal.science/hal-04261141</a>.
+</div></div></section></div> ]]></description>
+  <category>presentation</category>
+  <guid>https://www.tesselle.org/posts/2023-digit-hum/</guid>
+  <pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Archéométrie 2022</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <dc:creator>Brice Lebrun</dc:creator>
+  <link>https://www.tesselle.org/posts/2022-archeometrie/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Depuis plusieurs années, la recherche menée dans les différentes branches des sciences archéologiques — au même titre que le reste des sciences humaines — tend à produire des volumes de données de plus en plus importants. Au-delà des problèmes, non moins cruciaux, d’accès et d’archivage des données, se pose la question de la reproductibilité des résultats dès lors qu’il est fait appel à des méthodes statistiques. À quelques exceptions près, nombre de solutions logicielles sont propriétaires, ne garantissent pas un accès au code source ou une documentation exhaustive et ne permettent pas le développement aisé d’outils dédiés. Nous présentons ici le projet <strong>tesselle</strong> : un ensemble cohérent de packages R destinés à l’analyse et la visualisation de données en archéologie.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Réutilisation</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr_fr">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{frerebeau2022,
+  author = {Frerebeau, Nicolas and Lebrun, Brice},
+  title = {tesselle : un ensemble de packages R pour une recherche
+    ouverte et reproductible en archéologie},
+  date = {2022-05-02},
+  eventdate = {2022},
+  url = {https://hal.science/hal-03621152},
+  langid = {fr}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-frerebeau2022" class="csl-entry quarto-appendix-citeas">
+Frerebeau, Nicolas, and Brice Lebrun. 2022. <span>“tesselle : un
+ensemble de packages R pour une recherche ouverte et reproductible en
+archéologie.”</span> Poster, Chambéry, France, May 2. <a href="https://hal.science/hal-03621152">https://hal.science/hal-03621152</a>.
+</div></div></section></div> ]]></description>
+  <category>presentation</category>
+  <guid>https://www.tesselle.org/posts/2022-archeometrie/</guid>
+  <pubDate>Mon, 02 May 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The tesselle universe</title>
+  <dc:creator>Nicolas Frerebeau</dc:creator>
+  <link>https://www.tesselle.org/posts/2021-universe/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Most of the <strong>tesselle</strong> packages are distributed on <a href="https://cran.r-project.org/"><abbr title="Comprehensive R Archive Network">CRAN</abbr></a>. Development versions can be installed from <a href="https://github.com/tesselle">GitHub</a> using <a href="https://remotes.r-lib.org"><code>remotes</code></a> :</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Install a package from GitHub</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("remotes")</span></span>
+<span id="cb1-3">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tesselle/tabula"</span>)</span></code></pre></div>
+<p>Thanks to the <a href="https://ropensci.org/r-universe/">R-universe</a> project powered by <a href="https://ropensci.org">rOpenSci</a>, <strong>tesselle</strong> has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: <a href="https://tesselle.r-universe.dev"><strong>tesselle.r-universe.dev</strong></a>. This repository allows to install all versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g.&nbsp;<abbr title="work-in-progress">WIP</abbr> packages and large data packages).</p>
+<section id="install-from-the-repository" class="level1">
+<h1>Install from the repository</h1>
+<p>If you want to download and install a package from the <a href="https://tesselle.r-universe.dev">tesselle universe</a>, simply use <code>install.packages()</code> with the additional repository:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Install a package from the 'tesselle' universe</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tabula"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">repos =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://tesselle.r-universe.dev"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Enable the repository globally</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">options</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">repos =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">tesselle =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://tesselle.r-universe.dev"</span>,</span>
+<span id="cb3-3">                  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">CRAN =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://cloud.r-project.org"</span>))</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Install some packages</span></span>
+<span id="cb3-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tabula"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"kairos"</span>))</span></code></pre></div>
+</section>
+<section id="use-the-repository" class="level1">
+<h1>Use the repository</h1>
+<p>You can use this repository in your R package (if available, <abbr title="Comprehensive R Archive Network">CRAN</abbr> releases must be regarded as the preferred source). To do so, prepare the <code>DESCRIPTION</code> file of your R package:</p>
+<ul>
+<li>List the package under <code>Suggests:</code></li>
+<li>Add the line <code>Additional_repositories: https://tesselle.r-universe.dev</code></li>
+<li>Test your package with <code>R CMD check --as-cran</code></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{frerebeau2021,
+  author = {Frerebeau, Nicolas},
+  title = {The Tesselle Universe},
+  date = {2021-08-15},
+  url = {https://www.tesselle.org/posts/2021-universe},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2021" class="csl-entry quarto-appendix-citeas">
+Frerebeau, Nicolas. 2021. <span>“The Tesselle Universe.”</span> August
+15, 2021. <a href="https://www.tesselle.org/posts/2021-universe">https://www.tesselle.org/posts/2021-universe</a>.
+</div></div></section></div> ]]></description>
+  <category>infrastructure</category>
+  <guid>https://www.tesselle.org/posts/2021-universe/</guid>
+  <pubDate>Sun, 15 Aug 2021 00:00:00 GMT</pubDate>
+  <media:content url="https://www.tesselle.org/posts/2021-universe/runiverse.png" medium="image" type="image/png" height="47" width="144"/>
+</item>
+</channel>
+</rss>

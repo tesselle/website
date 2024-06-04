@@ -4,5 +4,14 @@
     "items": [
       "/learn/seriation/index.html"
     ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/2024-sig-ssla/index.html",
+      "/posts/2023-digit-hum/index.html",
+      "/posts/2022-archeometrie/index.html",
+      "/posts/2021-universe/index.html"
+    ]
   }
 ]

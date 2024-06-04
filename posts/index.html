@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="The tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms.">
+<meta name="description" content="Hear the latest about the tesselle packages.">
 
-<title>tesselle - Code of Conduct</title>
+<title>tesselle - Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +24,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//images/icons/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//images/icons/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,32 +69,90 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-posts .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <!-- Matomo -->
 <script src="https://www.tesselle.org/scripts/unicorn.js"></script>
 
 <!-- Web App Manifest --->
-<link rel="manifest" href="./manifest.webmanifest">
+<link rel="manifest" href="../manifest.webmanifest">
 
 <!-- Mastodon -->
 <link rel="me" href="https://archaeo.social/@tesselle">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="tesselle - Code of Conduct">
-<meta property="og:description" content="The tesselle project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms.">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="tesselle" href="index.xml" data-external="1"><meta property="og:title" content="tesselle - Blog">
+<meta property="og:description" content="Hear the latest about the tesselle packages.">
 <meta property="og:image" content="https://www.tesselle.org/images/card.png">
 <meta property="og:site_name" content="tesselle">
 <meta property="og:image:height" content="640">
 <meta property="og:image:width" content="1280">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">tesselle</span>
     </a>
   </div>
@@ -107,15 +167,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./use.html"> 
+    <a class="nav-link" href="../use.html"> 
 <span class="menu-text">Get Started</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./learn/index.html"> 
+    <a class="nav-link" href="../learn/index.html"> 
 <span class="menu-text">Learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
+    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -124,21 +184,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-guidelines">    
         <li>
-    <a class="dropdown-item" href="./contributing.html">
+    <a class="dropdown-item" href="../contributing.html">
  <span class="dropdown-text">Contributing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./conduct.html">
+    <a class="dropdown-item" href="../conduct.html">
  <span class="dropdown-text">Code of Conduct</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./style.html">
+    <a class="dropdown-item" href="../style.html">
  <span class="dropdown-text">Coding Style</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -159,20 +219,20 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Code of Conduct</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Blog</h1>
                   <div>
         <div class="description">
-          <p>The <strong>tesselle</strong> project is released with a Contributor Code of Conduct. By contributing to this project you agree to abide by its terms.</p>
+          <p>Hear the latest about the <strong>tesselle</strong> packages.</p>
         </div>
       </div>
                 </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -180,89 +240,189 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="infrastructure">infrastructure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="presentation">presentation <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<section id="our-pledge" class="level2">
-<h2 class="anchored" data-anchor-id="our-pledge">Our Pledge</h2>
-<p>We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.</p>
-<p>We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.</p>
-</section>
-<section id="our-standards" class="level2">
-<h2 class="anchored" data-anchor-id="our-standards">Our Standards</h2>
-<p>Examples of behavior that contributes to a positive environment for our community include:</p>
-<ul>
-<li>Demonstrating empathy and kindness toward other people</li>
-<li>Being respectful of differing opinions, viewpoints, and experiences</li>
-<li>Giving and gracefully accepting constructive feedback</li>
-<li>Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience</li>
-<li>Focusing on what is best not just for us as individuals, but for the overall community</li>
-</ul>
-<p>Examples of unacceptable behavior include:</p>
-<ul>
-<li>The use of sexualized language or imagery, and sexual attention or advances of any kind</li>
-<li>Trolling, insulting or derogatory comments, and personal or political attacks</li>
-<li>Public or private harassment</li>
-<li>Publishing others’ private information, such as a physical or email address, without their explicit permission</li>
-<li>Other conduct which could reasonably be considered inappropriate in a professional setting</li>
-</ul>
-</section>
-<section id="enforcement-responsibilities" class="level2">
-<h2 class="anchored" data-anchor-id="enforcement-responsibilities">Enforcement Responsibilities</h2>
-<p>Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.</p>
-<p>Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.</p>
-</section>
-<section id="scope" class="level2">
-<h2 class="anchored" data-anchor-id="scope">Scope</h2>
-<p>This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.</p>
-</section>
-<section id="enforcement" class="level2">
-<h2 class="anchored" data-anchor-id="enforcement">Enforcement</h2>
-<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.</p>
-<p>All community leaders are obligated to respect the privacy and security of the reporter of any incident.</p>
-</section>
-<section id="enforcement-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="enforcement-guidelines">Enforcement Guidelines</h2>
-<p>Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:</p>
-<section id="correction" class="level3">
-<h3 class="anchored" data-anchor-id="correction">1. Correction</h3>
-<p><strong>Community Impact</strong>: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.</p>
-<p><strong>Consequence</strong>: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.</p>
-</section>
-<section id="warning" class="level3">
-<h3 class="anchored" data-anchor-id="warning">2. Warning</h3>
-<p><strong>Community Impact</strong>: A violation through a single incident or series of actions.</p>
-<p><strong>Consequence</strong>: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.</p>
-</section>
-<section id="temporary-ban" class="level3">
-<h3 class="anchored" data-anchor-id="temporary-ban">3. Temporary Ban</h3>
-<p><strong>Community Impact</strong>: A serious violation of community standards, including sustained inappropriate behavior.</p>
-<p><strong>Consequence</strong>: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.</p>
-</section>
-<section id="permanent-ban" class="level3">
-<h3 class="anchored" data-anchor-id="permanent-ban">4. Permanent Ban</h3>
-<p><strong>Community Impact</strong>: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.</p>
-<p><strong>Consequence</strong>: A permanent ban from any sort of public interaction within the community.</p>
-</section>
-</section>
+<div id="listing-posts" class="quarto-listing quarto-listing-container-default">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-posts-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-posts'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="presentation" data-listing-date-sort="1717545600000" data-listing-file-modified-sort="1717494364835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="46">
+<div class="thumbnail">
+<p><a href="../posts/2024-sig-ssla/index.html" class="no-external"></a></p><a href="../posts/2024-sig-ssla/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../posts/2024-sig-ssla/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/2024-sig-ssla/index.html" class="no-external">Scientific Scripting Languages in Archaeology</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/2024-sig-ssla/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('presentation'); return false;">
+presentation
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/2024-sig-ssla/index.html" class="no-external">Presentation of the tesselle project at the monthly meeting of the <abbr title="Computer Applications in Archaeology">CAA</abbr> Special Interest Group on Scientific Scripting Languages in Archaeology.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/2024-sig-ssla/index.html" class="no-external">
+<div class="listing-date">
+Jun 5, 2024
+</div>
+<div class="listing-author">
+Nicolas Frerebeau
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="presentation" data-listing-date-sort="1697068800000" data-listing-file-modified-sort="1717494364835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="139">
+<div class="thumbnail">
+<p><a href="../posts/2023-digit-hum/index.html" class="no-external"></a></p><a href="../posts/2023-digit-hum/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../posts/2023-digit-hum/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/2023-digit-hum/index.html" class="no-external">Atelier Digit_Hum 2023</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/2023-digit-hum/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('presentation'); return false;">
+presentation
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/2023-digit-hum/index.html" class="no-external">Retour d’expérience sur le développement de packages R en archéologie lors de la journée d’étude sur les humanités numériques de l’<abbr title="Ecole Normale Supérieure">ENS</abbr>.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/2023-digit-hum/index.html" class="no-external">
+<div class="listing-date">
+Oct 12, 2023
+</div>
+<div class="listing-author">
+Nicolas Frerebeau
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="presentation" data-listing-date-sort="1651449600000" data-listing-file-modified-sort="1717494364835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
+<div class="thumbnail">
+<p><a href="../posts/2022-archeometrie/index.html" class="no-external"></a></p><a href="../posts/2022-archeometrie/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../posts/2022-archeometrie/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/2022-archeometrie/index.html" class="no-external">Archéométrie 2022</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/2022-archeometrie/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('presentation'); return false;">
+presentation
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/2022-archeometrie/index.html" class="no-external">Le projet tesselle présenté lors du XXIII<sup>e</sup> colloque du <abbr title="Groupe des Méthodes Pluridisciplinaires Contribuant à l'Archéologie">GMPCA</abbr>.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/2022-archeometrie/index.html" class="no-external">
+<div class="listing-date">
+May 2, 2022
+</div>
+<div class="listing-author">
+Nicolas Frerebeau, Brice Lebrun
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="infrastructure" data-listing-date-sort="1628985600000" data-listing-file-modified-sort="1717494364835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
+<div class="thumbnail">
+<p><a href="../posts/2021-universe/index.html" class="no-external"></a></p><a href="../posts/2021-universe/index.html" class="no-external">
+<p><img src="../posts/2021-universe/runiverse.png" class="thumbnail-image"></p>
+</a><p><a href="../posts/2021-universe/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../posts/2021-universe/index.html" class="no-external">The tesselle universe</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../posts/2021-universe/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('infrastructure'); return false;">
+infrastructure
+</div>
+</div>
+<div class="listing-description">
+<a href="../posts/2021-universe/index.html" class="no-external">Install the tesselle packages from our repository on R-universe.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../posts/2021-universe/index.html" class="no-external">
+<div class="listing-date">
+Aug 15, 2021
+</div>
+<div class="listing-author">
+Nicolas Frerebeau
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 
 
-<div id="quarto-appendix" class="default"><section id="attribution" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Attribution</h2><div class="quarto-appendix-contents">
-
-<p>This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org">Contributor Covenant</a>, version 2.0, available at <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html">https://www.contributor-covenant.org/version/2/0/code_of_conduct.html</a>.</p>
-<p>Community Impact Guidelines were inspired by <a href="https://github.com/mozilla/diversity">Mozilla’s code of conduct enforcement ladder</a>.</p>
-<p>For answers to common questions about this code of conduct, see the FAQ at <a href="https://www.contributor-covenant.org/faq">https://www.contributor-covenant.org/faq</a>. Translations are available at <a href="https://www.contributor-covenant.org/translations">https://www.contributor-covenant.org/translations</a>.</p>
 
 
-</div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -679,14 +839,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.u-bordeaux-montainge.fr"><img src="./images/logo-ubm.svg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="./images/logo-cnrs.svg" class="logo-institution"></a></p>
+<p><a href="https://www.u-bordeaux-montainge.fr"><img src="../images/logo-ubm.svg" class="logo-institution"></a><a href="https://www.cnrs.fr"><img src="../images/logo-cnrs.svg" class="logo-institution"></a></p>
 The tesselle project is supported by <a href="https://www.archeosciences-bordeaux.fr/" target="_blank">Archéosciences Bordeaux</a>, the <a href="https://mshs.univ-toulouse.fr/" target="_blank"><abbr title="Centre de Recherche et d'Études pour l'Art Préhistorique">CREAP</abbr></a> and the <a href="https://www.huma-num.fr/" target="_blank"><abbr title="Très Grande Infrastructure de Recherche">TGIR</abbr> Huma-Num</a>. <noscript>
 &lt;p&gt;
 &lt;img src="https://analyseweb.huma-num.fr/matomo.php?idsite=332&amp;amp;rec=1" style="border:0" alt=""&gt;
 &lt;/p&gt;
 </noscript>
-<p><a href="./privacy.html">Privacy Policy</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/tesselle/website/edit/main/conduct.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/tesselle/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<p><a href="../privacy.html">Privacy Policy</a></p>
+<div class="toc-actions"><ul><li><a href="https://github.com/tesselle/website/edit/main/posts/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/tesselle/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

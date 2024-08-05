@@ -24,7 +24,7 @@ website:
       - use.qmd
       - learn/index.qmd
       - posts/index.qmd
-      - text: "Guidelines"
+      - text: "Community"
         menu:
           - contributing.qmd
           - conduct.qmd

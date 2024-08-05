@@ -15,7 +15,7 @@
 <title>tesselle</title>
 <link>https://www.tesselle.org/posts/</link>
 </image>
-<generator>quarto-1.4.555</generator>
+<generator>quarto-1.5.56</generator>
 <lastBuildDate>Wed, 05 Jun 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Scientific Scripting Languages in Archaeology</title>
@@ -199,12 +199,12 @@ font-style: inherit;">"kairos"</span>))</span></code></pre></div>
   author = {Frerebeau, Nicolas},
   title = {The Tesselle Universe},
   date = {2021-08-15},
-  url = {https://www.tesselle.org/posts/2021-universe},
+  url = {https://www.tesselle.org/posts/2021-universe/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2021" class="csl-entry quarto-appendix-citeas">
 Frerebeau, Nicolas. 2021. <span>“The Tesselle Universe.”</span> August
-15, 2021. <a href="https://www.tesselle.org/posts/2021-universe">https://www.tesselle.org/posts/2021-universe</a>.
+15, 2021. <a href="https://www.tesselle.org/posts/2021-universe/">https://www.tesselle.org/posts/2021-universe/</a>.
 </div></div></section></div> ]]></description>
   <category>infrastructure</category>
   <guid>https://www.tesselle.org/posts/2021-universe/</guid>

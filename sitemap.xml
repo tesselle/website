@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tesselle.org/contributing.html</loc>
-    <lastmod>2024-06-05T11:19:43.999Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/use.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2021-universe/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2024-sig-ssla/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2023-digit-hum/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/learn/seriation/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/about.html</loc>
-    <lastmod>2024-06-05T11:19:43.999Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.tesselle.org/learn/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
   </url>
   <url>
-    <loc>https://www.tesselle.org/conduct.html</loc>
-    <lastmod>2024-06-05T11:19:43.999Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/LICENSE.html</loc>
-    <lastmod>2024-06-05T11:19:43.987Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/2022-archeometrie/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/posts/index.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tesselle.org/privacy.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
+    <loc>https://www.tesselle.org/contributing.html</loc>
+    <lastmod>2024-08-05T13:51:24.115Z</lastmod>
   </url>
   <url>
     <loc>https://www.tesselle.org/style.html</loc>
-    <lastmod>2024-06-05T11:19:44.011Z</lastmod>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2022-archeometrie/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2024-sig-ssla/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/privacy.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/use.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/LICENSE.html</loc>
+    <lastmod>2024-08-05T13:51:24.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/conduct.html</loc>
+    <lastmod>2024-08-05T13:51:24.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/about.html</loc>
+    <lastmod>2024-08-05T13:51:24.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2023-digit-hum/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/posts/2021-universe/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tesselle.org/learn/seriation/index.html</loc>
+    <lastmod>2024-08-05T13:51:24.127Z</lastmod>
   </url>
 </urlset>

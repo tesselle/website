@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-08-22">
 <meta name="description" content="Correspondence analysis based seriation with kairos, tabula and dimensio.">
 
-<title>tesselle - Archaeological seriation</title>
+<title>Archaeological seriation – tesselle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -336,7 +336,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(tesselle)","id":1,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"700px","context":"interactive","autorun":"false","message":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-1","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":7}},{"code":"## Load the zuni dataset\n## Data from Peeples and Schachner 2012\ndata(\"zuni\", package = \"folio\")","id":2,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"700px","context":"interactive","autorun":"false","message":"true","fig-cap":"","fig-height":5,"label":"unnamed-chunk-2","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":7}},{"code":"## Plot the original matrix\nplot_ford(zuni)","id":3,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"100%","context":"interactive","autorun":"false","message":"true","fig-cap":"Ford diagram of the Zuni dataset.","fig-height":"7","label":"fig-ford","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":"7"}},{"code":"indices <- seriate_average(\n  object = zuni, \n  margin = c(1, 2), # Get row (1) and column (2) permutations\n  axes = 1          # Use CA coordinates along the first axis\n)","id":4,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"700px","context":"interactive","autorun":"false","message":"true","fig-cap":"","fig-height":5,"label":"seriate","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":7}},{"code":"## CA biplot (get a nice arch effect!)\nbiplot(indices, type = \"rows\")","id":5,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"100%","context":"interactive","autorun":"false","message":"true","fig-cap":"Row principal biplot of the CA results.","fig-height":"7","label":"fig-ca","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":"7"}},{"code":"## Permute data matrix\npermuted <- permute(zuni, indices)","id":6,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"700px","context":"interactive","autorun":"false","message":"true","fig-cap":"","fig-height":5,"label":"permute","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":7}},{"code":"## Plot permuted matrix\npar(mar = c(0, 0, 0, 0)+0.1)\nplot_ford(permuted)","id":7,"options":{"comment":"","warning":"true","results":"markup","classes":"","out-width":"100%","context":"interactive","autorun":"false","message":"true","fig-cap":"Ford diagram of the permuted dataset.","fig-height":"7","label":"fig-permute","out-height":"","editor-quick-suggestions":"false","dpi":72,"output":"true","editor-max-height":"","editor-font-scale":1,"read-only":"false","fig-width":"7"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(tesselle)","options":{"fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-1","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":7,"read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"700px","classes":"","out-height":"","editor-font-scale":1}},{"id":2,"code":"## Load the zuni dataset\n## Data from Peeples and Schachner 2012\ndata(\"zuni\", package = \"folio\")","options":{"fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-2","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":7,"read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"700px","classes":"","out-height":"","editor-font-scale":1}},{"id":3,"code":"## Plot the original matrix\nplot_ford(zuni)","options":{"fig-height":"7","warning":"true","fig-cap":"Ford diagram of the Zuni dataset.","label":"fig-ford","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":"7","read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"100%","classes":"","out-height":"","editor-font-scale":1}},{"id":4,"code":"indices <- seriate_average(\n  object = zuni, \n  margin = c(1, 2), # Get row (1) and column (2) permutations\n  axes = 1          # Use CA coordinates along the first axis\n)","options":{"fig-height":5,"warning":"true","fig-cap":"","label":"seriate","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":7,"read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"700px","classes":"","out-height":"","editor-font-scale":1}},{"id":5,"code":"## CA biplot (get a nice arch effect!)\nbiplot(indices, type = \"rows\")","options":{"fig-height":"7","warning":"true","fig-cap":"Row principal biplot of the CA results.","label":"fig-ca","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":"7","read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"100%","classes":"","out-height":"","editor-font-scale":1}},{"id":6,"code":"## Permute data matrix\npermuted <- permute(zuni, indices)","options":{"fig-height":5,"warning":"true","fig-cap":"","label":"permute","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":7,"read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"700px","classes":"","out-height":"","editor-font-scale":1}},{"id":7,"code":"## Plot permuted matrix\npar(mar = c(0, 0, 0, 0)+0.1)\nplot_ford(permuted)","options":{"fig-height":"7","warning":"true","fig-cap":"Ford diagram of the permuted dataset.","label":"fig-permute","message":"true","output":"true","editor-max-height":"","autorun":"false","context":"interactive","dpi":72,"results":"markup","fig-width":"7","read-only":"false","comment":"","editor-quick-suggestions":"false","out-width":"100%","classes":"","out-height":"","editor-font-scale":1}}];
 
 </script>
 <script type="module">
@@ -1174,7 +1174,7 @@ globalThis.qwebrExecuteCode = async function (
 </script>
 
 
-<meta property="og:title" content="tesselle - Archaeological seriation">
+<meta property="og:title" content="Archaeological seriation – tesselle">
 <meta property="og:description" content="Correspondence analysis based seriation with kairos, tabula and dimensio.">
 <meta property="og:image" content="https://www.tesselle.org/learn/seriation/thumbnail.png">
 <meta property="og:site_name" content="tesselle">
@@ -1194,7 +1194,7 @@ globalThis.qwebrExecuteCode = async function (
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -1216,10 +1216,10 @@ globalThis.qwebrExecuteCode = async function (
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidelines" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Guidelines</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-community" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Community</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-guidelines">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-community">    
         <li>
     <a class="dropdown-item" href="../../contributing.html">
  <span class="dropdown-text">Contributing</span></a>
@@ -1250,7 +1250,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -1316,7 +1316,7 @@ globalThis.qwebrExecuteCode = async function (
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -1629,12 +1629,12 @@ Robinson, W. S. 1951. <span>“A <span>Method</span> for <span>Chronologically O
   author = {Frerebeau, Nicolas},
   title = {Archaeological Seriation},
   date = {2023-08-22},
-  url = {https://www.tesselle.org/learn/seriation},
+  url = {https://www.tesselle.org/learn/seriation/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-frerebeau2023" class="csl-entry quarto-appendix-citeas" role="listitem">
 Frerebeau, Nicolas. 2023. <span>“Archaeological Seriation.”</span>
-August 22, 2023. <a href="https://www.tesselle.org/learn/seriation">https://www.tesselle.org/learn/seriation</a>.
+August 22, 2023. <a href="https://www.tesselle.org/learn/seriation/">https://www.tesselle.org/learn/seriation/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1671,18 +1671,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1714,7 +1703,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/www\.tesselle\.org");
@@ -1722,7 +1733,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

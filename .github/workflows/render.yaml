@@ -18,10 +18,54 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
 
-      - name: Install Quarto
+      - name: Install quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Publish to GitHub Pages
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Render quarto project
+        uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Upload website artifacts
+        uses: actions/upload-artifact@v4
         with:
-          target: gh-pages
+          name: quarto
+          path: _site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: quarto
+    env:
+      USER: ${{ secrets.DEPLOY_USER }}
+      SERVER: ${{ secrets.DEPLOY_HOST }}
+      REPO: ${{ secrets.DEPLOY_REPOSITORY }}
+      KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    steps:
+      - name: Download website artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: quarto
+          path: htdocs
+
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "${KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ${SERVER} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Push to production
+        run: |
+          git init -b main
+          git config --global user.email "packages@tesselle.org"
+          git config --global user.name "tesselle"
+          git remote add production ssh+git://${USER}@${SERVER}/${REPO}
+          git add *
+          git commit -m "Built site"
+          git push -f production main
+
+      - name: Deploy
+        run: ssh ${USER}@${SERVER} deploy ${REPO} main
+
+      - name: Clean
+        run: ssh ${USER}@${SERVER} clean ${REPO} main

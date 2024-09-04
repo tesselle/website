@@ -23,7 +23,6 @@ website:
         href: https://packages.tesselle.org
       - use.qmd
       - learn/index.qmd
-      - posts/index.qmd
       - text: "Community"
         menu:
           - contributing.qmd

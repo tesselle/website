@@ -37,9 +37,9 @@ resources:
  <img src="images/aion.png" alt="aion hex sticker" class="r3 c1">
 </a>
 
-<a href="https://packages.tesselle.org/kinesis/">
+<a href="https://packages.tesselle.org/folio/">
  <div class="filtered r4 c1"></div>
- <img src="images/kinesis.png" alt="kinesis hex sticker" class="r4 c1">
+ <img src="images/folio.png" alt="folio hex sticker" class="r4 c1">
 </a>
 
 <a href="https://packages.tesselle.org/isopleuros/">

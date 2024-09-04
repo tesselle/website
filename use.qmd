@@ -29,6 +29,22 @@ library("tesselle")
 
 These core packages can be used to explore and analyze common data types in archaeology: count data ([`tabula`](https://packages.tesselle.org/tabula/)), compositional data ([`nexus`](https://packages.tesselle.org/nexus/)) and chronological data ([`kairos`](https://packages.tesselle.org/nexus/)).
 
+Thanks to the [R-universe](https://ropensci.org/r-universe/) project powered by [rOpenSci](https://ropensci.org), **tesselle** has its own <abbr title="Comprehensive R Archive Network">CRAN</abbr>-like repository: [**tesselle.r-universe.dev**](https://tesselle.r-universe.dev). This repository allows to install all versions and non-<abbr title="Comprehensive R Archive Network">CRAN</abbr> packages (e.g. <abbr title="work-in-progress">WIP</abbr> packages and large data packages). If you want to download and install a package from it, simply use `install.packages()` and specify the repository URL:
+
+``` r
+## Install a package from the 'tesselle' universe
+install.packages("tabula", repos = "https://tesselle.r-universe.dev")
+```
+
+``` r
+## Enable the repository globally
+options(repos = c(tesselle = "https://tesselle.r-universe.dev",
+                  CRAN = "https://cloud.r-project.org"))
+
+## Install some packages
+install.packages(c("tabula", "kairos"))
+```
+
 ## How to cite
 
 If you use the **tesselle** packages in your publications, you must report and cite them properly (as with any other research software) to ensure transparency and reproducibility of your results. By doing so, published results are linked to a particular version of the software, ensuring traceability in case an error is discovered later.

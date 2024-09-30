@@ -34,6 +34,8 @@ If you've found a bug, search if an issue already exists in the relevant reposit
 
 ### Solve an issue
 
+Open issues are listed on the [project dashboard](https://dashboard.tesselle.org/).
+
 You can find beginner-friendly issues in code repositories by visiting `github.com/tesselle/<repository>/contribute`.
 
 ### Fix typos

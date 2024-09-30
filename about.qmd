@@ -19,7 +19,7 @@ The project has reached a stable state and is being actively developed, with *tr
 * All packages undergo rigorous testing and code coverage.
 * Dependencies are kept to a bare minimum.
 
-You can follow the next steps of the project on [GitHub](https://github.com/orgs/tesselle/projects/5) and fell free to [contribute](contributing.html).
+You can follow the [next steps of the project](https://dashboard.tesselle.org/) and fell free to [contribute](contributing.html).
 
 ## Contributors {#sec-contributors}
 

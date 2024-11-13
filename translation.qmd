@@ -1,0 +1,33 @@
+---
+title: "Translation"
+description: |
+  How to translate the **tesselle** packages.
+---
+
+## Get Started
+
+If you want to contribute to the translation of one of the **tesselle** packages, make sure the package has started the process of providing translations by checking for the `po/` directory in the package root. If you don't see this directory, you may want to [create an issue](contributing.html) to see if the maintainer is ready to receive translations.
+
+## Basic Workflow
+
+As a translator, you'll mainly be working with `.po` files. If you're not familiar with these files, it's best to use the [**potools**](https://michaelchirico.github.io/potools/) package. This package will make your translation task much easier. Start by reading the [vignette for translators](https://michaelchirico.github.io/potools/articles/translators.html), the gist of which is given below.
+
+``` r
+## Install
+install.packages("potools")
+
+## Load
+library(potools)
+```
+
+If no translation exists, run `po_create('<language code>')` to create a `.po` file for the language you are translating. If you want to update an existing translation, run `po_update()` to update the `.po` files.
+
+Next, open the `.po` file with your favourite text editor. You'll see some metadata at the top of the file, start by updating `Last-Translator` to your email address.
+
+The rest of the file consists of pairs of `msgid` and `msgstr`. The `msgid` is the string that appears in the R source (be it an error, warning, message, etc.). The `msgstr` is the translated equivalent: just go through the file and fill in the translated strings.
+
+Finally, the plain text `.po` files are converted into binary `.mo` files to be distributed with the package, either by you or by the package developer, using `po_compile()`.
+
+## Code of Conduct
+
+Please note that the **tesselle** project is released with a [Contributor Code of Conduct](conduct.html). By contributing to this project you agree to abide by its terms.

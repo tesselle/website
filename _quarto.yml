@@ -26,6 +26,7 @@ website:
       - text: "Community"
         menu:
           - contributing.qmd
+          - translation.qmd
           - conduct.qmd
           - style.qmd
       - about.qmd

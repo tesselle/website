@@ -6,7 +6,25 @@ description: |
 
 ## Get Started
 
-If you want to contribute to the translation of one of the **tesselle** packages, make sure the package has started the process of providing translations by checking for the `po/` directory in the package root. If you don't see this directory, you may want to [create an issue](contributing.html) to see if the maintainer is ready to receive translations.
+If you want to contribute to the translation of one of the **tesselle** packages (@tbl-translation), make sure the package has started the process of providing translations by checking for the `po/` directory in the package root. If you don't see this directory, you may want to [create an issue](contributing.html) to see if the maintainer is ready to receive translations.
+
+| Package    | English | French  |
+|:-----------|:-------:|:-------:|
+| aion       | yes     | yes     |
+| alkahest   | yes     | no      |
+| ananke     | *       | *       |
+| arkhe      | yes     | yes     |
+| dimensio   | yes     | yes     |
+| folio      | -       | -       |
+| isopleuros | yes     | no      |
+| kairos     | yes     | yes     |
+| khroma     | yes     | no      |
+| kinesis    | *       | *       |
+| nexus      | yes     | no      |
+| tabula     | yes     | no      |
+| tesselle   | yes     | no      |
+
+: Available translations of the **tesselle** packages (*: <abbr title="work in progress">WIP</abbr> packages). {#tbl-translation}
 
 ## Basic Workflow
 
